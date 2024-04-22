@@ -21,8 +21,6 @@
 
 import sqlite3
 import pandas as pd
-import os
-import datetime
 
 from sql_setup import SQL_SETUP_DICT, PLANT_TYPES
 
