@@ -1,13 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # class Resource(models.Model):
 #     author = models.CharField(max_length=50)
 #     url = models.URLField(blank=True)
 #     related_plants = models.ManyToManyField('Plant', blank=True)
-
-class Profile(models.Model):
-    name = models.CharField(max_length=50)
-    # user = models.OneToOneField(User, on_delete=models.CASCADE)
 
 # Create your models here.
 class Plant(models.Model):
@@ -75,25 +72,54 @@ class Plant(models.Model):
     # links = models.ManyToManyField('PlantLink', blank=True)
 
     def __str__(self):
-        return f"{self.name_common} ({self.name_scientific})"
+        return f"[ID:  {self.pk}] {self.name_common} ({self.name_scientific})"
+
+class Profile(models.Model):
+    name = models.CharField(max_length=50)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    plants = models.ManyToManyField(Plant)
+
+    def add_plant(self, plant):
+        self.plants.add(plant)
+
+    def remove_plant(self, plant):
+        self.plants.remove(plant)
 
 class PlantLink(models.Model):
+    """
+    Represents a link related to a plant in the gardening app.
+
+    Attributes:
+        LINK_TYPE_CHOICES (list): A list of tuples representing the available link types.
+        title (str): The title of the link.
+        url (str): The URL of the link.
+        type (str): The type of the link.
+        plant (ManyToManyField): A many-to-many relationship field with the Plant model.
+    """
+
     LINK_TYPE_CHOICES = [
         ('aa', 'Academic Article'),
         ('bl', 'Blog'),
         ('bk', 'Book'),
         ('mg', 'Master Gardener'),
+        ('nu', 'Nursery Information'),
         ('ot', 'Other'),
         ('yt', 'YouTube'),
     ]
-    # resource = models.ForeignKey(Resource, on_delete=models.CASCADE)
-    title = models.CharField(max_length=50)
+
+    title = models.CharField(max_length=75)
     url = models.URLField()
     type = models.CharField(max_length=2, choices=LINK_TYPE_CHOICES)
-    # plant = models.ForeignKey(Plant, on_delete=models.CASCADE)
     plant = models.ManyToManyField(Plant, blank=True, related_name='links')
 
     class Meta:
+        """
+        The `Meta` class provides metadata options for the `Plants` model.
+        
+        Attributes:
+            ordering (list): Specifies the default ordering for querysets of `Plants` objects.
+                The queryset will be ordered by the `type` field first, and then by the `title` field.
+        """
         ordering = ['type', 'title']
 
     def __str__(self):
