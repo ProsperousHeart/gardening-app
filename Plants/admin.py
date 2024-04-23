@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Plant, Resource
+from .models import Plant, PlantLink
 
 # Register your models here.
 admin.site.register(Plant)
-admin.site.register(Resource)
+admin.site.register(PlantLink)
