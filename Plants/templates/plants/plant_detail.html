@@ -1,0 +1,19 @@
+<style>
+    .indented {
+        text-indent: 20px; /* Adjust the value as needed */
+    }
+</style>
+<h1>{{plant.name_common}}</h1>
+<h2>Details</h2>
+<p>Scientific Name: {{plant.name_scientific}}</p>
+<p>Plant Type:<br>{{plant.get_plant_type_display}}</p>
+<p>Hardiness Zone Range:
+    <ul>
+        <li>LOW:  {{plant.get_hardiness_zone_low_display}}</li>
+        <li>HIGH:  {{plant.get_hardiness_zone_high_display}}
+    </ul>
+</p>
+<p>Light:<br>{{plant.get_exposure_display}}</p>
+<p>Height:<br>{{plant.height_min}} - {{plant.height_max}} inches</p>
+<p>Description:</p>
+    <p class="indented">{{plant.description|linebreaks}}</p?
