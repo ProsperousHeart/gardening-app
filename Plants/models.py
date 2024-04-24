@@ -6,10 +6,22 @@ from django.contrib.auth.models import User
 #     url = models.URLField(blank=True)
 #     related_plants = models.ManyToManyField('Plant', blank=True)
 
+class Nursery(models.Model):
+    name = models.CharField(max_length=50)
+    url = models.URLField(blank=True)
+    plants = models.ManyToManyField('Plant', blank=True)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
+
 # Create your models here.
 class Plant(models.Model):
     EXPOSURE_CHOICES = [
         ('fs', 'Full Sun (6+)'),
+        ('fp', 'Full to Partial Sun (4-6H)'),
         ('pu', 'Partial Sun (morning, 4-6H)'),
         ('pd', 'Partial Shade (morning, <=4H)'),
         ('sh', 'Shade'),
@@ -18,11 +30,13 @@ class Plant(models.Model):
         ('an', 'Annual'),
         ('bi', 'Biennial'),
         ('pe', 'Perennial'),
+        ('tp', 'Tender Perennial'),
         ('sh', 'Shrub'),
         ('tr', 'Tree'),
         ('vi', 'Vine'),
     ]
     HARDINESS_ZONES = [
+        ('na', 'Not Provided'),
         ('1a', '1a (-60 to -55 °F/-51.1 to -48.3 °C)'),
         ('1b', '1b (-55 to -50 °F/-48.3 to -45.6 °C)'),
         ('2a', '2a (-50 to -45 °F/-45.6 to -42.8 °C)'),
@@ -51,11 +65,25 @@ class Plant(models.Model):
         ('13b', '13b (65 to 70 °F/18.3 to 21.1 °C)'),
     ]
     name_common = models.CharField(max_length=100)
-    name_scientific = models.CharField(max_length=100)
+    name_scientific = models.CharField(max_length=100, blank=True)
     plant_type = models.CharField(max_length=2, choices=TYPE_CHOICES, default='pe')
     exposure = models.CharField(max_length=2, choices=EXPOSURE_CHOICES, default='fs')
     description = models.TextField()
-    earth_kind = models.BooleanField(default=False)
+    is_hybrid = models.BooleanField(default=False)
+    is_deadhead_suggested = models.BooleanField(default=False)
+    is_good_for_border = models.BooleanField(default=False)
+    is_good_for_container = models.BooleanField(default=False)
+    is_good_for_landscape = models.BooleanField(default=False)
+    is_good_for_rock_garden = models.BooleanField(default=False)
+    is_butterfly_attractor = models.BooleanField(default=False)
+    is_pollinator_friendly = models.BooleanField(default=False)
+    is_deer_resistant = models.BooleanField(default=False)
+    is_rabbit_resistant = models.BooleanField(default=False)
+    is_drought_tolerant = models.BooleanField(default=False)
+    is_heat_tolerant = models.BooleanField(default=False)
+    is_earth_kind = models.BooleanField(default=False)
+    is_organic = models.BooleanField(default=False)
+    is_non_gmo = models.BooleanField(default=False)
     hardiness_zone_low = models.CharField(max_length=3, choices=HARDINESS_ZONES, default='8b')
     hardiness_zone_high = models.CharField(max_length=3, choices=HARDINESS_ZONES, default='8b')
     spacing_min = models.PositiveSmallIntegerField(default=0)
@@ -72,7 +100,10 @@ class Plant(models.Model):
     # links = models.ManyToManyField('PlantLink', blank=True)
 
     def __str__(self):
-        return f"[ID:  {self.pk}] {self.name_common} ({self.name_scientific})"
+        if self.name_scientific:
+            return f"[ID:  {self.pk}] {self.name_common} ({self.name_scientific})"
+        else:
+            return f"[ID:  {self.pk}] {self.name_common}"
 
 class Profile(models.Model):
     name = models.CharField(max_length=50)
