@@ -1,17 +1,20 @@
-# Welcome to MkDocs
+# About the Gardening App Project
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
-
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+More on this to come. It will explain why this came about and more about the creator.
 
 ## Project layout
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+    2024-Django-Attempt             # v1 made in a rush with no planning (2024)
+    gardening-docs                  # Mkdocs for documentation site
+        mkdocs.yml                  # The configuration file.
+        docs/
+            img/                    # static images
+                favicon.ico
+            index.md                # The documentation homepage.
+            resources.md            # resources that help make the site or app
+            system-requirements.md  # requirements documentation (IN PROGRESS)
+    .gitignore
+    CHANGELOG.md
+    LICENSE
+    README.md
+    requirements.txt
