@@ -1,3 +1,5 @@
+{% extends "Plants/_base.html" %}
+{% block content %}
 <style>
     .indented {
         text-indent: 20px; /* Adjust the value as needed */
@@ -16,4 +18,5 @@
 <p>Light:<br>{{plant.get_exposure_display}}</p>
 <p>Height:<br>{{plant.height_min}} - {{plant.height_max}} inches</p>
 <p>Description:</p>
-    <p class="indented">{{plant.description|linebreaks}}</p?
+    <p class="indented">{{plant.description|linebreaks}}</p>
+{% endblock %}
