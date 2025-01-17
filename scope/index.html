@@ -8,7 +8,7 @@
         <meta name="author" content="Kassandra Keeton, the Prosperous Heart">
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Progress - Gardening App</title>
+        <title>Scope - Gardening App</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -46,7 +46,7 @@
 </li>
                                     
 <li>
-    <a href="../scope/" class="dropdown-item">Scope</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Scope</a>
 </li>
                                     
 <li>
@@ -58,7 +58,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">Progress</a>
+    <a href="../progress/" class="dropdown-item">Progress</a>
 </li>
                                 </ul>
                             </li>
@@ -84,17 +84,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../architecture/" class="nav-link">
+                                <a rel="prev" href="../background/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../resources/" class="nav-link">
+                                <a rel="next" href="../system-requirements/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/ProsperousHeart/gardening-app/edit/master/docs/progress.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/ProsperousHeart/gardening-app/edit/master/docs/scope.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -144,13 +144,62 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#current-progress" class="nav-link">Current Progress</a>
+            <li class="nav-item" data-bs-level="1"><a href="#context-diagrams" class="nav-link">Context Diagrams</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             
-            <li class="nav-item" data-bs-level="1"><a href="#historical-updates" class="nav-link">Historical Updates</a>
+            <li class="nav-item" data-bs-level="1"><a href="#use-case-diagrams" class="nav-link">Use Case Diagrams</a>
               <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#general-system-user" class="nav-link">General System User</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#general-use-weather-component" class="nav-link">General Use Weather Component</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#general-use-saving-plants-component" class="nav-link">General Use Saving Plants Component</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#system-admin-community-lead-educator" class="nav-link">System Admin, Community Lead, Educator</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#gardener-community-role-member" class="nav-link">Gardener Community Role (Member)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#gardener-role-assignment-team-or-chore-assigned" class="nav-link">Gardener Role Assignment (Team or Chore Assigned)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#community-gardener-component-plots" class="nav-link">Community Gardener Component (Plots)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-bs-level="1"><a href="#scope-tree" class="nav-link">Scope Tree</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#thesystem" class="nav-link">TheSystem</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#thesystemgeneraluser" class="nav-link">TheSystem.GeneralUser</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#thesystemadminaccess" class="nav-link">TheSystem.AdminAccess</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#thesystemcommunitymember" class="nav-link">TheSystem.CommunityMember</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -158,12 +207,36 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="current-progress">Current Progress<a class="headerlink" href="#current-progress" title="Permanent link">#</a></h1>
+<p>Learn more about this project <a href="../#gardening-app-project-description">here</a>.</p>
+<p>Current full &amp; updated version of this page is currently in the works &amp; can be found <a href="https://docs.google.com/document/d/1decYpeZlxtQeLBvPupJ2VFWPRHVlUZnn/edit?usp=sharing&ouid=114844884846337292418&rtpof=true&sd=true" target="_blank">here</a>.</p>
+<h1 id="context-diagrams">Context Diagrams<a class="headerlink" href="#context-diagrams" title="Permanent link">#</a></h1>
 <p>TBD</p>
-<h1 id="historical-updates">Historical Updates<a class="headerlink" href="#historical-updates" title="Permanent link">#</a></h1>
-<p>The idea for this app started in Fall 2023.</p>
-<p>Version 1 was made in a haste to assist me in my new gardening roles, but this was not sufficient and was put on hold mid 2024.</p>
-<p>As of Nov 2024, currently going through Systems Design certification to complete the requirements documentation.</p></div>
+<h1 id="use-case-diagrams">Use Case Diagrams<a class="headerlink" href="#use-case-diagrams" title="Permanent link">#</a></h1>
+<p>TBD</p>
+<h2 id="general-system-user">General System User<a class="headerlink" href="#general-system-user" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="general-use-weather-component">General Use Weather Component<a class="headerlink" href="#general-use-weather-component" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="general-use-saving-plants-component">General Use Saving Plants Component<a class="headerlink" href="#general-use-saving-plants-component" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="system-admin-community-lead-educator">System Admin, Community Lead, Educator<a class="headerlink" href="#system-admin-community-lead-educator" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="gardener-community-role-member">Gardener Community Role (Member)<a class="headerlink" href="#gardener-community-role-member" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="gardener-role-assignment-team-or-chore-assigned">Gardener Role Assignment (Team or Chore Assigned)<a class="headerlink" href="#gardener-role-assignment-team-or-chore-assigned" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="community-gardener-component-plots">Community Gardener Component (Plots)<a class="headerlink" href="#community-gardener-component-plots" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h1 id="scope-tree">Scope Tree<a class="headerlink" href="#scope-tree" title="Permanent link">#</a></h1>
+<p>TBD</p>
+<h2 id="thesystem">TheSystem<a class="headerlink" href="#thesystem" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="thesystemgeneraluser">TheSystem.GeneralUser<a class="headerlink" href="#thesystemgeneraluser" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="thesystemadminaccess">TheSystem.AdminAccess<a class="headerlink" href="#thesystemadminaccess" title="Permanent link">#</a></h2>
+<p>TBD</p>
+<h2 id="thesystemcommunitymember">TheSystem.CommunityMember<a class="headerlink" href="#thesystemcommunitymember" title="Permanent link">#</a></h2>
+<p>TBD</p></div>
             </div>
         </div>
 

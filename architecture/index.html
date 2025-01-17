@@ -8,7 +8,7 @@
         <meta name="author" content="Kassandra Keeton, the Prosperous Heart">
         
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>System Requirements - Gardening App</title>
+        <title>Architecture - Gardening App</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/fontawesome.min.css" rel="stylesheet">
         <link href="../css/brands.min.css" rel="stylesheet">
@@ -50,11 +50,11 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active" aria-current="page">System Requirements</a>
+    <a href="../system-requirements/" class="dropdown-item">System Requirements</a>
 </li>
                                     
 <li>
-    <a href="../architecture/" class="dropdown-item">Architecture</a>
+    <a href="./" class="dropdown-item active" aria-current="page">Architecture</a>
 </li>
                                     
 <li>
@@ -84,17 +84,17 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../scope/" class="nav-link">
+                                <a rel="prev" href="../system-requirements/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../architecture/" class="nav-link">
+                                <a rel="next" href="../progress/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="https://github.com/ProsperousHeart/gardening-app/edit/master/docs/system-requirements.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
+                                <a href="https://github.com/ProsperousHeart/gardening-app/edit/master/docs/architecture.md" class="nav-link"><i class="fa-brands fa-github"></i> Edit on GitHub</a>
                             </li>
                             <li class="nav-item dropdown">
                               <button id="theme-menu" aria-expanded="false" data-bs-toggle="dropdown" data-bs-display="static" aria-label="Toggle theme" class="nav-link dropdown-toggle">
@@ -144,108 +144,110 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-bs-level="1"><a href="#identifying-top-high-priority-use-cases" class="nav-link">Identifying Top High Priority Use Cases</a>
+            <li class="nav-item" data-bs-level="1"><a href="#functional-flow-block-diagrams" class="nav-link">Functional Flow Block Diagrams</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#original-diagrams" class="nav-link">Original Diagrams</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="3"><a href="#f1-overall-system" class="nav-link">F.1 - Overall System</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#use-case-behavior-diagrams-ucbds" class="nav-link">Use Case Behavior Diagrams (UCBDs)</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#ucbd-guidelines" class="nav-link">UCBD Guidelines</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f2-general-user-functions-plant-search-filter" class="nav-link">F.2 - General User Functions (Plant Search &amp; Filter)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#ucbd-template" class="nav-link">UCBD Template</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#system-actions" class="nav-link">System Actions</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#gps-permissions" class="nav-link">GPS Permissions</a>
+            <li class="nav-item" data-bs-level="3"><a href="#informal-interfaces-uncertainties" class="nav-link">Informal Interfaces &amp; Uncertainties</a>
               <ul class="nav flex-column">
               </ul>
             </li>
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#general-user-actions" class="nav-link">General User Actions</a>
+            <li class="nav-item" data-bs-level="2"><a href="#updated-prioritized-diagrams" class="nav-link">Updated &amp; Prioritized Diagrams</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#updating-usda-location-manual" class="nav-link">Updating USDA Location (Manual)</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="3"><a href="#updating-usda-location-automated" class="nav-link">Updating USDA Location (Automated)</a>
+            <li class="nav-item" data-bs-level="3"><a href="#functional-block-interfaces-informal" class="nav-link">Functional Block Interfaces (Informal)</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#plant-search-default-by-name" class="nav-link">Plant Search (Default - By Name)</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f0-overall-system-operations" class="nav-link">F.0 - Overall System Operations</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#plant-search-filtering" class="nav-link">Plant Search (Filtering)</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f1-system-initialization" class="nav-link">F.1 - System Initialization</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#single-plant-view" class="nav-link">Single Plant View</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f12-calibrate-permissions" class="nav-link">F.1.2 - Calibrate Permissions</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#provide-feedback" class="nav-link">Provide Feedback</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f13-local-weather-check" class="nav-link">F.1.3 - Local Weather Check</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#report-error" class="nav-link">Report Error</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f2-user-choice-loop" class="nav-link">F.2 - User Choice Loop</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#admin-access" class="nav-link">Admin Access</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#create-community-lead" class="nav-link">Create Community Lead</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f21-general-user-functions" class="nav-link">F.2.1 - General User Functions</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#add-community-lead" class="nav-link">Add Community Lead</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f211-access-plant-search-view" class="nav-link">F.2.1.1 - Access Plant Search View</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#make-account-inactive-for-specific-community" class="nav-link">Make Account Inactive for Specific Community</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f2114-select-plant" class="nav-link">F.2.1.1.4 - Select Plant</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#create-account" class="nav-link">Create Account</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f21140-view-plant-data" class="nav-link">F.2.1.1.4.0 - View Plant Data</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="3"><a href="#delete-account" class="nav-link">Delete Account</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f2115-add-plant" class="nav-link">F.2.1.1.5 - Add Plant</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-            <li class="nav-item" data-bs-level="2"><a href="#community-member" class="nav-link">Community Member</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="3"><a href="#general-member" class="nav-link">General Member</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f212-access-weather-component" class="nav-link">F.2.1.2 - Access Weather Component</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-              </ul>
-            </li>
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-bs-level="1"><a href="#requirements-table" class="nav-link">Requirements Table</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-bs-level="2"><a href="#legend" class="nav-link">Legend</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f213-access-general-resources" class="nav-link">F.2.1.3 - Access General Resources</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#constants" class="nav-link">Constants</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f214-feedback-a-b" class="nav-link">F.2.1.4 - Feedback A &amp; B</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-bs-level="2"><a href="#full-table" class="nav-link">Full Table</a>
+            <li class="nav-item" data-bs-level="3"><a href="#f215-access-personal-settings" class="nav-link">F.2.1.5 - Access Personal Settings</a>
               <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#f2152-set-usda-location-manually" class="nav-link">F.2.1.5.2 - Set USDA Location (Manually)</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#f2157-backup-user-data" class="nav-link">F.2.1.5.7 - Backup User Data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#f2158-restore-user-data" class="nav-link">F.2.1.5.8 - Restore User Data</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#f216-moon-planning" class="nav-link">F.2.1.6 - Moon Planning</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#f22-admin-functions" class="nav-link">F.2.2 - Admin Functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="3"><a href="#f23-community-member-functions" class="nav-link">F.2.3 - Community Member Functions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
               </ul>
@@ -257,58 +259,60 @@
 
 <p>Learn more about this project <a href="../#gardening-app-project-description">here</a>.</p>
 <p>Current full &amp; updated version of this page is currently in the works &amp; can be found <a href="https://docs.google.com/document/d/1decYpeZlxtQeLBvPupJ2VFWPRHVlUZnn/edit?usp=sharing&ouid=114844884846337292418&rtpof=true&sd=true" target="_blank">here</a>.</p>
-<h1 id="identifying-top-high-priority-use-cases">Identifying Top High Priority Use Cases<a class="headerlink" href="#identifying-top-high-priority-use-cases" title="Permanent link">#</a></h1>
-<p>For now this will be here, but eventually moved to a new page for future planning.</p>
-<p>TBD - more to come.</p>
-<h1 id="use-case-behavior-diagrams-ucbds">Use Case Behavior Diagrams (UCBDs)<a class="headerlink" href="#use-case-behavior-diagrams-ucbds" title="Permanent link">#</a></h1>
+<h1 id="functional-flow-block-diagrams">Functional Flow Block Diagrams<a class="headerlink" href="#functional-flow-block-diagrams" title="Permanent link">#</a></h1>
 <p>TBD</p>
-<h2 id="ucbd-guidelines">UCBD Guidelines<a class="headerlink" href="#ucbd-guidelines" title="Permanent link">#</a></h2>
+<h2 id="original-diagrams">Original Diagrams<a class="headerlink" href="#original-diagrams" title="Permanent link">#</a></h2>
+<p>To show a bit of progression in how things came to life.</p>
 <p>TBD</p>
-<h2 id="ucbd-template">UCBD Template<a class="headerlink" href="#ucbd-template" title="Permanent link">#</a></h2>
+<h3 id="f1-overall-system">F.1 - Overall System<a class="headerlink" href="#f1-overall-system" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h2 id="system-actions">System Actions<a class="headerlink" href="#system-actions" title="Permanent link">#</a></h2>
+<h3 id="f2-general-user-functions-plant-search-filter">F.2 - General User Functions (Plant Search &amp; Filter)<a class="headerlink" href="#f2-general-user-functions-plant-search-filter" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="gps-permissions">GPS Permissions<a class="headerlink" href="#gps-permissions" title="Permanent link">#</a></h3>
+<h3 id="informal-interfaces-uncertainties">Informal Interfaces &amp; Uncertainties<a class="headerlink" href="#informal-interfaces-uncertainties" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h2 id="general-user-actions">General User Actions<a class="headerlink" href="#general-user-actions" title="Permanent link">#</a></h2>
+<h2 id="updated-prioritized-diagrams">Updated &amp; Prioritized Diagrams<a class="headerlink" href="#updated-prioritized-diagrams" title="Permanent link">#</a></h2>
 <p>TBD</p>
-<h3 id="updating-usda-location-manual">Updating USDA Location (Manual)<a class="headerlink" href="#updating-usda-location-manual" title="Permanent link">#</a></h3>
+<h3 id="functional-block-interfaces-informal">Functional Block Interfaces (Informal)<a class="headerlink" href="#functional-block-interfaces-informal" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="updating-usda-location-automated">Updating USDA Location (Automated)<a class="headerlink" href="#updating-usda-location-automated" title="Permanent link">#</a></h3>
+<h3 id="f0-overall-system-operations">F.0 - Overall System Operations<a class="headerlink" href="#f0-overall-system-operations" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="plant-search-default-by-name">Plant Search (Default - By Name)<a class="headerlink" href="#plant-search-default-by-name" title="Permanent link">#</a></h3>
+<h3 id="f1-system-initialization">F.1 - System Initialization<a class="headerlink" href="#f1-system-initialization" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="plant-search-filtering">Plant Search (Filtering)<a class="headerlink" href="#plant-search-filtering" title="Permanent link">#</a></h3>
+<h3 id="f12-calibrate-permissions">F.1.2 - Calibrate Permissions<a class="headerlink" href="#f12-calibrate-permissions" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="single-plant-view">Single Plant View<a class="headerlink" href="#single-plant-view" title="Permanent link">#</a></h3>
+<h3 id="f13-local-weather-check">F.1.3 - Local Weather Check<a class="headerlink" href="#f13-local-weather-check" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="provide-feedback">Provide Feedback<a class="headerlink" href="#provide-feedback" title="Permanent link">#</a></h3>
+<h3 id="f2-user-choice-loop">F.2 - User Choice Loop<a class="headerlink" href="#f2-user-choice-loop" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="report-error">Report Error<a class="headerlink" href="#report-error" title="Permanent link">#</a></h3>
+<h3 id="f21-general-user-functions">F.2.1 - General User Functions<a class="headerlink" href="#f21-general-user-functions" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h2 id="admin-access">Admin Access<a class="headerlink" href="#admin-access" title="Permanent link">#</a></h2>
+<h3 id="f211-access-plant-search-view">F.2.1.1 - Access Plant Search View<a class="headerlink" href="#f211-access-plant-search-view" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="create-community-lead">Create Community Lead<a class="headerlink" href="#create-community-lead" title="Permanent link">#</a></h3>
+<h3 id="f2114-select-plant">F.2.1.1.4 - Select Plant<a class="headerlink" href="#f2114-select-plant" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="add-community-lead">Add Community Lead<a class="headerlink" href="#add-community-lead" title="Permanent link">#</a></h3>
+<h3 id="f21140-view-plant-data">F.2.1.1.4.0 - View Plant Data<a class="headerlink" href="#f21140-view-plant-data" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="make-account-inactive-for-specific-community">Make Account Inactive for Specific Community<a class="headerlink" href="#make-account-inactive-for-specific-community" title="Permanent link">#</a></h3>
+<h3 id="f2115-add-plant">F.2.1.1.5 - Add Plant<a class="headerlink" href="#f2115-add-plant" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="create-account">Create Account<a class="headerlink" href="#create-account" title="Permanent link">#</a></h3>
+<h3 id="f212-access-weather-component">F.2.1.2 - Access Weather Component<a class="headerlink" href="#f212-access-weather-component" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="delete-account">Delete Account<a class="headerlink" href="#delete-account" title="Permanent link">#</a></h3>
+<h3 id="f213-access-general-resources">F.2.1.3 - Access General Resources<a class="headerlink" href="#f213-access-general-resources" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h2 id="community-member">Community Member<a class="headerlink" href="#community-member" title="Permanent link">#</a></h2>
+<h3 id="f214-feedback-a-b">F.2.1.4 - Feedback A &amp; B<a class="headerlink" href="#f214-feedback-a-b" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h3 id="general-member">General Member<a class="headerlink" href="#general-member" title="Permanent link">#</a></h3>
+<h3 id="f215-access-personal-settings">F.2.1.5 - Access Personal Settings<a class="headerlink" href="#f215-access-personal-settings" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h1 id="requirements-table">Requirements Table<a class="headerlink" href="#requirements-table" title="Permanent link">#</a></h1>
+<h3 id="f2152-set-usda-location-manually">F.2.1.5.2 - Set USDA Location (Manually)<a class="headerlink" href="#f2152-set-usda-location-manually" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h2 id="legend">Legend<a class="headerlink" href="#legend" title="Permanent link">#</a></h2>
+<h3 id="f2157-backup-user-data">F.2.1.5.7 - Backup User Data<a class="headerlink" href="#f2157-backup-user-data" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h2 id="constants">Constants<a class="headerlink" href="#constants" title="Permanent link">#</a></h2>
+<h3 id="f2158-restore-user-data">F.2.1.5.8 - Restore User Data<a class="headerlink" href="#f2158-restore-user-data" title="Permanent link">#</a></h3>
 <p>TBD</p>
-<h2 id="full-table">Full Table<a class="headerlink" href="#full-table" title="Permanent link">#</a></h2>
+<h3 id="f216-moon-planning">F.2.1.6 - Moon Planning<a class="headerlink" href="#f216-moon-planning" title="Permanent link">#</a></h3>
+<p>TBD</p>
+<h3 id="f22-admin-functions">F.2.2 - Admin Functions<a class="headerlink" href="#f22-admin-functions" title="Permanent link">#</a></h3>
+<p>TBD</p>
+<h3 id="f23-community-member-functions">F.2.3 - Community Member Functions<a class="headerlink" href="#f23-community-member-functions" title="Permanent link">#</a></h3>
 <p>TBD</p></div>
             </div>
         </div>
