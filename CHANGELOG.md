@@ -21,3 +21,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - configuration for nav and other site needs
 - modified index to remove prior mkdocs stuff
 - after building mkdocs site, added `site` folder to `.gitignore`
+- add additional Mkdocs commands & clarity for publishing
