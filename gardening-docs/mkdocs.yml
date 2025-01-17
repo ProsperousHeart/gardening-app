@@ -1,1 +1,24 @@
-site_name: My Docs
+site_name: Community Gardening
+nav:
+  - Home: index.md
+  - General:
+    - About: about.md
+    - Resources: resources.md
+    - Author Resume: "https://resume.prosperousheart.com/"
+  - System Requirements: system-requirements.md
+# theme: readthedocs
+markdown_extensions:
+  - toc:
+      permalink: "#"
+      # baselevel: 2
+      # separator: "_"
+repo_url: https://github.com/ProsperousHeart/gardening-app
+# repo_name: 'GH'
+# edit_uri: blob/main/docs/
+site_description: "Easy app for new gardeners & Community gardeners."
+site_author: "Kassandra Keeton, the Prosperous Heart"
+copyright: "2025"
+exclude_docs: |
+  api-config.json    # A file with this name anywhere.
+  /requirements.txt  # Top-level "docs/requirements.txt".
+  *.py               # Any file with this extension anywhere.

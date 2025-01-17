@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - early stages of learning through updates to site
+- configuration for nav and other site needs
 
 ## 20250116
 
