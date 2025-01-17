@@ -29,3 +29,7 @@ Below are the requirements for this project:
     - title
     - author(s)
     - list of plants related to this resource
+
+# How To Launch Locally
+
+Once you have a local copy of the code, in the main folder run: `python manage.py runserver`
