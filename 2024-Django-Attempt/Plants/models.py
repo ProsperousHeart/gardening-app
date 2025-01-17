@@ -34,6 +34,7 @@ class Plant(models.Model):
         ('sh', 'Shrub'),
         ('tr', 'Tree'),
         ('vi', 'Vine'),
+        ('un', 'Unknown')
     ]
     HARDINESS_ZONES = [
         ('na', 'Not Provided'),
@@ -66,7 +67,7 @@ class Plant(models.Model):
     ]
     name_common = models.CharField(max_length=100)
     name_scientific = models.CharField(max_length=100, blank=True)
-    plant_type = models.CharField(max_length=2, choices=TYPE_CHOICES, default='pe')
+    plant_type = models.CharField(max_length=2, choices=TYPE_CHOICES, default='un')
     exposure = models.CharField(max_length=2, choices=EXPOSURE_CHOICES, default='fs')
     description = models.TextField()
     is_hybrid = models.BooleanField(default=False)
@@ -84,6 +85,7 @@ class Plant(models.Model):
     is_drought_tolerant = models.BooleanField(default=False)
     is_heat_tolerant = models.BooleanField(default=False)
     is_earth_kind = models.BooleanField(default=False)
+    is_waterwise = models.BooleanField(default=False)
     is_organic = models.BooleanField(default=False)
     is_non_gmo = models.BooleanField(default=False)
     hardiness_zone_low = models.CharField(max_length=3, choices=HARDINESS_ZONES, default='8b')

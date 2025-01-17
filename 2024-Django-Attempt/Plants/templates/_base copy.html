@@ -1,0 +1,75 @@
+{% load static %}
+<!-- base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Easy Gardening App by Prosperous Heart{% endblock %}</title>
+    <!-- Add your CSS and JavaScript links here -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <!-- Header section -->
+    <header>
+        <div class="desktop-menu">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/PH_logo.png' %}" alt="Logo">
+            </a>
+            <a href="/contact/">Contact</a>
+        </div>
+        <div class="mobile-menu">
+            <button class="hamburger-menu">Menu</button>
+        </div>
+        {% comment %} <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo.png' %}" alt="Logo">
+            </a>
+        </div> {% endcomment %}
+        <nav>
+            <ul>
+                {% comment %} <li><a href="{% url 'contact' %}">Contact</a></li> {% endcomment %}
+                <li><a href="">Contact</a></li>
+                <!-- Add other navigation links here -->
+            </ul>
+        </nav>
+        {% comment %} <div class="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div> {% endcomment %}
+    </header>
+
+    <!-- Main content -->
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer section -->
+    <footer>
+        <!-- Add footer content here -->
+    </footer>
+
+    <!-- Add your JavaScript code here -->
+</body>
+</html>
+{% comment %}
+
+<body>
+    <header>
+    </header>
+    <nav class="desktop-menu">
+        {% if request.user.is_authenticated %}
+            {% if request.user.is_staff %}
+                <a href="/admin/">Admin</a>
+            {% endif %}
+            <a href="/plants/">Plants</a>
+        {% endif %}
+    </nav>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html> {% endcomment %}

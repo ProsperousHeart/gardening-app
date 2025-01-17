@@ -1,0 +1,64 @@
+{% extends "Plants/_base.html" %}
+{% comment %} {% block content %}
+<ul>
+    {% for plant in plant_list %}
+        <li>{{ plant.name_common }}</li>
+    {% endfor %}
+</ul>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+
+<h3 class="text-xl pb-4">Plants:</h3>
+<input type="text" id="filter-input" placeholder="Type to filter">
+<div id="object-list">
+    {% for obj in objects %}
+        <div class="object">
+            <!-- Display object details -->
+            <p>{{ obj.name }}</p>
+        </div>
+    {% endfor %}
+</div>
+<br>
+<div class="flex gap-2 flex-wrap">
+    {% for plant in plant_list %}
+    <a href="{% url 'plant-detail' plant.pk %}">
+        <div class="border-2 rounded-lg pb-4 hover:shadow w-48 h-48 flex flex-col justify-center items-center">
+            {% if plant.img %}
+                <img class="w-full h-32 object-cover overflow-hidden rounded-t-md" src="{{plant.img.url}}" alt="{{plant.name}}">
+            {% endif %}
+            <p class="text-center mt-3 text-lg">{{plant.name_common}}</p>
+            {% comment %} <p class="text-center mt-1 text-lg">{{plant.}}</p>
+            <p class="text-center mt-1 text-gray-600">Rating: {{plant.rating}}/5</p> {% endcomment %}
+        </div>
+    </a>
+    {% endfor %}
+    {% comment %} <a href="{% url 'note-create' %}"> {% endcomment %}
+    <a href="">
+        <div class="border-2 border-dashed rounded-lg hover:shadow w-48 h-full flex justify-center items-center">
+            <p class="">New Note +</p>
+        </div>
+    </a>
+</div>
+
+
+<!-- Include jQuery script -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+$(document).ready(function() {
+    $('#filter-input').on('input', function() {
+        var filterCriteria = $(this).val().toLowerCase();
+        $('.object').each(function() {
+            var objectName = $(this).find('p').text().toLowerCase();
+            if (objectName.includes(filterCriteria)) {
+                $(this).show();
+            } else {
+                $(this).hide();
+            }
+        });
+    });
+});
+</script>
+
+{% endblock content %}

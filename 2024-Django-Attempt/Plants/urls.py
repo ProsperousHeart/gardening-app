@@ -7,5 +7,7 @@ urlpatterns = [
     # path('plants-list/', PlantListView.as_view(), name='plants-list')
     path('', PlantListView.as_view(), name='plants'),
     # path('list/', PlantListView.as_view(), name='plants'),
-    path('<int:pk>/', PlantDetailView.as_view(), name='plant-detail'),
+    
+    # path('<int:pk>/', PlantDetailView.as_view(), name='plant-detail'),
+    path('<int:pk>/', PlantDetailView, name='plant-detail'),
 ]
