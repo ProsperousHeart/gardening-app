@@ -6,6 +6,8 @@
 
 More on this to come.
 
+- [example](https://github.com/MasonEgger/website/blob/main/.github/workflows/ci.yml#L24) of how to potentially automate mkdocs
+
 ## Mkdocs Commands
 
 * `mkdocs new [dir-name]` - Create a new project.
