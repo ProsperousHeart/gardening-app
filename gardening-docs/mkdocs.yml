@@ -1,11 +1,10 @@
 site_name: Community Gardening
 nav:
   - Home: index.md
+  - System Requirements: system-requirements.md
   - General:
-    - About: about.md
     - Resources: resources.md
     - Author Resume: "https://resume.prosperousheart.com/"
-  - System Requirements: system-requirements.md
 # theme: readthedocs
 markdown_extensions:
   - toc:
