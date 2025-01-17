@@ -14,6 +14,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - tweaked theme settings
 - added outline of requirements documentation from class work
 - split up systems requirement into smaller pieces as built by the Cornell class work I completed
+- merged background into index
+- moved progress to nav bar
 
 ## 20250116
 
