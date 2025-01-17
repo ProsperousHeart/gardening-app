@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.desktop-menu img {
+    height: 50px;
+}
+
+.desktop-menu a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.desktop-menu a:hover {
+    color: #0056b3;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+nav.desktop-menu {
+    width: 200px;
+    padding: 20px;
+}
+
+@media (max-width: 768px) {
+    .desktop-menu {
+        display: none;
+    }
+
+    .mobile-menu {
+        display: block;
+    }
+}
