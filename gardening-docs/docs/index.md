@@ -1,6 +1,12 @@
-# About the Gardening App Project
+# Project Description
 
 More on this to come. It will explain why this came about and more about the creator.
+
+## What the Solution Should Do
+
+This was the original outline of expectations and needs before diving into the [systems design requirements](system-requirements.md)
+
+More on this to come from [systems requirements doc](system-requirements.md)
 
 ## Project layout
 
