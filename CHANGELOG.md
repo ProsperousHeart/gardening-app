@@ -9,6 +9,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 20250117
 
+### Added
+
+- [stakeholders](/gardening-docs/docs/index.md#stakeholders)
+
 ### Changed
 
 - tweaked theme settings
