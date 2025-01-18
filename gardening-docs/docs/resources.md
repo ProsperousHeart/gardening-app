@@ -1,10 +1,13 @@
 # FAQ
 
-1. TBD
+**Q:** _Where can I find all of the images built for the requirements?_<br>
+**A:** [Here](https://miro.com/app/board/uXjVLFJo2wg=/?share_link_id=646728208328).
 
 # Resources
 
 More on this to come.
+
+- [example](https://github.com/MasonEgger/website/blob/main/.github/workflows/ci.yml#L24) of how to potentially automate mkdocs
 
 ## Mkdocs Commands
 

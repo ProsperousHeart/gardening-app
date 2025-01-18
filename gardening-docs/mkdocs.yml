@@ -1,7 +1,11 @@
 site_name: Gardening App
 nav:
   - Home: index.md
-  - System Requirements: system-requirements.md
+  - System Requirements:
+    - Scope:  scope.md
+    - System Requirements: system-requirements.md
+    - Architecture: architecture.md
+  - Progress: progress.md
   - General:
     - Resources: resources.md
     - Author Resume: "https://resume.prosperousheart.com/"
