@@ -26,6 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - split up systems requirement into smaller pieces as built by the Cornell class work I completed
 - merged background into index
 - moved progress to nav bar
+- hid DOCx files from mkdocs config file
 
 ## 20250116
 
