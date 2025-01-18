@@ -68,7 +68,7 @@ In alignment with the [original ideation](/gardening-docs/docs/index.md#original
 
 # Use Cases
 
-You can review the user cases [here](/gardening-docs/docs/files/Use_Cases.docx).
+You can review the user cases [here](files/Use_Cases.pdf).
 
 
 # Use Case Diagrams
