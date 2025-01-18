@@ -40,7 +40,27 @@ Here you will find the list of stakeholders and how they are expected to impact 
 
 ## Scenarios & Needs
 
-TBD
+Below is the initial general outlines & expectations of what this solution should do.
+
+- Provide a way to pull data about specific plants based on the user’s USDA zone
+
+- Provide information about a specific plant (e.g.: scientific name, germination time, size, etc) that is easy to locate, digest, and utilize
+
+- Provide notifications to protect plants based on local weather conditions
+
+- Provide information about the sun trajectory and light angle for planning of beds based on current / specific location
+
+- Provide for a way to more easily find plants to work with based on time of year, zone, plant type, etc
+
+- Provide for a way to add additional plants without having duplicates (e.g.: automated way to create tickets / solutions)
+
+- Provide possible nursery and gardening store locations based on current location
+
+- Create a secure location for local community gardener members to understand where they are in their journey
+
+- Have a central communication tool for community garden announcements that won't be lost in emails
+
+- Be open source so others can improve and support community
 
 # Project Layout
 
