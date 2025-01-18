@@ -1,8 +1,12 @@
 # Project Description
 
-More on this to come. It will explain why this came about and more about the creator.
+I am part of a local community garden where we grow food for local food pantries. In our community garden, we have supporters (who are not official gardeners but support with chores and teams), gardener apprentices who must complete a training program before they can be official gardeners, official gardeners who are like supporters but also have at least 1 plot they are in charge of, and then the city official(s) who manage the Google group for discussion and anything we need from the city.
 
-Progress is notated [here](progress.md).
+Our community garden is fairly “old school” and leverages a Google group that some people may or may not be a part of. Often it can be difficult to try to plan for plots throughout the year let alone work on volunteer teams - especially for new gardeners.
+
+We need a simple system that allows for easy garden planning as well as a secure system to collaborate on needs within the community.
+
+_Progress is notated [here](progress.md)._
 
 ## Stakeholders
 
