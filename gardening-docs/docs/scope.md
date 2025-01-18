@@ -66,6 +66,11 @@ In alignment with the [original ideation](/gardening-docs/docs/index.md#original
 
 23.	Provides training progress to gardening mentors
 
+# Use Cases
+
+You can review the user cases [here](/gardening-docs/docs/files/Use_Cases.docx).
+
+
 # Use Case Diagrams
 
 TBD
@@ -74,11 +79,11 @@ TBD
 
 TBD
 
-## General Use Weather Component
+## General User Weather Component
 
 TBD
 
-## General Use Saving Plants Component
+## General User Saving Plants Component
 
 TBD
 

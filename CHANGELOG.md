@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [context diagrams](/gardening-docs/docs/scope.md#context-diagrams)
 - added link to Miro board in [resources](/gardening-docs/docs/resources.md)
 - additional [scenarios](/gardening-docs/docs/scope.md#scenarios-to-consider)
+- use cases to [scope](/gardening-docs/docs/scope.md#use-cases)
 
 ### Changed
 
