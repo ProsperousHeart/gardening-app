@@ -38,7 +38,7 @@ Here you will find the list of stakeholders and how they are expected to impact 
 
 - Plants to be grown or tended to
 
-## Scenarios & Needs
+## Original Scenarios & Needs
 
 Below is the initial general outlines & expectations of what this solution should do.
 
