@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 20251013
+
+### Added
+
+- [CLAUDE.md](CLAUDE.md) initial file reading the repo before restructuring of needs.
+
+
 ## 20250117
 
 ### Added
