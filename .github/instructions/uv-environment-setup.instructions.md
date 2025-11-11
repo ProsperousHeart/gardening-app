@@ -7,6 +7,7 @@ This instruction file provides guidance for managing Python virtual environments
 ## 🎯 Overview
 
 UV is a fast Python package installer and resolver. This guide covers:
+
 - Checking for existing virtual environments
 - Creating new environments
 - Installing packages properly with `uv add`
@@ -60,6 +61,21 @@ source .venv/bin/activate
 
 ### 4. Install/Add Packages
 
+If installing dependencies from existing `pyproject.toml`:
+
+```bash
+# Install all dependencies (production + dev)
+uv sync
+
+# Install only production dependencies
+uv sync --no-dev
+
+# Install specific group
+uv sync --group dev
+```
+
+If adding new packages ...
+
 **IMPORTANT**: Use `uv add` instead of `uv pip install`
 
 ```bash
@@ -78,11 +94,36 @@ uv add --dev <package-name>
 ```
 
 **Why `uv add` instead of `uv pip install`?**
+
 - Automatically updates `pyproject.toml`
 - Resolves dependencies correctly
 - Maintains lock file integrity
 
 **TODO**: Add examples for different package types and edge cases
+
+### 5. Verify Installation
+
+```bash
+# Verify Python version
+python --version
+
+# Verify key packages
+python -c "import pytest; import ruff; print('Environment OK')"
+```
+
+### 6. Install Pre-commit Hooks (if available)
+
+```bash
+# If pre-commit is set up
+pre-commit install
+```
+
+**Important Notes:**
+
+- Use `uv add <package>` to add new production packages (NOT `uv pip install`)
+- Use `uv add --dev <package>` to add new development packages
+- The uv tool is faster than pip and handles dependencies better
+- Virtual environment must be activated before running commands
 
 ## 🔄 Common Workflows
 
@@ -156,6 +197,7 @@ uv pip list | grep <package-name>
 ### For Claude Code
 
 This instruction file should be referenced when:
+
 - Starting code generation workflows
 - Setting up new features
 - Installing dependencies
@@ -191,6 +233,7 @@ uv pip freeze              # Export requirements
 ---
 
 **TODO**: This is a placeholder. Expand with:
+
 - Complete troubleshooting guide
 - Platform-specific instructions
 - Advanced UV features

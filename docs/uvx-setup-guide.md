@@ -60,12 +60,13 @@ uv init --python 3.12
 ```
 
 This creates:
+
 - `pyproject.toml` - Modern Python project configuration
 - `README.md` - Basic project documentation
 - `.python-version` - Specifies Python version
 - Basic project structure
 
-**Note**: This template project uses `requirements.txt` files instead of `pyproject.toml` for compatibility with traditional workflows. New projects may prefer the `pyproject.toml` approach.
+**Note**: This project uses `pyproject.toml` for modern dependency management. All dependencies are now managed through `uv` commands rather than legacy `requirements.txt` files.
 
 ### Running Tools with uvx
 
@@ -100,47 +101,28 @@ source .venv/bin/activate
 
 ### Installing Dependencies
 
-**Important**: `uv add` requires a `pyproject.toml` file. This project currently uses `requirements.txt` files instead.
+**Important**: `uv add` requires a `pyproject.toml` file.
 
-#### If you have a pyproject.toml file:
+This project uses `pyproject.toml` for dependency management:
 
 ```bash
-# Add a single package
+# Install all dependencies (production and dev)
+uv sync
+
+# Install only production dependencies
+uv sync --no-dev
+
+# Install with specific group
+uv sync --group dev
+
+# Add a new production package
 uv add requests
 
-# Add a development dependency
+# Add a new development dependency
 uv add --dev pytest
 
-# Sync all dependencies from pyproject.toml
-uv sync
-```
-
-#### For projects using requirements.txt (like this one):
-
-```bash
-# Create and activate virtual environment first
-uv venv
-source .venv/bin/activate  # On Windows: .venv\Scripts\activate
-
-# Install from requirements files using pip
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
-
-# Or use uv pip for faster installation
-uv pip install -r requirements.txt
-uv pip install -r requirements-dev.txt
-```
-
-#### Converting to pyproject.toml (optional):
-
-If you want to use `uv add` commands, you'll need to migrate to `pyproject.toml`:
-
-```bash
-# Initialize a new pyproject.toml
-uv init --no-workspace
-
-# Then manually add your dependencies or convert from requirements.txt
-# See: https://packaging.python.org/en/latest/guides/writing-pyproject-toml/
+# Install project in editable mode
+uv pip install -e .
 ```
 
 ## Common Development Workflows
@@ -186,9 +168,8 @@ If you prefer the Makefile commands, ensure your virtual environment is activate
 uv venv
 source .venv/bin/activate  # or .venv\Scripts\activate on Windows
 
-# Install dependencies
-uv add -r requirements.txt
-uv add --dev -r requirements-dev.txt
+# Install dependencies from pyproject.toml
+uv sync
 
 # Now you can use Make commands
 make lint
