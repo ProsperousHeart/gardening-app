@@ -7,12 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 20251110
+
+### Added
+
+- items from [repo-template-python](https://github.com/ProsperousHeart/repo-template-python) to help add AI requirements for attempts to automate specs driven development needs
+
 ## 20251013
 
 ### Added
 
 - [CLAUDE.md](CLAUDE.md) initial file reading the repo before restructuring of needs.
-
 
 ## 20250117
 
