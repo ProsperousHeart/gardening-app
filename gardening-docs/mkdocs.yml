@@ -1,4 +1,20 @@
-site_name: Gardening App
+# ========================================
+# Gardening App Documentation
+# MkDocs Configuration with Material Theme
+# ========================================
+
+# Site Information
+site_name: Gardening App & Documentation
+site_description: Easy app for new gardeners & Community gardeners. Comprehensive documentation for the Gardening App - helping new gardeners and community gardeners determine what to plant
+site_author: Kassandra Keeton, the Prosperous Heart
+copyright: Copyright &copy; 2025 Kassandra Keeton
+
+# Repository Configuration
+repo_url: https://github.com/ProsperousHeart/gardening-app
+repo_name: ProsperousHeart/gardening-app
+edit_uri: edit/main/gardening-docs/docs/  # Enables "Edit on GitHub" links
+
+# Navigation Structure
 nav:
   - Home: index.md
   - System Requirements:
@@ -9,29 +25,282 @@ nav:
   - General:
     - Resources: resources.md
     - Author Resume: "https://resume.prosperousheart.com/"
-# theme:
-#   name: readthedocs
+  - Tutorials:
+    - MkDocs Setup:
+      - Overview: tutorials/mkdocs/index.md
+      - Installation: tutorials/mkdocs/mkdocs-installation.md
+      - Image Processing: tutorials/mkdocs/image-processing-setup.md
+      - Extensions Guide: tutorials/mkdocs/mkdocs-extensions-guide.md
+    - GenAI:
+      - Using GenAI for Documentation: tutorials/genai-documentation.md
+      # - Using GenAI for Code: tutorials/genai-code.md
+
+# Theme Configuration
 theme:
-  name: mkdocs
-  locale: en
-  user_color_mode_toggle: true
-  # analytics:
-  #   gtag: G-ABC123
-  navigation_depth: 4
+  name: material
+  language: en
+  
+  # Color Palette (replaces your previous user_color_mode_toggle)
+  # Users can toggle between light and dark mode
+  palette:
+    # Garden-themed colors - Light mode
+    - scheme: default
+      primary: green        # Main color (headers, links)
+      accent: lime         # Accent color (buttons, highlights)
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Garden-themed colors - Dark mode
+    - scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  # font:
+    # text: Roboto
+
+  # Navigation Features
+  # Material theme handles navigation differently than default theme
+  # Your previous 'navigation_depth: 4' is handled by these features:
+  features:
+    - navigation.tabs              # Shows top-level sections as tabs
+    - navigation.tabs.sticky       # Tabs stay visible when scrolling
+    # - navigation.sections        # REMOVED: Might conflict with prune
+    - navigation.prune             # Hide inactive sections (auto-collapse subsections)
+    - navigation.path              # Shows breadcrumb path to current page
+    - navigation.top               # Back to top button
+    - navigation.footer            # Previous/next page navigation
+    - navigation.indexes           # Section index pages
+
+    # Search Features
+    - search.suggest               # Search suggestions as you type
+    - search.highlight             # Highlight search terms on page
+    - search.share                 # Share search results via URL
+
+    # Code Features
+    - content.code.copy            # Copy button for code blocks
+    - content.code.annotate        # Add annotations to code lines
+
+    # Content Features
+    - content.tabs.link            # Link tabbed content across pages
+    - content.tooltips             # Enable tooltips
+
+  # Icons
+  icon:
+    repo: fontawesome/brands/github
+
+  # Site Branding
+  favicon: img/favicon.ico
+  # Uncomment when you create a logo
+  # logo: img/logo.png
+
+# Markdown Extensions
 markdown_extensions:
+  # ===== Table of Contents =====
   - toc:
-      permalink: "#"
-      # baselevel: 2
-      # separator: "_"
-repo_url: https://github.com/ProsperousHeart/gardening-app
-# repo_name: 'GH'
-# edit_uri: blob/main/docs/
-site_description: "Easy app for new gardeners & Community gardeners."
-site_author: "Kassandra Keeton, the Prosperous Heart"
-copyright: "2025"
+      permalink: "#"          # Clickable anchor links (your original setting)
+      toc_depth: 4           # Show h1, h2, h3 in TOC (you can adjust 1-6)
+      # baselevel: 2         # Uncomment if you want TOC to start at h2
+      # separator: "_"       # Uncomment for custom anchor separator
+
+  # ===== Code Highlighting =====
+  - pymdownx.highlight:
+      anchor_linenums: true       # Anchor line numbers for linking
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite          # Inline code highlighting
+  - pymdownx.snippets              # Include external code files
+  - pymdownx.superfences:          # Advanced code blocks + Mermaid diagrams
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+
+  # ===== Content Organization =====
+  - pymdownx.tabbed:               # Tabbed content blocks
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+
+  # ===== Admonitions & Callouts =====
+  - admonition                     # Callout boxes (note, warning, tip, etc.)
+  - pymdownx.details               # Collapsible admonitions
+
+  # ===== Tables =====
+  - tables                         # Enhanced table support
+
+  # ===== Styling & Attributes =====
+  - attr_list                      # Add CSS classes to elements
+  - md_in_html                     # Use markdown inside HTML blocks
+  - pymdownx.emoji:                # Emoji support 🌱
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+  # ===== Task Lists =====
+  - pymdownx.tasklist:             # Checkbox task lists
+      custom_checkbox: true
+
+  # ===== Lists =====
+  - def_list                       # Definition lists (glossaries)
+
+  # ===== References =====
+  - abbr                           # Abbreviations with tooltips
+  - footnotes                      # Footnote support
+
+  # ===== Typography =====
+  - pymdownx.smartsymbols          # Smart symbols (c) → ©
+  - pymdownx.keys                  # Keyboard key styling ++ctrl+c++
+
+  # ===== Review & Collaboration =====
+  - pymdownx.critic                # Track changes markup
+
+  # ===== Math (optional) =====
+  - pymdownx.arithmatex:           # LaTeX math expressions
+      generic: true
+
+# Plugins
+plugins:
+  # Search plugin with advanced configuration
+  - search:
+      lang: en
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+  # Minify HTML/CSS/JS for faster loading
+  - minify:
+      minify_html: true
+      minify_js: true
+      minify_css: true
+      htmlmin_opts:
+        remove_comments: true
+
+  # Show "last updated" dates on pages (from git history)
+  - git-revision-date-localized:
+      enable_creation_date: false   # Only show last updated (not creation date)
+      type: timeago                 # Shows "2 days ago" format
+      fallback_to_build_date: true
+
+  # IMAGE PROCESSING PLUGINS
+  # Both plugins work together for optimal image handling
+  # See tutorials/image-processing-setup.md for setup instructions
+
+  # 1. Material's Built-in Optimization (FREE)
+  # Automatic image compression, WebP conversion, responsive sizes
+  # Requires: uv add "mkdocs-material[imaging]"
+  # System deps: Cairo Graphics + pngquant (see installation guide)
+  - optimize:
+      enabled: true
+      cache: true
+      cache_dir: .cache/plugins/optimize
+      optimize_png: true           # Compress PNG images
+      optimize_png_speed: 4        # 1 (slow/best) to 10 (fast/ok)
+      optimize_png_strip: true     # Remove metadata
+      optimize_jpg: true           # Compress JPG images
+      optimize_jpg_quality: 85     # Quality 0-100
+      optimize_jpg_progressive: true
+
+  # 2. Glightbox - Interactive Lightbox (FREE)
+  # Click-to-zoom, galleries, image navigation
+  # Requires: uv add mkdocs-glightbox
+  - glightbox:
+      touchNavigation: true        # Swipe to navigate on mobile
+      loop: false                  # Don't loop through gallery
+      effect: zoom                 # Zoom animation effect
+      slide_effect: slide          # Slide between images
+      width: 100%
+      height: auto
+      zoomable: true               # Allow zoom controls
+      draggable: true              # Drag to pan zoomed images
+      auto_caption: true           # Auto-generate captions from image titles
+      caption_position: bottom     # Caption position (bottom, top, left, right)
+
+# Extra Configuration
+extra:
+  # Social Links (all using ProsperousHeart username)
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ProsperousHeart
+      name: GitHub - ProsperousHeart
+
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/kkeeton
+      name: LinkedIn - Kassandra Keeton
+
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/ProsperousHeart
+      name: Twitter/X - @ProsperousHeart
+
+    - icon: fontawesome/brands/youtube
+      link: https://youtube.com/@ProsperousHeart
+      name: YouTube - @ProsperousHeart
+
+    - icon: fontawesome/brands/instagram
+      link: https://instagram.com/ProsperousHeart
+      name: Instagram - @ProsperousHeart
+
+    - icon: fontawesome/brands/dev
+      link: https://dev.to/ProsperousHeart
+      name: DEV Community - ProsperousHeart
+
+    - icon: fontawesome/brands/medium
+      link: https://medium.com/@ProsperousHeart
+      name: Medium - @ProsperousHeart
+
+  # Google Analytics (uncomment and add your tracking ID when ready)
+  # analytics:
+  #   provider: google
+  #   property: G-XXXXXXXXXX
+
+  # # Version Management (for hosting multiple doc versions)
+  # # "mike" is a tool that manages versioned documentation
+  # # Example: You can host docs for v1.0, v2.0, v3.0 simultaneously
+  # # Users can switch between versions via a dropdown
+  # # Setup: https://github.com/jimporter/mike
+  # # You don't need this now, but it's configured for when you do
+  # version:
+  #   provider: mike
+  #   default: latest  # Default version to show
+
+# Custom CSS and JavaScript
+extra_css:
+  - stylesheets/extra.css
+
+# Uncomment when you need custom JavaScript
+# extra_javascript:
+#   - javascripts/extra.js
+
+# Exclude Documentation Files
+
 exclude_docs: |
   api-config.json    # A file with this name anywhere.
   /requirements.txt  # Top-level "docs/requirements.txt".
-  *.py               # Any file with this extension anywhere.
+  *.py               # Any file with this extension anywhere (pyrthon files)
   index_ORIGINAL.md  # backup of original index file
   *.docx             # word doc files
+  _templates/        # Template files
+
+# ========================================
+# CONFIGURATION NOTES
+# ========================================
+
+# Q: What happened to navigation_depth?
+# A: Material theme uses 'navigation.expand' feature instead.
+#    Set to true to expand all navigation items automatically.
+
+# Q: What is toc_depth?
+# A: Controls how many heading levels appear in table of contents.
+#    toc_depth: 3 means h1, h2, h3 appear (excludes h4, h5, h6)
+
+# Q: Should I uncomment baselevel and separator?
+# A: Only if needed:
+#    - baselevel: Start TOC at specific heading level (e.g., skip h1)
+#    - separator: Customize anchor link separators
+
+# Q: How does version provider work?
+# A: 'mike' lets you host multiple doc versions (v1.0, v2.0, etc.)
+#    Users can switch versions via dropdown menu
+#    Not needed now, but configured for future use
+#    Install when ready: uv add mike
+#    Deploy example: mike deploy v1.0 latest --update-aliases
