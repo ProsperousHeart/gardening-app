@@ -175,7 +175,7 @@ Located in `gardening-docs/docs/`:
 - MkDocs configuration in `gardening-docs/mkdocs.yml`
 - Documentation references external Google Docs for "full & updated versions" - these are being migrated to MkDocs incrementally
 - Current branch is `mkdocs` (main branch is `main`)
-- Project uses `pyproject.toml` for dependency management (uv-based)
+- Project uses `pyproject.toml` for dependency management (uv-based ... originally used Python dependencies listed in `requirements.txt`)
 - Context diagrams and visuals are linked to Miro board: https://miro.com/app/board/uXjVLFJo2wg=/
 
 ## Django Application Architecture (2024-Django-Attempt)
