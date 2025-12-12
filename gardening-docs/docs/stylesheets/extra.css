@@ -115,3 +115,15 @@ code.req-id {
   border-radius: 4px;
   font-weight: 600;
 }
+
+/* Git revision date customization */
+/* Add "Last updated" text and icon before the date */
+.md-source-file__fact {
+  font-size: 0.75rem;
+}
+
+.md-source-file__fact:first-child::before {
+  content: "📅 Last updated: ";
+  margin-right: 0.25rem;
+  font-weight: 500;
+}
