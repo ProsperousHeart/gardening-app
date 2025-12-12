@@ -14,12 +14,12 @@ Below is the initial context diagram created as part my work in Cornell's [CESYS
 ### Main General Use Context Diagram
 
 This can be found [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764606881791930&cot=14).
-![Main Context Diagram](img/context-diagrams/main.jpg)
+![Main Context Diagram:  General Access](img/context-diagrams/main.jpg)
 
 ### Community Gardener Specific Context Diagram
 
 This can be found [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607139220750&cot=14).
-![Main Context Diagram](img/context-diagrams/community-gardener.jpg)
+![Main Context Diagram:  Community Garden Access](img/context-diagrams/community-gardener.jpg)
 
 ## Scenarios to Consider
 
