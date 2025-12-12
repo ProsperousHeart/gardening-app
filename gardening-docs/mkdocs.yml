@@ -213,8 +213,8 @@ plugins:
       height: auto
       zoomable: true               # Allow zoom controls
       draggable: true              # Drag to pan zoomed images
-      auto_caption: false          # Don't auto-generate captions
-      caption_position: bottom     # Caption position if enabled
+      auto_caption: true           # Auto-generate captions from image titles
+      caption_position: bottom     # Caption position (bottom, top, left, right)
 
 # Extra Configuration
 extra:
