@@ -178,8 +178,8 @@ plugins:
 
   # Show "last updated" dates on pages (from git history)
   - git-revision-date-localized:
-      enable_creation_date: true
-      type: timeago                # Shows "2 days ago" format
+      enable_creation_date: false   # Only show last updated (not creation date)
+      type: timeago                 # Shows "2 days ago" format
       fallback_to_build_date: true
 
   # IMAGE PROCESSING PLUGINS
