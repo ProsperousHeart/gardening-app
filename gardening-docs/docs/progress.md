@@ -1,8 +1,8 @@
-# Current Progress
+## Current Progress
 
 TBD
 
-# Historical Updates
+## Historical Updates
 
 The idea for this app started in Fall 2023.
 
