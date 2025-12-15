@@ -4,9 +4,20 @@ An app to help new gardeners determine what to plant in their yard.
 
 It has been determined that Django and Render will be used to host this web app.
 
-## Setup
+## Quick Start
 
-This project uses `uv` for dependency management with `pyproject.toml`. See [docs/uvx-setup-guide.md](docs/uvx-setup-guide.md) for detailed setup instructions.
+**For Contributors:** See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for setup instructions and development workflow.
+
+**For Documentation:**
+- [Project Documentation](https://prosperousheart.github.io/gardening-app/)
+- [Dependency Management Guide](gardening-docs/docs/tutorials/general/dependency-management.md)
+- [Makefile Guide](gardening-docs/docs/tutorials/general/makefile-guide.md)
+
+**Common Commands:**
+```bash
+make install       # Install dependencies
+make help          # Show all available commands
+```
 
 Resources:
 
