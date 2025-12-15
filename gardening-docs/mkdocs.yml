@@ -26,6 +26,8 @@ nav:
     - Resources: resources.md
     - Author Resume: "https://resume.prosperousheart.com/"
   - Tutorials:
+    - General:
+      - Dependency Management: tutorials/general/dependency-management.md
     - MkDocs Setup:
       - Overview: tutorials/mkdocs/index.md
       - Installation: tutorials/mkdocs/mkdocs-installation.md
