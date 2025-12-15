@@ -27,7 +27,8 @@ nav:
     - Author Resume: "https://resume.prosperousheart.com/"
   - Tutorials:
     - Checklists:
-      - Pre-Push Checklist: tutorials/checklists/pre-push-checklist.md
+      - Pre-Push Checklist: checklists/pre-push-checklist.md
+      - Security Checklist: checklists/security-checklist.md
     - General:
       - Dependency Management: tutorials/general/dependency-management.md
       - Makefile Guide: tutorials/general/makefile-guide.md
@@ -117,7 +118,10 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite          # Inline code highlighting
-  - pymdownx.snippets              # Include external code files
+  - pymdownx.snippets:             # Include external code files
+      base_path:
+        - docs                     # Search in docs directory (default)
+        - ..                       # Search in project root (allows .github access)
   - pymdownx.superfences:          # Advanced code blocks + Mermaid diagrams
       custom_fences:
         - name: mermaid
