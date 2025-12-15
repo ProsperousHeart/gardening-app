@@ -4,7 +4,8 @@ Unit tests for the tmp module.
 This test suite verifies the behavior of functions in src/tmp.py, including:
 - Logging with a test-specific logger to ensure test logs do not interfere with
     production logs.
-- Functionality of str_func and print_hi, including correct output and error handling.
+- Functionality of str_func and print_hi, including correct output and
+    error handling.
 - Use of logger-injecting decorator factories for flexible and isolated logging
     during tests.
 
@@ -21,7 +22,7 @@ from src.utils.logger import create_logger, func_wrapper
 
 
 test_logger = create_logger(file_name="Test_File_Test", file_mode="w")
-# src.tmp.my_function = func_wrapper(test_logger)(src.tmp.func_wrapper.__wrapped__)
+# src.tmp.my_function = func_wrapper(test_logger)(src.tmp.func_wrapper.__wrapped__)  # noqa: E501
 
 # def test_print_hi(capsys):
 #     print_hi()
@@ -35,11 +36,11 @@ class TestTmp(unittest.TestCase):
     def setUp(self):
         """Set up the test environment."""
         # # # return super().setUp()
-        # # self.logger = create_logger(file_name="Test_File_Test", file_mode="w")
-        # # src.tmp.logger = self.logger  # Patch the module-level logger in src.tmp
+        # # self.logger = create_logger(file_name="Test_File_Test", file_mode="w")  # noqa: E501
+        # # src.tmp.logger = self.logger  # Patch the module-level logger in src.tmp  # noqa: E501
         # # # pass
         # self.func_wrapper=func_wrapper(test_logger)(src.tmp.func_wrapper.__wrapped__)
-        # Decorate the undecorated functions with the test logger for isolated logging
+        # Decorate the undecorated functions with the test logger for isolated logging  # noqa: E501
         import src.tmp
 
         self.decorated_print_hi = func_wrapper(test_logger)(

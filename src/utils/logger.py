@@ -42,7 +42,7 @@ today = date.today()
 _logger_cache = {}
 
 
-# logging levels:  https://docs.python.org/3/library/logging.html#logging-levels
+# logging levels:  https://docs.python.org/3/library/logging.html#logging-levels  # noqa: E501
 def create_logger(
     file_name: str = "Test_File",
     file_mode: str = "a",
@@ -55,8 +55,8 @@ def create_logger(
     Takes in the following:
         file_name       STR name of file to write to
         file_mode       STR mode to write file (needs to be checked)
-        file_lvl        INT must tie in to logging level INTs (else raise error)
-        console_level   INT must tie in to logging level INTs (else raise error)
+        file_lvl        INT must tie in to logging level INTs (else raise error)  # noqa: E501
+        console_level   INT must tie in to logging level INTs (else raise error)  # noqa: E501
         log_loc         STR by default will use local script's folder/logs
 
     With provided inputs, creates & returns a logger object
@@ -71,7 +71,10 @@ def create_logger(
     """
     # Normalize log_loc for cache key
     if log_loc is None:
-        log_loc = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
+        log_loc = os.path.join(
+            os.path.dirname(os.path.dirname(__file__)),
+            "logs"
+        )
 
     # Create cache key from configuration parameters
     cache_key = (file_name, file_mode, file_lvl, console_lvl, log_loc)
@@ -101,7 +104,7 @@ def create_logger(
     # Prevent duplicate handlers
     if not logger.handlers:
         # File handler - max 5 files of 1MB each
-        # file_handler = logging.FileHandler(log_path, mode=file_mode, encoding="utf-8")
+        # file_handler = logging.FileHandler(log_path, mode=file_mode, encoding="utf-8")  # noqa: E501
         file_handler = RotatingFileHandler(
             log_path,
             mode=file_mode,
@@ -111,7 +114,7 @@ def create_logger(
         )
         file_handler.setLevel(file_lvl)
         file_format = logging.Formatter(
-            "%(asctime)s %(filename)-15s %(funcName)-18s %(levelname)-8s %(message)s",
+            "%(asctime)s %(filename)-15s %(funcName)-18s %(levelname)-8s %(message)s",  # noqa: E501
             datefmt="%Y-%m-%d %H:%M:%S",
         )
         file_handler.setFormatter(file_format)
@@ -148,9 +151,11 @@ def func_wrapper(logger):
 
         @functools.wraps(func)
         def log_func_wrapper(*args, **kwargs):
-            # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]
+            # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]  # noqa: E501
             logger.debug(
-                "Starting %s from module:\t%s", func.__qualname__, func.__module__
+                "Starting %s from module:\t%s",
+                func.__qualname__,
+                func.__module__
             )
             try:
                 rtn_data = func(*args, **kwargs)
@@ -161,7 +166,9 @@ def func_wrapper(logger):
                 return rtn_data
             finally:
                 logger.debug(
-                    "Ending %s from module:\t%s", func.__qualname__, func.__module__
+                    "Ending %s from module:\t%s",
+                    func.__qualname__,
+                    func.__module__
                 )
 
         return log_func_wrapper
@@ -190,7 +197,7 @@ def sol_wrapper(logger):
             it will log it then gracefully exit so the logs are
             finalized when closing.
             """
-            # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]
+            # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]  # noqa: E501
             logger.debug("===== Starting of Logs =====")
             try:
                 rtn_data = func(*args, **kwargs)
@@ -198,7 +205,7 @@ def sol_wrapper(logger):
                 # https://stackoverflow.com/a/7787832/10474024
                 # logger.critical(f"""There's been an ERROR!!! Check your logs:
                 # {", ".join([item.baseFilename
-                #             for item in logger.__dict__['parent'].__dict__['handlers']
+                #             for item in logger.__dict__['parent'].__dict__['handlers']  # noqa: E501
                 #             if item.__class__.__name__ == "FileHandler"])
                 # }""")
                 file_names = [
@@ -207,7 +214,8 @@ def sol_wrapper(logger):
                     if isinstance(h, logging.FileHandler)
                 ]
                 logger.critical(
-                    "There's been an ERROR! Check your logs: %s", ", ".join(file_names)
+                    "There's been an ERROR! Check your logs: %s",
+                    ", ".join(file_names)
                 )
                 logger.debug(pp.pformat(err))
             else:
