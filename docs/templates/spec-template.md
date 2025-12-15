@@ -219,7 +219,7 @@ Or for database models:
   - Operating systems (Linux, macOS, Windows)
   - Architecture requirements (x86_64, ARM, etc.)
 - Environment management
-  - Virtual environment approach (see [uvx setup guide](../uvx-setup-guide.md))
+  - Virtual environment approach (see [Dependency Management Guide](../../gardening-docs/docs/tutorials/general/dependency-management.md))
   - Environment variable requirements
 
 #### Performance Constraints
