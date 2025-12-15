@@ -29,6 +29,7 @@ nav:
     - General:
       - Dependency Management: tutorials/general/dependency-management.md
       - Makefile Guide: tutorials/general/makefile-guide.md
+      - Django Secrets Management: tutorials/general/django-secrets-management.md
     - MkDocs Setup:
       - Overview: tutorials/mkdocs/index.md
       - Installation: tutorials/mkdocs/mkdocs-installation.md
