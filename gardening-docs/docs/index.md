@@ -1,4 +1,4 @@
-# Project Description
+## Project Description
 
 I am part of a local community garden where we grow food for local food pantries. In our community garden, we have supporters (who are not official gardeners but support with chores and teams), gardener apprentices who must complete a training program before they can be official gardeners, official gardeners who are like supporters but also have at least 1 plot they are in charge of, and then the city official(s) who manage the Google group for discussion and anything we need from the city.
 
@@ -8,7 +8,7 @@ We need a simple system that allows for easy garden planning as well as a secure
 
 _Progress is notated [here](progress.md)._
 
-## Stakeholders
+### Stakeholders
 
 Here you will find the list of stakeholders and how they are expected to impact the design or use of the system.
 
@@ -16,21 +16,21 @@ Here you will find the list of stakeholders and how they are expected to impact 
 
 - Gardeners of all experience levels
 
-    - New “budding” gardeners / apprentices
+  - New “budding” gardeners / apprentices
 
-    - Master Gardeners
+  - Master Gardeners
 
-    - “Local” gardeners (relative to location)
+  - “Local” gardeners (relative to location)
 
-    - Community Gardeners (general gardeners)
+  - Community Gardeners (general gardeners)
 
-    - Community Gardeners (apprentices)
+  - Community Gardeners (apprentices)
 
-    - Community Gardeners (supporters)
+  - Community Gardeners (supporters)
 
-    - Community Gardeners (specific teams)
+  - Community Gardeners (specific teams)
 
-    - Community Gardeners (specific chore groups)
+  - Community Gardeners (specific chore groups)
 
 - People looking for gardening apps or tools to improve their knowledge & experience
 
@@ -38,7 +38,7 @@ Here you will find the list of stakeholders and how they are expected to impact 
 
 - Plants to be grown or tended to
 
-## Original Scenarios & Needs
+### Original Scenarios & Needs
 
 Below is the initial general outlines & expectations of what this solution should do.
 
@@ -62,7 +62,7 @@ Below is the initial general outlines & expectations of what this solution shoul
 
 - Be open source so others can improve and support community
 
-# Project Layout
+## Project Layout
 
 You can find the systems requirement documentation in the following:
 

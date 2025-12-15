@@ -1,109 +1,118 @@
+# System Requirements
+
 Learn more about this project [here](index.md#project-description).
 
+---
+
+!!! info "Full Version Available"
 Current full & updated version of this page is currently in the works & can be found <a href="https://docs.google.com/document/d/1decYpeZlxtQeLBvPupJ2VFWPRHVlUZnn/edit?usp=sharing&ouid=114844884846337292418&rtpof=true&sd=true" target="_blank">here</a>.
 
-# Identifying Top High Priority Use Cases
+<iframe src="https://docs.google.com/document/d/1decYpeZlxtQeLBvPupJ2VFWPRHVlUZnn/edit?usp=sharing&ouid=114844884846337292418&rtpof=true&sd=true" width="100%" height="600px"></iframe>
+
+---
+
+## Identifying Top High Priority Use Cases
 
 For now this will be here, but eventually moved to a new page for future planning.
 
 TBD - more to come.
 
-# Use Case Behavior Diagrams (UCBDs)
+## Use Case Behavior Diagrams (UCBDs)
 
 TBD
 
-## UCBD Guidelines
+### UCBD Guidelines
 
 TBD
 
-## UCBD Template
+### UCBD Template
 
 TBD
 
-## System Actions
+### System Actions
 
 TBD
 
-### GPS Permissions
+#### GPS Permissions
 
 TBD
 
-## General User Actions
+### General User Actions
 
 TBD
 
-### Updating USDA Location (Manual)
+#### Updating USDA Location (Manual)
 
 TBD
 
-### Updating USDA Location (Automated)
+#### Updating USDA Location (Automated)
 
 TBD
 
-### Plant Search (Default - By Name)
+#### Plant Search (Default - By Name)
 
 TBD
 
-### Plant Search (Filtering)
+#### Plant Search (Filtering)
 
 TBD
 
-### Single Plant View
+#### Single Plant View
 
 TBD
 
-### Provide Feedback
+#### Provide Feedback
 
 TBD
 
-### Report Error
+#### Report Error
 
 TBD
 
-## Admin Access
+### Admin Access
 
 TBD
 
-### Create Community Lead
+#### Create Community Lead
 
 TBD
 
-### Add Community Lead
+#### Add Community Lead
 
 TBD
 
-### Make Account Inactive for Specific Community
+#### Make Account Inactive for Specific Community
 
 TBD
 
-### Create Account
+#### Create Account
 
 TBD
 
-### Delete Account
+#### Delete Account
 
 TBD
 
-## Community Member
+### Community Member
 
 TBD
 
-### General Member
+#### General Member
 
 TBD
 
-# Requirements Table
+## Requirements Table
 
 TBD
 
-## Legend
+### Legend
 
 TBD
 
-## Constants
+### Constants
 
 TBD
 
-## Full Table
+### Full Table
 
 TBD

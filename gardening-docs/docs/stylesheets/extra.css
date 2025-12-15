@@ -1,0 +1,129 @@
+/* ========================================
+   Gardening App Custom Styles
+   ======================================== */
+
+/* Custom Color Variables */
+:root {
+  --md-primary-fg-color: #2e7d32; /* Garden green */
+  --md-primary-fg-color--light: #60ad5e;
+  --md-primary-fg-color--dark: #005005;
+  --md-accent-fg-color: #8bc34a; /* Light green accent */
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #4caf50;
+  --md-accent-fg-color: #aed581;
+}
+
+/* Custom styling for plant data tables */
+.plant-table {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.plant-table th {
+  background-color: var(--md-primary-fg-color);
+  color: white;
+  font-weight: 600;
+}
+
+/* Admonition styling for plant tips */
+.admonition.plant-tip {
+  border-left-color: #4caf50;
+}
+
+.admonition.plant-tip > .admonition-title {
+  background-color: rgba(76, 175, 80, 0.1);
+}
+
+.admonition.plant-tip > .admonition-title::before {
+  content: "🌱";
+  margin-right: 0.5rem;
+}
+
+/* Zone badge styling */
+.zone-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  background-color: var(--md-accent-fg-color);
+  color: white;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Card layout for features */
+.feature-card {
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Specification status badges */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge.draft {
+  background-color: #ffc107;
+  color: #000;
+}
+.status-badge.review {
+  background-color: #2196f3;
+  color: #fff;
+}
+.status-badge.approved {
+  background-color: #4caf50;
+  color: #fff;
+}
+.status-badge.implemented {
+  background-color: #9c27b0;
+  color: #fff;
+}
+
+/* Responsive tables */
+@media screen and (max-width: 768px) {
+  .plant-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Code block enhancements */
+.highlight pre {
+  border-radius: 8px;
+}
+
+/* Improve readability of requirement IDs */
+code.req-id {
+  background-color: rgba(46, 125, 50, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Git revision date customization */
+/* Add "Last updated" text and icon before the date */
+.md-source-file__fact {
+  font-size: 0.75rem;
+}
+
+.md-source-file__fact:first-child::before {
+  content: "📅 Last updated: ";
+  margin-right: 0.25rem;
+  font-weight: 500;
+}

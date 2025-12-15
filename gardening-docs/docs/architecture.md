@@ -1,22 +1,27 @@
+# System Architecture
+
 Learn more about this project [here](index.md#project-description).
 
+---
+
+!!! info "Full Version Available"
 Current full & updated version of this page is currently in the works & can be found <a href="https://docs.google.com/document/d/1decYpeZlxtQeLBvPupJ2VFWPRHVlUZnn/edit?usp=sharing&ouid=114844884846337292418&rtpof=true&sd=true" target="_blank">here</a>.
 
-# Functional Flow Block Diagrams
+## Functional Flow Block Diagrams
 
 TBD
 
-## Original Diagrams
+### Original Diagrams
 
 To show a bit of progression in how things came to life.
 
 TBD
 
-### F.1 - Overall System
+#### F.1 - Overall System
 
 TBD
 
-### F.2 - General User Functions (Plant Search & Filter)
+#### F.2 - General User Functions (Plant Search & Filter)
 
 TBD
 
@@ -24,11 +29,11 @@ TBD
 
 TBD
 
-## Updated & Prioritized Diagrams
+### Updated & Prioritized Diagrams
 
 TBD
 
-### Functional Block Interfaces (Informal)
+## Functional Block Interfaces (Informal)
 
 TBD
 
@@ -40,11 +45,11 @@ TBD
 
 TBD
 
-### F.1.2 - Calibrate Permissions
+#### F.1.2 - Calibrate Permissions
 
 TBD
 
-### F.1.3 - Local Weather Check
+#### F.1.3 - Local Weather Check
 
 TBD
 
@@ -52,62 +57,62 @@ TBD
 
 TBD
 
-### F.2.1 - General User Functions
+#### F.2.1 - General User Functions
 
 TBD
 
-### F.2.1.1 - Access Plant Search View
+#### F.2.1.1 - Access Plant Search View
 
 TBD
 
-### F.2.1.1.4 - Select Plant
+#### F.2.1.1.4 - Select Plant
 
 TBD
 
-### F.2.1.1.4.0 - View Plant Data
+#### F.2.1.1.4.0 - View Plant Data
 
 TBD
 
-### F.2.1.1.5 - Add Plant
+#### F.2.1.1.5 - Add Plant
 
 TBD
 
-### F.2.1.2 - Access Weather Component
+#### F.2.1.2 - Access Weather Component
 
 TBD
 
-### F.2.1.3 - Access General Resources
+#### F.2.1.3 - Access General Resources
 
 TBD
 
-### F.2.1.4 - Feedback A & B
+#### F.2.1.4 - Feedback A & B
 
 TBD
 
-### F.2.1.5 - Access Personal Settings
+#### F.2.1.5 - Access Personal Settings
 
 TBD
 
-### F.2.1.5.2 - Set USDA Location (Manually)
+#### F.2.1.5.2 - Set USDA Location (Manually)
 
 TBD
 
-### F.2.1.5.7 - Backup User Data
+#### F.2.1.5.7 - Backup User Data
 
 TBD
 
-### F.2.1.5.8 - Restore User Data
+#### F.2.1.5.8 - Restore User Data
 
 TBD
 
-### F.2.1.6 - Moon Planning
+#### F.2.1.6 - Moon Planning
 
 TBD
 
-### F.2.2 - Admin Functions
+#### F.2.2 - Admin Functions
 
 TBD
 
-### F.2.3 - Community Member Functions
+#### F.2.3 - Community Member Functions
 
 TBD
