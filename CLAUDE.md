@@ -341,7 +341,7 @@ uv add --dev <package-name>
 deactivate
 ```
 
-For detailed setup instructions, see [docs/uvx-setup-guide.md](docs/uvx-setup-guide.md).
+For detailed setup instructions, see [Dependency Management Guide](gardening-docs/docs/tutorials/general/dependency-management.md). The original [uvx setup guide](gardening-docs/docs/tutorials/general/archive/uvx-setup-guide.md) is archived for reference.
 
 ## When Working on This Project
 
