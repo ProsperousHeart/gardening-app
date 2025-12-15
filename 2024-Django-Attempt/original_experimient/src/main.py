@@ -136,9 +136,22 @@ def show_table_data(conn):
     Returns:
         None
     """
+    # Get valid table names from database schema
+    cursor = conn.cursor()
+    cursor.execute("SELECT name FROM sqlite_master WHERE type='table'")
+    valid_tables = {row[0] for row in cursor.fetchall()}
+
     table_names = get_table_names(conn)
     for table_name in table_names:
-        df = pd.read_sql_query(f"SELECT * FROM {table_name}", conn)
+        # Validate table name exists in schema to prevent SQL injection
+        if table_name not in valid_tables:
+            print(f"WARNING: Skipping invalid table name: {table_name}")
+            continue
+
+        # Use identifier quoting for additional safety
+        # SQLite uses double quotes for identifiers
+        quoted_table = f'"{table_name}"'
+        df = pd.read_sql_query(f"SELECT * FROM {quoted_table}", conn)
         print(f"Table: {table_name}")
         print(df)
         print("\n")
