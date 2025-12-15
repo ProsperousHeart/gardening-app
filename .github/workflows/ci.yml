@@ -22,6 +22,6 @@ jobs:
       - name: Lint
         run: make lint
       - name: Format Check
-        run: black --check src/ test/
+        run: make format-check
       - name: Test
         run: make test

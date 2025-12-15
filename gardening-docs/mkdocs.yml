@@ -28,6 +28,7 @@ nav:
   - Tutorials:
     - General:
       - Dependency Management: tutorials/general/dependency-management.md
+      - Makefile Guide: tutorials/general/makefile-guide.md
     - MkDocs Setup:
       - Overview: tutorials/mkdocs/index.md
       - Installation: tutorials/mkdocs/mkdocs-installation.md
