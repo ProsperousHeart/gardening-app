@@ -238,6 +238,30 @@ The `Plants` app contains the primary data models:
 
 ## Development Commands
 
+### Quick Start with Makefile
+
+This project uses a Makefile for common development tasks. All commands use `uv run` to ensure proper virtual environment execution.
+
+```bash
+# Show all available commands
+make help
+
+# Install dependencies
+make install
+
+# Development workflow (run before committing)
+make format        # Auto-format code with Black
+make lint          # Check code quality with flake8
+make test          # Run tests with pytest
+
+# Additional commands
+make format-check  # Check formatting without modifying
+make test-coverage # Run tests with coverage report
+make clean         # Remove cache and temporary files
+```
+
+See `gardening-docs/docs/tutorials/general/makefile-guide.md` for detailed documentation.
+
 ### MkDocs Documentation
 
 ```bash
