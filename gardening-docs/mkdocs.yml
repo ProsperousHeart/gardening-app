@@ -26,6 +26,8 @@ nav:
     - Resources: resources.md
     - Author Resume: "https://resume.prosperousheart.com/"
   - Tutorials:
+    - Checklists:
+      - Pre-Push Checklist: tutorials/checklists/pre-push-checklist.md
     - General:
       - Dependency Management: tutorials/general/dependency-management.md
       - Makefile Guide: tutorials/general/makefile-guide.md
