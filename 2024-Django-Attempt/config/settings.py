@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +22,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-km^lw24er$sex%-+$c_vvyt3!6r1+=x^ob_l=t^v_#@1b7$_l9'
+# Read from environment variable
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+
+# For development, fall back to a default but warn
+if not SECRET_KEY:
+    # Check if running in development mode
+    DEBUG_ENV = os.environ.get('DEBUG', 'True')
+    if DEBUG_ENV.lower() in ('true', '1', 'yes'):
+        SECRET_KEY = 'django-insecure-dev-only-key-DO-NOT-USE-IN-PRODUCTION'
+        print("WARNING: Using default SECRET_KEY for development.", file=sys.stderr)
+        print("Set DJANGO_SECRET_KEY environment variable for production.", file=sys.stderr)
+    else:
+        raise ValueError(
+            "DJANGO_SECRET_KEY environment variable must be set in production. "
+            "Generate one with: python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'"
+        )
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG', 'True').lower() in ('true', '1', 'yes')
 
 ALLOWED_HOSTS = []
 
