@@ -71,10 +71,7 @@ def create_logger(
     """
     # Normalize log_loc for cache key
     if log_loc is None:
-        log_loc = os.path.join(
-            os.path.dirname(os.path.dirname(__file__)),
-            "logs"
-        )
+        log_loc = os.path.join(os.path.dirname(os.path.dirname(__file__)), "logs")
 
     # Create cache key from configuration parameters
     cache_key = (file_name, file_mode, file_lvl, console_lvl, log_loc)
@@ -153,9 +150,7 @@ def func_wrapper(logger):
         def log_func_wrapper(*args, **kwargs):
             # logger = [arg for arg in args if isinstance(arg, logging.Logger)][0]  # noqa: E501
             logger.debug(
-                "Starting %s from module:\t%s",
-                func.__qualname__,
-                func.__module__
+                "Starting %s from module:\t%s", func.__qualname__, func.__module__
             )
             try:
                 rtn_data = func(*args, **kwargs)
@@ -166,9 +161,7 @@ def func_wrapper(logger):
                 return rtn_data
             finally:
                 logger.debug(
-                    "Ending %s from module:\t%s",
-                    func.__qualname__,
-                    func.__module__
+                    "Ending %s from module:\t%s", func.__qualname__, func.__module__
                 )
 
         return log_func_wrapper
@@ -214,8 +207,7 @@ def sol_wrapper(logger):
                     if isinstance(h, logging.FileHandler)
                 ]
                 logger.critical(
-                    "There's been an ERROR! Check your logs: %s",
-                    ", ".join(file_names)
+                    "There's been an ERROR! Check your logs: %s", ", ".join(file_names)
                 )
                 logger.debug(pp.pformat(err))
             else:
