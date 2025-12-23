@@ -17,19 +17,19 @@ install:
 	uv sync --all-groups
 
 lint:
-	uv run flake8 src/ test/
+	uv run flake8 src/ tests/
 
 format:
-	uv run black src/ test/
+	uv run black src/ tests/
 
 format-check:
-	uv run black --check src/ test/
+	uv run black --check src/ tests/
 
 test:
-	uv run pytest test/
+	uv run pytest tests/
 
 test-coverage:
-	uv run coverage run -m pytest test/
+	uv run coverage run -m pytest tests/
 	uv run coverage report
 	uv run coverage html
 
