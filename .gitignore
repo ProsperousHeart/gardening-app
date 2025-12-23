@@ -1,6 +1,9 @@
 # Project Specific
 site/
 
+# uv dependency manager
+.uv_cache/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
