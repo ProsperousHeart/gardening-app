@@ -44,3 +44,6 @@ dev = [
     "pygments==2.19.1",
     "pytest==8.4.0",
 ]
+
+[tool.bandit]
+exclude_dirs = ["2024-Django-Attempt", ".venv"]
