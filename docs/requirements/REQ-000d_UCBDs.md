@@ -558,7 +558,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### ?
+### TODO: Give Feedback
 
 **Use Case Name:**  TBD
 
@@ -615,7 +615,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### ?
+### TODO: Report Error
 
 **Use Case Name:**  TBD
 
@@ -731,7 +731,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 
 ## SUBSYSTEM:  Admin (Elevated User) Access
 
-### ?
+### TODO: Create Community Lead
 
 **Use Case Name:**  TBD
 
@@ -788,7 +788,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### ?
+### TODO: Add Community Lead
 
 **Use Case Name:**  TBD
 
@@ -845,7 +845,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### ?
+### TODO: Make Account Inactive for Specific Community
 
 **Use Case Name:**  TBD
 
@@ -902,7 +902,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### ?
+### TODO: Create Account
 
 **Use Case Name:**  TBD
 
@@ -959,7 +959,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### ?
+### TODO: Delete Account
 
 **Use Case Name:**  TBD
 
@@ -1020,7 +1020,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 
 This is not fully fleshed out at the moment, as there are some elevated user access to be considered.
 
-### ?
+### TODO: General Member - Access Announcements
 
 **Use Case Name:**  TBD
 
