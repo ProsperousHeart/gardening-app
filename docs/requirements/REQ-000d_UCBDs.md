@@ -396,8 +396,25 @@ sequenceDiagram
     actor User as Human
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: System user engages the search plant component.
+    System-->>User: The system shall display the plant list view<br>in the same state the user last searched for a plant with.
+    loop selects filtering option(s)
+        User->>System: User chooses the filter option to display certain crops or plants.
+        create participant PlantDB@{ "type" : "database" }
+        System->>PlantDB: Queries for any matches of filters.
+        destroy PlantDB
+        PlantDB-->>System: Returns all plants that match at least 1 criteria.
+    end
+    alt at least 1 matching plant
+        alt match any
+            System-->>User: The system shall show all plants that match 1 or more criteria.
+        else match all
+            User->>System: User checks box to confirm they only want to see plants that match all filter conditions. 
+            System-->>User: The system shall only show plants that match all requested criteria.
+        end
+    else no plants match
+        System-->>User: If no plants in the database match search criteria,<br>the system shall provide a clear message about this to the user.
+    end
 ```
 <br>
 
@@ -445,17 +462,19 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | **System.GenUser** | OR.4 | OR2.1 | The system shall show all plants that match 1 or more criteria. | filter_any |
 | **System.GenUser** | OR.5 | OR2.2 | The system shall only show plants that match all requested criteria. | filter_exact |
 
-### ?
+### View Plants
 
-**Use Case Name:**  TBD
+**Use Case Name:**  General User looks at specific plant data (View Plants)
 
 **Initial Conditions:**
 
-1. TBD
+1. Any user has accessed the plant search component
+2. A specific plant has been chosen to view
+
 
 ```mermaid
 ---
-title: Title Here
+title: View Plants
 config:
     theme: dark
 ---
