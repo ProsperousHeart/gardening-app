@@ -136,7 +136,7 @@ Use cases were originally identified because they were one or more of the follow
 
 - Special cases extending other use cases
 
-## Use Case Behavior Diagrams
+## Use Case Diagrams
 
 All latest updates are in [this location](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764609898919690&cot=14) of the related Miro board.
 
