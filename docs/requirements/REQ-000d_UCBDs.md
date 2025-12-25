@@ -138,8 +138,11 @@ As of Nov 29, 2024 – this is not complete only parts were needed at the time o
 **UCBDs for General User Actions:**
 
 1. [Set GPS Permissions](#set-gps-permissions)
+
 2. [User Checks Location Settings](#updating-usda-location--manual)
+
 3. [Plant Search](#plant-search)
+
 4. [Plant Search (Filter)](#plant-search-filter)
 
 ### Set GPS Permissions
@@ -185,14 +188,19 @@ sequenceDiagram
 **Ending Conditions:**
 
 1. GPS permissions are turned on
+
 2. Unique user’s profile has auto-update USDA zone turned on
+
 3. Unique user’s USDA zone field is filled in and user unable to edit
+
 4. Unique user’s profile settings are set to user’s preference and editable in their profile
 
 **Notes:**
 
 1. Need to create a general system UCBD for when user declines.
+
 2. Need to ensure that use case diagrams & scope trees are updated, as the GPD settings is new.
+
 3. “home” is either their profile or an area user can locate all components they have access to.
 
 **Identifying Missed Functionality:**
@@ -230,6 +238,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 **Initial Conditions:**
 
 1. GPS is on and set to automatic update OR it is off
+
 2. USDA zone is empty or USDA zone needs to be updated.
 
 ```mermaid
@@ -263,11 +272,13 @@ sequenceDiagram
 **Ending Conditions:**
 
 1. Unique user’s profile is set to manually update USDA zone
+
 2. USDA zone has been updated and saved
 
 **Notes:**
 
 1. By default, automating USDA zone by GPS location should be turned off.
+
 2. Profile can be accessed from anywhere within the system.
 
 **Identifying Missed Functionality:**
@@ -302,6 +313,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 **Initial Conditions:**
 
 1. Any user has access to this capability.
+
 2. User accesses the plant search function by choosing the spyglass icon seen from any screen.
 
 ```mermaid
@@ -334,16 +346,23 @@ sequenceDiagram
 **Ending Conditions:**
 
 1. The system has provided a paginated list of plants the user can choose from to learn more about.
+
 2. User may select a plant to learn more about it and engage the plant view.
 
 **Notes:**
 
 1. Search is intended for plant name, not description or characteristics.
+
 2. Filtering allows for characteristics to be utilized in the search.
+
 3. When chosen, the plants would open a pop-up that when closed or backed out of would take back to the prior screen.
+
 4. There should eventually be a way for the user to request a new plant to be added to the database from this view only.
+
 5. Plant list is paginated and alphabetized.
+
 6. Plant list / search view has a text field to put in a plant name (including scientific)
+
 7. Plant list comes from a database – see documentation on database requirements.
 
 **Identifying Missed Functionality:**
@@ -382,6 +401,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 **Initial Conditions:**
 
 1. Any user has access to this capability.
+
 2. User accesses the plant search function by choosing the spyglass icon seen from any screen.
 
 
@@ -421,16 +441,23 @@ sequenceDiagram
 **Ending Conditions:**
 
 1. The system has provided a paginated list of plants the user can choose from to learn more about.
+
 2. User may select a plant to learn more about it and engage the plant view.
 
 **Notes:**
 
 1. Search is intended for plant name, not description or characteristics.
+
 2. Filtering allows for characteristics to be utilized in the search. (e.g.: companion plant, color, size, benefits, season)
+
 3. When chosen, the plants would open a pop-up that when closed or backed out of would take back to the prior screen.
+
 4. There should eventually be a way for the user to request a new plant to be added to the database from this view only.
+
 5. Plant list is paginated and alphabetized.
+
 6. Plant list / search view has a text field to put in a plant name (including scientific)
+
 7. Plant list comes from a database – see documentation on database requirements.
 
 **Identifying Missed Functionality:**
@@ -469,6 +496,7 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 **Initial Conditions:**
 
 1. Any user has accessed the plant search component
+
 2. A specific plant has been chosen to view
 
 
@@ -482,19 +510,28 @@ sequenceDiagram
     autonumber
     actor User as Human
     participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: User has accessed a specific plant’s view.
+    create participant PlantDB
+    System->>PlantDB: Requests data about specific plant,<br>not including the information already shared<br>when it showed on search or filter.
+    destroy PlantDB
+    PlantDB-->>System: Returns full plant data<br>(minus excluded segments) in JSON format.<br>Calculates planting date based on user's growing zone.
+    System-->>-User: The system shall display data about the plant<br>with the photo, common name, scientific name, & planting / harvest dates at the top.<br>Rest of data can expand when interested to see rest & save screenspace.<br>The system shall provide a way to showcase groupings of data<br>that the user can choose to see. By default, the view is characteristics<br>such as color, if it’s an annual or perennial for the given zone, size, etc.
+    User->>+System: User opts in to view information on the plant’s companion plants.
+    System-->-User: Updates plant view to show the list of plants<br>the current plant is a companion plant of.
+    User->>+System: User opts in to view planting information.
+    System-->-User: The system shall show estimated planting (seeding or transplant)<br>dates based on user’s calculated frost dates. The system shall provide<br>information on the plant’s germination time, seed spacing, time to harvest, etc.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. User can easily find information on the plant without having to scroll a lot.
+
+2. User can close the view and to see the system’s component they were at previously.
 
 **Notes:**
 
-1. TBD
+1. This view might be used in other locations, such as the plot component to see what’s growing.
 
 **Identifying Missed Functionality:**
 
