@@ -115,6 +115,18 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
 ## SUBSYSTEM:  General User Actions
 
 The subitems in this section all belong to the GeneralUser system actions set.
@@ -198,6 +210,18 @@ Identifying Missed Functionality – the system shall be able to:
 - ***(with proper permissions & based on frequency settings) automatically check GPS when attempting to pull current or past weather data
 - ***will ensure either GPS or manual USDA zone is utilized
 
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
 ### User Checks Location Settings
 
 **Use Case Name:**  User Checks Location Settings
@@ -258,19 +282,30 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
 ### Plant Search
 
 **Use Case Name:**  General User searches for plant
 
 **Initial Conditions:**
 
-1. USDA auto update is turned off in profile
-2. Location is on, USDA zone is empty, or USDA zone needs to be updated.
-
+1. Any user has access to this capability.
+2. User accesses the plant search function by choosing the spyglass icon seen from any screen.
 
 ```mermaid
 ---
-title: User Updates USDA Location (Set to Automated)
+title: General User Searches for Plant
 config:
     theme: dark
 ---
@@ -279,37 +314,65 @@ sequenceDiagram
     actor User as Human
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: General user accesses their profile to update their USDA zone.
-    System->>Settings: Asks for location setting information
-    Settings-->>System:  Provides user location setting information in JSON format.
-    System-->>User: Among other elements, the system shall provide a field that the<br>user can manually update - regardless of the GPS location data.
-    User->>System: General user ensures that the automatic USDA zone update<br>option is turned off when GPS permissions approved,<br>updates their zone, and saves changes.
-    System-->>-User: Sends confirmation of settings changes.
+    User->>+System: System user engages the search plant component.
+    System-->>User: The system shall display the plant list view<br>in the same state the user last searched for a plant with.
+    loop types in search field
+        User->>System: User provides text in the search field.
+        create participant PlantDB@{ "type" : "database" }
+        System->>PlantDB: Queries for any matches of text provided.
+        destroy PlantDB
+        PlantDB-->>System: The system shall provide all potential plants with<br>data that at least partially matches search term.
+        System-->>User: Provides updated screen with only the provided potential matches
+    end
+    opt No Matches Found 
+        System-->>User: If no plants in the database match search criteria,<br>the system shall provide a clear message about this to the user.
+    end
 ```
 <br>
 
 **Ending Conditions:**
 
-1. By default, automating USDA zone by GPS location should be turned on.
-2. Profile can be accessed from anywhere within the system.
+1. The system has provided a paginated list of plants the user can choose from to learn more about.
+2. User may select a plant to learn more about it and engage the plant view.
 
 **Notes:**
 
-1. By default, automating USDA zone by GPS location should be turned on.
-2. Profile can be accessed from anywhere within the system.
+1. Search is intended for plant name, not description or characteristics.
+2. Filtering allows for characteristics to be utilized in the search.
+3. When chosen, the plants would open a pop-up that when closed or backed out of would take back to the prior screen.
+4. There should eventually be a way for the user to request a new plant to be added to the database from this view only.
+5. Plant list is paginated and alphabetized.
+6. Plant list / search view has a text field to put in a plant name (including scientific)
+7. Plant list comes from a database – see documentation on database requirements.
 
 **Identifying Missed Functionality:**
 
 | Additional Grouping of Requirements | Description |
 | ----------------------------------- | ----------- |
-| \* | TBD |
+| \* | Visual Updates |
 | \*\* | TBD |
 | \*\*\* | TBD |
 
 Identifying Missed Functionality – the system shall be able to:
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
+- *Provide access to the plant search component from anywhere in the system for any user
+- *Provide a view of each plant if user tries to access more information about it
+- *Display the plant list view in such a manner that each row of a plan takes up the same % of space & still be readable. 
+
+**SysML Diagram:**
+
+Below is the SysML Diagram with requirements table, which can be seen [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764609900151796&cot=14) in Miro and last updated 20241208.
+
+![UCBD SysML Diagram:  General System User - Plant Search](/docs/diagrams/REQ000/SysML_PlantSearch.png)
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.GenUser** | Plant Search | OR.1 | OR1.1 | The system shall display the plant list view with **max_visible_plants_num** showing in the same state the user last searched for a plant. | display_plants_all |
+| **System.GenUser** | Plant Search | OR.2 | OR1.2 | The system shall filter out all plants that do not at least partially match the search term. | plant_search_by_name |
+| **System.GenUser** | Plant Search | OR.3 | OR1.3 | If no plants in the database match search criteria, the system shall provide a clear message about this to the user. | msg_plant_404 |
 
 ### ?
 
@@ -356,50 +419,17 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
-### ?
+**SysML Diagram:**
 
-**Use Case Name:**  TBD
+TBD
 
-**Initial Conditions:**
+**Requirements Table:**
 
-1. TBD
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
 
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ### ?
 
@@ -446,50 +476,17 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
-### ?
+**SysML Diagram:**
 
-**Use Case Name:**  TBD
+TBD
 
-**Initial Conditions:**
+**Requirements Table:**
 
-1. TBD
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
 
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ### ?
 
@@ -535,6 +532,132 @@ Identifying Missed Functionality – the system shall be able to:
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+### ?
+
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+### ?
+
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ## SUBSYSTEM:  Admin (Elevated User) Access
 
@@ -583,50 +706,17 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
-### ?
+**SysML Diagram:**
 
-**Use Case Name:**  TBD
+TBD
 
-**Initial Conditions:**
+**Requirements Table:**
 
-1. TBD
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
 
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ### ?
 
@@ -673,50 +763,17 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
-### ?
+**SysML Diagram:**
 
-**Use Case Name:**  TBD
+TBD
 
-**Initial Conditions:**
+**Requirements Table:**
 
-1. TBD
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
 
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ### ?
 
@@ -762,6 +819,132 @@ Identifying Missed Functionality – the system shall be able to:
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+### ?
+
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+### ?
+
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ## SUBSYSTEM:  Community Member
 
@@ -811,3 +994,15 @@ Identifying Missed Functionality – the system shall be able to:
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
