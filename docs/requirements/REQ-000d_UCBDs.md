@@ -115,11 +115,21 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
-## System Actions
+## SUBSYSTEM:  General User Actions
 
 The subitems in this section all belong to the GeneralUser system actions set.
 
-### GPS Permissions
+Below you will find the use case behavior diagrams for this subsystem.
+
+As of Nov 29, 2024 – this is not complete only parts were needed at the time of creation and part of a Systems Design certification course. As work progresses, this will continue to be updated.
+
+**UCBDs for General User Actions:**
+
+1. [Set GPS Permissions](#set-gps-permissions)
+2. [User Checks Location Settings](#updating-usda-location--manual)
+3. [Plant Search](#plant-search)
+
+### Set GPS Permissions
 
 **Use Case Name:**  System Requests Access to GPS – Get User Approval
 
@@ -139,6 +149,7 @@ sequenceDiagram
     autonumber
     actor User as Human
     participant System as "The System"
+    participant Settings as System<br>Settings
     %% links System: {"Requirements": ""}
     User->>+System: One of the initial conditions are triggered.
     System->>Settings: Checks if GPS permissions approved
@@ -187,27 +198,18 @@ Identifying Missed Functionality – the system shall be able to:
 - ***(with proper permissions & based on frequency settings) automatically check GPS when attempting to pull current or past weather data
 - ***will ensure either GPS or manual USDA zone is utilized
 
-## General User Actions
+### User Checks Location Settings
 
-Below you will find the use case behavior diagrams for this project.
-
-As of Nov 29, 2024 – this is not complete only parts were needed at the time of creation and part of a Systems Design certification course. As work progresses, this will continue to be updated.
-
-**UCBDs for General User Actions:**
-
-1. [Updating USDA Location – Manual](#updating-usda-location--manual)
-
-### Updating USDA Location – Manual
-
-**Use Case Name:**  TBD
+**Use Case Name:**  User Checks Location Settings
 
 **Initial Conditions:**
 
-1. TBD
+1. GPS is on and set to automatic update OR it is off
+2. USDA zone is empty or USDA zone needs to be updated.
 
 ```mermaid
 ---
-title: Title Here
+title: User Checks Location Settings
 config:
     theme: dark
 ---
@@ -216,26 +218,93 @@ sequenceDiagram
     actor User as Human
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: General user accesses their profile to update their USDA zone.
+    create participant Settings
+    System->>Settings: Asks for location setting information<br>& if GPS automated access approved
+    alt GPS is on
+        System->>"GPS API": Use GPS to get location data
+        "GPS API"-->>Settings: Return location data
+        destroy Settings
+        Settings-->>System:  Provides user location setting information in JSON format.
+        System-->>User: Among other elements, the system shall provide a field that the<br>user can view their most recent location based on GPS data.
+    else Manual Location
+        destroy Settings
+        Settings-->>System:  Provides user location setting information in JSON format.
+        System-->>User: Among other elements, the system shall provide a field that the<br>user can manually update - regardless of the GPS location data.
+    end
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. Unique user’s profile is set to manually update USDA zone
+2. USDA zone has been updated and saved
 
 **Notes:**
 
-1. TBD
+1. By default, automating USDA zone by GPS location should be turned off.
+2. Profile can be accessed from anywhere within the system.
 
 **Identifying Missed Functionality:**
 
 | Additional Grouping of Requirements | Description |
 | ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
+| \* | TBD |
+| \*\* | TBD |
+| \*\*\* | TBD |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
+### Plant Search
+
+**Use Case Name:**  General User searches for plant
+
+**Initial Conditions:**
+
+1. USDA auto update is turned off in profile
+2. Location is on, USDA zone is empty, or USDA zone needs to be updated.
+
+
+```mermaid
+---
+title: User Updates USDA Location (Set to Automated)
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: General user accesses their profile to update their USDA zone.
+    System->>Settings: Asks for location setting information
+    Settings-->>System:  Provides user location setting information in JSON format.
+    System-->>User: Among other elements, the system shall provide a field that the<br>user can manually update - regardless of the GPS location data.
+    User->>System: General user ensures that the automatic USDA zone update<br>option is turned off when GPS permissions approved,<br>updates their zone, and saves changes.
+    System-->>-User: Sends confirmation of settings changes.
+```
+<br>
+
+**Ending Conditions:**
+
+1. By default, automating USDA zone by GPS location should be turned on.
+2. Profile can be accessed from anywhere within the system.
+
+**Notes:**
+
+1. By default, automating USDA zone by GPS location should be turned on.
+2. Profile can be accessed from anywhere within the system.
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | TBD |
+| \*\* | TBD |
+| \*\*\* | TBD |
 
 Identifying Missed Functionality – the system shall be able to:
 - *item 1 of F1
@@ -467,52 +536,7 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
-### ?
-
-**Use Case Name:**  TBD
-
-**Initial Conditions:**
-
-1. TBD
-
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
-
-## Admin (Elevated User) Access
+## SUBSYSTEM:  Admin (Elevated User) Access
 
 ### ?
 
@@ -739,7 +763,7 @@ Identifying Missed Functionality – the system shall be able to:
 - **item 1 of F2
 - ***item 1 of F3
 
-## Community Member
+## SUBSYSTEM:  Community Member
 
 This is not fully fleshed out at the moment, as there are some elevated user access to be considered.
 
