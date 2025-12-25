@@ -102,6 +102,19 @@ sequenceDiagram
 
 1. TBD
 
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
 ## System Actions
 
 The subitems in this section all belong to the GeneralUser system actions set.
@@ -174,58 +187,557 @@ Identifying Missed Functionality – the system shall be able to:
 - ***(with proper permissions & based on frequency settings) automatically check GPS when attempting to pull current or past weather data
 - ***will ensure either GPS or manual USDA zone is utilized
 
-
 ## General User Actions
 
+Below you will find the use case behavior diagrams for this project.
+
+As of Nov 29, 2024 – this is not complete only parts were needed at the time of creation and part of a Systems Design certification course. As work progresses, this will continue to be updated.
+
+**UCBDs for General User Actions:**
+
+1. [Updating USDA Location – Manual](#updating-usda-location--manual)
+
+### Updating USDA Location – Manual
+
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
 
-### ?
+**Initial Conditions:**
 
-?
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ## Admin (Elevated User) Access
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
 
 ## Community Member
 
@@ -233,4 +745,45 @@ This is not fully fleshed out at the moment, as there are some elevated user acc
 
 ### ?
 
-?
+**Use Case Name:**  TBD
+
+**Initial Conditions:**
+
+1. TBD
+
+```mermaid
+---
+title: Title Here
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    %% links System: {"Requirements": ""}
+    User->>+System: Step 1
+    System-->>User: Step 2 ...
+```
+<br>
+
+**Ending Conditions:**
+
+1. TBD
+
+**Notes:**
+
+1. TBD
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “Functionality 1” |
+| \*\* | “Functionality 2” |
+| \*\*\* | “Functionality 3” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
