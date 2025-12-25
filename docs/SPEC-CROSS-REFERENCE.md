@@ -20,8 +20,12 @@ This table tracks relationships between requirements, specifications, source cod
 ## Cross-Reference Table
 
 | Requirement | Specification | Source Files | Test Files | Diagrams | Status |
-|------------|---------------|--------------|------------|----------|--------|
+| ----------- | --------------|--------------|------------|----------|--------|
 | Example: [REQ-001](requirements/example-req.md) | [SPEC-001](specifications/example-spec.md) | [src/example.py](../src/example.py) | [test/test_example.py](../test/test_example.py) | [architecture-example.md](diagrams/architecture-example.md)<br>[threat-model-example.md](diagrams/threat-model-example.md) | Example |
+| [REQ-000a_General](requirements/REQ-000a_General.md) (General) | TBD | N/A | N/A | [context-main](./diagrams/context-general.md#main-all-users)<br>[context-community](./diagrams/context-general.md#community-gardener-special-user-access) | IN PROGRESS |
+| [REQ-000b_Scope](requirements/REQ-000b_Scope.md) (Scope) | TBD | N/A | N/A | TBD | IN PROGRESS |
+| [REQ-000c_UseCases](requirements/REQ-000c_UseCases.md) (Use Cases) | TBD | N/A | N/A | Multiple - see MD | IN PROGRESS |
+| [REQ-000d_UCBDs](requirements/REQ-000d_UCBDs.md) (Use Case Behavior Diagrams) | TBD | N/A | N/A | Multiple - see MD | IN PROGRESS |
 | | | | | | |
 
 ## Adding New Entries
