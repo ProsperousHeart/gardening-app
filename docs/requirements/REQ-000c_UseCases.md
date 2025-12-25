@@ -1,5 +1,7 @@
 # Use Cases
 
+Be sure to review [Use Case Behavior Diagrams](/docs/requirements/REQ-000d_UCBDs.md) to see the UCBDs of these use cases.
+
 ## Actors
 
 _See also the [stakeholders](./REQ-000a_General.md#stakeholders) section._
