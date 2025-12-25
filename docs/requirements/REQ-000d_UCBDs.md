@@ -140,6 +140,7 @@ As of Nov 29, 2024 – this is not complete only parts were needed at the time o
 1. [Set GPS Permissions](#set-gps-permissions)
 2. [User Checks Location Settings](#updating-usda-location--manual)
 3. [Plant Search](#plant-search)
+4. [Plant Search (Filter)](#plant-search-filter)
 
 ### Set GPS Permissions
 
@@ -374,17 +375,19 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 | **System.GenUser** | Plant Search | OR.2 | OR1.2 | The system shall filter out all plants that do not at least partially match the search term. | plant_search_by_name |
 | **System.GenUser** | Plant Search | OR.3 | OR1.3 | If no plants in the database match search criteria, the system shall provide a clear message about this to the user. | msg_plant_404 |
 
-### ?
+### Plant Search (Filter)
 
-**Use Case Name:**  TBD
+**Use Case Name:**  General User searches for plant with filters
 
 **Initial Conditions:**
 
-1. TBD
+1. Any user has access to this capability.
+2. User accesses the plant search function by choosing the spyglass icon seen from any screen.
+
 
 ```mermaid
 ---
-title: Title Here
+title: General User searches for plant with filters
 config:
     theme: dark
 ---
@@ -400,28 +403,38 @@ sequenceDiagram
 
 **Ending Conditions:**
 
-1. TBD
+1. The system has provided a paginated list of plants the user can choose from to learn more about.
+2. User may select a plant to learn more about it and engage the plant view.
 
 **Notes:**
 
-1. TBD
+1. Search is intended for plant name, not description or characteristics.
+2. Filtering allows for characteristics to be utilized in the search. (e.g.: companion plant, color, size, benefits, season)
+3. When chosen, the plants would open a pop-up that when closed or backed out of would take back to the prior screen.
+4. There should eventually be a way for the user to request a new plant to be added to the database from this view only.
+5. Plant list is paginated and alphabetized.
+6. Plant list / search view has a text field to put in a plant name (including scientific)
+7. Plant list comes from a database – see documentation on database requirements.
 
 **Identifying Missed Functionality:**
 
 | Additional Grouping of Requirements | Description |
 | ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
+| \* | Additional specific filtering options |
+| \*\* | Group TBD |
+| \*\*\* | Group TBD |
 
 Identifying Missed Functionality – the system shall be able to:
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
+- _See items from [plant search](#plant-search)_
+- *Filter for plants within suggested frost dates
+- *Filter for plants that need to be sown / transplanted / etc within 1 week of current date (may not be relevant except for sown since not planning on tracking everything the gardener does – there are other systems for that)
 
 **SysML Diagram:**
 
-TBD
+Below is the SysML Diagram with requirements table, which can be seen [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764609904604938&cot=14) in Miro and last updated 20241209.
+
+![UCBD SysML Diagram:  General System User - Plant Search (Filter)](/docs/diagrams/REQ000/SysML_PlantSearch_Filter.png)
+
 
 **Requirements Table:**
 
@@ -429,7 +442,8 @@ _See the [requirement constants definition table](/docs/requirements/REQ000e_Req
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
-| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+| **System.GenUser** | OR.4 | OR2.1 | The system shall show all plants that match 1 or more criteria. | filter_any |
+| **System.GenUser** | OR.5 | OR2.2 | The system shall only show plants that match all requested criteria. | filter_exact |
 
 ### ?
 
