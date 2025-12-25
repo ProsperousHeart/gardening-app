@@ -96,16 +96,11 @@ sequenceDiagram
 
 **Ending Conditions:**
 
-1. GPS permissions are turned on
-2. Unique user’s profile has auto-update USDA zone turned on
-3. Unique user’s USDA zone field is filled in and user unable to edit
-4. Unique user’s profile settings are set to user’s preference and editable in their profile
+1. TBD
 
 **Notes:**
 
-1. Need to create a general system UCBD for when user declines.
-2. Need to ensure that use case diagrams & scope trees are updated, as the GPD settings is new.
-3. “home” is either their profile or an area user can locate all components they have access to.
+1. TBD
 
 ## System Actions
 
@@ -162,6 +157,23 @@ sequenceDiagram
 1. Need to create a general system UCBD for when user declines.
 2. Need to ensure that use case diagrams & scope trees are updated, as the GPD settings is new.
 3. “home” is either their profile or an area user can locate all components they have access to.
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | “System checks for approval” |
+| \*\* | “System notifies user” |
+| \*\*\* | “System uses GPS data for weather or USDA zone needs” |
+
+Identifying Missed Functionality – the system shall be able to:
+- *Check if GPS permissions are approved
+- **Notify user when GPS is required and not yet approved
+- **If unable to connect to GPS, notify user
+- **If unable to connect to GPS and no USDA zone saved, will force user to manually provide USDA zone
+- ***(with proper permissions & based on frequency settings) automatically check GPS when attempting to pull current or past weather data
+- ***will ensure either GPS or manual USDA zone is utilized
+
 
 ## General User Actions
 
