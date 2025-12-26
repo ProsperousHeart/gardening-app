@@ -636,17 +636,22 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### TODO: Report Error
+### Report Error
 
-**Use Case Name:**  TBD
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
+**NOTE:**  this is VERY similar to the other - could potentially consolidate into a single mermaid, but it would go against what was taught in the course. Need to consider what is best for development.
+
+**Use Case Name:**  General User Reports Issue
 
 **Initial Conditions:**
 
-1. TBD
+1. General user has run into an issue with the system
+2. feedback submission is always available
 
 ```mermaid
 ---
-title: Title Here
+title: General User Reports Error
 config:
     theme: dark
 ---
@@ -655,76 +660,28 @@ sequenceDiagram
     actor User as Human
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: General user has an error to report<br>while working within any component of the system.<br>They engage with the feedback component.
+    System-->>User: The system shall provide a message that<br>asks if they are submitting feedback or an error, and<br>provides a way to indicate if the current “location” is<br>what they are providing feedback on or not.
+    User->>System: User chooses an option to indicate<br>if it is about the most recent component<br>and marks submission as bug report.
+    System-->>User: If general user said YES to the component ask,<br>then the system provides a filled in & uneditable field<br>that indicates where the user was last.<br>The system shall provide the bug reporting<br>component view which includes a text field for<br>their feedback along with prompts to<br>understand how to reproduce the bug.
+    User->>System: User fills in required field(s) then submits report.
+    System-->>-User:  System takes all information from the feedback reporting view<br>& sends a report to wherever it’s supposed to go.<br>System closes feedback reporting view<br>and alerts general user that their submission is sent.
+    %% create participant GHI as "GitHub Issues"
+    %% System->>GHI: System takes all information from<br>the feedback reporting view<br>& sends a report to wherever it’s supposed to go.
+    %% destroy GHI
+    %% GHI-->>System: ACK or Error
+    User->>System: User closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. Bug report sent to wherever it is supposed to go – initially an email
+2. User is notified of their submission & brought back to their most recent component
 
 **Notes:**
 
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
-
-**SysML Diagram:**
-
-TBD
-
-**Requirements Table:**
-
-_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
-
-| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
-| --- | --- | --- | --- | --- | --- |
-| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
-
-### ?
-
-**Use Case Name:**  TBD
-
-**Initial Conditions:**
-
-1. TBD
-
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
+1. When the system is integrated with GitHub to automate creation of tickets from bug reports & feedback (to be further through through), the link to the Github issue will be included in the unique user’s profile.
 
 **Identifying Missed Functionality:**
 
@@ -754,7 +711,11 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 
 ## SUBSYSTEM:  Admin (Elevated User) Access
 
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
 ### TODO: Create Community Lead
+
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
 
 **Use Case Name:**  TBD
 
@@ -814,6 +775,8 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 
 ### TODO: Add Community Lead
 
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
 **Use Case Name:**  TBD
 
 **Initial Conditions:**
@@ -871,6 +834,8 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ### TODO: Make Account Inactive for Specific Community
+
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
 
 **Use Case Name:**  TBD
 
@@ -930,6 +895,8 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 
 ### TODO: Create Account
 
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
 **Use Case Name:**  TBD
 
 **Initial Conditions:**
@@ -987,6 +954,8 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ### TODO: Delete Account
+
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
 
 **Use Case Name:**  TBD
 
