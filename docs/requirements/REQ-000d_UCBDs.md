@@ -70,6 +70,8 @@ Some organizations may also include the following as their best practices:
 
 ## UCBD Template
 
+<!-- --8<-- [start:UCBD-Template] -->
+
 _**NOTE:**  Utilize mermaid documentation [here](https://mermaid.js.org/syntax/sequenceDiagram.html) when designing your SysML to work within MarkDown and on GitHub_
 
 **Use Case Name:**  TBD
@@ -127,6 +129,8 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+<!-- --8<-- [end:UCBD-Template] -->
 
 ## SUBSYSTEM:  General User Actions
 
@@ -713,6 +717,12 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 
 This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
 
+**NOTE:** Additional deliverables not yet planned, but should leverage the [UCBD Template](#ucbd-template):
+
+- Make Account Inactive For Specific Community
+- Create Account
+- Delete Account
+
 ### Create Community Lead
 
 This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
@@ -787,39 +797,47 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### TODO: Add Community Lead
+### Upgrade User to Community Lead
 
-This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation - especially since this is part of [creating a community lead](#create-community-lead).
 
-**Use Case Name:**  TBD
+**Use Case Name:**  Admin Upgrades User to Community Lead Account
 
 **Initial Conditions:**
 
-1. TBD
+1. Need to upgrade account to community lead after confirming with community leadership to provide this level of access to the requesting individual
 
 ```mermaid
 ---
-title: Title Here
+title: Admin Upgrades User to Community Lead Account
 config:
     theme: dark
 ---
 sequenceDiagram
     autonumber
-    actor User as Human
+    actor User as SysAdmin
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: System Administrator checks if<br>user exists via provided email address.
+    System-->>User: When found, the system returns the user account.
+    User->>System: System System Admin requests edit for user account.
+    System-->>User: After confirming authentication / authorization,<br>the system unlocks editable fields – including the<br>option to add one or more communities<br>to the requested user.
+    User->>System: System Admin adds user to requested community with<br>elevated community lead role and saves updates.
+    System->>System: The system adds the user as a member to the requested community.<br>The system elevates the user role to Community Lead for that community.<br>
+    System-->>-User: The system provides a notification that the user was updated.
+    User->>+System: System Admin closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. If user is not already in a community, their account is updated
+2. User is given elevated privileges only within that assigned community
 
 **Notes:**
 
-1. TBD
+1. Need UCBD for when the community is not in the system
+2. Users can join more than 1 community, but can only access data related to communities they have joined and been approved by the community lead
 
 **Identifying Missed Functionality:**
 
