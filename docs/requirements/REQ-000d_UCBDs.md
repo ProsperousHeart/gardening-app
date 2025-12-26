@@ -713,39 +713,53 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 
 This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
 
-### TODO: Create Community Lead
+### Create Community Lead
 
 This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
 
-**Use Case Name:**  TBD
+**Use Case Name:**  Admin Creates Community Lead Account
 
 **Initial Conditions:**
 
-1. TBD
+1. Need to upgrade account to community lead after confirming with community leadership to provide this level of access to the requesting individual
+2. Community already exists in the system
+3. Potential community lead is not in the system
 
 ```mermaid
 ---
-title: Title Here
+title: Admin Creates Community Lead Account
 config:
     theme: dark
 ---
 sequenceDiagram
     autonumber
-    actor User as Human
+    actor User as SysAdmin
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: System Administrator checks if<br>user exists via provided email address.
+    System-->>User: The system performs a search and<br>when it cannot find the user,<br>informs systems admin to create an<br>account and upgrade to Community Lead.
+    User->>System: System Admin requests new user account creation.
+    System-->>User: The system provides a new user creation view<br>only system administrators have access to.
+    User->>System: System Admin completes all mandatory fields,<br>adds user to requested community with<br>elevated community lead role, & submits new account.
+    System->>System: The system creates the new user with the provided fields.<br>The system adds the user as a member to the requested community.<br>The system elevates the user role to Community Lead for that community.
+    System-->>-User: System provides successful notification<br>of new user – returns account data.
+    %% create participant GHI as "GitHub Issues"
+    %% System->>GHI: System takes all information from<br>the feedback reporting view<br>& sends a report to wherever it’s supposed to go.
+    %% destroy GHI
+    %% GHI-->>System: ACK or Error
+    User->>+System: System Admin closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. New user created tied to a specific community
+2. New user has elevated permissions only within that assigned community
 
 **Notes:**
 
-1. TBD
+1. Need UCBD for when the community is not in the system
+2. Users can join more than 1 community, but can only access data related to communities they have joined and been approved by the community lead
 
 **Identifying Missed Functionality:**
 
