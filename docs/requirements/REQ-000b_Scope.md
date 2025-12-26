@@ -50,11 +50,11 @@ This section will outline the key scenarios already confirmed for completion wit
 
 23.	Provides training progress to gardening mentors
 
-These scenarios were developed into use cases as outlined in [REQ-000c (Use Cases)](/docs/requirements/REQ-000c_UseCases.md).
+These scenarios were developed into use cases as outlined in [REQ-000c (Use Cases)](./REQ-000c_UseCases.md).
 
 ## Scope Tree
 
-Below is the scope tree attempt utilizing the [use cases](/docs/requirements/REQ-000c_UseCases.md) provided. They were all included for performance criteria understanding.
+Below is the scope tree attempt utilizing the [use cases](./REQ-000c_UseCases.md) provided. They were all included for performance criteria understanding.
 
 ### The System (High Level View)
 
