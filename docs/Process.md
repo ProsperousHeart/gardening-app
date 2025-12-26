@@ -16,7 +16,7 @@ To get the general spec made:
 
 3. created the [general-app-spec-ORIGINAL.md](./specs/general-app-spec-ORIGINAL.md)
 
-4. created `general-app-requirements`
+4. created [`general-app-requirements`](../docs/requirements/for-sdd/general-app-requirements.md)
 
    ```
    Generate specs for a gardener app using @templates/spec-template.md Build the specs in such a way that the different pieces or milestones can be built independently instead of all at once.
