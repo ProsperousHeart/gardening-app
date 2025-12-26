@@ -27,6 +27,7 @@ nav:
     - Repo Creation Process: Process.md
     - Resources: resources.md
   - System Requirements:
+    - requirements/README.md
     - Old Original REQ Docs:
       - Scope:  scope.md
       - System Requirements: system-requirements.md
