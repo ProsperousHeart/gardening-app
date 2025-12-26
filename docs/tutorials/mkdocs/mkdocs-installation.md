@@ -192,10 +192,10 @@ The configuration references a custom stylesheet that needs to exist.
 
 ```bash
 # Create directories
-mkdir -p gardening-docs/docs/stylesheets
+mkdir -p docs/stylesheets
 
 # Create empty CSS file (we'll add styles later)
-touch gardening-docs/docs/stylesheets/extra.css
+touch docs/stylesheets/extra.css
 ```
 
 Or on Windows (PowerShell):
@@ -253,8 +253,8 @@ uv add mkdocs-glightbox
 uv add "mkdocs-material[imaging]"
 
 # Create CSS directory and file
-mkdir -p gardening-docs/docs/stylesheets
-touch gardening-docs/docs/stylesheets/extra.css
+mkdir -p docs/stylesheets
+touch docs/stylesheets/extra.css
 
 # System dependencies (platform-specific - see Step 3 above)
 
@@ -312,8 +312,8 @@ mkdocs serve
 
     **Solution:**
     ```bash
-    mkdir -p gardening-docs/docs/stylesheets
-    touch gardening-docs/docs/stylesheets/extra.css
+    mkdir -p docs/stylesheets
+    touch docs/stylesheets/extra.css
     ```
 
 ??? question "uv: command not found"
@@ -449,9 +449,9 @@ After successful installation:
 
 1. ✅ **Read the extensions guide:** [MkDocs Extensions Guide](mkdocs-extensions-guide.md)
 2. ✅ **Set up image processing:** [Image Processing Setup](image-processing-setup.md)
-3. ✅ **Start writing documentation:** Edit files in `gardening-docs/docs/`
-4. ✅ **Customize styling:** Edit `gardening-docs/docs/stylesheets/extra.css`
-5. ✅ **Configure theme:** Modify `gardening-docs/mkdocs.yml`
+3. ✅ **Start writing documentation:** Edit files in `docs/`
+4. ✅ **Customize styling:** Edit `docs/stylesheets/extra.css`
+5. ✅ **Configure theme:** Modify `mkdocs.yml`
 
 ---
 

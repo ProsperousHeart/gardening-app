@@ -1,6 +1,6 @@
 # System Architecture
 
-Learn more about this project [here](index.md#project-description).
+Learn more about this project [here](index_from-mkdocs.md#project-description).
 
 ---
 

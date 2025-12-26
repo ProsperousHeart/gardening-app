@@ -52,8 +52,8 @@ How components are deployed across infrastructure
 ```markdown
 # Architecture: {Feature Name}
 
-**Requirement**: [REQ-XXX](../requirements/req-xxx.md)
-**Specification**: [SPEC-XXX](../specifications/spec_xxx.md)
+**Requirement**: [REQ-XXX](../../requirements/req-xxx.md)
+**Specification**: [SPEC-XXX](../../docs/specifications/spec-xxx.md)
 **Date**: YYYY-MM-DD
 **Status**: Draft | Under Review | Approved
 

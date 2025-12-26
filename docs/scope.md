@@ -1,6 +1,6 @@
 # Scope
 
-Learn more about this project [here](index.md#project-description).
+Learn more about this project [here](index_from-mkdocs.md#project-description).
 
 ---
 
@@ -14,7 +14,8 @@ Below is the initial context diagram created as part my work in Cornell's [CESYS
 ### Main General Use Context Diagram
 
 This can be found [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764606881791930&cot=14).
-![Main Context Diagram:  General Access](img/context-diagrams/main.jpg)
+
+![Main Context Diagram:  General Access](./diagrams/REQ000/context-main.jpg)
 
 ### Community Gardener Specific Context Diagram
 
@@ -23,7 +24,7 @@ This can be found [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3
 
 ## Scenarios to Consider
 
-In alignment with the [original ideation](/gardening-docs/docs/index.md#original-scenarios--needs), the following are scenarios written as prep for use cases relating to the system.
+In alignment with the [original ideation](index_from-mkdocs.md#original-scenarios--needs), the following are scenarios written as prep for use cases relating to the system.
 
 1. Automatically receiving weather alerts when certain thresholds are hit
 

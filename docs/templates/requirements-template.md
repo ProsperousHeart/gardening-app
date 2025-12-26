@@ -397,7 +397,7 @@ class ModelName(Base):
 
 - **Operating Systems:** Linux, macOS, Windows support
 - **Python Version:** Minimum version required
-- **Virtual Environment:** uv/uvx setup (see [Dependency Management Guide](../../gardening-docs/docs/tutorials/general/dependency-management.md))
+- **Virtual Environment:** uv/uvx setup (see [Dependency Management Guide](../../docs/tutorials/general/dependency-management.md))
 - **Deployment Environment:** Docker, Kubernetes, bare metal, cloud platform
 - **Environment Variables:** Required environment configuration
 

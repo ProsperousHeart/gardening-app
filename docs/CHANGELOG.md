@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Historical Updates
+
+The idea for this app started in Fall 2023.
+
+Version 1 was made in a haste to assist me in my new gardening roles, but this was not sufficient and was put on hold mid 2024. (See the 2024-Django-Attempt folder.)
+
+Nov 2024 - Summer 2025, went through Systems Design certification to complete the requirements documentation. Most of the major milestones have been planned for as of December 2025. Now just trying to put current progress together in a way to utilize specification driven development.
+
 ## [Unreleased]
+
+## 20251224-20251225
+
+- converted most of original requirements documentation into markdown files and mermaid diagrams
+- cleaned up mkdocs structure and fixed broken links
 
 ## 20251215 - AI Development Infrastructure
 
@@ -57,13 +70,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- [stakeholders](/gardening-docs/docs/index.md#stakeholders)
-- [project description](/gardening-docs/docs/index.md#project-description)
-- original [scenarios & needs](/gardening-docs/docs/index.md#scenarios--needs)
-- [context diagrams](/gardening-docs/docs/scope.md#context-diagrams)
-- added link to Miro board in [resources](/gardening-docs/docs/resources.md)
-- additional [scenarios](/gardening-docs/docs/scope.md#scenarios-to-consider)
-- use cases to [scope](/gardening-docs/docs/scope.md#use-cases)
+- [stakeholders](/index_from-mkdocs.md#stakeholders)
+- [project description](/index_from-mkdocs.md#project-description)
+- original [scenarios & needs](/index_from-mkdocs.md#scenarios--needs)
+- [context diagrams](/scope.md#context-diagrams)
+- added link to Miro board in [resources](/resources.md)
+- additional [scenarios](/scope.md#scenarios-to-consider)
+- use cases to [scope](/scope.md#use-cases)
 
 ### Changed
 

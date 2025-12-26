@@ -8,36 +8,6 @@ We need a simple system that allows for easy garden planning as well as a secure
 
 _Progress is notated [here](progress.md)._
 
-### Stakeholders
-
-Here you will find the list of stakeholders and how they are expected to impact the design or use of the system.
-
-- Volunteer developers
-
-- Gardeners of all experience levels
-
-  - New “budding” gardeners / apprentices
-
-  - Master Gardeners
-
-  - “Local” gardeners (relative to location)
-
-  - Community Gardeners (general gardeners)
-
-  - Community Gardeners (apprentices)
-
-  - Community Gardeners (supporters)
-
-  - Community Gardeners (specific teams)
-
-  - Community Gardeners (specific chore groups)
-
-- People looking for gardening apps or tools to improve their knowledge & experience
-
-- Local nurseries & “big box” stores
-
-- Plants to be grown or tended to
-
 ### Original Scenarios & Needs
 
 Below is the initial general outlines & expectations of what this solution should do.
@@ -81,7 +51,7 @@ Below is the structure as seen on GitHub.
             img/                    # static images
                 favicon.ico
             architecuture.md        # architecture of the sytem (FFBDs)
-            index.md                # The documentation homepage & initial requirements
+            INDEX.md                # The documentation homepage & initial requirements
             progress.md             # where solution stands & next steps
             resources.md            # resources that help make the site or app
             scope.md                # UCBDs, scope tree, SysMLs, etc
