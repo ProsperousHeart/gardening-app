@@ -77,7 +77,7 @@ Include code from external files directly into documentation.
 
 From [here](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/) you can also specify sections:
 
-```
+```text
 --8<-- "include.md:name"
 
 --8<--
