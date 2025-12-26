@@ -564,17 +564,21 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### TODO: Give Feedback
+### Give Feedback
 
-**Use Case Name:**  TBD
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
+**Use Case Name:**  General User Submits Improvement Idea / Gives Feedback
 
 **Initial Conditions:**
 
-1. TBD
+1. General user has an idea on how to improve something
+2. feedback submission is always available
+
 
 ```mermaid
 ---
-title: Title Here
+title: General User Submits Improvement Idea / Gives Feedback
 config:
     theme: dark
 ---
@@ -583,18 +587,28 @@ sequenceDiagram
     actor User as Human
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: General user has idea for improvement<br>while working within any component of the system.<br>They engage with the feedback component.
+    System-->>User:  The system shall provide a message that asks<br>if they are submitting feedback or an error,<br>and provides a way to indicate if the current “location”<br>is what they are providing feedback on or not.
+    User->>System: User chooses an option to indicate<br>if it is about the most recent component<br>and marks submission as feedback.
+    System-->>User: If general user said YES to the component ask,<br>then the system provides a filled in & an uneditable<br>field that indicates where the user was last.<br>The system shall provide the feedback<br>reporting component view which includes<br>a text field for their feedback.
+    User->>System: User fills in feedback text field then submits report.
+    create participant GHI as "GitHub Issues"
+    System->>GHI: System takes all information from<br>the feedback reporting view<br>& sends a report to wherever it’s supposed to go.
+    destroy GHI
+    GHI-->>System: ACK or Error
+    System-->>-User: System closes feedback reporting view and<br>alerts general user the status of their submission<br>and any next steps required.
+    User->>System: User closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. Feedback submission sent to wherever it is supposed to go – initially an email
+2. User is notified of their submission & brought back to their most recent component
 
 **Notes:**
 
-1. TBD
+1. When the system is integrated with GitHub to automate creation of tickets from bug reports & feedback (to be further through through), the link to the Github issue will be included in the unique user’s profile.
 
 **Identifying Missed Functionality:**
 
