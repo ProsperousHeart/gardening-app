@@ -4,7 +4,7 @@ This file is a continuation of the [Use Cases](./REQ-000c_UseCases.md) file. It 
 
 This section is not yet complete as of December 2024. This is a working document, as progression is made throughout the solution based on prioritized work.
 
-Excluding the [Guidelines](#ucbd-guidelines) & [Template](#ucbd-template) sections, each section below relates to a specific sub-system as outlined in the [Scope Tree](/docs/requirements/REQ-000b_Scope.md#scope-tree):
+Excluding the [Guidelines](#ucbd-guidelines) & [Template](#ucbd-template) sections, each section below relates to a specific sub-system as outlined in the [Scope Tree](./REQ-000b_Scope.md#scope-tree):
 
 1.	General User
 
@@ -111,6 +111,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -121,7 +122,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -139,7 +140,7 @@ As of Nov 29, 2024 – this is not complete only parts were needed at the time o
 
 1. [Set GPS Permissions](#set-gps-permissions)
 
-2. [User Checks Location Settings](#updating-usda-location--manual)
+2. [User Checks Location Settings](#user-checks-location-settings)
 
 3. [Plant Search](#plant-search)
 
@@ -212,6 +213,7 @@ sequenceDiagram
 | \*\*\* | “System uses GPS data for weather or USDA zone needs” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *Check if GPS permissions are approved
 - **Notify user when GPS is required and not yet approved
 - **If unable to connect to GPS, notify user
@@ -225,7 +227,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -290,6 +292,7 @@ sequenceDiagram
 | \*\*\* | TBD |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -300,7 +303,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -374,6 +377,7 @@ sequenceDiagram
 | \*\*\* | TBD |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *Provide access to the plant search component from anywhere in the system for any user
 - *Provide a view of each plant if user tries to access more information about it
 - *Display the plant list view in such a manner that each row of a plan takes up the same % of space & still be readable. 
@@ -382,11 +386,11 @@ Identifying Missed Functionality – the system shall be able to:
 
 Below is the SysML Diagram with requirements table, which can be seen [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764609900151796&cot=14) in Miro and last updated 20241208.
 
-![UCBD SysML Diagram:  General System User - Plant Search](/docs/diagrams/REQ000/SysML_PlantSearch.png)
+![UCBD SysML Diagram:  General System User - Plant Search](../diagrams/REQ000/SysML_PlantSearch.png)
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -469,6 +473,7 @@ sequenceDiagram
 | \*\*\* | Group TBD |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - _See items from [plant search](#plant-search)_
 - *Filter for plants within suggested frost dates
 - *Filter for plants that need to be sown / transplanted / etc within 1 week of current date (may not be relevant except for sown since not planning on tracking everything the gardener does – there are other systems for that)
@@ -477,12 +482,12 @@ Identifying Missed Functionality – the system shall be able to:
 
 Below is the SysML Diagram with requirements table, which can be seen [here](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764609904604938&cot=14) in Miro and last updated 20241209.
 
-![UCBD SysML Diagram:  General System User - Plant Search (Filter)](/docs/diagrams/REQ000/SysML_PlantSearch_Filter.png)
+![UCBD SysML Diagram:  General System User - Plant Search (Filter)](../diagrams/REQ000/SysML_PlantSearch_Filter.png)
 
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -542,6 +547,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -552,7 +558,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -599,6 +605,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -609,7 +616,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -656,6 +663,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -666,7 +674,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -713,6 +721,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -723,7 +732,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -772,6 +781,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -782,7 +792,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -829,6 +839,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -839,7 +850,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -886,6 +897,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -896,7 +908,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -943,6 +955,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -953,7 +966,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -1000,6 +1013,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -1010,7 +1024,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
@@ -1061,6 +1075,7 @@ sequenceDiagram
 | \*\*\* | “Functionality 3” |
 
 Identifying Missed Functionality – the system shall be able to:
+
 - *item 1 of F1
 - **item 1 of F2
 - ***item 1 of F3
@@ -1071,7 +1086,7 @@ TBD
 
 **Requirements Table:**
 
-_See the [requirement constants definition table](/docs/requirements/REQ000e_Requirements.md) for more. (Including this section!)_
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
 
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |

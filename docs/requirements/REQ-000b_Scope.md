@@ -62,7 +62,7 @@ This shows the major components within the system. This is definitely different 
 
 The below information comes from [this Miro frame](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607916939205&cot=14).
 
-![Scope Tree:  The System](/docs/diagrams/REQ000/ST_TheSystem.jpg)
+![Scope Tree:  The System](../diagrams/REQ000/ST_TheSystem.jpg)
 
 ---
 
@@ -70,7 +70,7 @@ The below information comes from [this Miro frame](https://miro.com/app/board/uX
 
 This dives down into the **GeneralUser** sub-system and comes from [this Miro frame](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607914407243&cot=14).
 
-![Scope Tree:  The System - General User](/docs/diagrams/REQ000/ST_TheSystem_GeneralUser.jpg)
+![Scope Tree:  The System - General User](../diagrams/REQ000/ST_TheSystem_GeneralUser.jpg)
 
 Performance Criteria for General User module:
 
@@ -99,7 +99,7 @@ Intermediate Deliverables (ordered by priority):
 
 This subsection dives down into **TheSystem.GeneralUser.ViewsAndInsights** component and comes from [this Miro frame](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607914535425&cot=14).
 
-![Scope Tree:  The System -> General User -> Views & Insights](/docs/diagrams/REQ000/ST_TheSystem_GeneralUser_ViewsAndInsights.jpg)
+![Scope Tree:  The System -> General User -> Views & Insights](../diagrams/REQ000/ST_TheSystem_GeneralUser_ViewsAndInsights.jpg)
 
 This subsystem has 4 starting deliverables, organized by priority:
 
@@ -208,7 +208,7 @@ This work has been de-prioritized, but some of it has been planned out as a prep
 
 The below image comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607917083938&cot=14) Miro frame:
 
-![Scope Tree:  The System -> General User -> Account Favorites](/docs/diagrams/REQ000/ST_TheSystem_GeneralUser_AcctFaves.jpg)
+![Scope Tree:  The System -> General User -> Account Favorites](../diagrams/REQ000/ST_TheSystem_GeneralUser_AcctFaves.jpg)
 
 **Performance Criteria:**
 
@@ -289,7 +289,7 @@ This work has been de-prioritized, but some of it has been planned out as a prep
 
 The below image comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607920479639&cot=14) Miro frame:
 
-![Scope Tree:  The System -> General User -> Notifications](/docs/diagrams/REQ000/ST_TheSystem_GeneralUser_Notifications.jpg)
+![Scope Tree:  The System -> General User -> Notifications](../diagrams/REQ000/ST_TheSystem_GeneralUser_Notifications.jpg)
 
 **Performance Criteria:**
 
@@ -312,7 +312,7 @@ This work has been de-prioritized, but some of it has been planned out as a prep
 
 Below image comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607916742999&cot=14) Miro frame:
 
-![Scope Tree:  The System -> General User -> Feedback](/docs/diagrams/REQ000/ST_TheSystem_GeneralUser_Feedback.jpg)
+![Scope Tree:  The System -> General User -> Feedback](../diagrams/REQ000/ST_TheSystem_GeneralUser_Feedback.jpg)
 
 **Performance Criteria:**
 
@@ -338,7 +338,7 @@ At this time, this portion has not been planned for yet. It is a nice to have an
 
 The image below comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764611900448136&cot=14) Miro frame:
 
-![Scope Tree:  The System -> General User -> Moon Gardening](/docs/diagrams/REQ000/ST_TheSystem_GeneralUser_MoonGardening.jpg)
+![Scope Tree:  The System -> General User -> Moon Gardening](../diagrams/REQ000/ST_TheSystem_GeneralUser_MoonGardening.jpg)
 
 **Starting Deliverables:**
 
@@ -354,7 +354,7 @@ The image below comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveT
 
 This is last due to complexity for an automated system. Otherwise it must be updated through the repo and manually updated for PROD.
 
-![Scope Tree:  The System -> General User -> Add Plant](/docs/diagrams/REQ000/ST_TheSystem_GeneralUser_AddPlant.jpg)
+![Scope Tree:  The System -> General User -> Add Plant](../diagrams/REQ000/ST_TheSystem_GeneralUser_AddPlant.jpg)
 
 **Performance Criteria:**
 
@@ -386,7 +386,7 @@ This is currently de-prioritized as of 20251224. The basic requirements should b
 
 The current section dives down into the **AdminAccess** sub-system and comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607918743564&cot=14) Miro frame.
 
-![Scope Tree:  The System - AdminAccess](/docs/diagrams/REQ000/ST_TheSystem_AdminAccess.jpg)
+![Scope Tree:  The System - AdminAccess](../diagrams/REQ000/ST_TheSystem_AdminAccess.jpg)
 
 **Performance Criteria:**
 
@@ -437,7 +437,7 @@ The current section dives down into the **AdminAccess** sub-system and comes fro
 
 This dives down into the **CommunityMember** sub-system and comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607919600206&cot=14) Miro frame.
 
-![Scope Tree:  The System - General User](/docs/diagrams/REQ000/ST_TheSystem_CommunityMember.jpg)
+![Scope Tree:  The System - General User](../diagrams/REQ000/ST_TheSystem_CommunityMember.jpg)
 
 **Performance Criteria:**
 
@@ -512,7 +512,7 @@ Not yet fully fleshed out as of December 2024.
 
 The below image is from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607919600556&cot=14) Miro frame.
 
-![Scope Tree:  The System - Community Member - Team & Chores](/docs/diagrams/REQ000/ST_TheSystem_CommunityMember_TeamAndChores.jpg)
+![Scope Tree:  The System - Community Member - Team & Chores](../diagrams/REQ000/ST_TheSystem_CommunityMember_TeamAndChores.jpg)
 
 **Performance Criteria:**
 

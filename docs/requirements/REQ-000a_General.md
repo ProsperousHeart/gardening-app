@@ -10,11 +10,15 @@ Moving forward, please note that the "I" mentioned in documentation is from the 
 
 ## Project Description
 
+<!-- --8<-- [start:Project-Description] -->
+
 I am part of a local community garden where we grow food for local food pantries. In our community garden, we have supporters (who are not official gardeners but support with chores and teams), gardener apprentices who must complete a training program before they can be official gardeners, official gardeners who are like supporters but also have at least 1 plot they are in charge of, and then the city official(s) who manage the Google group for discussion and anything we need from the city.
 
 Our community garden is fairly “old school” and leverages a Google group that some people may or may not be a part of. Often it can be difficult to try to plan for plots throughout the year let alone work on volunteer teams - especially for new gardeners.
 
 We need a simple system that allows for easy garden planning as well as a secure system to collaborate on needs within the community.
+
+<!-- --8<-- [end:Project-Description] -->
 
 ### What the Solution Should Do
 
@@ -43,6 +47,8 @@ Below is a list of high level things the solution should do. As the rest of the 
 
 ## Stakeholders
 
+<!-- --8<-- [start:Stakeholders] -->
+
 Here you will find the list of stakeholders and how they are expected to impact the design or use of the system.
 
 1. Volunteer developers
@@ -50,12 +56,19 @@ Here you will find the list of stakeholders and how they are expected to impact 
 2. Gardeners of all experience levels
 
     - New “budding” gardeners / Community Garden apprentices
+    
     - Master Gardeners
+    
     - “Local” gardeners (relative to given location)
+    
     - Community Gardeners (general gardeners)
+    
     - Community Gardeners (apprentices)
+    
     - Community Gardeners (supporters)
+    
     - Community Gardeners (specific teams)
+
     - Community Gardeners (specific chore groups)
 
 3. People looking for gardening apps or tools to improve their knowledge & experience
@@ -64,21 +77,23 @@ Here you will find the list of stakeholders and how they are expected to impact 
 
 5. Plants to be grown or tended to
 
+<!-- --8<-- [end:Stakeholders] -->
+
 ## Context Diagrams
 
 The Miro links will always contain the latest versions of the below.
 
 ### Main Context Diagram (General Use)
 
-This diagram below can be found at the [general context diagram](../diagrams/context-general.md#main-all-users) section.
+This diagram below can be found at the [general context diagram](../diagrams/REQ000/context-general.md#main-all-users) section.
 
-![General Use Context Diagram](/docs/diagrams/REQ000/context-main.jpg)
+![General Use Context Diagram](../diagrams/REQ000/context-main.jpg)
 
 ### Community Gardener Diagram
 
 This diagram can be found at the [community gardener context diagram](../diagrams/context-general.md#community-gardener-special-user-access) section.
 
-![Community Gardener Use Context Diagram](/docs/diagrams/REQ000/context-community.jpg)
+![Community Gardener Use Context Diagram](../diagrams/REQ000/context-community.jpg)
 
 ## Scenarios and Use Cases
 

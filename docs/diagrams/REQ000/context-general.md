@@ -6,13 +6,13 @@ This section will outline the main context diagram.
 
 TBD - unable to get markitdown to work on PC and not found any other tool with which to do this. Will have to manually create from the image.
 
-![General Use Context Diagram](/docs/diagrams/REQ000/context-main.jpg)
+![General Use Context Diagram](context-main.jpg)
 
 ## Community Gardener (Special User Access)
 
 TBD - unable to get markitdown to work on PC and not found any other tool with which to do this. Will have to manually create from the image.
 
-![Community Gardener Use Context Diagram](/docs/diagrams/REQ000/context-community.jpg)
+![Community Gardener Use Context Diagram](context-community.jpg)
 
 ## Admin (Elevated User Access)
 

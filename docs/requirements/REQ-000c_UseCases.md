@@ -1,6 +1,6 @@
 # Use Cases
 
-Be sure to review [Use Case Behavior Diagrams](/docs/requirements/REQ-000d_UCBDs.md) to see the UCBDs of these use cases.
+Be sure to review [Use Case Behavior Diagrams](REQ-000d_UCBDs.md) to see the UCBDs of these use cases.
 
 ## Actors
 
@@ -18,7 +18,9 @@ _See also the [stakeholders](./REQ-000a_General.md#stakeholders) section._
 10.	System admin
 11.	Volunteer Developer 
 
-## UC Table
+## Use Case Table
+
+Below is the use case table as of summer 2025.
 
 | ACTOR | ACTION | How Critical? (L/M/H) | UC Diagram (Miro) |
 | --- | --- | --- | --- |
@@ -129,6 +131,7 @@ _See also the [stakeholders](./REQ-000a_General.md#stakeholders) section._
 | Volunteer Developer | Uses GitHub & GitHub Actions to improve the code behind the app, including but not limited to approvals of plants to the database | High |  |
 | Volunteer Developer | Writes & utilizes unit tests to ensure proper working system with at least 80% of testing covered. | High |  |
 
+<br>
 The next few sections will be to provide the use case diagrams of different users and roles.
 Use cases were originally identified because they were one or more of the following:
 
@@ -146,40 +149,40 @@ All latest updates are in [this location](https://miro.com/app/board/uXjVLFJo2wg
 
 Here is the [use case diagram](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607290502924&cot=14) for the specific actor:  **General System User**
 
-![Use Case Diagram:  General System User](/docs/diagrams/REQ000/UC_General-System-User.jpg)
+![Use Case Diagram:  General System User](../diagrams/REQ000/UC_General-System-User.jpg)
 
 ### General Use Component:  Weather
 
 Here is the [use case diagram](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607733520251&cot=14) for the specific internal system component:  **Weather**
 
-![Use Case Diagram:  Weather Component](/docs/diagrams/REQ000/UC_Weather.jpg)
+![Use Case Diagram:  Weather Component](../diagrams/REQ000/UC_Weather.jpg)
 
 ### General Use Component:  Saving Plants
 
 Here is the [use case diagram](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607734155500&cot=14) for the specific internal system component:  **Saving Plants Component**
 
-![Use Case Diagram:  Saving Plants Component](/docs/diagrams/REQ000/UC_Saving-Plants.jpg)
+![Use Case Diagram:  Saving Plants Component](../diagrams/REQ000/UC_Saving-Plants.jpg)
 
 ### Elevated User Component:  System Admin, Community Lead, Educator
 
 Here is the [use case diagram](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607727412356&cot=14) for the specific actor:  **System Admin (+ special access needs)**
 
-![Use Case Diagram:  Elevated Access Component](/docs/diagrams/REQ000/UC_Elevated-Users.jpg)
+![Use Case Diagram:  Elevated Access Component](../diagrams/REQ000/UC_Elevated-Users.jpg)
 
 ### Community Role Component:  General Member
 
 Here is the [use case diagram](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607446135000&cot=14) for the specific actor:  **Gardener – Community (Member)**
 
-![Use Case Diagram:  Community Garden (Member)](/docs/diagrams/REQ000/UC_Community-Gardener-Member.jpg)
+![Use Case Diagram:  Community Garden (Member)](../diagrams/REQ000/UC_Community-Gardener-Member.jpg)
 
 ### Community Role Component:  Role Assignment (Team or Chore)
 
 Here is the [use case diagram](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607735882431&cot=14) for the specific actor:  **Gardener – Community (assigned team or chore)**
 
-![Use Case Diagram:  Community Garden Team / Chore](/docs/diagrams/REQ000/UC_Community-Gardener-TeamAndChores.jpg)
+![Use Case Diagram:  Community Garden Team / Chore](../diagrams/REQ000/UC_Community-Gardener-TeamAndChores.jpg)
 
 ### Community Role Component:  Plot Assignment
 
 Here is the [use case diagram](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607743142890&cot=14) for the specific actor:  **Gardener – Community (Plots)**
 
-![Use Case Diagram:  Community Garden (Plot Assignment)](/docs/diagrams/REQ000/UC_PlotAssignments.jpg)
+![Use Case Diagram:  Community Garden (Plot Assignment)](../diagrams/REQ000/UC_PlotAssignments.jpg)
