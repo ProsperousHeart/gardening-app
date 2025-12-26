@@ -1,12 +1,14 @@
-# Requirements Template
+# Requirements Template for Gardening Application Components
 
 Use this template when creating requirements documents for new features or modules. This structured format ensures all necessary information is captured for generating comprehensive specifications.
 
+A quick template can be found [here](requirements/requirements-quick-template.md).
+
 ---
 
-## Feature/Module Name
+## Feature/Module/Component Name
 
-**[FeatureName]** - Use descriptive naming (e.g., snake_case for Python modules, descriptive names for features)
+**[FeatureOrComponentName]** - Use descriptive naming (e.g., snake_case for Python modules and PascalCase for web components, descriptive names for features)
 
 ---
 
@@ -14,7 +16,7 @@ Use this template when creating requirements documents for new features or modul
 
 ### Purpose
 
-- What problem does this feature/module solve?
+- What problem does this feature/module/component solve?
 - What value does it provide to users?
 - Why is this needed?
 
@@ -26,15 +28,15 @@ Use this template when creating requirements documents for new features or modul
 
 ### Users
 
-- **Primary Users:** Who will directly interact with this feature?
-- **Secondary Users:** Who else might be affected by this feature?
-- **Stakeholders:** Who has interest in this feature?
+- **Primary Users:** Who will directly interact with this feature or component?
+- **Secondary Users:** Who else might be affected by this feature or component?
+- **Stakeholders:** Who has interest in this feature or component?
 
 ### Usage Scenarios
 
-- When will users interact with this feature?
-- What triggers its execution or activation?
-- What are common user workflows involving this feature?
+- When will users interact with this feature or component?
+- What triggers its execution, display, or activation?
+- What are common user workflows involving this feature or component?
 
 ---
 
@@ -42,7 +44,7 @@ Use this template when creating requirements documents for new features or modul
 
 ### Core Features
 
-List the essential functionality this feature must provide:
+List the essential functionality this feature or component must provide:
 
 1. **[Feature 1 Name]**
 
@@ -66,14 +68,15 @@ List the essential functionality this feature must provide:
 
 ### State Management
 
-- What state does this feature manage?
+- What state does this feature manage & what is received from parent components?
 - What configuration is required?
 - What persistent data needs to be maintained?
 - How is state synchronized across the system?
+- What state changes need to be communicated to parent components?
 
 ---
 
-## Interface Requirements
+## User Interface Requirements
 
 ### Layout & Structure
 
@@ -223,6 +226,7 @@ class ModelName(Base):
 - Data format requirements
 - Error messages for validation failures
 - Handling of invalid data
+- using CodeGuard rules for data validation
 
 ---
 
@@ -230,9 +234,9 @@ class ModelName(Base):
 
 ### Component Dependencies
 
-- **React/Next.js Components:** What built-in or third-party components are needed?
+- **HTMX Components:** What built-in or third-party components are needed?
 - **Utility Functions:** What helper functions or utilities are required?
-- **Hooks:** What React hooks (built-in or custom) will be used?
+{% comment %} - **Hooks:** What React hooks (built-in or custom) will be used? {% endcomment %}
 - **External Libraries:** What third-party libraries are needed?
 
 ### Parent Component Integration
@@ -306,7 +310,7 @@ class ModelName(Base):
 
 - **Language:** Python version (e.g., Python 3.12+)
 - **Backend Framework:** Django, Flask, FastAPI, etc. (with versions)
-- **Database:** PostgreSQL, MySQL, SQLite, MongoDB, etc.
+- **Database:** should be integration independent (PostgreSQL, MySQL, SQLite, MongoDB, etc.) but the main focus is to start on sqlite
 - **Frontend:** (if applicable) React, Vue, HTMX, etc.
 - **Styling:** Tailwind CSS
 - **Other Technologies:** Message queues, caching, search engines, etc.
@@ -374,6 +378,8 @@ class ModelName(Base):
 - **Constants:** UPPER_CASE for constants
 
 ### Security Considerations
+
+Ensure we are also using CodeGuard rules for security best practices! Including but not limited to:
 
 - **Input Sanitization:** How should user input be sanitized?
 - **Authentication:** Does this require authentication? What method?
@@ -479,6 +485,7 @@ class ModelName(Base):
 - [ ] No security vulnerabilities introduced
 - [ ] Sensitive data properly protected
 - [ ] Security scanning passes (e.g., bandit, safety)
+- [ ] CodeGuard rules followed and validated
 
 ### Documentation Validation
 
