@@ -6,11 +6,11 @@ This section is not yet complete as of December 2024. This is a working document
 
 Excluding the [Guidelines](#ucbd-guidelines) & [Template](#ucbd-template) sections, each section below relates to a specific sub-system as outlined in the [Scope Tree](./REQ-000b_Scope.md#scope-tree):
 
-1.	General User
+1.	[General User](#subsystem--general-user-actions)
 
-2.	Admin Access
+2.	[Admin Access](#subsystem--admin-elevated-user-access)
 
-3.	Community Member
+3.	[Community Member](#subsystem--community-member)
 
 
 ## Identifying Top High Priority Use Cases
