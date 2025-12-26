@@ -352,13 +352,13 @@ title: Image Processing Test
 
 ## Test 1: Single Image
 
-![USDA Hardiness Zone Map](img/context-diagrams/main.jpg)
+![USDA Hardiness Zone Map](./diagrams/REQ000/context-main.jpg)
 
 Click the image above to test lightbox functionality.
 
 ## Test 2: Image Gallery
 
-![Context Diagram 1](img/context-diagrams/main.jpg)
+![Context Diagram 1](../../diagrams/REQ000/context-main.jpg)
 ![Context Diagram 2](img/context-diagrams/community-gardener.jpg)
 
 Click images and use arrow keys or swipe to navigate.

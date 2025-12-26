@@ -12,19 +12,43 @@ copyright: Copyright &copy; 2025 Kassandra Keeton
 # Repository Configuration
 repo_url: https://github.com/ProsperousHeart/gardening-app
 repo_name: ProsperousHeart/gardening-app
-edit_uri: edit/main/gardening-docs/docs/  # Enables "Edit on GitHub" links
+edit_uri: edit/main/docs/  # Enables "Edit on GitHub" links
+docs_dir: docs  # Documentation source directory
 
 # Navigation Structure
 nav:
-  - Home: index.md
-  - System Requirements:
-    - Scope:  scope.md
-    - System Requirements: system-requirements.md
-    - Architecture: architecture.md
-  - Progress: progress.md
-  - General:
-    - Resources: resources.md
+  - Home:
+    - README.md
+    - About: about.md
+    - Old Master Indexes:
+      - Overview (Docs Master Index): INDEX.md
+      - MkDocs IDX: index_from-mkdocs.md
     - Author Resume: "https://resume.prosperousheart.com/"
+    - Repo Creation Process: Process.md
+    - Resources: resources.md
+  - System Requirements:
+    - Old Original REQ Docs:
+      - Scope:  scope.md
+      - System Requirements: system-requirements.md
+      - Architecture: architecture.md
+    - REQ Docs Converted to MkDocs:
+      # - Overview: requirements/README.md
+      # - Functional Requirements: requirements/functional-requirements.md
+      # - Non-Functional Requirements: requirements/non-functional-requirements.md
+      # - User Stories: requirements/user-stories.md
+      - requirements/README.md
+      - General: requirements/REQ-000a_General.md
+      - Scope: requirements/REQ-000b_Scope.md
+      - Use Cases: requirements/REQ-000c_UseCases.md
+      - UCBDs: requirements/REQ-000d_UCBDs.md
+      - Requirements: requirements/REQ-000e_Requirements.md
+  - Developer Documentation:
+    - Progress: CHANGELOG.md
+    # - Requirements: requirements/README.md
+    - Specifications: specifications/README.md
+    - Architecture Diagrams: diagrams/README.md
+    - Project Rules: rules/README.md
+    - Decision History: history/README.md
   - Tutorials:
     - Checklists:
       - Pre-Push Checklist: checklists/pre-push-checklist.md

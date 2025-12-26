@@ -10,8 +10,8 @@ It has been determined that Django and Render will be used to host this web app.
 
 **For Documentation:**
 - [Project Documentation](https://prosperousheart.github.io/gardening-app/)
-- [Dependency Management Guide](gardening-docs/docs/tutorials/general/dependency-management.md)
-- [Makefile Guide](gardening-docs/docs/tutorials/general/makefile-guide.md)
+- [Dependency Management Guide](docs/tutorials/general/dependency-management.md)
+- [Makefile Guide](docs/tutorials/general/makefile-guide.md)
 
 **Common Commands:**
 ```bash

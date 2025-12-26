@@ -75,6 +75,16 @@ Include code from external files directly into documentation.
 --8<-- "path/to/code.py"
 ```
 
+From [here](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/) you can also specify sections:
+
+```
+--8<-- "include.md:name"
+
+--8<--
+include.md:name
+--8<--
+```
+
 ### `pymdownx.superfences` - Advanced Code Blocks
 
 Enables nested code blocks and custom fences like Mermaid diagrams.
