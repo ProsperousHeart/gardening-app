@@ -871,37 +871,40 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 
 This is not fully fleshed out at the moment, as there are some elevated user access to be considered.
 
-### TODO: General Member - Access Announcements
+### General Member - Access Announcements
 
-**Use Case Name:**  TBD
+**Use Case Name:**  Community Garden member or supporter accesses announcements component
 
 **Initial Conditions:**
 
-1. TBD
+1. General user also is a member of a Community Garden
+2. Community Garden member or supporter accesses their specific community
+3. Community Garden member or supporter is only in 1 community
 
 ```mermaid
 ---
-title: Title Here
+title: Community Garden member or supporter accesses announcements
 config:
     theme: dark
 ---
 sequenceDiagram
     autonumber
-    actor User as Human
+    actor User as CG Member
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: Community Garden member or supporter<br>accesses the community garden section of the system
+    System-->>-User: The system provides a general Community Garden<br>view where at the top is a drop down of<br>community gardens they belong to – by default,<br>it is the most recent community they accessed.<br><br>The system shall provide in this new view<br>a way to access the different components for teams,<br>chores, plot management, and apprentice training.<br><br>The system shall provide the announcements<br>for that community in the center and<br>taking up most of the view with<br>an option for Community Garden member & community leads ONLY<br>to post an announcement.<br><br>If no current announcements, a message<br>will indicate that there are none.<br><br>All announcements that are still active<br>will show date submitted, date expiring, who submitted<br>the announcement, and text explanation of what’s being announced.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. Community Garden member or supporter still able to see all options for the system as before, with some additional access points directly related to their community
+2. Able to view all announcements for each community the user is a part of
 
 **Notes:**
 
-1. TBD
+1. Need UCBD to show what happens if user is in multiple communities.
 
 **Identifying Missed Functionality:**
 
