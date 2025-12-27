@@ -2,6 +2,12 @@
 
 This directory is where you should save all the requirements documents created for the project.
 
+!!! info "Full Version Available"
+
+Current full & updated version of this page is currently in the works & can be found <a href="https://docs.google.com/document/d/1decYpeZlxtQeLBvPupJ2VFWPRHVlUZnn/edit?usp=sharing&ouid=114844884846337292418&rtpof=true&sd=true" target="_blank">here</a>. And as of 20251226, this should be converted in it's entirety to this site. You are welcome to peruse this to see it's original documentation state, but it is a much better experience viewing it through this site instead.
+
+<!-- <iframe src="https://docs.google.com/document/d/1decYpeZlxtQeLBvPupJ2VFWPRHVlUZnn/edit?usp=sharing&ouid=114844884846337292418&rtpof=true&sd=true" width="100%" height="600px"></iframe> -->
+
 ## Purpose
 
 - Store requirements crafted by humans (all **REQ-000** files) as machine readable markdown files

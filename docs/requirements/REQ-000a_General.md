@@ -20,6 +20,8 @@ We need a simple system that allows for easy garden planning as well as a secure
 
 <!-- --8<-- [end:Project-Description] -->
 
+_Progress is notated [here](progress.md)._
+
 ### What the Solution Should Do
 
 Below is a list of high level things the solution should do. As the rest of the requirements and specifications are built out, it may do more than this over time. (The project will be completed in such a manner as is prioritized by the [stakeholders](#stakeholders).)
@@ -79,22 +81,6 @@ Here you will find the list of stakeholders and how they are expected to impact 
 
 <!-- --8<-- [end:Stakeholders] -->
 
-## Context Diagrams
-
-The Miro links will always contain the latest versions of the below.
-
-### Main Context Diagram (General Use)
-
-This diagram below can be found at the [general context diagram](../diagrams/REQ000/context-general.md#main-all-users) section.
-
-![General Use Context Diagram](../diagrams/REQ000/context-main.jpg)
-
-### Community Gardener Diagram
-
-This diagram can be found at the [community gardener context diagram](../diagrams/REQ000/context-general.md#community-gardener-special-user-access) section.
-
-![Community Gardener Use Context Diagram](../diagrams/REQ000/context-community.jpg)
-
-## Scenarios and Use Cases
+## Context Diagrams, Scenarios and Use Cases
 
 Be sure to review [REQ-000b_Scope.md](./REQ-000b_Scope.md) for this information.
