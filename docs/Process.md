@@ -124,3 +124,12 @@ To get the general spec made:
    \
    Be sure to split this up so that the first spec is teh general layout of the app with placeholders for the different needs. These placeholders will be dynamically updated when the component is ready. Each major component for this application should have it's own spec doc so each piece can be worked on a piece at a time.
    ```
+
+## Developing Requirements
+
+This section is not to explain how [REQ-000x](./requirements/) markdown files - those were developed with the original project description & stakeholders in mind.
+
+The current section is to walk you through what I did to build out the repo after I:
+
+- took what I learned from a specification driven development workshop (similar to digitized delivery) and created my own base from it
+- got an initial outline for MVP planning with help of AI - still need to complete review & update as needed for appropriate MVP plan
