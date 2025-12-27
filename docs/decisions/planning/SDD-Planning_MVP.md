@@ -1845,25 +1845,32 @@ echo "Component ${COMPONENT_NAME} complete!"
 
 #### Comparison Summary
 
-| Feature | Claude Code (Agents) | GitHub Copilot (Chat) |
-|---------|---------------------|----------------------|
-| **Workflow Automation** | High - agents execute multiple steps autonomously | Low - manual step-by-step prompting |
-| **Research Capability** | Explore agent does deep, autonomous research | Manual research + @workspace context |
-| **File Operations** | Direct read/write/edit of files | Manual copy/paste to files |
-| **Progress Tracking** | TodoWrite automatic tracking | Manual checklist tracking |
-| **Slash Commands** | Native `/command` support | Must copy prompts manually |
-| **Multi-Step Workflows** | Single prompt → full workflow | One prompt per step |
-| **Context Awareness** | Full conversation + file system | @workspace files only |
-| **Parallel Execution** | Yes - multiple tools simultaneously | No - sequential only |
-| **Review Checkpoints** | Built-in pause/resume | Manual checkpoints |
-| **Best For** | End-to-end component generation | Step-by-step guided development |
-| **Human Effort** | Low - mostly review and approve | High - orchestrate every step |
+| Feature | Bash Script | Claude Code (Agents) | GitHub Copilot (Chat) |
+|---------|-------------|---------------------|----------------------|
+| **Workflow Automation** | High - fixed workflow orchestration | High - intelligent, adaptive workflow | Low - manual step-by-step prompting |
+| **Adaptability** | None - follows hardcoded logic paths | High - adapts to context, errors, findings | Medium - adapts per manual prompt |
+| **Research Capability** | None - requires pre-populated data | Explore agent does deep, autonomous research | Manual research + @workspace context |
+| **File Operations** | Shell commands (grep, sed, awk, etc.) | Direct read/write/edit with AI understanding | Manual copy/paste to files |
+| **Progress Tracking** | Echo statements + manual tracking | TodoWrite automatic tracking | Manual checklist tracking |
+| **Slash Commands** | Calls slash commands via bash | Native `/command` support | Must copy prompts manually |
+| **Multi-Step Workflows** | Yes - orchestrates commands/scripts | Yes - executes and coordinates steps | Yes - can generate multi-step plan with prompt refs |
+| **Multi-Step Execution** | Fully automated execution | Fully automated execution | Manual execution of each step |
+| **Context Awareness** | Syntax only - no semantic understanding | Full semantic understanding + file system | @workspace files with AI understanding |
+| **Parallel Execution** | Yes - `&`, `wait`, `xargs -P`, etc. | Yes - multiple tools simultaneously | No - sequential only |
+| **Error Handling** | If/else logic - must code all cases | AI reasoning about errors and solutions | AI suggests fixes, human implements |
+| **Review Checkpoints** | Manual `read` prompts | Built-in pause/resume | Manual checkpoints |
+| **AI-Powered** | No - shell scripting only | Yes - full Claude Code capabilities | Yes - GitHub Copilot AI |
+| **Best For** | Repeatable, fixed workflows | Dynamic, context-aware generation | Step-by-step guided development |
+| **Human Effort** | Low - run script, review at checkpoints | Low - mostly review and approve | High - orchestrate every step |
+| **Setup Complexity** | Medium - write and maintain script | None - built-in capability | None - built-in capability |
+| **Workflow Changes** | Requires script editing | AI adapts automatically | Requires different prompts |
 
 **Recommendation**:
 
-- **Use Claude Code** for full component generation (requirements → spec → code)
+- **Use Bash Script** for repeatable automation of existing slash commands (good for batch processing)
+- **Use Claude Code** for intelligent, context-aware component generation with autonomous agents
 - **Use GitHub Copilot** for individual code editing and refinement within IDE
-- **Hybrid Approach**: Claude Code for workflow automation, Copilot for in-IDE assistance
+- **Hybrid Approach**: Bash for workflow orchestration + Claude Code for AI assistance + Copilot for in-IDE editing
 
 ---
 
