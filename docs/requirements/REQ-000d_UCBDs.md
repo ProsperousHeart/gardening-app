@@ -146,9 +146,11 @@ As of Nov 29, 2024 – this is not complete only parts were needed at the time o
 
 2. [User Checks Location Settings](#user-checks-location-settings)
 
-3. [Plant Search](#plant-search)
+3. [User Sets Unit System Preference](#user-sets-unit-system-preference)
 
-4. [Plant Search (Filter)](#plant-search-filter)
+4. [Plant Search](#plant-search)
+
+5. [Plant Search (Filter)](#plant-search-filter)
 
 ### Set GPS Permissions
 
@@ -286,6 +288,84 @@ sequenceDiagram
 1. By default, automating USDA zone by GPS location should be turned off.
 
 2. Profile can be accessed from anywhere within the system.
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | TBD |
+| \*\* | TBD |
+| \*\*\* | TBD |
+
+Identifying Missed Functionality – the system shall be able to:
+
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+### User Sets Unit System Preference
+
+!!! warning
+    This section was made by AI and has not yet been reviewed by a human as of 20251227. It came about while finalizing the MVP that we would need to allow the user to determine if they were using the imperial or metric system. You can see more in the **FFBD F.2.1.5.3** section.
+
+**Use Case Name:**  User Sets Unit System Preference
+
+**Initial Conditions:**
+
+1. User has access to personal settings
+2. Unit system preference is either not set (defaults to imperial) or needs to be updated
+
+```mermaid
+---
+title: User Sets Unit System Preference
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    participant Settings
+    User->>+System: User accesses their profile/settings to update unit preferences
+    System->>Settings: Request current unit preference setting
+    Settings-->>System: Return current preference (imperial/metric)
+    System-->>User: Display current unit preference with option to change
+    User->>System: Select preferred unit system (imperial or metric)
+    System->>Settings: Save unit preference
+    Settings-->>System: Confirm preference saved
+    System-->>User: Confirmation displayed.<br>All measurements now display in selected units
+```
+<br>
+
+**Ending Conditions:**
+
+1. User's unit system preference is saved to their profile
+2. All measurements throughout the application display in the selected unit system
+3. Preference persists across sessions
+
+**Notes:**
+
+1. Unit preference applies application-wide to all measurements including:
+   - Plant spacing (min/max)
+   - Plant height (min/max)
+   - Container sizes
+   - Weather-related measurements (temperature, precipitation)
+
+2. No need to track units at individual data item level - conversion happens at display time based on user preference
+
+3. Profile/settings can be accessed from anywhere within the system
 
 **Identifying Missed Functionality:**
 

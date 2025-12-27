@@ -158,6 +158,7 @@ This is the core of the entire system. Below you will find high level expectatio
 7. additional links to learn more about it
 8. plant color(s)
 9. soil type options (what they are & which one is best for the related plant)
+10. plant physical measurements (spacing min/max, height min/max, container size) - displayed in user's preferred unit system (imperial or metric)
 
 ##### Starting Deliverable:  Calculations
 
@@ -262,6 +263,7 @@ The below image comes from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveT
 1. unique user ID
 2. USDA zone (or similar for their country)
 3. location (optional)
+4. unit system preference (imperial or metric) - applies to all measurements throughout the application
 
 ##### Starting Deliverble:  Save Plant Favorites
 
@@ -398,9 +400,10 @@ This is last due to complexity for an automated system. Otherwise it must be upd
 3. germination time & days to harvest
 4. companion plant(s)
 5. beneficial uses (e.g.: rabbit/deer repellant, pollinator friendly)
-8. color expectations
-9. best in what soil type
-10. shade preferences vs tolerance
+6. plant physical measurements (spacing min/max, height min/max, container size) - displayed in user's preferred unit system (imperial or metric)
+7. color expectations
+8. best in what soil type
+9. shade preferences vs tolerance
 
 ---
 
