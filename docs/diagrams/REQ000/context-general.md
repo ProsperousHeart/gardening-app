@@ -12,7 +12,7 @@ TBD - unable to get markitdown to work on PC and not found any other tool with w
 
 TBD - unable to get markitdown to work on PC and not found any other tool with which to do this. Will have to manually create from the image.
 
-![Community Gardener Use Context Diagram](context-community.jpg)
+![Community Gardener Use Context Diagram](context-community-gardener.jpg)
 
 ## Admin (Elevated User Access)
 

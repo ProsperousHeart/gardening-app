@@ -359,7 +359,7 @@ Click the image above to test lightbox functionality.
 ## Test 2: Image Gallery
 
 ![Context Diagram 1](../../diagrams/REQ000/context-main.jpg)
-![Context Diagram 2](img/context-diagrams/community-gardener.jpg)
+![Context Diagram 2](../../diagrams/REQ000/context-community-gardener.jpg)
 
 Click images and use arrow keys or swipe to navigate.
 

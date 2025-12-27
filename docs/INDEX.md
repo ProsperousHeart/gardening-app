@@ -1,7 +1,5 @@
 # Documentation Master Index
 
-**Last Updated**: 2025-11-10
-
 This is the central hub for all project documentation. This index is automatically maintained as requirements, specifications, and code evolve.
 
 ## Quick Links

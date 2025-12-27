@@ -1,5 +1,29 @@
 # Scope
 
+See description of project [here](./REQ-000a_General.md#project-description)
+
+## Context Diagrams
+
+The Miro links will always contain the latest versions of the below.
+
+Below is the initial context diagram created as part my work in Cornell's [CESYS521 Defining Scope](https://ecornell.cornell.edu/courses/project-leadership-and-systems-design/defining-scope/) course.
+
+### Main Context Diagram (General Use)
+
+<!-- This diagram below can be found at the [general context diagram](../diagrams/REQ000/context-general.md#main-all-users) section. -->
+
+This can be found from [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764606881791930&cot=14) Miro frame.
+
+![Main Context Diagram:  General Access](../diagrams/REQ000/context-main.jpg)
+
+### Community Gardener Specific Context Diagram
+
+<!-- This diagram can be found at the [community gardener context diagram](../diagrams/REQ000/context-general.md#community-gardener-special-user-access) section. -->
+
+This can be found in [this](https://miro.com/app/board/uXjVLFJo2wg=/?moveToWidget=3458764607139220750&cot=14) Miro frame.
+
+![Sub Context Diagram:  Community Garden Access](../diagrams/REQ000/context-community-gardener.jpg)
+
 ## Scenarios
 
 This section will outline the key scenarios already confirmed for completion with this application. They are not currently sorted in any particular order as of 20251224.
