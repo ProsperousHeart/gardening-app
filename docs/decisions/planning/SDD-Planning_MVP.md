@@ -53,9 +53,20 @@ These files contain high-level systems design artifacts (status is estimated and
 | `REQ-000b_Scope.md` | Context diagrams, scenarios, scope trees | System boundaries | Complete |
 | `REQ-000c_UseCases.md` | Actor-based use case table (23+ scenarios) | User interactions | Complete |
 | `REQ-000d_UCBDs.md` | Use Case Behavior Diagrams | Behavioral flows | Complete |
-| `REQ-000e_Requirements.md` | Centralized requirements table | Requirement specs | Started |
+| `REQ-000e_Requirements.md` | Centralized requirements table | Requirement specs | Started (25 provisional data mgmt reqs added) |
 | `REQ-000f_FBDs.md` | Functional Flow Block Diagrams | Functional architecture | Complete |
 | `REQ-000g_Decisions.md` | Decision diagrams | Design decisions | Complete |
+
+**Recent Updates** (2025-12-27):
+
+- Added 25 provisional data management requirements to REQ-000e (OR3.N - OR7.N) covering:
+  - Plant data CSV loading and validation
+  - PlantLinks management
+  - Nursery data management
+  - Companion plant relationships
+  - Data integrity and canonical sources
+- Enhanced REQ-000b Plant Database section with detailed, categorized data needs
+- Updated REQ-000a with high-level data seeding capabilities
 
 **Key Finding**: The REQ-000 series provides excellent high-level systems design but lacks the **detailed, implementable requirements** needed to generate specifications following `requirements-template.md`.
 
@@ -1638,8 +1649,15 @@ This executes `.github/prompts/security-review.prompt.md` which:
 #### Prerequisites
 
 1. **Environment Setup**:
+
+   **Claude Code:**
    ```bash
    /setup-env
+   ```
+
+   **GitHub Copilot:**
+   ```
+   Execute .github/instructions/uv-environment-setup.instructions.md
    ```
 
 2. **Review Templates**:
@@ -1658,11 +1676,18 @@ This executes `.github/prompts/security-review.prompt.md` which:
 **Requirement 1: Plant Database**
 
 1. **Generate Requirement**:
+
+    **Claude Code:**
+    ```bash
+    /create-requirement general-user-plant-database
+    ```
+
+    **GitHub Copilot:**
     ```
     Execute .github/prompts/create-requirement.prompt.md for "general-user-plant-database"
     ```
 
-    Output: `docs/requirements/req-01-general-user-plant-database.md`
+    **Output:** `docs/requirements/req-01-general-user-plant-database.md`
 
 2. **Manual Review**:
     - Verify all sections complete
@@ -1671,11 +1696,18 @@ This executes `.github/prompts/security-review.prompt.md` which:
     - Review data model against `2024-Django-Attempt/Plants/models.py`
 
 3. **Generate Specification**:
+
+    **Claude Code:**
+    ```bash
+    /make-spec-from-req docs/requirements/req-01-general-user-plant-database.md
+    ```
+
+    **GitHub Copilot:**
     ```
     Execute .github/prompts/workflow-requirements-to-spec.prompt.md for docs/requirements/req-01-general-user-plant-database.md
     ```
 
-    Outputs:
+    **Outputs:**
 
     - `docs/specifications/spec-01-general-user-plant-database.md`
     - `docs/diagrams/arch-01-general-user-plant-database.md`
@@ -1689,29 +1721,57 @@ This executes `.github/prompts/security-review.prompt.md` which:
 
 5. **Implement with TDD**:
 
+    **Claude Code:**
+    ```bash
+    /implement-spec docs/specifications/spec-01-general-user-plant-database.md
+    ```
+
+    **GitHub Copilot:**
     ```
     Execute .github/prompts/workflow-spec-to-code.prompt.md for docs/specifications/spec-01-general-user-plant-database.md
     ```
 
-    Outputs:
+    **Outputs:**
 
     - Source files: `src/plants/models.py`, etc.
     - Test files: `tests/test_plants.py`, etc.
 
 6. **Verify Implementation**:
 
+    **Standard commands (both Claude Code and GitHub Copilot):**
+
     ```bash
     make lint
     make format
     make test
+    ```
+
+    **Claude Code:**
+
+    ```bash
     /verify src/plants
     /security-review src/plants
     ```
 
-7. **Update Cross-Reference**:
+    **GitHub Copilot:**
 
     ```
+    Execute .github/prompts/verify-implementation.prompt.md for src/plants
+    Execute .github/prompts/security-review.prompt.md for src/plants
+    ```
+
+7. **Update Cross-Reference**:
+
+    **Claude Code:**
+
+    ```bash
     /update-docs spec-cross-ref req-01-general-user-plant-database.md
+    ```
+
+    **GitHub Copilot:**
+    
+    ```
+    Execute .github/prompts/update-documentation.prompt.md for spec-cross-ref req-01-general-user-plant-database.md
     ```
 
 **Requirement 2: Plant Search & Filter**
