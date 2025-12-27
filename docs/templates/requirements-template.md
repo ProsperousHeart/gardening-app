@@ -357,7 +357,7 @@ class ModelName(Base):
   - Type hints and mypy compliance
 - **Documentation:**
   - Docstring format (Google, NumPy, or reStructuredText)
-  - ABOUTME comments at top of files
+  - module docstring at top of files
   - README and user documentation
 - **Testing:**
   - Test file naming (`test_*.py`)
@@ -461,7 +461,7 @@ Ensure we are also using CodeGuard rules for security best practices! Including 
 - [ ] Code follows project style guidelines (PEP 8, Black, flake8)
 - [ ] Type hints are complete and correct (if using mypy)
 - [ ] Module is in correct location with correct naming
-- [ ] ABOUTME comments present at top of files
+- [ ] Module docstring present at top of files
 - [ ] No linting errors or warnings
 - [ ] Logging implemented correctly
 

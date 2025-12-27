@@ -108,13 +108,8 @@ Perform comprehensive implementation verification following these steps:
 
 ## Step 5: Documentation Verification
 
-1. **Verify ABOUTME comments**:
-   - Check all module files start with 2-line ABOUTME comment
-   - Verify format: `ABOUTME: {description}`
-   - Confirm description accurately describes the file
-
-2. **Check docstrings**:
-   - Verify module has module-level docstring
+1. **Check docstrings**:
+   - Verify module has module-level docstring and accurately describes the module, function, class, etc
    - Check all public functions have docstrings
    - Verify all classes have docstrings
    - Confirm docstrings follow `docs/rules/docstring-standards.md` (Google style)
@@ -125,7 +120,7 @@ Perform comprehensive implementation verification following these steps:
      - Raises for exceptions
      - Examples for complex functions
 
-3. **Verify type hints in signatures**:
+2. **Verify type hints in signatures**:
    - Check all parameters have type annotations
    - Verify return types are annotated
    - Confirm complex types properly documented
@@ -372,7 +367,6 @@ Create a comprehensive pass/fail report with the following sections:
 
 ### Documentation
 - ✅ PASS or ❌ FAIL
-- ABOUTME comments: ✅ PASS or ❌ FAIL
 - Module docstring: ✅ PASS or ❌ FAIL
 - Function docstrings: ✅ PASS or ❌ FAIL (X/Y functions documented)
 - Class docstrings: ✅ PASS or ❌ FAIL (X/Y classes documented)

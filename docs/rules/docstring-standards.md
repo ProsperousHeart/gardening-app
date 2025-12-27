@@ -10,11 +10,11 @@ This project uses **Google-style docstrings** with type hints in function signat
 
 ## 📋 Module-Level Docstrings
 
-Every Python file must start with an ABOUTME comment and module docstring:
+Every Python file must start with module docstring:
 
 ```python
-# ABOUTME: This module handles user authentication and session management.
-# ABOUTME: It provides functions for login, logout, and token validation.
+# This module handles user authentication and session management.
+# It provides functions for login, logout, and token validation.
 
 """
 User authentication module.
@@ -208,7 +208,6 @@ class UserSession:
 
 ## ✅ Requirements Checklist
 
-- [ ] Every module has ABOUTME comment (2 lines)
 - [ ] Every module has module-level docstring
 - [ ] Every public function/method has docstring
 - [ ] Every class has docstring
@@ -246,8 +245,8 @@ def add(a, b):
     """
     return a + b
 
-# ❌ Bad: Missing ABOUTME comment at module level
-"""Module for authentication."""  # Should have ABOUTME first
+# ❌ Bad: Missing accurate module docstring - this is too simple and not standard practice
+"""Module for authentication."""
 ```
 
 ## ✅ Do This

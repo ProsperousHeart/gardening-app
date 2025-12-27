@@ -184,8 +184,8 @@ scripts/
 ```python
 #!/usr/bin/env python3
 """
-ABOUTME: This script automatically updates the master documentation index.
-ABOUTME: It scans docs/ folders and regenerates INDEX.md with current files.
+This script automatically updates the master documentation index.
+It scans docs/ folders and regenerates INDEX.md with current files.
 """
 
 import os

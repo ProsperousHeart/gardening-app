@@ -102,7 +102,6 @@ For EACH function/class/feature:
 2. Write minimal code to pass ALL tests (functional + security, no over-engineering)
 3. Apply project patterns:
    - Use type hints for all parameters and return values
-   - Add ABOUTME comment (2 lines) if new module
    - Import required dependencies
 4. **Use secure coding practices** (not optional):
    - Input validation and sanitization (prevent injection attacks)
@@ -144,7 +143,6 @@ For EACH function/class/feature:
    - **Fill any security gaps** discovered during review
 
 2. **Verify code standards compliance**:
-   - All modules have ABOUTME comments (2 lines at top)
    - All functions have Google-style docstrings
    - Type hints on all function signatures
    - Use pathlib.Path for file operations (platform independence)
@@ -318,8 +316,8 @@ Result: ❌ FAIL (ImportError: cannot import name 'add')
 **🟢 GREEN - Write Minimal Code:**
 ```python
 # src/calculator.py
-# ABOUTME: Calculator module for basic arithmetic operations
-# ABOUTME: Provides functions for addition, subtraction, multiplication, and division
+# Calculator module for basic arithmetic operations
+# Provides functions for addition, subtraction, multiplication, and division
 
 def add(a, b):
     return a + b
@@ -331,8 +329,8 @@ Result: ✅ PASS
 **🔵 REFACTOR - Improve Code:**
 ```python
 # src/calculator.py (after refactoring)
-# ABOUTME: Calculator module for basic arithmetic operations
-# ABOUTME: Provides functions for addition, subtraction, multiplication, and division
+# Calculator module for basic arithmetic operations
+# Provides functions for addition, subtraction, multiplication, and division
 
 """Calculator module for basic arithmetic operations."""
 

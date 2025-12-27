@@ -115,8 +115,8 @@ This shows what variables are needed without exposing real secrets.
 Modify your `config/settings.py` (or wherever your settings file is):
 
 ```python
-# ABOUTME: Django settings for gardening application
-# ABOUTME: Uses environment variables for configuration
+# Django settings for gardening application
+# Uses environment variables for configuration
 
 import os
 from pathlib import Path
