@@ -188,7 +188,7 @@ Create tabbed content blocks for organizing related information.
 
 ### `admonition` - Callout Boxes
 
-Create attention-grabbing callout boxes.
+Create attention-grabbing callout boxes as per [here](https://squidfunk.github.io/mkdocs-material/reference/admonitions).
 
 **Available Types:**
 
