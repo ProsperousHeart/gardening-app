@@ -100,6 +100,13 @@ python manage.py load_plants docs/data/initial_plants.csv --clear
 
 ## Related Documentation
 
+### Requirements
+
+- **Plant Database Scope**: [REQ-000b_Scope](../requirements/REQ-000b_Scope.md#starting-deliverable--plant-database) - Formal data needs and requirements
+- **Data Management Requirements**: [REQ-000e_Requirements](../requirements/REQ-000e_Requirements.md) - CSV loading, validation, and integrity (OR3.N - OR7.N)
+
+### Implementation Guides
+
 - **Complete Seeding Guide**: `docs/tutorials/general/database-seeding-guide.md`
 - **Plant Model**: `2024-Django-Attempt/Plants/models.py:21-104`
 - **MVP Planning**: `docs/decisions/planning/SDD-Planning_MVP.md`
