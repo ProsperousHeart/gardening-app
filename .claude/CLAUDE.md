@@ -4,6 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This project also uses the CodeGuard plugin for AI-assisted secure code generation.
 
+## Quick Reference
+
+**Essential Commands:**
+```bash
+make install       # Install all dependencies
+make format        # Format code with Black
+make lint          # Check code quality with flake8
+make test          # Run tests with pytest
+make help          # Show all available commands
+```
+
+**Critical Rules:**
+- ✅ Use `uv` for dependency management (NEVER `pip`)
+- ✅ Follow TDD workflow: Red → Green → Refactor
+- ✅ Include THREE diagram formats (Text, ASCII, Mermaid)
+- ❌ NEVER commit with `--no-verify` flag (bypasses pre-commit hooks)
+- ❌ NEVER use `2024-Django-Attempt/` for new development (reference only)
+
+**Python Version:** 3.12+
+
+**Primary Workflows:**
+- Requirements → Spec: `/make-spec-from-req <req-file>`
+- Spec → Code: `/implement-spec <spec-file>`
+
 ## Table of Contents
 
 - [Project Specific Details](#project-specific-details)
@@ -63,7 +87,7 @@ This is a gardening application designed to help new gardeners and community gar
 
 **IMPORTANT:** The `2024-Django-Attempt/` folder contains an original Django implementation that will likely be removed soon. This is **reference only** for understanding existing data models.
 
-**Current focus** is on **systems requirements documentation** in the `gardening-docs/` folder using MkDocs. The documentation represents formal systems design including:
+**Current focus** is on **systems requirements documentation** in the `docs/` folder. The documentation represents formal systems design including:
 
 - Context diagrams defining system boundaries and stakeholders
 - Use cases and scenarios (23+ scenarios identified)
@@ -83,33 +107,36 @@ This is a gardening application designed to help new gardeners and community gar
 
 #### Documentation Structure
 
-Currently, there are 2 locations for documentation:
-1. Used for mkdocs
-2. Used for program architecture planning and specification driven development
+**All documentation lives in the `docs/` directory**, which serves dual purposes:
+1. **MkDocs website source** (deployed to GitHub Pages)
+2. **Specification-driven development** (requirements, specs, diagrams - used for program architecture planning and specification driven development)
 
-Documentation for mkdocs needs is located in `docs/`:
-
-- `index.md` - Project description, stakeholders, original scenarios
-- `scope.md` - Context diagrams, use cases, scenarios, scope tree
-- `system-requirements.md` - Requirements documentation (in progress)
-- `architecture.md` - Functional Flow Block Diagrams (TBD)
-- `progress.md` - Current status and next steps
-- `resources.md` - Resources used in development
-
-mkdocs Configuration: `mkdocs.yml`
-
-The project uses a comprehensive documentation system for specification driven development in `docs/`:
+**Documentation organization:**
 
 ```
 docs/
 ├── INDEX.md                    # Documentation master index
 ├── SPEC-CROSS-REFERENCE.md     # Tracks requirements→specs→code→tests
-├── requirements/               # What to build
-├── specifications/             # How to build it
-├── diagrams/                   # Architecture diagrams
-├── templates/                  # Templates for docs creation
-├── rules/                      # Project standards
-└── history/                    # Decision logs
+├── README.md                   # Entry point for docs
+├── about.md                    # Project about page
+├── CHANGELOG.md                # Project changelog
+├── Process.md                  # Repo creation process
+├── resources.md                # Development resources
+├── INTEGRATION.md              # Integration documentation
+├── requirements/               # Requirements documentation (what to build)
+├── specifications/             # Technical specifications (how to build it)
+├── diagrams/                   # Architecture & design diagrams
+├── templates/                  # Documentation templates
+├── rules/                      # Standards (markdown, docstrings, error resolution, output format)
+├── history/                    # Decision logs & historical documentation
+├── checklists/                 # Pre-push & security checklists
+├── decisions/                  # Decision records
+├── tutorials/                  # How-to guides (general, mkdocs, genai)
+├── files/                      # Supporting files
+├── img/                        # Images and diagrams
+├── stylesheets/                # Custom CSS for MkDocs
+└── output-logs/                # Build and output logs
+mkdocs.yml                      # mkdocs Configuration
 ```
 
 **Key Documentation Standards:**
@@ -273,7 +300,7 @@ make test      # Run all tests
 pytest -v      # Run with verbose output
 ```
 
-**IMPORTANT:** Never commit with `--no-verify` flag.
+**IMPORTANT:** Never commit with `--no-verify` flag. This project uses git pre-commit hooks to enforce code quality standards (linting, formatting, tests). The `--no-verify` flag bypasses these critical checks and can introduce broken or non-compliant code into the repository.
 
 ### Quick Start with Makefile
 
@@ -303,19 +330,23 @@ For linting, update configuration in `.flake8` (max line length: 88).
 
 ### MkDocs Documentation
 
+**Documentation Source:** All documentation lives in the `docs/` directory, which serves both:
+1. MkDocs website source (deployed to GitHub Pages)
+2. Specification-driven development documentation (requirements, specs, diagrams)
+
+**MkDocs commands (run from project root):**
 ```bash
-# Build static site
-cd gardening-docs
+# Build static site (outputs to site/ directory)
 mkdocs build
 
-# Serve documentation locally (auto-reload on changes)
-cd gardening-docs
+# Serve documentation locally with auto-reload on changes
 mkdocs serve
 
 # Deploy to GitHub Pages
-cd gardening-docs
 mkdocs gh-deploy
 ```
+
+**Configuration:** `mkdocs.yml` at project root. **Deployed site:** https://prosperousheart.github.io/gardening-app/
 
 ### Environment Setup
 
@@ -372,7 +403,7 @@ Project CodeGuard is an open-source security framework from Cisco that embeds se
 ### Code Standards
 
 - **Docstrings**: See `docs/rules/docstring-standards.md`
-- **Python version**: Python 3.14+
+- **Python version**: Python 3.12+ (specified in `pyproject.toml`)
 
 #### Testing Requirements
 
