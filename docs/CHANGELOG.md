@@ -19,6 +19,7 @@ Nov 2024 - Summer 2025, went through Systems Design certification to complete th
 
 - converted most of original requirements documentation into markdown files and mermaid diagrams
 - cleaned up mkdocs structure and fixed broken links
+- added [FFBDs](./requirements/REQ-000f_FBDs.md)
 
 ## 20251215 - AI Development Infrastructure
 
