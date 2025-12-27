@@ -88,6 +88,12 @@ uv lock --upgrade-package <package-name>
 uv sync --all-groups
 ```
 
+You can also sync AND upgrade using:
+
+```bash
+uv sync --upgrade
+```
+
 ## CI/CD Integration
 
 Our GitHub Actions workflows use `uv sync` to install dependencies:

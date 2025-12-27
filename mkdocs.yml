@@ -203,6 +203,11 @@ plugins:
       lang: en
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
+  # Table Reader - Import tables from CSV/Excel files
+  # Allows {{ read_csv('file.csv') }} and {{ read_excel('file.xlsx') }} in markdown
+  # See tutorials/mkdocs/mkdocs-extensions-guide.md for usage examples
+  - table-reader
+
   # Minify HTML/CSS/JS for faster loading
   - minify:
       minify_html: true

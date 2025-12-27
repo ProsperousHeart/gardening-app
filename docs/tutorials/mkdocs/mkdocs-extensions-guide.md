@@ -292,6 +292,78 @@ Create beautiful, responsive tables.
 | Content      | Content        | Content       |
 ```
 
+### `mkdocs-table-reader-plugin` - Import Tables from External Files
+
+View this extension's documentation [here](https://timvink.github.io/mkdocs-table-reader-plugin/). Learn how to use it to create reproducible reports via [here](https://timvink.nl/blog/reproducible-reports-with-mkdocs/).
+
+Include tables directly from CSV, Excel, or other data files into your documentation.
+
+**Installation:**
+```bash
+uv add mkdocs-table-reader-plugin
+```
+
+**Configuration in mkdocs.yml:**
+```yaml
+plugins:
+  - table-reader
+```
+
+**Basic Usage - CSV Files:**
+```markdown
+{{ read_csv('path/to/data.csv') }}
+```
+
+**Basic Usage - Excel Files:**
+```markdown
+{{ read_excel('path/to/spreadsheet.xlsx') }}
+```
+
+**Read Specific Excel Sheet:**
+```markdown
+{{ read_excel('path/to/spreadsheet.xlsx', sheet_name='Sheet1') }}
+```
+
+**Advanced Options:**
+```markdown
+<!-- Include only specific columns -->
+{{ read_csv('data.csv', usecols=['Name', 'Zone', 'Type']) }}
+
+<!-- Skip rows -->
+{{ read_csv('data.csv', skiprows=2) }}
+
+<!-- Use specific encoding -->
+{{ read_csv('data.csv', encoding='utf-8') }}
+
+<!-- Read Excel with specific range -->
+{{ read_excel('data.xlsx', sheet_name='Plants', usecols='A:D') }}
+```
+
+**Example - Decision Matrix:**
+```markdown
+## Project Decisions
+
+The following decision matrix was used to evaluate our options:
+
+{{ read_excel('../../decisions/CESYS524_decision-matrix_kkeeton.xlsx') }}
+```
+
+**Features:**
+- Automatically converts CSV/Excel to markdown tables
+- Supports pandas DataFrame operations
+- Updates automatically when source files change
+- No need to manually maintain duplicate table data
+- Supports filtering, column selection, and formatting
+
+**Use Cases:**
+- Decision matrices and trade-off analyses
+- Quality Function Deployment (QFD) matrices
+- FMEA (Failure Mode and Effects Analysis) tables
+- N-squared charts and interface matrices
+- Any tabular data stored in external files
+
+**Learn More:** [mkdocs-table-reader-plugin Documentation](https://timvink.github.io/mkdocs-table-reader-plugin/)
+
 ---
 
 ## Styling Extensions
