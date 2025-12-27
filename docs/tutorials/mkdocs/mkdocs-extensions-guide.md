@@ -298,6 +298,8 @@ View this extension's documentation [here](https://timvink.github.io/mkdocs-tabl
 
 Include tables directly from CSV, Excel, or other data files into your documentation.
 
+**NOTE:** This was removed from the project since we did not want to work with the data but merely show the sheet.
+
 **Installation:**
 ```bash
 uv add mkdocs-table-reader-plugin
@@ -311,32 +313,32 @@ plugins:
 
 **Basic Usage - CSV Files:**
 ```markdown
-{{ read_csv('path/to/data.csv') }}
+\{\{ read_csv('path/to/data.csv') \}\}
 ```
 
 **Basic Usage - Excel Files:**
 ```markdown
-{{ read_excel('path/to/spreadsheet.xlsx') }}
+\{\{ read_excel('path/to/spreadsheet.xlsx') \}\}
 ```
 
 **Read Specific Excel Sheet:**
 ```markdown
-{{ read_excel('path/to/spreadsheet.xlsx', sheet_name='Sheet1') }}
+\{\{ read_excel('path/to/spreadsheet.xlsx', sheet_name='Sheet1') \}\}
 ```
 
 **Advanced Options:**
 ```markdown
 <!-- Include only specific columns -->
-{{ read_csv('data.csv', usecols=['Name', 'Zone', 'Type']) }}
+\{\{ read_csv('data.csv', usecols=['Name', 'Zone', 'Type']) \}\}
 
 <!-- Skip rows -->
-{{ read_csv('data.csv', skiprows=2) }}
+\{\{ read_csv('data.csv', skiprows=2) \}\}
 
 <!-- Use specific encoding -->
-{{ read_csv('data.csv', encoding='utf-8') }}
+\{\{ read_csv('data.csv', encoding='utf-8') \}\}
 
 <!-- Read Excel with specific range -->
-{{ read_excel('data.xlsx', sheet_name='Plants', usecols='A:D') }}
+\{\{ read_excel('data.xlsx', sheet_name='Plants', usecols='A:D') \}\}
 ```
 
 **Example - Decision Matrix:**

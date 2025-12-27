@@ -19,7 +19,6 @@ dependencies = [
     "mkdocs-glightbox>=0.5.2",
     "mkdocs-material[imaging]>=9.7.0",
     "mkdocs-minify-plugin>=0.8.0",
-    "mkdocs-table-reader-plugin>=3.1.0",
     "packaging==24.2",
     "pathspec==0.12.1",
     "platformdirs==4.3.6",

@@ -43,6 +43,7 @@ nav:
       - UCBDs: requirements/REQ-000d_UCBDs.md
       - Requirements: requirements/REQ-000e_Requirements.md
       - FFBDs: requirements/REQ-000f_FBDs.md
+      - Decisions: requirements/REQ-000g_Decisions.md
   - Developer Documentation:
     - Progress: CHANGELOG.md
     # - Requirements: requirements/README.md
@@ -203,10 +204,10 @@ plugins:
       lang: en
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
-  # Table Reader - Import tables from CSV/Excel files
-  # Allows {{ read_csv('file.csv') }} and {{ read_excel('file.xlsx') }} in markdown
-  # See tutorials/mkdocs/mkdocs-extensions-guide.md for usage examples
-  - table-reader
+  # # Table Reader - Import tables from CSV/Excel files
+  # # Allows {{ read_csv('file.csv') }} and {{ read_excel('file.xlsx') }} in markdown
+  # # See tutorials/mkdocs/mkdocs-extensions-guide.md for usage examples
+  # - table-reader
 
   # Minify HTML/CSS/JS for faster loading
   - minify:
@@ -319,7 +320,7 @@ exclude_docs: |
   *.py               # Any file with this extension anywhere (pyrthon files)
   index_ORIGINAL.md  # backup of original index file
   *.docx             # word doc files
-  _templates/        # Template files
+  # _templates/        # Template files
 
 # ========================================
 # CONFIGURATION NOTES
