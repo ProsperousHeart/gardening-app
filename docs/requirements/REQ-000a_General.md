@@ -91,7 +91,7 @@ This diagram below can be found at the [general context diagram](../diagrams/REQ
 
 ### Community Gardener Diagram
 
-This diagram can be found at the [community gardener context diagram](../diagrams/context-general.md#community-gardener-special-user-access) section.
+This diagram can be found at the [community gardener context diagram](../diagrams/REQ000/context-general.md#community-gardener-special-user-access) section.
 
 ![Community Gardener Use Context Diagram](../diagrams/REQ000/context-community.jpg)
 

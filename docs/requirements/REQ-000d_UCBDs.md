@@ -6,11 +6,11 @@ This section is not yet complete as of December 2024. This is a working document
 
 Excluding the [Guidelines](#ucbd-guidelines) & [Template](#ucbd-template) sections, each section below relates to a specific sub-system as outlined in the [Scope Tree](./REQ-000b_Scope.md#scope-tree):
 
-1.	General User
+1.	[General User](#subsystem--general-user-actions)
 
-2.	Admin Access
+2.	[Admin Access](#subsystem--admin-elevated-user-access)
 
-3.	Community Member
+3.	[Community Member](#subsystem--community-member)
 
 
 ## Identifying Top High Priority Use Cases
@@ -70,6 +70,8 @@ Some organizations may also include the following as their best practices:
 
 ## UCBD Template
 
+<!-- --8<-- [start:UCBD-Template] -->
+
 _**NOTE:**  Utilize mermaid documentation [here](https://mermaid.js.org/syntax/sequenceDiagram.html) when designing your SysML to work within MarkDown and on GitHub_
 
 **Use Case Name:**  TBD
@@ -127,6 +129,8 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+<!-- --8<-- [end:UCBD-Template] -->
 
 ## SUBSYSTEM:  General User Actions
 
@@ -564,17 +568,21 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### TODO: Give Feedback
+### Give Feedback
 
-**Use Case Name:**  TBD
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
+**Use Case Name:**  General User Submits Improvement Idea / Gives Feedback
 
 **Initial Conditions:**
 
-1. TBD
+1. General user has an idea on how to improve something
+2. feedback submission is always available
+
 
 ```mermaid
 ---
-title: Title Here
+title: General User Submits Improvement Idea / Gives Feedback
 config:
     theme: dark
 ---
@@ -583,18 +591,28 @@ sequenceDiagram
     actor User as Human
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: General user has idea for improvement<br>while working within any component of the system.<br>They engage with the feedback component.
+    System-->>User:  The system shall provide a message that asks<br>if they are submitting feedback or an error,<br>and provides a way to indicate if the current “location”<br>is what they are providing feedback on or not.
+    User->>System: User chooses an option to indicate<br>if it is about the most recent component<br>and marks submission as feedback.
+    System-->>User: If general user said YES to the component ask,<br>then the system provides a filled in & an uneditable<br>field that indicates where the user was last.<br>The system shall provide the feedback<br>reporting component view which includes<br>a text field for their feedback.
+    User->>System: User fills in feedback text field then submits report.
+    create participant GHI as "GitHub Issues"
+    System->>GHI: System takes all information from<br>the feedback reporting view<br>& sends a report to wherever it’s supposed to go.
+    destroy GHI
+    GHI-->>System: ACK or Error
+    System-->>-User: System closes feedback reporting view and<br>alerts general user the status of their submission<br>and any next steps required.
+    User->>System: User closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. Feedback submission sent to wherever it is supposed to go – initially an email
+2. User is notified of their submission & brought back to their most recent component
 
 **Notes:**
 
-1. TBD
+1. When the system is integrated with GitHub to automate creation of tickets from bug reports & feedback (to be further through through), the link to the Github issue will be included in the unique user’s profile.
 
 **Identifying Missed Functionality:**
 
@@ -622,17 +640,22 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### TODO: Report Error
+### Report Error
 
-**Use Case Name:**  TBD
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
+**NOTE:**  this is VERY similar to the other - could potentially consolidate into a single mermaid, but it would go against what was taught in the course. Need to consider what is best for development.
+
+**Use Case Name:**  General User Reports Issue
 
 **Initial Conditions:**
 
-1. TBD
+1. General user has run into an issue with the system
+2. feedback submission is always available
 
 ```mermaid
 ---
-title: Title Here
+title: General User Reports Error
 config:
     theme: dark
 ---
@@ -641,76 +664,28 @@ sequenceDiagram
     actor User as Human
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: General user has an error to report<br>while working within any component of the system.<br>They engage with the feedback component.
+    System-->>User: The system shall provide a message that<br>asks if they are submitting feedback or an error, and<br>provides a way to indicate if the current “location” is<br>what they are providing feedback on or not.
+    User->>System: User chooses an option to indicate<br>if it is about the most recent component<br>and marks submission as bug report.
+    System-->>User: If general user said YES to the component ask,<br>then the system provides a filled in & uneditable field<br>that indicates where the user was last.<br>The system shall provide the bug reporting<br>component view which includes a text field for<br>their feedback along with prompts to<br>understand how to reproduce the bug.
+    User->>System: User fills in required field(s) then submits report.
+    System-->>-User:  System takes all information from the feedback reporting view<br>& sends a report to wherever it’s supposed to go.<br>System closes feedback reporting view<br>and alerts general user that their submission is sent.
+    %% create participant GHI as "GitHub Issues"
+    %% System->>GHI: System takes all information from<br>the feedback reporting view<br>& sends a report to wherever it’s supposed to go.
+    %% destroy GHI
+    %% GHI-->>System: ACK or Error
+    User->>System: User closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. Bug report sent to wherever it is supposed to go – initially an email
+2. User is notified of their submission & brought back to their most recent component
 
 **Notes:**
 
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
-
-**SysML Diagram:**
-
-TBD
-
-**Requirements Table:**
-
-_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
-
-| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
-| --- | --- | --- | --- | --- | --- |
-| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
-
-### ?
-
-**Use Case Name:**  TBD
-
-**Initial Conditions:**
-
-1. TBD
-
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
+1. When the system is integrated with GitHub to automate creation of tickets from bug reports & feedback (to be further through through), the link to the Github issue will be included in the unique user’s profile.
 
 **Identifying Missed Functionality:**
 
@@ -740,37 +715,61 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 
 ## SUBSYSTEM:  Admin (Elevated User) Access
 
-### TODO: Create Community Lead
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
 
-**Use Case Name:**  TBD
+**NOTE:** Additional deliverables not yet planned, but should leverage the [UCBD Template](#ucbd-template):
+
+- Make Account Inactive For Specific Community
+- Create Account
+- Delete Account
+
+### Create Community Lead
+
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation.
+
+**Use Case Name:**  Admin Creates Community Lead Account
 
 **Initial Conditions:**
 
-1. TBD
+1. Need to upgrade account to community lead after confirming with community leadership to provide this level of access to the requesting individual
+2. Community already exists in the system
+3. Potential community lead is not in the system
 
 ```mermaid
 ---
-title: Title Here
+title: Admin Creates Community Lead Account
 config:
     theme: dark
 ---
 sequenceDiagram
     autonumber
-    actor User as Human
+    actor User as SysAdmin
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: System Administrator checks if<br>user exists via provided email address.
+    System-->>User: The system performs a search and<br>when it cannot find the user,<br>informs systems admin to create an<br>account and upgrade to Community Lead.
+    User->>System: System Admin requests new user account creation.
+    System-->>User: The system provides a new user creation view<br>only system administrators have access to.
+    User->>System: System Admin completes all mandatory fields,<br>adds user to requested community with<br>elevated community lead role, & submits new account.
+    System->>System: The system creates the new user with the provided fields.<br>The system adds the user as a member to the requested community.<br>The system elevates the user role to Community Lead for that community.
+    System-->>-User: System provides successful notification<br>of new user – returns account data.
+    %% create participant GHI as "GitHub Issues"
+    %% System->>GHI: System takes all information from<br>the feedback reporting view<br>& sends a report to wherever it’s supposed to go.
+    %% destroy GHI
+    %% GHI-->>System: ACK or Error
+    User->>+System: System Admin closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. New user created tied to a specific community
+2. New user has elevated permissions only within that assigned community
 
 **Notes:**
 
-1. TBD
+1. Need UCBD for when the community is not in the system
+2. Users can join more than 1 community, but can only access data related to communities they have joined and been approved by the community lead
 
 **Identifying Missed Functionality:**
 
@@ -798,37 +797,47 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### TODO: Add Community Lead
+### Upgrade User to Community Lead
 
-**Use Case Name:**  TBD
+This is the same as it was first planned back in Jan 2025. Likely needs review before final implementation - especially since this is part of [creating a community lead](#create-community-lead).
+
+**Use Case Name:**  Admin Upgrades User to Community Lead Account
 
 **Initial Conditions:**
 
-1. TBD
+1. Need to upgrade account to community lead after confirming with community leadership to provide this level of access to the requesting individual
 
 ```mermaid
 ---
-title: Title Here
+title: Admin Upgrades User to Community Lead Account
 config:
     theme: dark
 ---
 sequenceDiagram
     autonumber
-    actor User as Human
+    actor User as SysAdmin
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: System Administrator checks if<br>user exists via provided email address.
+    System-->>User: When found, the system returns the user account.
+    User->>System: System System Admin requests edit for user account.
+    System-->>User: After confirming authentication / authorization,<br>the system unlocks editable fields – including the<br>option to add one or more communities<br>to the requested user.
+    User->>System: System Admin adds user to requested community with<br>elevated community lead role and saves updates.
+    System->>System: The system adds the user as a member to the requested community.<br>The system elevates the user role to Community Lead for that community.<br>
+    System-->>-User: The system provides a notification that the user was updated.
+    User->>+System: System Admin closes notification.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. If user is not already in a community, their account is updated
+2. User is given elevated privileges only within that assigned community
 
 **Notes:**
 
-1. TBD
+1. Need UCBD for when the community is not in the system
+2. Users can join more than 1 community, but can only access data related to communities they have joined and been approved by the community lead
 
 **Identifying Missed Functionality:**
 
@@ -856,215 +865,46 @@ _See the [requirement constants definition table](./REQ-000e_Requirements.md) fo
 | --- | --- | --- | --- | --- | --- |
 | **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
-### TODO: Make Account Inactive for Specific Community
 
-**Use Case Name:**  TBD
-
-**Initial Conditions:**
-
-1. TBD
-
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
-
-**SysML Diagram:**
-
-TBD
-
-**Requirements Table:**
-
-_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
-
-| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
-| --- | --- | --- | --- | --- | --- |
-| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
-
-### TODO: Create Account
-
-**Use Case Name:**  TBD
-
-**Initial Conditions:**
-
-1. TBD
-
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
-
-**SysML Diagram:**
-
-TBD
-
-**Requirements Table:**
-
-_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
-
-| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
-| --- | --- | --- | --- | --- | --- |
-| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
-
-### TODO: Delete Account
-
-**Use Case Name:**  TBD
-
-**Initial Conditions:**
-
-1. TBD
-
-```mermaid
----
-title: Title Here
-config:
-    theme: dark
----
-sequenceDiagram
-    autonumber
-    actor User as Human
-    participant System as "The System"
-    %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
-```
-<br>
-
-**Ending Conditions:**
-
-1. TBD
-
-**Notes:**
-
-1. TBD
-
-**Identifying Missed Functionality:**
-
-| Additional Grouping of Requirements | Description |
-| ----------------------------------- | ----------- |
-| \* | “Functionality 1” |
-| \*\* | “Functionality 2” |
-| \*\*\* | “Functionality 3” |
-
-Identifying Missed Functionality – the system shall be able to:
-
-- *item 1 of F1
-- **item 1 of F2
-- ***item 1 of F3
-
-**SysML Diagram:**
-
-TBD
-
-**Requirements Table:**
-
-_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
-
-| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
-| --- | --- | --- | --- | --- | --- |
-| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
 
 ## SUBSYSTEM:  Community Member
 
 This is not fully fleshed out at the moment, as there are some elevated user access to be considered.
 
-### TODO: General Member - Access Announcements
+### General Member - Access Announcements
 
-**Use Case Name:**  TBD
+**Use Case Name:**  Community Garden member or supporter accesses announcements component
 
 **Initial Conditions:**
 
-1. TBD
+1. General user also is a member of a Community Garden
+2. Community Garden member or supporter accesses their specific community
+3. Community Garden member or supporter is only in 1 community
 
 ```mermaid
 ---
-title: Title Here
+title: Community Garden member or supporter accesses announcements
 config:
     theme: dark
 ---
 sequenceDiagram
     autonumber
-    actor User as Human
+    actor User as CG Member
     participant System as "The System"
     %% links System: {"Requirements": ""}
-    User->>+System: Step 1
-    System-->>User: Step 2 ...
+    User->>+System: Community Garden member or supporter<br>accesses the community garden section of the system
+    System-->>-User: The system provides a general Community Garden<br>view where at the top is a drop down of<br>community gardens they belong to – by default,<br>it is the most recent community they accessed.<br><br>The system shall provide in this new view<br>a way to access the different components for teams,<br>chores, plot management, and apprentice training.<br><br>The system shall provide the announcements<br>for that community in the center and<br>taking up most of the view with<br>an option for Community Garden member & community leads ONLY<br>to post an announcement.<br><br>If no current announcements, a message<br>will indicate that there are none.<br><br>All announcements that are still active<br>will show date submitted, date expiring, who submitted<br>the announcement, and text explanation of what’s being announced.
 ```
 <br>
 
 **Ending Conditions:**
 
-1. TBD
+1. Community Garden member or supporter still able to see all options for the system as before, with some additional access points directly related to their community
+2. Able to view all announcements for each community the user is a part of
 
 **Notes:**
 
-1. TBD
+1. Need UCBD to show what happens if user is in multiple communities.
 
 **Identifying Missed Functionality:**
 
