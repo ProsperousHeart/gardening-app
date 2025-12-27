@@ -294,11 +294,14 @@ Create beautiful, responsive tables.
 
 ### `mkdocs-table-reader-plugin` - Import Tables from External Files
 
+Note that even after installing `mkdocs-table-reader-plugin` you may still be asked to install:
+
+- `openpyxl`
+- `xlrd`
+
 View this extension's documentation [here](https://timvink.github.io/mkdocs-table-reader-plugin/). Learn how to use it to create reproducible reports via [here](https://timvink.nl/blog/reproducible-reports-with-mkdocs/).
 
 Include tables directly from CSV, Excel, or other data files into your documentation.
-
-**NOTE:** This was removed from the project since we did not want to work with the data but merely show the sheet.
 
 **Installation:**
 ```bash
@@ -347,7 +350,7 @@ plugins:
 
 The following decision matrix was used to evaluate our options:
 
-{{ read_excel('../../decisions/CESYS524_decision-matrix_kkeeton.xlsx') }}
+{{ read_excel('../../decisions/CESYS524_decision-matrix.xlsx') }}
 ```
 
 **Features:**
