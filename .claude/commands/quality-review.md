@@ -55,7 +55,6 @@ Follow .github/instructions/security-review.instructions.md:
 
 - ✅ docs/SPEC-CROSS-REFERENCE.md updated
 - ✅ docs/INDEX.md updated
-- ✅ All code has ABOUTME comments
 - ✅ README files updated if needed
 
 ### 5. Detailed Module Verification (Optional)
