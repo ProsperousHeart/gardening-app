@@ -146,19 +146,89 @@ This is the core of the entire system. Below you will find high level expectatio
 **Performance Criteria:**
 
 1. view on what a single plant's data looks like
+2. support initial data loading from CSV files
+3. validate data on import and report errors
+4. handle duplicate prevention on data loading
 
 **Data Needs:**
 
-1. plant name (including scientific)
-2. perennial vs annual for the USDA zone
-3. germination time & harvest time
-4. Used in what recipes (link to each)
-5. plant benefits (e.g.:  rabbit resistant, hummingbird attractor)
-6. book title, author, page number can be found in (could have multiple book references)
-7. additional links to learn more about it
-8. plant color(s)
-9. soil type options (what they are & which one is best for the related plant)
-10. plant physical measurements (spacing min/max, height min/max, container size) - displayed in user's preferred unit system (imperial or metric)
+**Core Identification:**
+
+1. plant name (common) - required
+2. plant name (scientific) - optional
+3. unique plant identifier (auto-generated)
+
+**Plant Classification:**
+
+4. plant type (annual, biennial, perennial, tender perennial, shrub, tree, vine, unknown) - required, default: unknown
+5. exposure requirements (full sun, full to partial sun, partial sun, partial shade, shade) - required, default: full sun
+6. hardiness zone range (low and high, from 1a-13b or na) - required, default: 8b for both
+
+**Physical Characteristics:**
+
+7. plant physical measurements - displayed in user's preferred unit system (imperial or metric):
+   - spacing (min/max in cm or inches) - optional, default: 0
+   - height (min/max in cm or inches) - optional, default: 0
+   - suggested container size (in liters or gallons) - optional, default: 0
+
+**Growing Information:**
+
+8. germination time (days) - optional, default: 0
+9. days to harvest/maturity - optional, default: 0
+10. soil type options (what they are & which one is best for the related plant)
+11. plant color(s)
+
+**Plant Benefits & Characteristics (Boolean Flags):**
+
+12. plant benefits (18+ boolean characteristics):
+    - Hybrid variety
+    - Deadheading suggested
+    - Good for border/container/landscape/rock garden/shrubs
+    - Butterfly attractor
+    - Pollinator friendly
+    - Deer resistant
+    - Mosquito repellent
+    - Rabbit resistant
+    - Drought tolerant
+    - Heat tolerant
+    - Earth-Kind certified
+    - Waterwise
+    - Organic variety
+    - Non-GMO variety
+
+**Medicinal & Culinary:**
+
+13. medicinal benefits (list of alleged properties) - optional
+14. used in what recipes (link to each)
+
+**Resources & References:**
+
+15. book title, author, page number can be found in (could have multiple book references)
+16. additional links to learn more about it (external resources, videos, articles, nursery info)
+
+**Companion Plants:**
+
+17. companion plants (related beneficial plant pairings) - many-to-many relationship
+
+**Detailed Field Specifications:**
+
+> See `docs/tutorials/general/database-seeding-guide.md` for complete field reference table, including:
+> - Field types and valid values
+> - Required vs optional fields
+> - Default values
+> - Plant type codes (an, bi, pe, tp, sh, tr, vi, un)
+> - Exposure codes (fs, fp, pu, pd, sh)
+> - All boolean flag definitions
+
+**Data Seeding Requirements:**
+
+1. System must support loading initial plant data from CSV files
+2. System must support clearing and reloading data with `--clear` flag
+3. System must validate required fields during import
+4. System must report missing or invalid data without failing entire import
+5. System must handle UTF-8 encoded CSV files
+6. System must prevent duplicate plants based on common name
+7. CSV files serve as canonical data source (single source of truth)
 
 ##### Starting Deliverable:  Calculations
 
@@ -395,15 +465,37 @@ This is last due to complexity for an automated system. Otherwise it must be upd
 
 **Data Needs:**
 
-1. plant name (including scientific)
-2. perennial vs annual for the USDA zone
-3. germination time & days to harvest
-4. companion plant(s)
-5. beneficial uses (e.g.: rabbit/deer repellant, pollinator friendly)
-6. plant physical measurements (spacing min/max, height min/max, container size) - displayed in user's preferred unit system (imperial or metric)
-7. color expectations
-8. best in what soil type
-9. shade preferences vs tolerance
+> **Note**: User-submitted plants follow the same data structure as the [Plant Database](#starting-deliverable--plant-database). Below are the key fields users can provide:
+
+**Required Fields (minimum for plant creation):**
+
+1. plant name (common) - required
+2. plant type (annual, biennial, perennial, tender perennial, shrub, tree, vine, unknown) - required
+3. exposure requirements (full sun, full to partial sun, partial sun, partial shade, shade) - required
+
+**Optional Fields:**
+
+4. plant name (scientific)
+5. hardiness zone range (low and high, from 1a-13b)
+6. germination time (days)
+7. days to harvest/maturity
+8. companion plant(s) - relationship to other plants in database
+9. plant physical measurements - displayed in user's preferred unit system (imperial or metric):
+   - spacing (min/max)
+   - height (min/max)
+   - suggested container size
+10. beneficial uses - boolean flags (e.g.: rabbit/deer resistant, pollinator friendly, drought tolerant, etc.)
+11. color expectations
+12. soil type preferences
+13. shade preferences vs tolerance
+14. medicinal benefits (alleged properties)
+
+**Additional Capabilities:**
+- Link to external resources (books, articles, videos, nursery info)
+- Associate with user's favorites collection
+- Track planting history (where and when planted)
+
+> See [Plant Database Data Needs](#starting-deliverable--plant-database) for complete field specifications and validation rules.
 
 ---
 

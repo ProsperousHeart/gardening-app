@@ -2,6 +2,11 @@
 
 **Purpose**: Guide for seeding initial plant data and handling relationships (PlantLinks, Nurseries, companion plants)
 
+**Related Requirements**:
+
+- [REQ-000b_Scope](../../requirements/REQ-000b_Scope.md#starting-deliverable--plant-database) - Plant Database data needs and requirements
+- [REQ-000e_Requirements](../../requirements/REQ-000e_Requirements.md) - Formal data management requirements (OR3.N - OR7.N)
+
 **Related Files**:
 
 - Plant Model: `2024-Django-Attempt/Plants/models.py:21-104`
