@@ -26,7 +26,9 @@ This table tracks relationships between requirements, specifications, source cod
 | [REQ-000b_Scope](requirements/REQ-000b_Scope.md) (Scope) | TBD | N/A | N/A | TBD | IN PROGRESS |
 | [REQ-000c_UseCases](requirements/REQ-000c_UseCases.md) (Use Cases) | TBD | N/A | N/A | Multiple - see MD | IN PROGRESS |
 | [REQ-000d_UCBDs](requirements/REQ-000d_UCBDs.md) (Use Case Behavior Diagrams) | TBD | N/A | N/A | Multiple - see MD | IN PROGRESS |
-| [REQ-000e_Requirements](requirements/REQ-000e_Requirements.md) (Requirements Specs) | Multiple | TBD | TBD | Multiple in UCBDs | IN PROGRESS |
+| [REQ-000e_Requirements](requirements/REQ-000e_Requirements.md) (Requirements Specs) | Multiple | TBD | TBD | Multiple | IN PROGRESS |
+| [REQ-000f_FBDs](requirements/REQ-000f_FBDs.md) (Functional Flow Block Diagrams) | Multiple | TBD | TBD | Multiple | IN PROGRESS |
+| [REQ-000g_Decisions](requirements/REQ-000g_Decisions.md) (Decision Diagrams) | Multiple | TBD | TBD | Multiple | IN PROGRESS |
 
 ## Adding New Entries
 
