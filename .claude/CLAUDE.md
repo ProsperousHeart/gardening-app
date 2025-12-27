@@ -281,42 +281,24 @@ Claude Code provides custom slash commands for common workflows.
 
 ## Development Commands
 
-### Linting and Formatting
+This project uses **Makefile** for all common development tasks and **uv** for dependency management.
 
-```bash
-make lint      # Run flake8
-make format    # Run black
-```
+### Makefile Commands
 
-Configuration in `.flake8` (max line length: 88).
-
-### Testing
-
-**See `.github/instructions/tdd-workflow.instructions.md` for complete TDD workflow and testing requirements.**
-
-**Quick commands:**
-```bash
-make test      # Run all tests
-pytest -v      # Run with verbose output
-```
-
-**IMPORTANT:** Never commit with `--no-verify` flag. This project uses git pre-commit hooks to enforce code quality standards (linting, formatting, tests). The `--no-verify` flag bypasses these critical checks and can introduce broken or non-compliant code into the repository.
-
-### Quick Start with Makefile
-
-This project uses a Makefile for common development tasks. All commands use `uv run` to ensure proper virtual environment execution.
+All commands use `uv run` to ensure proper virtual environment execution.
 
 ```bash
 # Show all available commands
 make help
 
-# Install dependencies
-make install
+# Initial setup
+make install       # Install all dependencies from pyproject.toml
 
 # Development workflow (run before committing)
-make lint          # Check code quality with flake8
+make lint          # Check code quality with flake8 (config: .flake8, max line length: 88)
 make format        # Auto-format code with Black
 make test          # Run tests with pytest
+make test-v        # run with verbose output
 
 # Additional commands
 make format-check  # Check formatting without modifying
@@ -324,31 +306,14 @@ make test-coverage # Run tests with coverage report
 make clean         # Remove cache and temporary files
 ```
 
-See `docs/tutorials/general/makefile-guide.md` for detailed documentation.
+**Detailed guides:**
+- **Makefile**: `docs/tutorials/general/makefile-guide.md`
+- **Dependency Management**: `docs/tutorials/general/dependency-management.md`
+- **TDD Workflow & Testing Requirements**: `.github/instructions/tdd-workflow.instructions.md`
 
-For linting, update configuration in `.flake8` (max line length: 88).
+**IMPORTANT:** Never commit with `--no-verify` flag. This project uses git pre-commit hooks to enforce code quality standards (linting, formatting, tests). The `--no-verify` flag bypasses these critical checks and can introduce broken or non-compliant code into the repository.
 
-### MkDocs Documentation
-
-**Documentation Source:** All documentation lives in the `docs/` directory, which serves both:
-1. MkDocs website source (deployed to GitHub Pages)
-2. Specification-driven development documentation (requirements, specs, diagrams)
-
-**MkDocs commands (run from project root):**
-```bash
-# Build static site (outputs to site/ directory)
-mkdocs build
-
-# Serve documentation locally with auto-reload on changes
-mkdocs serve
-
-# Deploy to GitHub Pages
-mkdocs gh-deploy
-```
-
-**Configuration:** `mkdocs.yml` at project root. **Deployed site:** https://prosperousheart.github.io/gardening-app/
-
-### Environment Setup
+### Environment Setup (uv)
 
 **See [Dependency Management Guide](docs/tutorials/general/dependency-management.md) for complete installation and usage instructions.** (Original [uvx setup guide](docs/tutorials/general/archive/uvx-setup-guide.md) archived for reference.)
 
@@ -364,17 +329,23 @@ uv venv
 # Activate virtual environment (Unix/macOS)
 source .venv/bin/activate
 
-# Install all dependencies from pyproject.toml
+# Install all dependencies
 uv sync
 
-# Add new production dependencies
-uv add <package-name>
-
-# Add new development dependencies
-uv add --dev <package-name>
+# Add dependencies
+uv add <package-name>        # Production dependency
+uv add --dev <package-name>  # Development dependency
 ```
 
-For detailed setup instructions, see `docs/tutorials/general/dependency-management.md`.
+### MkDocs Commands
+
+```bash
+mkdocs build     # Build static site (outputs to site/)
+mkdocs serve     # Serve locally with auto-reload
+mkdocs gh-deploy # Deploy to GitHub Pages
+```
+
+**Configuration:** `mkdocs.yml` | **Deployed site:** https://prosperousheart.github.io/gardening-app/
 
 ## Security Framework
 
@@ -491,8 +462,8 @@ Key principles:
 **Directory Structure:**
 - `2024-Django-Attempt/config/` - Django project configuration (settings, URLs, WSGI/ASGI)
 - `2024-Django-Attempt/Plants/` - Main Django app containing plant models and logic
-- `gardening-docs/` - MkDocs system requirements documentation
-- `specs/` - Application specifications (new specifications go here)
+- `docs/` - All documentation (MkDocs site source + specification-driven development)
+- `specs/` - Legacy specifications folder (new specifications go in `docs/specifications/`)
 
 **Core Data Models** (in `2024-Django-Attempt/Plants/models.py`):
 
