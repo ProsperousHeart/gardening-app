@@ -6,11 +6,11 @@ Please review [mkdocs-extensions-guide](../tutorials/mkdocs/mkdocs-extensions-gu
 
 ## Initial Plant Data
 
-When using the `[initial_plants.csv](../data/initial_plants.csv)` to display the below subset, we are only using the following columns:
+When using the [`initial_plants.csv`](../data/initial_plants.csv) to display the below subset, we are only using the following columns:
 
 - `name_common`
 - `name_scientific`
 - `plant_type`
 - `exposure`
 
-{{ read_csv('data/initial_plants.csv'), usecols=['name_common', 'name_scientific', 'plant_type', 'exposure'] }}
+{{ read_csv('data/initial_plants.csv', usecols=['name_common', 'name_scientific', 'plant_type', 'exposure']) }}
