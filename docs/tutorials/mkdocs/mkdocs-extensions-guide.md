@@ -75,7 +75,7 @@ Include code from external files directly into documentation.
 --8<-- "path/to/code.py"
 ```
 
-From [here](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/) you can also specify sections:
+From [here](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippet-sections) you can also specify sections:
 
 ```text
 --8<-- "include.md:name"
