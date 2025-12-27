@@ -39,7 +39,10 @@ nav:
     - FFBDs: requirements/REQ-000f_FBDs.md
     - Decisions: requirements/REQ-000g_Decisions.md
   - Developer Documentation:
+    - decisions/planning/README.md
     - Progress: CHANGELOG.md
+    - Requirements:
+      - MVP SDD Planning: decisions/planning/SDD-Planning_MVP.md
     - Specifications: specifications/README.md
     - Architecture Diagrams: diagrams/README.md
     - Project Rules: rules/README.md
