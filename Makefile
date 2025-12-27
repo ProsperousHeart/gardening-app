@@ -28,6 +28,9 @@ format-check:
 test:
 	uv run pytest tests/
 
+test-v:
+	uv run pytest -v tests/
+
 test-coverage:
 	uv run coverage run -m pytest tests/
 	uv run coverage report

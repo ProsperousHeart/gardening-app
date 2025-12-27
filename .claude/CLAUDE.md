@@ -4,6 +4,30 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This project also uses the CodeGuard plugin for AI-assisted secure code generation.
 
+## Quick Reference
+
+**Essential Commands:**
+```bash
+make install       # Install all dependencies
+make format        # Format code with Black
+make lint          # Check code quality with flake8
+make test          # Run tests with pytest
+make help          # Show all available commands
+```
+
+**Critical Rules:**
+- ✅ Use `uv` for dependency management (NEVER `pip`)
+- ✅ Follow TDD workflow: Red → Green → Refactor
+- ✅ Include THREE diagram formats (Text, ASCII, Mermaid)
+- ❌ NEVER commit with `--no-verify` flag (bypasses pre-commit hooks)
+- ❌ NEVER use `2024-Django-Attempt/` for new development (reference only)
+
+**Python Version:** 3.12+
+
+**Primary Workflows:**
+- Requirements → Spec: `/make-spec-from-req <req-file>`
+- Spec → Code: `/implement-spec <spec-file>`
+
 ## Table of Contents
 
 - [Project Specific Details](#project-specific-details)
@@ -63,7 +87,7 @@ This is a gardening application designed to help new gardeners and community gar
 
 **IMPORTANT:** The `2024-Django-Attempt/` folder contains an original Django implementation that will likely be removed soon. This is **reference only** for understanding existing data models.
 
-**Current focus** is on **systems requirements documentation** in the `gardening-docs/` folder using MkDocs. The documentation represents formal systems design including:
+**Current focus** is on **systems requirements documentation** in the `docs/` folder. The documentation represents formal systems design including:
 
 - Context diagrams defining system boundaries and stakeholders
 - Use cases and scenarios (23+ scenarios identified)
@@ -83,33 +107,36 @@ This is a gardening application designed to help new gardeners and community gar
 
 #### Documentation Structure
 
-Currently, there are 2 locations for documentation:
-1. Used for mkdocs
-2. Used for program architecture planning and specification driven development
+**All documentation lives in the `docs/` directory**, which serves dual purposes:
+1. **MkDocs website source** (deployed to GitHub Pages)
+2. **Specification-driven development** (requirements, specs, diagrams - used for program architecture planning and specification driven development)
 
-Documentation for mkdocs needs is located in `docs/`:
-
-- `index.md` - Project description, stakeholders, original scenarios
-- `scope.md` - Context diagrams, use cases, scenarios, scope tree
-- `system-requirements.md` - Requirements documentation (in progress)
-- `architecture.md` - Functional Flow Block Diagrams (TBD)
-- `progress.md` - Current status and next steps
-- `resources.md` - Resources used in development
-
-mkdocs Configuration: `mkdocs.yml`
-
-The project uses a comprehensive documentation system for specification driven development in `docs/`:
+**Documentation organization:**
 
 ```
 docs/
 ├── INDEX.md                    # Documentation master index
 ├── SPEC-CROSS-REFERENCE.md     # Tracks requirements→specs→code→tests
-├── requirements/               # What to build
-├── specifications/             # How to build it
-├── diagrams/                   # Architecture diagrams
-├── templates/                  # Templates for docs creation
-├── rules/                      # Project standards
-└── history/                    # Decision logs
+├── README.md                   # Entry point for docs
+├── about.md                    # Project about page
+├── CHANGELOG.md                # Project changelog
+├── Process.md                  # Repo creation process
+├── resources.md                # Development resources
+├── INTEGRATION.md              # Integration documentation
+├── requirements/               # Requirements documentation (what to build)
+├── specifications/             # Technical specifications (how to build it)
+├── diagrams/                   # Architecture & design diagrams
+├── templates/                  # Documentation templates
+├── rules/                      # Standards (markdown, docstrings, error resolution, output format)
+├── history/                    # Decision logs & historical documentation
+├── checklists/                 # Pre-push & security checklists
+├── decisions/                  # Decision records
+├── tutorials/                  # How-to guides (general, mkdocs, genai)
+├── files/                      # Supporting files
+├── img/                        # Images and diagrams
+├── stylesheets/                # Custom CSS for MkDocs
+└── output-logs/                # Build and output logs
+mkdocs.yml                      # mkdocs Configuration
 ```
 
 **Key Documentation Standards:**
@@ -254,42 +281,24 @@ Claude Code provides custom slash commands for common workflows.
 
 ## Development Commands
 
-### Linting and Formatting
+This project uses **Makefile** for all common development tasks and **uv** for dependency management.
 
-```bash
-make lint      # Run flake8
-make format    # Run black
-```
+### Makefile Commands
 
-Configuration in `.flake8` (max line length: 88).
-
-### Testing
-
-**See `.github/instructions/tdd-workflow.instructions.md` for complete TDD workflow and testing requirements.**
-
-**Quick commands:**
-```bash
-make test      # Run all tests
-pytest -v      # Run with verbose output
-```
-
-**IMPORTANT:** Never commit with `--no-verify` flag.
-
-### Quick Start with Makefile
-
-This project uses a Makefile for common development tasks. All commands use `uv run` to ensure proper virtual environment execution.
+All commands use `uv run` to ensure proper virtual environment execution.
 
 ```bash
 # Show all available commands
 make help
 
-# Install dependencies
-make install
+# Initial setup
+make install       # Install all dependencies from pyproject.toml
 
 # Development workflow (run before committing)
-make lint          # Check code quality with flake8
+make lint          # Check code quality with flake8 (config: .flake8, max line length: 88)
 make format        # Auto-format code with Black
 make test          # Run tests with pytest
+make test-v        # run with verbose output
 
 # Additional commands
 make format-check  # Check formatting without modifying
@@ -297,27 +306,14 @@ make test-coverage # Run tests with coverage report
 make clean         # Remove cache and temporary files
 ```
 
-See `docs/tutorials/general/makefile-guide.md` for detailed documentation.
+**Detailed guides:**
+- **Makefile**: `docs/tutorials/general/makefile-guide.md`
+- **Dependency Management**: `docs/tutorials/general/dependency-management.md`
+- **TDD Workflow & Testing Requirements**: `.github/instructions/tdd-workflow.instructions.md`
 
-For linting, update configuration in `.flake8` (max line length: 88).
+**IMPORTANT:** Never commit with `--no-verify` flag. This project uses git pre-commit hooks to enforce code quality standards (linting, formatting, tests). The `--no-verify` flag bypasses these critical checks and can introduce broken or non-compliant code into the repository.
 
-### MkDocs Documentation
-
-```bash
-# Build static site
-cd gardening-docs
-mkdocs build
-
-# Serve documentation locally (auto-reload on changes)
-cd gardening-docs
-mkdocs serve
-
-# Deploy to GitHub Pages
-cd gardening-docs
-mkdocs gh-deploy
-```
-
-### Environment Setup
+### Environment Setup (uv)
 
 **See [Dependency Management Guide](docs/tutorials/general/dependency-management.md) for complete installation and usage instructions.** (Original [uvx setup guide](docs/tutorials/general/archive/uvx-setup-guide.md) archived for reference.)
 
@@ -333,17 +329,23 @@ uv venv
 # Activate virtual environment (Unix/macOS)
 source .venv/bin/activate
 
-# Install all dependencies from pyproject.toml
+# Install all dependencies
 uv sync
 
-# Add new production dependencies
-uv add <package-name>
-
-# Add new development dependencies
-uv add --dev <package-name>
+# Add dependencies
+uv add <package-name>        # Production dependency
+uv add --dev <package-name>  # Development dependency
 ```
 
-For detailed setup instructions, see `docs/tutorials/general/dependency-management.md`.
+### MkDocs Commands
+
+```bash
+mkdocs build     # Build static site (outputs to site/)
+mkdocs serve     # Serve locally with auto-reload
+mkdocs gh-deploy # Deploy to GitHub Pages
+```
+
+**Configuration:** `mkdocs.yml` | **Deployed site:** https://prosperousheart.github.io/gardening-app/
 
 ## Security Framework
 
@@ -372,7 +374,7 @@ Project CodeGuard is an open-source security framework from Cisco that embeds se
 ### Code Standards
 
 - **Docstrings**: See `docs/rules/docstring-standards.md`
-- **Python version**: Python 3.14+
+- **Python version**: Python 3.12+ (specified in `pyproject.toml`)
 
 #### Testing Requirements
 
@@ -460,8 +462,8 @@ Key principles:
 **Directory Structure:**
 - `2024-Django-Attempt/config/` - Django project configuration (settings, URLs, WSGI/ASGI)
 - `2024-Django-Attempt/Plants/` - Main Django app containing plant models and logic
-- `gardening-docs/` - MkDocs system requirements documentation
-- `specs/` - Application specifications (new specifications go here)
+- `docs/` - All documentation (MkDocs site source + specification-driven development)
+- `specs/` - Legacy specifications folder (new specifications go in `docs/specifications/`)
 
 **Core Data Models** (in `2024-Django-Attempt/Plants/models.py`):
 
