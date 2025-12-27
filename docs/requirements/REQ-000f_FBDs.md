@@ -29,18 +29,20 @@ Below is the legend for the FFBDs:
             - [F.2.1.1.4 - Select & View Plant](#f2114---select--view-plant)
         - [F.2.1c.1 - Plant Search & Filter View](#f21c1---plant-search--filter-view)
         - [F.2.1.5 – Access Personal Settings](#f215--access-personal-settings)
-- Not Yet Planned:
-    - [F.2.1.1.4.0 - View Plant Data](#f21140---view-plant-data)
-    - [F.2.1.1.5 - Add Plant](#f2115---add-plant)
-    - [F.2.1.2 – Access Weather Component](#f212--access-weather-component)
-    - [F.2.1.3 – Access General Resources](#f213--access-general-resources)
-    - [F.2.1.4 – Feedback A & B](#f214--feedback-a--b)
-    - [F.2.1.5.2 – Set USDA Location](#f2152--set-usda-location)
-    - [F.2.1.5.7 – Backup User Data](#f2157--backup-user-data)
-    - [F.2.1.5.8 – Restore User Data](#f2158--restore-user-data)
-    - [F.2.1.6 – Moon Planning](#f216--moon-planning)
-    - [F.2.2 – Admin Functions](#f22--admin-functions)
-    - [F.2.3 – Community Member Functions](#f23--community-member-functions)
+
+### Not Yet Planned
+
+- [F.2.1.1.4.0 - View Plant Data](#f21140---view-plant-data)
+- [F.2.1.1.5 - Add Plant](#f2115---add-plant)
+- [F.2.1.2 – Access Weather Component](#f212--access-weather-component)
+- [F.2.1.3 – Access General Resources](#f213--access-general-resources)
+- [F.2.1.4 – Feedback A & B](#f214--feedback-a--b)
+- [F.2.1.5.2 – Set USDA Location](#f2152--set-usda-location)
+- [F.2.1.5.7 – Backup User Data](#f2157--backup-user-data)
+- [F.2.1.5.8 – Restore User Data](#f2158--restore-user-data)
+- [F.2.1.6 – Moon Planning](#f216--moon-planning)
+- [F.2.2 – Admin Functions](#f22--admin-functions)
+- [F.2.3 – Community Member Functions](#f23--community-member-functions)
 
 
 ## Informal Interfaces & Uncertainties
