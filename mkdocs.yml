@@ -45,7 +45,9 @@ nav:
       - Data:
         - data/README.md
         - Initial Plants: data/initial_plant_view.md
-      - MVP SDD Planning: decisions/planning/SDD-Planning_MVP.md
+      - MVP SDD Planning:
+        - decisions/planning/SDD-Planning_MVP.md
+        - Overview: decisions/planning/MVP_overview.md
     - Specifications: specifications/README.md
     - Architecture Diagrams: diagrams/README.md
     - Project Rules: rules/README.md
@@ -62,6 +64,9 @@ nav:
     - MkDocs Setup:
       - Overview: tutorials/mkdocs/index.md
       - Installation: tutorials/mkdocs/mkdocs-installation.md
+      - Creating Priority Badges:
+        - Badge Visual Demo: tutorials/mkdocs/priority-badges-visual-demo.md
+        - Badge Setup: tutorials/mkdocs/priority-badges-setup.md
       - Image Processing: tutorials/mkdocs/image-processing-setup.md
       - Extensions Guide: tutorials/mkdocs/mkdocs-extensions-guide.md
     - GenAI:
@@ -72,6 +77,8 @@ nav:
 theme:
   name: material
   language: en
+
+  custom_dir: overrides
   
   # Color Palette (replaces your previous user_color_mode_toggle)
   # Users can toggle between light and dark mode
@@ -307,19 +314,26 @@ extra:
 # Custom CSS and JavaScript
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/priority-badges.css  # Priority badges for requirements
 
 # Uncomment when you need custom JavaScript
 # extra_javascript:
 #   - javascripts/extra.js
+
+# Hooks for custom processing
+hooks:
+  - docs/hooks/priority_badges.py  # Auto-add priority badges to requirements
 
 # Exclude Documentation Files
 
 exclude_docs: |
   api-config.json    # A file with this name anywhere.
   /requirements.txt  # Top-level "docs/requirements.txt".
-  *.py               # Any file with this extension anywhere (pyrthon files)
+  *.py               # Any file with this extension anywhere (python files)
+  /hooks/            # Python hooks directory
   index_ORIGINAL.md  # backup of original index file
   *.docx             # word doc files
+  *-example.md       # Example files (like requirements-index-example.md)
   # _templates/        # Template files
 
 # ========================================
