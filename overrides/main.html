@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+    <!-- https://www.adamsdesk.com/posts/mkdocs-add-metadata/ -->
+    {{ super() }}
+    <!-- {% for data in config.extra.social %}
+            <link rel="me" href="{{ data.link }}">
+    {% endfor %} -->
+    {% if page and page.meta and page.meta.robots %}
+        <meta property="robots" content="{{ page.meta.robots }}" />
+    {% else %}
+        <meta property="robots" content="index, follow" />
+    {% endif %}
+{% endblock %}
