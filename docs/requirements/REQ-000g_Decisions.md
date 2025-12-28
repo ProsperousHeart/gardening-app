@@ -1,3 +1,16 @@
+---
+# Requirement Metadata
+title: "Design Decisions & Analysis (REQ-000g)"
+req_id: "REQ-000g"
+priority: "HIGH"
+phase: "0"
+status: "approved"
+created: "2024-01-01"
+updated: "2025-01-27"
+author: "Kassandra Keeton"
+maps_to_req000: "Foundation document - design decisions and trade-off analysis"
+---
+
 # Design Decisions and Analysis
 
 This document tracks the formal decision-making processes, trade-off analyses, and system design decisions for the Gardening Application.

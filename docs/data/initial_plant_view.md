@@ -1,3 +1,8 @@
+---
+title: Initial Plant Data View
+description: Snippet to be used for showing initial plant CSV seeding file.
+---
+
 # Initial Plant View
 
 Due to the amount of data, please note that we are only showing a few columns from the related datasets.

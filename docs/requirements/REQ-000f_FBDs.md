@@ -1,3 +1,16 @@
+---
+# Requirement Metadata
+title: "Functional Flow Block Diagrams (REQ-000f)"
+req_id: "REQ-000f"
+priority: "CRITICAL"
+phase: "0"
+status: "in-review"
+created: "2024-12-01"
+updated: "2025-01-27"
+author: "Kassandra Keeton"
+maps_to_req000: "Foundation document - FFBDs (work in progress)"
+---
+
 # Functional Flow Block Diagrams
 
 As of 20251226, I have not yet found a tool to take what I did in Miro and put into machine readable text.

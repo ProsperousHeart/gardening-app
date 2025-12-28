@@ -6,6 +6,7 @@ This folder contains project-specific coding standards, conventions, and referen
 
 - **[docstring-standards.md](docstring-standards.md)** - Python docstring format and requirements
 - **[markdown-standards.md](markdown-standards.md)** - Markdown authoring standards and README best practices
+- **[requirement-metadata-guide.md](requirement-metadata-guide.md)** - Managing requirement priorities with YAML metadata
 - **[output-format.md](output-format.md)** - Format for execution logs and reports
 - **[error-resolution-kb.md](error-resolution-kb.md)** - Knowledge base of common errors and solutions
 

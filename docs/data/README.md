@@ -1,3 +1,8 @@
+---
+title: Data Directory README
+description: Default page when viewing data folder on mkdocs site
+---
+
 # Data Directory
 
 **Purpose**: Store initial seed data for database population

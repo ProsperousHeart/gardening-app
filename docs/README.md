@@ -1,3 +1,8 @@
+---
+title: Documentation Hub README
+description: Home page the gardening app documentation goes to.
+---
+
 # Documentation Hub
 
 Welcome to the central documentation hub for this project. All requirements, specifications, diagrams, and related documentation are organized here.

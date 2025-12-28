@@ -1,3 +1,8 @@
+---
+title: Makefile Guide
+description: Tutorial on using Makefile.
+---
+
 # Makefile Guide
 
 This project uses a Makefile to standardize common development tasks. All commands are executed using `uv run` to ensure they run within the correct virtual environment with proper dependencies.

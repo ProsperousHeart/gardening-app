@@ -1,3 +1,19 @@
+---
+# Requirement Metadata
+# This YAML front matter tracks priority and other metadata
+# DO NOT REMOVE THIS SECTION - edit values only
+
+title: [Feature/Module/Component Name]
+req_id: req-[subsystem]-[component]
+priority: CRITICAL | HIGH | MEDIUM | LOW
+phase: 1-7
+status: draft | in-review | approved | implemented
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+author: Kassandra Keeton
+maps_to_req000: [REQ-000 section reference]
+---
+
 # Requirements Template for Gardening Application Components
 
 Use this template when creating requirements documents for new features or modules. This structured format ensures all necessary information is captured for generating comprehensive specifications.

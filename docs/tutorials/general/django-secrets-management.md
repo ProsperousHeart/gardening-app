@@ -1,3 +1,8 @@
+---
+title: Django Secrets Management
+description: Tutorial on managing secrets for Django.
+---
+
 # Django Secrets Management
 
 This tutorial covers how to securely manage Django secrets and configuration using environment variables instead of hardcoding sensitive values.

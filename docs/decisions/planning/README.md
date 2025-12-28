@@ -1,3 +1,8 @@
+---
+title: Current Development Plans for MVP
+description: Snippet to be used in the SDD_Planning_MVP.md
+---
+
 # Current Development Plans
 
 As you can see, there is a lot planned. But we first need to have our MVP - this is being taken care of under <a href="https://github.com/users/ProsperousHeart/projects/7?pane=issue&itemId=146840732&issue=ProsperousHeart%7Cgardening-app%7C18" target="_blank">this issue</a>.

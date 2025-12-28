@@ -1,3 +1,8 @@
+---
+title: Resources
+description: Additional Resources
+---
+
 ## FAQ
 
 **Q:** _Where can I find all of the images built for the requirements?_<br>

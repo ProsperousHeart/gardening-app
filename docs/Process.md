@@ -1,3 +1,8 @@
+---
+title: Specification Driven Development Process
+description: The process done to complete the set up of SDD (specification driven development) for this solution.
+---
+
 # SDD Process
 
 For now, the focus is on using Claude code for generation. Once v1 seems to work, will attempt the same with Copilot version. Merge outputs where it makes sense.

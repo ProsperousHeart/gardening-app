@@ -1,3 +1,16 @@
+---
+# Requirement Metadata
+title: "Scope & Performance Criteria (REQ-000b)"
+req_id: "REQ-000b"
+priority: "CRITICAL"
+phase: "0"
+status: "in review"
+created: "2024-01-01"
+updated: "2025-01-27"
+author: "Kassandra Keeton"
+maps_to_req000: "Foundation document - defines scope tree and performance criteria"
+---
+
 # Scope
 
 See description of project [here](./REQ-000a_General.md#project-description)

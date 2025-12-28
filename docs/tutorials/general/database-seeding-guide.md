@@ -1,3 +1,8 @@
+---
+title: Database Seeding Guide
+description: Guide on how to pull in initial database "Seeding" data from CSV
+---
+
 # Database Seeding Guide
 
 **Purpose**: Guide for seeding initial plant data and handling relationships (PlantLinks, Nurseries, companion plants)

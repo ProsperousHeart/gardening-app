@@ -1,3 +1,17 @@
+---
+# Requirement Metadata
+title: "Requirements Table (REQ-000e)"
+req_id: "REQ-000e"
+priority: "CRITICAL"
+phase: "0"
+status: "approved"
+created: "2024-01-01"
+updated: "2025-01-27"
+author: "Kassandra Keeton"
+maps_to_req000: "Foundation document - detailed requirements table"
+description: "Requirements for solution based on REQ-000 docs"
+---
+
 # Requirements Definition
 
 This is the centralized information related to the requirements outlined in [UCBDs](./REQ-000d_UCBDs.md) file.

@@ -1,3 +1,8 @@
+---
+title: Dependency Management with uv
+description: Tutorial on managing dependencies with uv
+---
+
 # Dependency Management with uv
 
 This tutorial covers how we manage Python dependencies using `uv` and `pyproject.toml` in this project.

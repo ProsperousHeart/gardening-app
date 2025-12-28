@@ -1,3 +1,16 @@
+---
+# Requirement Metadata
+title: "Use Cases (REQ-000c)"
+req_id: "REQ-000c"
+priority: "CRITICAL"
+phase: "0"
+status: "approved"
+created: "2024-01-01"
+updated: "2025-01-27"
+author: "Kassandra Keeton"
+maps_to_req000: "Foundation document - defines use cases and scenarios"
+---
+
 # Use Cases
 
 Be sure to review [Use Case Behavior Diagrams](REQ-000d_UCBDs.md) to see the UCBDs of these use cases.

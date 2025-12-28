@@ -1,3 +1,16 @@
+---
+# Requirement Metadata
+title: "General Requirements (REQ-000a)"
+req_id: "REQ-000a"
+priority: "CRITICAL"
+phase: "0"
+status: "approved"
+created: "2024-01-01"
+updated: "2025-01-27"
+author: "Kassandra Keeton"
+maps_to_req000: "Foundation document - all requirements derive from this"
+---
+
 # General Requirements
 
 This requirements file will outline the overall project requirements for the gardening app.

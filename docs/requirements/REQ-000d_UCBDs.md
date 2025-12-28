@@ -1,3 +1,16 @@
+---
+# Requirement Metadata
+title: "Use Case Behavior Diagrams (REQ-000d)"
+req_id: "REQ-000d"
+priority: "CRITICAL"
+phase: "0"
+status: "in-review"
+created: "2024-12-01"
+updated: "2025-01-27"
+author: "Kassandra Keeton"
+maps_to_req000: "Foundation document - UC behavior diagrams (work in progress)"
+---
+
 # Use Case Behavior Diagrams
 
 This file is a continuation of the [Use Cases](./REQ-000c_UseCases.md) file. It will provide the behavior diagrams of the different use cases.

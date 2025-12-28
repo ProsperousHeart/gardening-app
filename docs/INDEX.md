@@ -1,3 +1,8 @@
+---
+title: Documentation Master Index
+description: Master index file to bring together all related main folder access.
+---
+
 # Documentation Master Index
 
 This is the central hub for all project documentation. This index is automatically maintained as requirements, specifications, and code evolve.

@@ -1,3 +1,8 @@
+---
+title: Docs Specifications Folder README
+description: Explains what this folder is for and how specifications are generated.
+---
+
 # Specifications Directory
 
 This directory is where you should save all the specifications created for the project.
