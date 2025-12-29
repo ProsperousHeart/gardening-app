@@ -127,3 +127,152 @@ code.req-id {
   margin-right: 0.25rem;
   font-weight: 500;
 }
+
+/* ========================================
+   Navigation Status Indicators
+   ======================================== */
+
+/* Status indicator base styling */
+.md-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: 0.4em;
+  border-radius: 50%;
+  font-size: 0.8em;
+  cursor: help;
+  transition: transform 0.2s ease;
+}
+
+.md-status:hover {
+  transform: scale(1.2);
+}
+
+/* Status types with emojis and colors */
+.md-status--draft {
+  background-color: #9ca3af;
+  color: white;
+}
+
+.md-status--draft::before {
+  content: "📝";
+  font-size: 0.9em;
+}
+
+.md-status--in-review {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.md-status--in-review::before {
+  content: "👀";
+  font-size: 0.9em;
+}
+
+.md-status--approved {
+  background-color: #10b981;
+  color: white;
+}
+
+.md-status--approved::before {
+  content: "✅";
+  font-size: 0.9em;
+}
+
+.md-status--implemented {
+  background-color: #8b5cf6;
+  color: white;
+}
+
+.md-status--implemented::before {
+  content: "🎉";
+  font-size: 0.9em;
+}
+
+/* Tooltips for status indicators */
+.md-status[title=""]::after {
+  content: attr(class);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0.3em 0.6em;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: white;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  border-radius: 4px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  margin-bottom: 0.3em;
+}
+
+.md-status--draft[title=""]::after {
+  content: "Draft";
+}
+
+.md-status--in-review[title=""]::after {
+  content: "In Review";
+}
+
+.md-status--approved[title=""]::after {
+  content: "Approved";
+}
+
+.md-status--implemented[title=""]::after {
+  content: "Implemented";
+}
+
+.md-status:hover::after {
+  opacity: 1;
+}
+
+/* Dark mode adjustments */
+[data-md-color-scheme="slate"] .md-status {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   Image Styling
+   ======================================== */
+
+/* Bordered image - adds border and subtle shadow */
+img.bordered {
+  border: 2px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  padding: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode border adjustment */
+[data-md-color-scheme="slate"] img.bordered {
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ========================================
+   ASCII Art Styling
+   ======================================== */
+
+/* Ensures proper monospace rendering for ASCII art and box-drawing characters */
+.ascii-art pre,
+pre.ascii-art {
+  font-family: 'Courier New', Courier, 'Lucida Console', Monaco, monospace !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0 !important;
+  white-space: pre !important;
+  tab-size: 4 !important;
+  -moz-tab-size: 4 !important;
+}
+
+.ascii-art code,
+pre.ascii-art code {
+  font-family: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  letter-spacing: inherit !important;
+}
