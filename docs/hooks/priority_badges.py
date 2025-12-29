@@ -15,28 +15,42 @@ def on_page_markdown(markdown, page, config, files):
 
     Adds priority badges to requirement pages based on YAML front matter.
     """
-    # Only process requirement files
-    if not page.file.src_path.startswith("requirements/req-"):
+    # Only process requirement files (both req- and REQ- patterns)
+    src_path = page.file.src_path
+    if not (src_path.startswith("requirements/req-") or src_path.startswith("requirements/REQ-")):
         return markdown
 
     # Extract metadata from page
     meta = page.meta
 
     # Check if we have the required metadata
-    if not meta.get("priority"):
+    if page.meta.get("show_badges") == False or not meta.get("priority"):
         return markdown
 
     # Build badge HTML
     badges_html = build_badges_html(meta)
 
-    # Find the first h1 heading and insert badges after it
-    # Pattern: # Heading text
-    pattern = r"(^#\s+.+$)"
-    replacement = rf"\1\n\n{badges_html}\n"
+    # Remove YAML front matter first (if present) so we don't match # comments in it
+    # Find the end of YAML front matter (second occurrence of ---)
+    yaml_end_pattern = r"^---\s*\n.*?\n^---\s*\n"
+    yaml_match = re.search(yaml_end_pattern, markdown, flags=re.MULTILINE | re.DOTALL)
 
-    modified_markdown = re.sub(pattern, replacement, markdown, count=1, flags=re.MULTILINE)
+    if yaml_match:
+        # Split markdown into YAML and content
+        yaml_section = markdown[:yaml_match.end()]
+        content_section = markdown[yaml_match.end():]
 
-    return modified_markdown
+        # Find the first h1 heading in the content section (not in YAML)
+        h1_pattern = r"(^#\s+.+$)"
+        content_modified = re.sub(h1_pattern, rf"\1\n\n{badges_html}\n", content_section, count=1, flags=re.MULTILINE)
+
+        return yaml_section + content_modified
+    else:
+        # No YAML front matter, use original approach
+        pattern = r"(^#\s+.+$)"
+        replacement = rf"\1\n\n{badges_html}\n"
+        modified_markdown = re.sub(pattern, replacement, markdown, count=1, flags=re.MULTILINE)
+        return modified_markdown
 
 
 def build_badges_html(meta):
@@ -88,8 +102,9 @@ def on_page_context(context, page, config, nav):
 
     This allows templates to access priority data for custom layouts.
     """
-    # Only process requirement files
-    if not page.file.src_path.startswith("requirements/req-"):
+    # Only process requirement files (both req- and REQ- patterns)
+    src_path = page.file.src_path
+    if not (src_path.startswith("requirements/req-") or src_path.startswith("requirements/REQ-")):
         return context
 
     # Add metadata to context
