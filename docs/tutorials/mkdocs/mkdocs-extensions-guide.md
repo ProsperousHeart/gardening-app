@@ -12,6 +12,179 @@ This guide explains all the markdown extensions enabled in this documentation si
 
 ---
 
+## Escaping Syntax in Documentation
+
+!!! tip "Core Concept"
+    When writing documentation **about** markdown extensions, you often need to show the raw syntax without MkDocs processing it. This section explains how to display examples that would otherwise be transformed by extensions.
+
+### The Problem
+
+When documenting extensions, you want to show users the **raw syntax** they should type. But MkDocs processes that syntax before rendering!
+
+**Example problem with the Critic extension:**
+
+You want to show this syntax:
+
+<pre><code>This is &#123;--deleted text--&#125;.</code></pre>
+
+But when used in markdown, it renders like this:
+
+```
+This is {--deleted text--}.
+```
+
+**Result:** Readers see the styled output, not the raw syntax they need to type - regardless of the type you wrap it in (e.g. bash, text, mardown, etc).
+
+### Understanding MkDocs Processing Order
+
+MkDocs processes your documentation in this order:
+
+1. **Markdown extensions** process first (`pymdownx.snippets`, `pymdownx.critic`, etc.)
+2. **Plugins** process second (`mkdocs-macros-plugin` for Jinja2 templates)
+3. **Rendering** happens last
+
+This means:
+
+- ✅ Markdown extensions see and transform their syntax patterns
+- ✅ Plugins see the result after extensions run
+- ❌ Standard markdown code blocks don't prevent extension processing
+
+### Solution 1: HTML Entities in `<pre><code>` Blocks
+
+**When to use:** Preventing markdown extensions from processing syntax examples.
+
+**How it works:** HTML entities bypass markdown processing because they're already HTML.
+
+**Common HTML entities:**
+
+| Character | Entity Code | Use Case |
+|-----------|-------------|----------|
+| `{` | `&#123;` | Critic markup, Jinja2 |
+| `}` | `&#125;` | Critic markup, Jinja2 |
+| `<` | `&lt;` | Snippets, HTML tags |
+| `>` | `&gt;` | Snippets, HTML tags |
+| `-` | `&#45;` or `-` | Double dashes (optional) |
+| `+` | `&#43;` or `+` | Double plus (optional) |
+| `%` | `&#37;` | Jinja2 (optional) |
+
+**Example - Showing Critic Markup Syntax:**
+
+❌ **WRONG - Gets processed by critic extension:**
+
+<pre><code>This is &#123;--deleted text--&#125;.</code></pre>
+
+✅ **CORRECT - Shows raw syntax:**
+
+```html
+<pre><code>This is &#123;--deleted text--&#125;.</code></pre>
+```
+
+**Renders as:**  what you see above, since I had to use it to show you the example. 💛
+
+**Example - Showing Snippets Syntax:**
+
+❌ **WRONG - Tries to include the file:**
+
+```markdown
+--8<-- "snippets/common/example-snippet.md"
+```
+
+✅ **CORRECT - Shows raw syntax:**
+
+```html
+<pre><code>--8&lt;-- "snippets/common/example-snippet.md"</code></pre>
+```
+
+**Renders as:**
+
+<pre><code>--8&lt;-- "snippets/common/example-snippet.md"</code></pre>
+
+### Solution 2: {% raw %}`{% raw %}`{% endraw %} Tags
+
+**When to use:** Preventing Jinja2/macros plugin from processing template syntax (but NOT for markdown extensions).
+
+**How it works:** Tells the macros plugin to skip processing the content between tags.
+
+**Example - Showing Jinja2 Template Syntax:**
+
+✅ **CORRECT - Prevents macros plugin processing:**
+
+The following code:
+
+<pre><code>&#123;% raw %&#125;
+&#96;&#96;&#96;markdown
+&#123;% if page.meta.priority %&#125;
+  Priority: &#123;&#123; page.meta.priority &#125;&#125;
+&#123;% endif %&#125;
+&#96;&#96;&#96;
+&#123;% endraw %&#125;
+</code></pre>
+
+... will render this:
+
+{% raw %}
+```markdown
+{% if page.meta.priority %}
+  Priority: {{ page.meta.priority }}
+{% endif %}
+```
+{% endraw %}
+
+!!! warning "{% raw %} Does NOT Work for Markdown Extensions"
+    The `{% raw %}` tags only prevent **Jinja2/macros plugin** processing (step 2).
+
+    They do NOT prevent **markdown extensions** (step 1) from processing.
+
+    **Why:** Extensions run before plugins see the `{% raw %}` tags.
+
+### Solution 3: Nested Code Blocks (Rare Cases)
+
+For some simple cases, triple backticks inside triple backticks work with `pymdownx.superfences`:
+
+````markdown
+```markdown
+# This inner markdown won't be processed
+```
+````
+
+**Limitation:** Only works for basic markdown, not for special extension syntax.
+
+### Decision Guide: Which Method to Use?
+
+```mermaid
+graph TD
+    A[What are you documenting?] --> B{Type of syntax?}
+    B -->|Markdown extension<br/>snippets, critic, etc.| C[Use HTML entities<br/>in pre/code blocks]
+    B -->|Jinja2 templates<br/>macros plugin| D[Use raw tags]
+    B -->|Basic markdown<br/>headings, lists| E[Use nested code blocks<br/>with superfences]
+
+    C --> F[Example: &#123;--text--&#125;]
+    D --> G[Example: {% raw %}{{ var }}{% endraw %}]
+    E --> H[Example: ````markdown]
+```
+
+### Quick Reference Table
+
+| Extension | Example Syntax | Escape Method | Entity/Code |
+|-----------|---------------|---------------|-------------|
+| **Critic** | `{--deleted--}` | HTML entities | `&#123;--deleted--&#125;` |
+| **Critic** | `{++added++}` | HTML entities | `&#123;++added++&#125;` |
+| **Critic** | `{~~old~>new~~}` | HTML entities | `&#123;~~old~&gt;new~~&#125;` |
+| **Snippets** | `--8<-- "file:section-name"` | HTML entities | `--8&lt;-- "file:section-name"` |
+| **Jinja2** | <code>&#123;&#123; variable &#125;&#125;</code> | {% raw %}`{% raw %}` tags{% endraw %} | N/A - use raw tags |
+| **Jinja2** | <code>&#123;% if condition %&#125;</code> | {% raw %}`{% raw %}` tags{% endraw %} | N/A - use raw tags |
+| **HTML tags** | `<div>` | HTML entities | `&lt;div&gt;` |
+
+### Real-World Examples from This Guide
+
+Throughout this guide, you'll see these techniques used:
+
+1. **Critic syntax example** (line ~695): Uses `&#123;` and `&#125;` to show `{--deleted--}`
+2. **Snippets syntax example** (line ~77): Uses `&lt;` to show `--8<--`
+3. **Jinja2 macro example** (line ~358): Uses {% raw %}`{% raw %}` tags{% endraw %} to show <code>&#123;&#123; read_csv() &#125;&#125;</code>
+
+---
+
 ## Table of Contents Extensions
 
 ### `toc` - Table of Contents
@@ -602,7 +775,7 @@ Partial Shade
 **Renders as:**
 
 USDA Hardiness Zone
-:   A geographic area defined by average annual minimum temperature, used to determine which plants can survive in a location.
+:   A geographic area defined by average annual minimum temperature, used to determine which plants can survive in a location. (See [abbreviations](#abbr---abbreviations) to see why USDA is special here.)
 
 Full Sun
 :   6 or more hours of direct sunlight per day.
@@ -692,15 +865,12 @@ Mark up content for review with track-changes style markup.
 
 **Syntax:**
 
-{% raw %}
-```text
-This is {--deleted text--}.
-This is {++added text++}.
-This is {~~old~>new~~} text.
-This is {==highlighted==} text.
-{>>This is a comment<<}
-```
-{% endraw %}
+<pre><code>This is &#123;--deleted text--&#125;.
+This is &#123;++added text++&#125;.
+This is &#123;~~old~&gt;new~~&#125; text.
+This is &#123;==highlighted==&#125; text.
+&#123;&gt;&gt;This is a comment&lt;&lt;&#125;
+</code></pre>
 
 **Renders as:**
 
