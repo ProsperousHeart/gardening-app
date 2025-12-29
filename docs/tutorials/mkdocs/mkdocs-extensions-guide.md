@@ -55,6 +55,7 @@ def calculate_zone(temperature):
 ```
 
 **Features:**
+
 - Line numbers with `anchor_linenums: true`
 - Line highlighting
 - Language-specific syntax coloring
@@ -64,6 +65,7 @@ def calculate_zone(temperature):
 Highlight code within text: `:::python print("Hello")` renders as syntax-highlighted inline code.
 
 **Example:**
+
 The function `:::python def my_func():` does something important.
 
 ### `pymdownx.snippets` - Code Snippet Inclusion
@@ -71,19 +73,60 @@ The function `:::python def my_func():` does something important.
 Include code from external files directly into documentation.
 
 **Example:**
-```markdown
---8<-- "path/to/code.py"
-```
+
+<pre><code>--8&lt;-- "path/to/code.py"
+</code></pre>
+
+SOME EXAMPLE SHOULD BE ABOVE
 
 From [here](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/#snippet-sections) you can also specify sections:
 
-```text
---8<-- "include.md:name"
+<pre><code>--8&lt;-- "include.md:name"
 
---8<--
+--8&lt;--
 include.md:name
---8<--
-```
+--8&lt;--
+</code></pre>
+
+!!! danger "Snippets + Jinja2 Templates DON'T WORK"
+    **Problem:** You CANNOT use snippets to include Jinja2 template code!
+
+    **Why:** Execution order:
+
+    1. ✅ Markdown extensions (including `pymdownx.snippets`) run FIRST
+    2. ✅ Plugins (including `mkdocs-macros-plugin`) run SECOND
+
+    **What happens:**
+
+    ```markdown
+    <!-- ❌ WRONG - Shows raw Jinja2 code -->
+    --8<-- "snippets/common/my-template.md"
+    ```
+
+    The snippet includes Jinja2 code as **literal text** BEFORE the macros plugin can process it.
+    You'll see raw {% raw %}`{% if page.meta.priority %}`{% endraw %} on the rendered page.
+
+    **Solution - Put Jinja2 code directly in files:**
+
+    {% raw %}
+    ```markdown
+    <!-- ✅ CORRECT - Macros plugin processes this -->
+    {% if page.meta.priority %}
+    <div class="badge">{{ page.meta.priority }}</div>
+    {% endif %}
+    ```
+    {% endraw %}
+
+    **When to use snippets:**
+
+    - ✅ Regular markdown content
+    - ✅ Code examples
+    - ✅ Static content that doesn't need processing
+
+    **When NOT to use snippets:**
+
+    - ❌ Jinja2 templates (use direct code instead)
+    - ❌ Dynamic content that needs plugin processing
 
 ### `pymdownx.superfences` - Advanced Code Blocks
 
@@ -98,6 +141,7 @@ Enables nested code blocks and custom fences like Mermaid diagrams.
 Create diagrams directly in markdown using Mermaid syntax.
 
 **Example - Flowchart:**
+
 ```mermaid
 graph LR
     A[Gardener] --> B{Check Zone}
@@ -108,6 +152,7 @@ graph LR
 ```
 
 **Example - Sequence Diagram:**
+
 ```mermaid
 sequenceDiagram
     User->>System: Search for tomato
@@ -117,6 +162,7 @@ sequenceDiagram
 ```
 
 **Example - Class Diagram:**
+
 ```mermaid
 classDiagram
     class Plant {
@@ -136,6 +182,7 @@ classDiagram
 ```
 
 **Supported Diagram Types:**
+
 - Flowcharts (`graph`)
 - Sequence diagrams (`sequenceDiagram`)
 - Class diagrams (`classDiagram`)
@@ -156,6 +203,7 @@ classDiagram
 Create tabbed content blocks for organizing related information.
 
 **Example:**
+
 ```markdown
 === "Web Interface"
     Access the plant search from the main navigation menu.
@@ -255,10 +303,17 @@ Make admonitions collapsible to save space.
     Your USDA hardiness zone is based on your location's average annual minimum temperature.
 
 **Start Expanded:**
+
 ```markdown
 ???+ tip "Pro Tip"
     This starts open but can be collapsed.
 ```
+
+
+**Renders as:**
+
+???+ tip "Pro Tip"
+    This starts open but can be collapsed.
 
 ---
 
@@ -304,47 +359,63 @@ View this extension's documentation [here](https://timvink.github.io/mkdocs-tabl
 Include tables directly from CSV, Excel, or other data files into your documentation.
 
 **Installation:**
+
 ```bash
 uv add mkdocs-table-reader-plugin
 ```
 
 **Configuration in mkdocs.yml:**
+
 ```yaml
 plugins:
   - table-reader
 ```
 
 **Basic Usage - CSV Files:**
+
+{% raw %}
 ```markdown
-\{\{ read_csv('path/to/data.csv') \}\}
+{{ read_csv('path/to/data.csv') }}
 ```
+{% endraw %}
 
 **Basic Usage - Excel Files:**
+
+{% raw %}
 ```markdown
-\{\{ read_excel('path/to/spreadsheet.xlsx') \}\}
+{{ read_excel('path/to/spreadsheet.xlsx') }}
 ```
+{% endraw %}
 
 **Read Specific Excel Sheet:**
+
+{% raw %}
 ```markdown
-\{\{ read_excel('path/to/spreadsheet.xlsx', sheet_name='Sheet1') \}\}
+{{ read_excel('path/to/spreadsheet.xlsx', sheet_name='Sheet1') }}
 ```
+{% endraw %}
 
 **Advanced Options:**
+
+{% raw %}
 ```markdown
 <!-- Include only specific columns -->
-\{\{ read_csv('data.csv', usecols=['Name', 'Zone', 'Type']) \}\}
+{{ read_csv('data.csv', usecols=['Name', 'Zone', 'Type']) }}
 
 <!-- Skip rows -->
-\{\{ read_csv('data.csv', skiprows=2) \}\}
+{{ read_csv('data.csv', skiprows=2) }}
 
 <!-- Use specific encoding -->
-\{\{ read_csv('data.csv', encoding='utf-8') \}\}
+{{ read_csv('data.csv', encoding='utf-8') }}
 
 <!-- Read Excel with specific range -->
-\{\{ read_excel('data.xlsx', sheet_name='Plants', usecols='A:D') \}\}
+{{ read_excel('data.xlsx', sheet_name='Plants', usecols='A:D') }}
 ```
+{% endraw %}
 
 **Example - Decision Matrix:**
+
+{% raw %}
 ```markdown
 ## Project Decisions
 
@@ -352,8 +423,10 @@ The following decision matrix was used to evaluate our options:
 
 {{ read_excel('../../decisions/CESYS524_decision-matrix.xlsx') }}
 ```
+{% endraw %}
 
 **Features:**
+
 - Automatically converts CSV/Excel to markdown tables
 - Supports pandas DataFrame operations
 - Updates automatically when source files change
@@ -361,6 +434,7 @@ The following decision matrix was used to evaluate our options:
 - Supports filtering, column selection, and formatting
 
 **Use Cases:**
+
 - Decision matrices and trade-off analyses
 - Quality Function Deployment (QFD) matrices
 - FMEA (Failure Mode and Effects Analysis) tables
@@ -378,6 +452,7 @@ The following decision matrix was used to evaluate our options:
 Add custom CSS classes and attributes to elements.
 
 **Example:**
+
 ```markdown
 ![Plant Image](path/to/image.jpg){ .plant-image }
 
@@ -389,14 +464,77 @@ Zone 6a
 
 Use markdown syntax inside HTML blocks.
 
-**Example:**
+!!! warning "CRITICAL: Must Add `markdown` Attribute"
+    By default, markdown is **NOT** processed inside HTML block elements like `<div>`.
+    You MUST add the `markdown` attribute to enable processing.
+
+**❌ WRONG - Markdown not processed:**
+
 ```html
-<div class="feature-card">
+<div style="border: 2px solid gray;">
+# This Won't Render as H1
+**This won't be bold**
+</div>
+```
+
+**✅ CORRECT - Add `markdown` attribute:**
+
+```html
+<div markdown style="border: 2px solid gray;">
+
+# This Renders as H1
+
+**This is bold**
+
+</div>
+```
+
+**Requirements:**
+
+1. Add `markdown` attribute to the opening tag
+2. Add blank line after opening tag
+3. Add blank line before closing tag
+4. Markdown content must be properly formatted
+
+**Example with Classes:**
+
+```html
+<div markdown class="feature-card custom-style">
 
 ## Feature Title
 
 - Markdown list item
 - Another item
+
+</div>
+```
+
+**Inline vs Block Markdown:**
+
+```html
+<!-- Block-level markdown (headings, lists, paragraphs) -->
+<div markdown style="padding: 20px;">
+
+## Heading
+
+Paragraph with **bold** and *italic*.
+
+</div>
+
+<!-- Inline markdown only -->
+<div markdown="span">This is **inline** markdown only.</div>
+```
+
+**Real-world example:**
+
+```html
+<div markdown style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px;">
+
+# Plant Database
+
+**Purpose:** Plant data model and storage
+
+**Status:** Approved
 
 </div>
 ```
@@ -449,6 +587,7 @@ Create task lists with checkboxes.
 Create glossary-style definition lists.
 
 **Example:**
+
 ```markdown
 USDA Hardiness Zone
 :   A geographic area defined by average annual minimum temperature, used to determine which plants can survive in a location.
@@ -486,11 +625,14 @@ The USDA defines plant hardiness zones.
 *[USDA]: United States Department of Agriculture
 ```
 
-When you hover over "USDA", you'll see the full definition.
+When you hover over "USDA", you'll see the full definition like in this line.
+*[USDA]: United States Department of Agriculture
+
+Should you decide to do this, remember it might be best to put them at the bottom. It is untested about if the last definition updates all or only the most recent. (If you have them all at the end, you can alphabetize to know what ones you do have.)
 
 ### `footnotes` - Footnotes
 
-Add footnotes to content.
+Add footnotes to content. (They will appear at the bottom of your document - just like gootnotes.)
 
 **Example:**
 ```markdown
@@ -514,6 +656,7 @@ Plants in zone 6a can survive temperatures down to -10°F[^1].
 Automatically converts text to proper symbols.
 
 **Conversions:**
+
 - `(c)` → ©
 - `(r)` → ®
 - `(tm)` → ™
@@ -529,6 +672,7 @@ Automatically converts text to proper symbols.
 Display keyboard shortcuts beautifully.
 
 **Example:**
+
 ```markdown
 Press ++ctrl+alt+delete++ to restart.
 Press ++cmd+s++ to save.
@@ -547,6 +691,19 @@ Press ++ctrl+alt+delete++ to restart.
 Mark up content for review with track-changes style markup.
 
 **Syntax:**
+
+{% raw %}
+```text
+This is {--deleted text--}.
+This is {++added text++}.
+This is {~~old~>new~~} text.
+This is {==highlighted==} text.
+{>>This is a comment<<}
+```
+{% endraw %}
+
+**Renders as:**
+
 ```markdown
 This is {--deleted text--}.
 This is {++added text++}.
@@ -554,14 +711,6 @@ This is {~~old~>new~~} text.
 This is {==highlighted==} text.
 {>>This is a comment<<}
 ```
-
-**Renders as:**
-
-This is {--deleted text--}.
-This is {++added text++}.
-This is {~~old~>new~~} text.
-This is {==highlighted==} text.
-{>>This is a comment<<}
 
 ---
 
@@ -595,23 +744,27 @@ Plant spacing: $S = \frac{L}{n-1}$ where L is length and n is number of plants.
 ### When to Use Each Extension
 
 **Admonitions:**
+
 - Use `note` for general information
 - Use `warning` for important caveats
 - Use `tip` for helpful suggestions
 - Use `example` for code demonstrations
 
 **Diagrams:**
+
 - Use flowcharts for process flows
 - Use sequence diagrams for API interactions
 - Use class diagrams for data models
 - Use entity-relationship diagrams for database schemas
 
 **Tabs:**
+
 - Use for multiple implementations (web vs mobile)
 - Use for different user roles (admin vs user)
 - Use for multiple code examples (Python vs JavaScript)
 
 **Tables:**
+
 - Use for structured data (plant characteristics)
 - Use for comparison (feature matrices)
 - Keep tables simple - complex tables are hard to read on mobile
@@ -619,19 +772,23 @@ Plant spacing: $S = \frac{L}{n-1}$ where L is length and n is number of plants.
 ### Accessibility Considerations
 
 1. **Always provide alt text for images:**
+
    ```markdown
    ![USDA Hardiness Zone Map showing zones 1a through 13b](path/to/image.jpg)
    ```
 
 2. **Use semantic heading structure:**
-   - Don't skip heading levels (h1 → h3)
-   - Use h1 only once per page
+
+    - Don't skip heading levels (h1 → h3)
+    - Use h1 only once per page
 
 3. **Make link text descriptive:**
-   - ❌ `[Click here](link)` for more information
-   - ✅ `[Learn about USDA zones](link)` for detailed information
+
+    - ❌ `[Click here](link)` for more information
+    - ✅ `[Learn about USDA zones](link)` for detailed information
 
 4. **Use proper table headers:**
+
    ```markdown
    | Plant Name | Zone | Spacing |
    |------------|------|---------|
@@ -649,11 +806,13 @@ This documentation uses two plugins for optimal image handling.
 All images are automatically compressed during build - no special syntax needed.
 
 **Just add images normally:**
+
 ```markdown
 ![Plant Diagram](img/plant-structure.png)
 ```
 
 The optimize plugin automatically:
+
 - Compresses PNG/JPG files (30-70% size reduction)
 - Strips metadata
 - Generates WebP versions
@@ -664,6 +823,7 @@ The optimize plugin automatically:
 All images automatically get click-to-zoom functionality.
 
 **Basic usage (auto-enabled):**
+
 ```markdown
 ![Tomato Plant](img/tomato.jpg)
 ```
@@ -671,11 +831,13 @@ All images automatically get click-to-zoom functionality.
 Click image to open lightbox. Use arrow keys or swipe to navigate.
 
 **Disable lightbox for specific images:**
+
 ```markdown
 ![Small Icon](img/icon.png){ .skip-lightbox }
 ```
 
-**Create image gallery:**
+<!-- **Create image gallery:**
+
 ```markdown
 ![Stage 1](img/stage1.jpg)
 ![Stage 2](img/stage2.jpg)
@@ -684,7 +846,19 @@ Click image to open lightbox. Use arrow keys or swipe to navigate.
 
 Multiple images become a navigable gallery. Click any image, then use ← → arrows or swipe.
 
+For example, here is the gallery of the FFBDs as of Dec 2025:
+
+![F.0 - Overall System Operations](../../img/FFBDs/F.0-Overall_System_Ops.png)
+![F.1 - System Initialization](../../img/FFBDs/F.1-Sys_Init.png)
+![F.2 - User Choice Loop](../../img/FFBDs/F.2-Usr_Choice_Loop.png)
+![F.2.1 - General User Functions](../../img/FFBDs/F.2.1-Gen_Usr_Funcs.png)
+![F.2.1.1](../../img/FFBDs/F.2.1.1-Access_Plant_Search.png)
+![F.2.1.1.4 - Select Plant](../../img/FFBDs/F.2.1.1.4-Select_Plant.png)
+![F.F.2.1.5 - Access Settings](../../img/FFBDs/F.2.1.5-Access_Settings.png)
+![F.2.1c.1 - Plant Search & Filter](../../img/FFBDs/F.2.1c.1-Plant_SearchFilter.png) -->
+
 **Keyboard shortcuts in lightbox:**
+
 - `←` / `→` - Navigate gallery
 - `Esc` - Close
 - `+` / `-` - Zoom in/out
@@ -730,6 +904,8 @@ Search thousands of plants by name, zone, characteristics, and more.
 </div>
 ```
 
+See more with the [requirements index example](../../requirements/requirements-index-example.md).
+
 ---
 
 ## Additional Resources
@@ -759,5 +935,4 @@ graph TD
 
 ---
 
-**Last Updated:** 2025-12-12
 **Maintained By:** Gardening App Documentation Team
