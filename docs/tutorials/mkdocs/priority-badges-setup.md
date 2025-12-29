@@ -19,16 +19,16 @@ When you view a requirement page, badges appear right after the title:
 ```
 # Plant Database
 
-[CRITICAL] [Phase 1] [Approved]
+[CRITICAL] [Phase 0] [Approved]
 
 Plant data model, storage, and basic display...
 ```
 
 **Visual appearance:**
 
-![Priority Badge Example](../../img/priority-badge-example.png)
+![Priority Badge Example](../../img/Examples/example-PRI-badge.png){ .bordered }
 
-*The CRITICAL badge appears in red, Phase 1 in blue, and Approved in green.*
+*The CRITICAL badge appears in red, Phase in blue, and Approved (status) in green.*
 
 ### Color Scheme
 
@@ -43,16 +43,20 @@ Plant data model, storage, and basic display...
 
 The requirements index shows all requirements in cards with badges:
 
-```markdown
+<div class="ascii-art">
+
+```text
 ┌─────────────────────────────────────────────────────────┐
-│ Plant Database                  [CRITICAL] [Phase 1]    │
+│ Plant Database              [CRITICAL] [Phase 1]        │
 ├─────────────────────────────────────────────────────────┤
 │ Plant data model, storage, and basic display.           │
 │ Foundation for entire system.                           │
-│                                                          │
+│                                                         │
 │ View Requirement →                                      │
 └─────────────────────────────────────────────────────────┘
 ```
+
+</div>
 
 ## Setup Instructions
 
@@ -109,16 +113,51 @@ Visit the example page to see badges in action:
 
 ### Automatic Badge Injection
 
-The `priority_badges.py` hook:
+There are 2 approaches: Hook vs Macros
 
-1. **Reads** the YAML front matter from requirement files
-2. **Detects** priority, phase, and status values
-3. **Injects** HTML badges after the first H1 heading
-4. **Styles** badges using `priority-badges.css`
+!!! warning "Known Issue: Hook May Not Work on All Files"
+    The Python hook approach works on some files but **not on REQ-000 files**.
+    The root cause is unknown. We currently use the **macros plugin approach** as a workaround.
+
+#### Approach 1: Python Hook (Intended, But May Not Work)
+
+The `priority_badges.py` hook is **supposed to**:
+
+1. **Read** the YAML front matter from requirement files
+2. **Detect** priority, phase, and status values
+3. **Inject** HTML badges after the first H1 heading
+4. **Style** badges using `priority-badges.css`
+
+**Issue:** For unknown reasons, badges don't appear on REQ-000 files even though the hook runs.
+
+#### Approach 2: Macros Plugin (Current Workaround)
+
+**Requirements:**
+- `mkdocs-macros-plugin` must be enabled in `mkdocs.yml`
+- Jinja2 template code must be **directly in each file** (NOT via snippets!)
+
+**How it works:**
+
+1. **YAML Front Matter** - Metadata at top of file
+2. **Jinja2 Template** - Reads metadata and generates HTML
+3. **Macros Plugin** - Processes Jinja2 during build
+4. **CSS Styling** - `priority-badges.css` styles the badges
+
+!!! danger "CRITICAL: Snippets + Jinja2 Don't Work"
+    **Execution order:**
+
+    1. ✅ Markdown extensions (including `pymdownx.snippets`) run FIRST
+    2. ✅ Plugins (including `mkdocs-macros-plugin`) run SECOND
+
+    If you include Jinja2 via snippets, it becomes **literal text** before the macros plugin runs.
+    You'll see raw {% raw %}`{% if page.meta.priority %}`{% endraw %} on the page.
+
+    **Solution:** Put Jinja2 code directly in each requirement file.
 
 ### Example Transformation
 
 **Before (markdown):**
+
 ```markdown
 ---
 priority: "CRITICAL"
@@ -143,6 +182,39 @@ Plant data model...
 
 <p>Plant data model...</p>
 ```
+
+### Macros Approach Template
+
+**Complete example with Jinja2 template:**
+
+{% raw %}
+```markdown
+---
+priority: "CRITICAL"
+phase: "1"
+status: "approved"
+---
+
+# Plant Database
+
+{% if page.meta.priority %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.priority | lower }}">{{ page.meta.priority }}</span>
+{% if page.meta.phase %}<span class="phase-badge">Phase {{ page.meta.phase }}</span>{% endif %}
+{% if page.meta.status %}<span class="status-badge status-{{ page.meta.status | replace(' ', '-') | lower }}">{{ page.meta.status | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+{% endif %}
+
+Plant data model, storage, and basic display.
+```
+{% endraw %}
+
+**This template:**
+
+- Checks if `page.meta.priority` exists
+- Generates priority badge with correct CSS class (lowercase)
+- Conditionally adds phase and status badges if present
+- Uses Jinja2 filters for formatting
 
 ## Creating a Requirements Index
 
@@ -265,6 +337,7 @@ def define_env(env):
 
 Use in markdown:
 
+{% raw %}
 ```markdown
 # Critical Priority Requirements
 
@@ -272,6 +345,7 @@ Use in markdown:
 - [{{ req.title }}]({{ req.file }})
 {% endfor %}
 ```
+{% endraw %}
 
 ## Customization
 
@@ -308,11 +382,37 @@ status: "on-hold"
 
 ### Disable Badges for Specific Pages
 
-In the requirement file front matter:
+**Step 1: Add to YAML front matter** (same for both approaches):
 
 ```yaml
-show_badges: false
+---
+title: "My Requirement"
+priority: "CRITICAL"
+show_badges: false  # Add this to disable badges
+---
 ```
+
+**Step 2: Update implementation** (differs by approach):
+
+#### For Macros Plugin Approach (Current)
+
+Update the Jinja2 template in your requirement file:
+
+{% raw %}
+```jinja
+{% if page.meta.priority and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.priority | lower }}">{{ page.meta.priority }}</span>
+{% if page.meta.phase %}<span class="phase-badge">Phase {{ page.meta.phase }}</span>{% endif %}
+{% if page.meta.status %}<span class="status-badge status-{{ page.meta.status | replace(' ', '-') | lower }}">{{ page.meta.status | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+{% endif %}
+```
+{% endraw %}
+
+**Change:** {% raw %}`{% if page.meta.priority %}`{% endraw %} → {% raw %}`{% if page.meta.priority and page.meta.get('show_badges', true) != false %}`{% endraw %}
+
+#### For Python Hook Approach
 
 Update `priority_badges.py`:
 
