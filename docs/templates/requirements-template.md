@@ -11,8 +11,20 @@ status: draft | in-review | approved | implemented
 created: YYYY-MM-DD
 updated: YYYY-MM-DD
 author: Kassandra Keeton
-maps_to_req000: [REQ-000 section reference]
+show_badges: true  # set to "false" to disable badges
+maps_to_req000: [REQ-000 section reference and any additional REQ-#### links that may be avaialble and related outside of REQ-000]
 ---
+
+<!-- This has to be here instead of the snippet since they run before plugins (macros) -->
+{% if page.meta.priority and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.priority | lower }}">{{ page.meta.priority }}</span>
+{% if page.meta.phase %}<span class="phase-badge">Phase {{ page.meta.phase }}</span>{% endif %}
+{% if page.meta.status %}<span class="status-badge status-{{ page.meta.status | replace(' ', '-') | lower }}">{{ page.meta.status | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+
+---
+{% endif %}
 
 # Requirements Template for Gardening Application Components
 
@@ -25,6 +37,8 @@ A quick template can be found [here](requirements/requirements-quick-template.md
 ## Feature/Module/Component Name
 
 **[FeatureOrComponentName]** - Use descriptive naming (e.g., snake_case for Python modules and PascalCase for web components, descriptive names for features)
+
+> **Maps to REQ-000b:** [Link to specific section in REQ-000b_Scope.md that defines this component's performance criteria]
 
 ---
 
