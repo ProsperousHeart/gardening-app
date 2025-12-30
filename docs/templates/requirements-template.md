@@ -4,6 +4,7 @@
 # DO NOT REMOVE THIS SECTION - edit values only
 
 title: [Feature/Module/Component Name]
+description: TBD
 req_id: req-[subsystem]-[component]
 priority: CRITICAL | HIGH | MEDIUM | LOW
 phase: 1-7

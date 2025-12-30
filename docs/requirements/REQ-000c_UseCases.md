@@ -1,17 +1,36 @@
 ---
 # Requirement Metadata
-title: "Use Cases (REQ-000c)"
-req_id: "REQ-000c"
-priority: "CRITICAL"
-phase: "0"
-status: "approved"
-created: "2024-01-01"
-updated: "2025-01-27"
-author: "Kassandra Keeton"
+title: Use Cases (REQ-000c)
+description: "?"
+req_id: REQ-000c
+priority: CRITICAL
+phase: 0
+status: draft
+created: 2024-01-01
+updated: 2025-01-27
+author: Kassandra Keeton
+show_badges: true  # set to "false" to disable badges
 maps_to_req000: "Foundation document - defines use cases and scenarios"
 ---
 
+<!-- --8<-- "snippets/common/requirement-badges.md" -->
+
+<!-- This has to be here instead of the snippet since they run before plugins (macros) -->
+{% if page.meta.priority and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.priority | lower }}">{{ page.meta.priority }}</span>
+{% if page.meta.phase %}<span class="phase-badge">Phase {{ page.meta.phase }}</span>{% endif %}
+{% if page.meta.status %}<span class="status-badge status-{{ page.meta.status | replace(' ', '-') | lower }}">{{ page.meta.status | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+
+---
+{% endif %}
+
+---
+
 # Use Cases
+
+> **Foundation Document** - All requirements derive from this foundational specification.
 
 Be sure to review [Use Case Behavior Diagrams](REQ-000d_UCBDs.md) to see the UCBDs of these use cases.
 

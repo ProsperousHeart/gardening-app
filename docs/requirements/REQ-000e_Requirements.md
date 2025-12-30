@@ -1,18 +1,36 @@
 ---
 # Requirement Metadata
-title: "Requirements Table (REQ-000e)"
-req_id: "REQ-000e"
-priority: "CRITICAL"
-phase: "0"
-status: "approved"
-created: "2024-01-01"
-updated: "2025-01-27"
-author: "Kassandra Keeton"
+title: Requirements Table (REQ-000e)
+description: Requirements for solution based on REQ-000 docs
+req_id: REQ-000e
+priority: CRITICAL
+phase: 0
+status: draft
+created: 2024-01-01
+updated: 2025-01-27
+author: Kassandra Keeton
+show_badges: true  # set to "false" to disable badges
 maps_to_req000: "Foundation document - detailed requirements table"
-description: "Requirements for solution based on REQ-000 docs"
+---
+
+<!-- --8<-- "snippets/common/requirement-badges.md" -->
+
+<!-- This has to be here instead of the snippet since they run before plugins (macros) -->
+{% if page.meta.priority and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.priority | lower }}">{{ page.meta.priority }}</span>
+{% if page.meta.phase %}<span class="phase-badge">Phase {{ page.meta.phase }}</span>{% endif %}
+{% if page.meta.status %}<span class="status-badge status-{{ page.meta.status | replace(' ', '-') | lower }}">{{ page.meta.status | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+
+---
+{% endif %}
+
 ---
 
 # Requirements Definition
+
+> **Foundation Document** - All requirements derive from this foundational specification.
 
 This is the centralized information related to the requirements outlined in [UCBDs](./REQ-000d_UCBDs.md) file.
 
