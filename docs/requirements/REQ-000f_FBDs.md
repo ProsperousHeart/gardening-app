@@ -1,7 +1,7 @@
 ---
 # Requirement Metadata
 title: Functional Flow Block Diagrams (REQ-000f)
-description: "?"
+description: "Functional Flow Block Diagrams (FFBDs) - WIP"
 req_id: REQ-000f
 priority: CRITICAL
 phase: 0
@@ -10,7 +10,7 @@ created: 2024-12-01
 updated: 2025-01-27
 author: Kassandra Keeton
 show_badges: true  # set to "false" to disable badges
-maps_to_req000: Foundation document - FFBDs (work in progress)
+maps_to_req: "REQ-000f_FBDs.md"
 ---
 
 <!-- --8<-- "snippets/common/requirement-badges.md" -->
@@ -28,7 +28,12 @@ maps_to_req000: Foundation document - FFBDs (work in progress)
 
 # Functional Flow Block Diagrams
 
-> **Foundation Document** - FFBDs (work in progress)
+<!-- > **Foundation Document** - FFBDs (work in progress) -->
+
+{% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "[REQ-000 Series](req-index.md) - Foundational Document"
+    **DESCRIPTION:** {{ page.meta.get('description') | replace('REQ-000', '[REQ-000](req-index.md)') }}
+{% endif %}
 
 As of 20251226, I have not yet found a tool to take what I did in Miro and put into machine readable text.
 

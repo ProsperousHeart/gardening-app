@@ -1,7 +1,7 @@
 ---
 # Requirement Metadata
 title: Use Cases (REQ-000c)
-description: "?"
+description: "Defines use cases and scenarios"
 req_id: REQ-000c
 priority: CRITICAL
 phase: 0
@@ -10,7 +10,7 @@ created: 2024-01-01
 updated: 2025-01-27
 author: Kassandra Keeton
 show_badges: true  # set to "false" to disable badges
-maps_to_req000: "Foundation document - defines use cases and scenarios"
+maps_to_req: "REQ-000c_UseCases.md"
 ---
 
 <!-- --8<-- "snippets/common/requirement-badges.md" -->
@@ -28,7 +28,12 @@ maps_to_req000: "Foundation document - defines use cases and scenarios"
 
 # Use Cases
 
-> **Foundation Document** - All requirements derive from this foundational specification.
+<!-- > **Foundation Document** - All requirements derive from this foundational specification. -->
+
+{% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "[REQ-000 Series](req-index.md) - Foundational Document"
+    **DESCRIPTION:** {{ page.meta.get('description') | replace('REQ-000', '[REQ-000](req-index.md)') }}
+{% endif %}
 
 Be sure to review [Use Case Behavior Diagrams](REQ-000d_UCBDs.md) to see the UCBDs of these use cases.
 

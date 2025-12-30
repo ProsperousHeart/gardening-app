@@ -1,7 +1,7 @@
 ---
 # Requirement Metadata
 title: Scope & Performance Criteria (REQ-000b)
-description: "?"
+description: "Defines scope tree and performance criteria"
 req_id: REQ-000b
 priority: CRITICAL
 phase: 0
@@ -10,7 +10,7 @@ created: 2024-01-01
 updated: 2025-01-27
 author: Kassandra Keeton
 show_badges: true  # set to "false" to disable badges
-maps_to_req000: "Foundation document - defines scope tree and performance criteria"
+maps_to_req: "REQ-000b_Scope.md"
 ---
 
 <!-- --8<-- "snippets/common/requirement-badges.md" -->
@@ -28,7 +28,12 @@ maps_to_req000: "Foundation document - defines scope tree and performance criter
 
 # Scope
 
-> **Foundation Document** - All requirements derive from this foundational specification.
+<!-- > **Foundation Document** - All requirements derive from this foundational specification. -->
+
+{% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "[REQ-000 Series](req-index.md) - Foundational Document"
+    **DESCRIPTION:** {{ page.meta.get('description') | replace('REQ-000', '[REQ-000](req-index.md)') }}
+{% endif %}
 
 See description of project [here](./REQ-000a_General.md#project-description)
 
@@ -242,13 +247,13 @@ This is the core of the entire system. Below you will find high level expectatio
 
 **Detailed Field Specifications:**
 
-> See `docs/tutorials/general/database-seeding-guide.md` for complete field reference table, including:
-> - Field types and valid values
-> - Required vs optional fields
-> - Default values
-> - Plant type codes (an, bi, pe, tp, sh, tr, vi, un)
-> - Exposure codes (fs, fp, pu, pd, sh)
-> - All boolean flag definitions
+> See `docs/tutorials/general/database-seeding-guide.md` for complete field reference table, including:<br>
+>  - Field types and valid values<br>
+>  - Required vs optional fields<br>
+>  - Default values<br>
+>  - Plant type codes (an, bi, pe, tp, sh, tr, vi, un)<br>
+>  - Exposure codes (fs, fp, pu, pd, sh)<br>
+>  - All boolean flag definitions
 
 **Data Seeding Requirements:**
 

@@ -1,7 +1,7 @@
 ---
 # Requirement Metadata
 title: Requirements Table (REQ-000e)
-description: Requirements for solution based on REQ-000 docs
+description: "Requirements tables for solution based on REQ-000 docs"
 req_id: REQ-000e
 priority: CRITICAL
 phase: 0
@@ -10,7 +10,7 @@ created: 2024-01-01
 updated: 2025-01-27
 author: Kassandra Keeton
 show_badges: true  # set to "false" to disable badges
-maps_to_req000: "Foundation document - detailed requirements table"
+maps_to_req: "REQ-000e_Requirements.md"
 ---
 
 <!-- --8<-- "snippets/common/requirement-badges.md" -->
@@ -28,7 +28,17 @@ maps_to_req000: "Foundation document - detailed requirements table"
 
 # Requirements Definition
 
-> **Foundation Document** - All requirements derive from this foundational specification.
+<!-- > **Foundation Document** - All requirements derive from this foundational specification. -->
+
+<!-- {% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "Foundational Document"
+    {{ page.meta.get('description') }}
+{% endif %} -->
+
+{% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "[REQ-000 Series](req-index.md) - Foundational Document"
+    **DESCRIPTION:** {{ page.meta.get('description') | replace('REQ-000', '[REQ-000](req-index.md)') }}
+{% endif %}
 
 This is the centralized information related to the requirements outlined in [UCBDs](./REQ-000d_UCBDs.md) file.
 
