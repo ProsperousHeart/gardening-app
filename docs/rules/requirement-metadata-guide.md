@@ -90,6 +90,7 @@ diagrams: ["diagrams/architecture-plant-database.md", "diagrams/threat-model-pla
 
 You can use these fields in MkDocs templates:
 
+{% raw %}
 ```jinja
 <!-- Display related specification -->
 {% if page.meta.specification and page.meta.specification != "TBD" %}
@@ -104,6 +105,7 @@ You can use these fields in MkDocs templates:
 {% endfor %}
 {% endif %}
 ```
+{% endraw %}
 
 ## How to Update Priority Safely
 
@@ -226,6 +228,7 @@ done
 
 MkDocs automatically reads YAML front matter and makes it available in templates:
 
+{% raw %}
 ```jinja
 <!-- In MkDocs template -->
 <h1>{{ page.meta.title }}</h1>
@@ -233,6 +236,7 @@ MkDocs automatically reads YAML front matter and makes it available in templates
     Priority: {{ page.meta.priority }}
 </div>
 ```
+{% endraw %}
 
 You can even create a plugin to:
 - Show priority badges on pages
@@ -347,6 +351,7 @@ done
 
 Create an action to generate priority reports on PR:
 
+{% raw %}
 ```yaml
 name: Priority Report
 on: [pull_request]
@@ -360,14 +365,20 @@ jobs:
           ./scripts/priority-report.sh > priority-report.md
           gh pr comment ${{ github.event.number }} --body-file priority-report.md
 ```
+{% endraw %}
 
 ## Summary
 
 ✅ **Metadata is isolated** - Priority lives in YAML front matter (lines 1-15)
+
 ✅ **Content is separate** - Requirements content starts at line 16+
+
 ✅ **Easy to query** - Use grep/sed to find and update priorities
+
 ✅ **Version control friendly** - Changes show clearly in git diff
+
 ✅ **MkDocs compatible** - Automatic integration with documentation site
+
 ✅ **No overwrites** - Update priority independently of content
 
 **Key Takeaway**: When you update requirement content, the priority metadata stays safe in the YAML front matter unless you explicitly change it.

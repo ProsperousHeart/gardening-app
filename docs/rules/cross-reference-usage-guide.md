@@ -300,6 +300,7 @@ echo "With tests: $with_tests ($((with_tests * 100 / total))%)"
 
 You can add this snippet to requirement/spec files to display cross-references:
 
+{% raw %}
 ```markdown
 {% if page.meta.specification and page.meta.specification != "TBD" %}
 ## Related Documentation
@@ -328,6 +329,7 @@ You can add this snippet to requirement/spec files to display cross-references:
 {% endif %}
 {% endif %}
 ```
+{% endraw %}
 
 ### Create Custom MkDocs Plugin
 

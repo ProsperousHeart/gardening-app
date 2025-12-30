@@ -246,6 +246,7 @@ maps_to_req: ["../requirements/req-feature.md"]
 ### 3. Use Relative Paths
 
 Always use relative paths for portability:
+
 - ✅ `../specifications/spec-feature.md`
 - ❌ `/docs/specifications/spec-feature.md`
 - ❌ `D:\Programming\Code\gardening-app\docs\specifications\spec-feature.md`
@@ -327,6 +328,7 @@ grep -l "status: implemented" docs/specifications/spec-*.md
 
 MkDocs makes metadata available via `page.meta`:
 
+{% raw %}
 ```jinja
 <!-- Display priority badge -->
 {% if page.meta.priority %}
@@ -348,6 +350,7 @@ MkDocs makes metadata available via `page.meta`:
 {% endfor %}
 {% endif %}
 ```
+{% endraw %}
 
 ### Custom Macros
 
@@ -413,47 +416,8 @@ done
 
 ### Requirement Template
 
-```yaml
----
-title: Feature Name
-description: "Brief description"
-req_id: req-subsystem-component
-priority: CRITICAL | HIGH | MEDIUM | LOW
-phase: 1-7
-status: draft | in-review | approved | implemented
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-author: Your Name
-show_badges: true
-maps_to_req: "REQ-000 reference"
-
-cross_ref_table: ../SPEC-CROSS-REFERENCE.md
-specification: TBD
-source_files: []
-test_files: []
-diagrams: []
----
-```
+--8<-- "snippets/common/requirement-metadata-template.md"
 
 ### Specification Template
 
-```yaml
----
-title: Feature Specification
-description: "Brief description"
-spec_id: spec-feature-name
-priority: CRITICAL | HIGH | MEDIUM | LOW
-phase: 1-7
-status: draft | in-review | approved | implemented
-created: YYYY-MM-DD
-updated: YYYY-MM-DD
-author: Your Name
-show_badges: true
-maps_to_req: ["../requirements/req-feature.md"]
-
-cross_ref_table: ../SPEC-CROSS-REFERENCE.md
-source_files: []
-test_files: []
-diagrams: []
----
-```
+--8<-- "snippets/common/specification-metadata-template.md"
