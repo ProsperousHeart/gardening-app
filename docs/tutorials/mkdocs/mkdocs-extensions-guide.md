@@ -309,6 +309,8 @@ Enables nested code blocks and custom fences like Mermaid diagrams.
 
 ## Diagram Support
 
+**Learn More:** [Mermaid Documentation](https://mermaid.js.org/)
+
 ### Mermaid Diagrams
 
 Create diagrams directly in markdown using Mermaid syntax.
@@ -364,51 +366,6 @@ classDiagram
 - Gantt charts (`gantt`)
 - Pie charts (`pie`)
 - Git graphs (`gitGraph`)
-
-#### Common Mermaid Pitfalls (v11+)
-
-!!! warning "Syntax Errors to Avoid"
-    When using Mermaid v11+, these common issues cause syntax errors:
-
-**1. Self-closing `<br/>` tags don't work**
-
-❌ **WRONG:**
-```mermaid
-graph TD
-    A[Line 1<br/>Line 2]
-```
-
-✅ **CORRECT:**
-```mermaid
-flowchart TD
-    A["Line 1<br>Line 2"]
-```
-
-**Key fixes:**
-- Remove the forward slash: `<br/>` → `<br>`
-- Add quotes around labels with `<br>` tags
-- Use `flowchart` instead of `graph` (recommended for v11+)
-
-**2. Special characters need quotes**
-
-❌ **WRONG:**
-```mermaid
-graph TD
-    A[Use highlight/superfences]
-```
-
-✅ **CORRECT:**
-```mermaid
-flowchart TD
-    A["Use highlight/superfences"]
-```
-
-**Key fixes:**
-- Wrap labels containing `/`, `:`, `()`, or special chars in quotes
-- HTML entities like `&#123;` cause parsing errors - avoid in Mermaid labels
-- Jinja2 syntax `{{ }}` or `{% %}` breaks Mermaid - use plain text descriptions
-
-**Learn More:** [Mermaid Documentation](https://mermaid.js.org/)
 
 ---
 
