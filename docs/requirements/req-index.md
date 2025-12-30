@@ -1,0 +1,73 @@
+# Requirements Index
+
+<div class="req-index-controls" markdown="1">
+  <div class="req-filters">
+    <input type="text" id="req-search" placeholder="Search requirements..." />
+    <select id="phase-filter">
+      <option value="">All Phases</option>
+      <option value="0">Phase 0</option>
+    </select>
+    <select id="priority-filter">
+      <option value="">All Priorities</option>
+      <option value="CRITICAL">Critical</option>
+      <option value="HIGH">High</option>
+      <option value="MEDIUM">Medium</option>
+      <option value="LOW">Low</option>
+    </select>
+  </div>
+</div>
+
+<table id="requirements-table" class="requirements-table">
+  <thead>
+    <tr>
+      <th class="sortable" data-sort="priority">Priority <span class="sort-icon">⇅</span></th>
+      <th class="sortable" data-sort="phase">Phase <span class="sort-icon">⇅</span></th>
+      <th class="sortable" data-sort="docnum">Doc Number <span class="sort-icon">⇅</span></th>
+      <th class="sortable" data-sort="title">Title <span class="sort-icon">⇅</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-phase="0" data-priority="CRITICAL" data-docnum="REQ-000a" data-title="General Requirements">
+      <td style="text-align: center;"><span class="priority-badge priority-critical">CRITICAL</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">REQ-000a</td>
+      <td><a href="REQ-000a_General.md">General Requirements</a></td>
+    </tr>
+    <tr data-phase="0" data-priority="CRITICAL" data-docnum="REQ-000b" data-title="Scope & Performance Criteria">
+      <td style="text-align: center;"><span class="priority-badge priority-critical">CRITICAL</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">REQ-000b</td>
+      <td><a href="REQ-000b_Scope.md">Scope & Performance Criteria</a></td>
+    </tr>
+    <tr data-phase="0" data-priority="CRITICAL" data-docnum="REQ-000c" data-title="Use Cases">
+      <td style="text-align: center;"><span class="priority-badge priority-critical">CRITICAL</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">REQ-000c</td>
+      <td><a href="REQ-000c_UseCases.md">Use Cases</a></td>
+    </tr>
+    <tr data-phase="0" data-priority="CRITICAL" data-docnum="REQ-000d" data-title="Use Case Behavior Diagrams">
+      <td style="text-align: center;"><span class="priority-badge priority-critical">CRITICAL</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">REQ-000d</td>
+      <td><a href="REQ-000d_UCBDs.md">Use Case Behavior Diagrams</a></td>
+    </tr>
+    <tr data-phase="0" data-priority="CRITICAL" data-docnum="REQ-000e" data-title="Requirements Table">
+      <td style="text-align: center;"><span class="priority-badge priority-critical">CRITICAL</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">REQ-000e</td>
+      <td><a href="REQ-000e_Requirements.md">Requirements Table</a></td>
+    </tr>
+    <tr data-phase="0" data-priority="CRITICAL" data-docnum="REQ-000f" data-title="Functional Flow Block Diagrams">
+      <td style="text-align: center;"><span class="priority-badge priority-critical">CRITICAL</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">REQ-000f</td>
+      <td><a href="REQ-000f_FBDs.md">Functional Flow Block Diagrams</a></td>
+    </tr>
+    <tr data-phase="0" data-priority="HIGH" data-docnum="REQ-000g" data-title="Design Decisions & Analysis">
+      <td style="text-align: center;"><span class="priority-badge priority-high">HIGH</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">REQ-000g</td>
+      <td><a href="REQ-000g_Decisions.md">Design Decisions & Analysis</a></td>
+    </tr>
+  </tbody>
+</table>

@@ -7,6 +7,8 @@ description: Generated when testing badging feature. Still needs to be reviewed 
 
 This page shows exactly what priority badges look like on your MkDocs site.
 
+You can see an example page [here](../../requirements/requirements-index-example.md).
+
 ---
 
 ## Individual Requirement Page
@@ -15,7 +17,7 @@ When viewing a requirement document, badges appear automatically after the title
 
 ### Example: Plant Database Requirement
 
-<div style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: #ffffff; margin: 20px 0;">
+<div markdown style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: #ffffff; margin: 20px 0;">
 
 # Plant Database
 
@@ -35,7 +37,7 @@ When viewing a requirement document, badges appear automatically after the title
 
 ### Example: Weather Integration Requirement
 
-<div style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: #ffffff; margin: 20px 0;">
+<div markdown style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: #ffffff; margin: 20px 0;">
 
 # Weather Integration
 
@@ -55,7 +57,7 @@ When viewing a requirement document, badges appear automatically after the title
 
 ### Example: Admin Account Management Requirement
 
-<div style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: #ffffff; margin: 20px 0;">
+<div markdown style="border: 2px solid #e5e7eb; border-radius: 8px; padding: 20px; background-color: #ffffff; margin: 20px 0;">
 
 # Admin Account Management
 
@@ -214,7 +216,7 @@ You can also use badges inline in lists:
 
 Badges adapt to smaller screens:
 
-<div style="max-width: 375px; border: 2px solid #e5e7eb; padding: 10px; margin: 20px 0;">
+<div markdown style="max-width: 375px; border: 2px solid #e5e7eb; padding: 10px; margin: 20px 0;">
 
 ### Plant Database
 
@@ -233,7 +235,7 @@ Plant data model and storage...
 
 Badges automatically adapt to dark mode:
 
-<div style="background-color: #1e293b; color: #f1f5f9; border: 2px solid #334155; border-radius: 8px; padding: 20px; margin: 20px 0;">
+<div markdown style="background-color: #1e293b; color: #f1f5f9; border: 2px solid #334155; border-radius: 8px; padding: 20px; margin: 20px 0;">
 
 # Plant Database
 
