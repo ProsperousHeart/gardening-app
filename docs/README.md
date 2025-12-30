@@ -19,6 +19,7 @@ Welcome to the central documentation hub for this project. All requirements, spe
 - **[Diagrams](diagrams/)** - Visual documentation (architecture, threat models, etc.)
 - **[Rules](rules/)** - Project standards and conventions
 - **[Templates](templates/)** - Starting point for new documentation
+- **[Snippets](snippets/)** - Reusable content blocks (common, technical)
 - **[History](history/)** - Decision logs and important conversations
 
 ## 🚀 Getting Started
@@ -67,6 +68,7 @@ docs/
 ├── diagrams/                     # Architecture, threat models, etc.
 ├── rules/                        # Standards and conventions
 ├── templates/                    # Documentation templates
+├── snippets/                     # Reusable content blocks (common, technical)
 ├── history/                      # Decision logs
 └── output-logs/                  # Workflow execution logs
 ```
