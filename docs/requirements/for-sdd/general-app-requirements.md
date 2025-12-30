@@ -18,17 +18,22 @@ This spec should be saved to general-app-spec.md in @specs/ folder.
 # Requirements
 
 ## Plant Database
+
 - show: common name, scientific name, germination information, planting information, etc\
 - able to search by plant properties, favorites, and growing zone
+
 ## General
+
 - responsive design (mobile and desktop)
 - async and mobile focused
 - API to share plant information
 - weather widget
+
 # Constraints
+
 - Python Django
 - Next.js 15 App Router with React 19
 - Tailwind for CSS styling
 - Props:  plant object with typed interface
 
-Be sure to split this up so that the first spec is teh general layout of the app with placeholders for the different needs. These placeholders will be dynamically updated when the component is ready. Each major component for this application should have it's own spec doc so each piece can be worked on a piece at a time.
+Be sure to split this up so that the first spec is the general layout of the app with placeholders for the different needs. These placeholders will be dynamically updated when the component is ready. Each major component for this application should have it's own spec doc so each piece can be worked on a piece at a time.
