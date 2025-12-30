@@ -464,11 +464,16 @@ docs/
     └── *.md            # Individual rule documents (like this file)
 ```
 
-### Front Matter (Optional)
+### Front Matter
 
 **What is Front Matter?**
 
 Front matter is metadata placed at the beginning of a markdown file, enclosed in triple dashes (`---`). It provides information about the document to static site generators like Jekyll, Hugo, MkDocs, or Docusaurus.
+
+**REQUIRED Metadata**:
+- **Requirement files** (`docs/requirements/`): MUST include cross-reference tracking fields
+- **Specification files** (`docs/specifications/`): MUST include cross-reference tracking fields
+- See [Requirement Metadata Guide](./requirement-metadata-guide.md) for complete documentation
 
 **Common uses**:
 

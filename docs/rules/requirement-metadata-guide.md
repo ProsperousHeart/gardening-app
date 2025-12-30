@@ -34,6 +34,77 @@ maps_to_req000: "System.GenUser.ViewsAndInsights.PlantDatabase"
 | **author** | Primary author | Name or handle | `Kassandra Keeton` |
 | **maps_to_req000** | Link to REQ-000b scope | REQ-000b reference | `System.GenUser.ViewsAndInsights.PlantDatabase` |
 
+### Cross-Reference Tracking Fields
+
+| Field | Description | Values | Example |
+|-------|-------------|--------|---------|
+| **cross_ref_table** | Link to cross-reference table | Relative path | `../SPEC-CROSS-REFERENCE.md` |
+| **specification** | Path to generated spec file | Relative path or `TBD` | `../specifications/spec-plant-database.md` |
+| **source_files** | Implementation file paths | YAML list | `["src/plants/models.py"]` |
+| **test_files** | Test file paths | YAML list | `["tests/test_plant_model.py"]` |
+| **diagrams** | Related diagram file paths | YAML list | `["diagrams/architecture-plants.md"]` |
+
+## Cross-Reference Tracking Usage
+
+### Purpose
+
+Cross-reference fields enable bidirectional traceability between requirements, specifications, code, tests, and diagrams. This ensures:
+- **Traceability**: Follow a requirement from concept through implementation
+- **Completeness**: Verify all requirements have specs, code, and tests
+- **Maintenance**: Update related documents when changes occur
+
+### When to Update Cross-Reference Fields
+
+| Lifecycle Event | Update These Fields | Example |
+|----------------|---------------------|---------|
+| **Creating requirement** | `cross_ref_table` (always `../SPEC-CROSS-REFERENCE.md`) | Initial file creation |
+| **Generating specification** | `specification` (path to generated spec) | After `/make-spec-from-req` |
+| **Creating diagrams** | `diagrams` (add diagram path to list) | After architecture/threat model creation |
+| **Implementing code** | `source_files` (add implementation paths) | When writing actual code |
+| **Writing tests** | `test_files` (add test file paths) | When creating test files |
+| **Any update** | `updated` (today's date) | Every change to the file |
+
+### Updating Cross-Reference Fields
+
+**Example workflow**:
+
+```yaml
+# Initial requirement (newly created)
+specification: TBD
+source_files: []
+test_files: []
+diagrams: []
+
+# After running /make-spec-from-req
+specification: ../specifications/spec-plant-database.md
+diagrams: ["diagrams/architecture-plant-database.md", "diagrams/threat-model-plant-database.md"]
+
+# After implementation
+specification: ../specifications/spec-plant-database.md
+source_files: ["src/plants/models.py", "src/plants/views.py"]
+test_files: ["tests/test_plant_model.py", "tests/test_plant_views.py"]
+diagrams: ["diagrams/architecture-plant-database.md", "diagrams/threat-model-plant-database.md"]
+```
+
+### Accessing Cross-Reference Data in MkDocs
+
+You can use these fields in MkDocs templates:
+
+```jinja
+<!-- Display related specification -->
+{% if page.meta.specification and page.meta.specification != "TBD" %}
+**Specification**: [{{ page.meta.specification }}]({{ page.meta.specification }})
+{% endif %}
+
+<!-- List implementation files -->
+{% if page.meta.source_files %}
+**Implementation**:
+{% for file in page.meta.source_files %}
+- `{{ file }}`
+{% endfor %}
+{% endif %}
+```
+
 ## How to Update Priority Safely
 
 ### Method 1: Edit Only the YAML Section

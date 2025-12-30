@@ -11,6 +11,13 @@ updated: 2025-01-27
 author: Kassandra Keeton
 show_badges: true  # set to "false" to disable badges
 maps_to_req: "REQ-000b_Scope.md"
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+specification: TBD  # Path to spec file (generated via /make-spec-from-req)
+source_files: []  # N/A - foundational document
+test_files: []  # N/A - foundational document
+diagrams: []
 ---
 
 <!-- --8<-- "snippets/common/requirement-badges.md" -->

@@ -4,7 +4,7 @@
 # DO NOT REMOVE THIS SECTION - edit values only
 
 title: [Feature/Module/Component Name]
-description: TBD
+description: "TBD"
 req_id: req-[subsystem]-[component]
 priority: CRITICAL | HIGH | MEDIUM | LOW
 phase: 1-7
@@ -13,7 +13,14 @@ created: YYYY-MM-DD
 updated: YYYY-MM-DD
 author: Kassandra Keeton
 show_badges: true  # set to "false" to disable badges
-maps_to_req000: [REQ-000 section reference and any additional REQ-#### links that may be avaialble and related outside of REQ-000]
+maps_to_req: [REQ-000 section reference and any additional REQ-#### links that may be avaialble and related outside of REQ-000]
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+specification: TBD  # Path to spec file (generated via /make-spec-from-req)
+source_files: []  # List of implementation files (e.g., ["src/module.py"])
+test_files: []  # List of test files (e.g., ["tests/test_module.py"])
+diagrams: []  # List of diagram files (e.g., ["diagrams/architecture-feature.md"])
 ---
 
 <!-- This has to be here instead of the snippet since they run before plugins (macros) -->

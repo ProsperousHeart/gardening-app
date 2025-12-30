@@ -11,6 +11,13 @@ updated: 2025-01-27
 author: Kassandra Keeton
 show_badges: true  # set to "false" to disable badges
 maps_to_req: "REQ-000a_General.md"
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+specification: TBD  # Path to spec file (generated via /make-spec-from-req)
+source_files: []  # N/A - foundational document
+test_files: []  # N/A - foundational document
+diagrams: ["diagrams/REQ000/context-general.md"]
 ---
 
 <!-- --8<-- "snippets/common/requirement-badges.md" -->
@@ -86,6 +93,8 @@ Below is a list of high level things the solution should do. As the rest of the 
 - Have a central communication tool for community garden announcements that won't be lost in emails
 
 - Be open source so others can improve and support community
+
+- Be integrated with mkdocs so that when a build is done, it also includes the source code for the app upon generating the site.
 
 
 ## Stakeholders

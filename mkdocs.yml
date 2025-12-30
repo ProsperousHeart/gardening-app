@@ -44,6 +44,10 @@ nav:
     - decisions/planning/README.md
     - Progress: CHANGELOG.md
     - Requirements:
+      - Rules:
+        - Markdown Standards: rules/markdown-standards.md
+        - Metadata Reference Guide: rules/metadata-reference.md
+        - Metadata Req Guide: rules/requirement-metadata-guide.md
       - Data:
         - data/README.md
         - Initial Plants: data/initial_plant_view.md
