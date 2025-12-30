@@ -72,8 +72,12 @@ nav:
       - Extensions Guide: tutorials/mkdocs/mkdocs-extensions-guide.md
     - Lessons Learned:
       - Creating Priority Badges:
-        - Badge Visual Demo: tutorials/mkdocs/priority-badges-visual-demo.md
+        - "Demo: Badge Visual": tutorials/mkdocs/priority-badges-visual-demo.md
+        - "Demo: Requirements Index": requirements/requirements-index-example.md
         - Badge Setup: tutorials/mkdocs/priority-badges-setup.md
+      - Creating Custom Modals:
+        - "Demo: Requirements Index": requirements/requirements-index-example.md
+        - Modal Setup: tutorials/mkdocs/requirement-modal-setup.md
       - Finding Processes to End: tutorials/system/windows-cmds.md
       - Using GenAI for Documentation: tutorials/genai-documentation.md
       # - Using GenAI for Code: tutorials/genai-code.md
@@ -329,9 +333,11 @@ extra_css:
   - stylesheets/extra.css
   - stylesheets/priority-badges.css  # Priority badges for requirements
   - stylesheets/req-index.css        # Interactive requirements index table
+  - stylesheets/requirement-modal.css  # Modal popup for missing requirements
 
 extra_javascript:
   - javascripts/req-index.js  # Interactive filtering and sorting for requirements index
+  - javascripts/requirement-modal.js  # Modal handler for missing requirement files
 
 # Hooks for custom processing
 hooks:
