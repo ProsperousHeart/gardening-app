@@ -26,6 +26,14 @@ nav:
     - Resources: resources.md
   - System Requirements:
     - requirements/README.md
+    - Design Planning:
+      - General: requirements/REQ-000a_General.md
+      - Scope: requirements/REQ-000b_Scope.md
+      - Use Cases: requirements/REQ-000c_UseCases.md
+      - UCBDs: requirements/REQ-000d_UCBDs.md
+      - FFBDs: requirements/REQ-000f_FBDs.md
+      - Decisions: requirements/REQ-000g_Decisions.md
+      - Documented Requirements: requirements/REQ-000e_Requirements.md
     # - Claude Suggested Breakdown:
     #   # - Functional Requirements: requirements/functional-requirements.md
     #   # - Non-Functional Requirements: requirements/non-functional-requirements.md
@@ -35,14 +43,6 @@ nav:
       - requirements/req-index.md
       - Cross Reference Guide:  rules/cross-reference-usage-guide.md
       - Req & Spec X-Reference: SPEC-CROSS-REFERENCE.md
-    - Design Planning:
-      - General: requirements/REQ-000a_General.md
-      - Scope: requirements/REQ-000b_Scope.md
-      - Use Cases: requirements/REQ-000c_UseCases.md
-      - UCBDs: requirements/REQ-000d_UCBDs.md
-      - FFBDs: requirements/REQ-000f_FBDs.md
-      - Decisions: requirements/REQ-000g_Decisions.md
-      - Documented Requirements: requirements/REQ-000e_Requirements.md
   - Developer Documentation:
     - decisions/planning/README.md
     - Progress: CHANGELOG.md
