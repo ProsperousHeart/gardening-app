@@ -109,7 +109,8 @@ uv run bandit -r src/ --configfile .bandit
 **Bad:**
 ```python
 password = "admin123"  # Never hardcode passwords!
-API_KEY = "sk-1234567890"  # Never hardcode API keys!
+API_KEY = "your-api-key-here"  # Never hardcode API keys!
+SECRET_TOKEN = "hardcoded-secret-value"  # Never hardcode secrets!
 ```
 
 **Good:**
@@ -117,6 +118,7 @@ API_KEY = "sk-1234567890"  # Never hardcode API keys!
 import os
 password = os.environ.get("DB_PASSWORD")
 API_KEY = os.environ.get("API_KEY")
+SECRET_TOKEN = os.environ.get("SECRET_TOKEN")
 ```
 
 ### B201: Flask Debug Mode
@@ -460,6 +462,31 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\u2705'
    set PYTHONIOENCODING=utf-8
    uv run bandit -r src/
    ```
+
+### GitLeaks Flagging Documentation Examples
+
+**Date:** 2025-12-29
+**Issue:** GitLeaks (secret scanner) flagged example code in this tutorial
+
+**Problem:**
+When demonstrating security anti-patterns in documentation, example API keys/secrets can trigger secret scanners:
+
+```python
+API_KEY = "sk-1234567890"  # GitLeaks flags this as a real API key!
+```
+
+**Solution:**
+Use obviously placeholder values that don't match secret patterns:
+
+```python
+API_KEY = "your-api-key-here"  # Safe - won't trigger scanners
+SECRET_TOKEN = "hardcoded-secret-value"  # Safe - clearly a placeholder
+```
+
+**Key Takeaway:** When writing security tutorials, use placeholder text that:
+- Clearly indicates it's not a real secret
+- Doesn't match secret scanning patterns
+- Still demonstrates the security issue effectively
 
 ## Further Reading
 
