@@ -472,21 +472,28 @@ UnicodeEncodeError: 'charmap' codec can't encode character '\u2705'
 When demonstrating security anti-patterns in documentation, example API keys/secrets can trigger secret scanners:
 
 ```python
-API_KEY = "sk-1234567890"  # GitLeaks flags this as a real API key!
+API_KEY = "sk-1234567890"  # gitleaks:allow - Example code for documentation
 ```
 
-**Solution:**
-Use obviously placeholder values that don't match secret patterns:
+**Solutions:**
 
-```python
-API_KEY = "your-api-key-here"  # Safe - won't trigger scanners
-SECRET_TOKEN = "hardcoded-secret-value"  # Safe - clearly a placeholder
-```
+1. **Use gitleaks:allow comment** (keeps realistic examples):
+   ```python
+   API_KEY = "sk-1234567890"  # gitleaks:allow - Example for documentation
+   SECRET = "real-looking-key"  # gitleaks:allow - Tutorial example only
+   ```
 
-**Key Takeaway:** When writing security tutorials, use placeholder text that:
-- Clearly indicates it's not a real secret
-- Doesn't match secret scanning patterns
-- Still demonstrates the security issue effectively
+2. **Use placeholder values** (avoids scanner triggers):
+   ```python
+   API_KEY = "your-api-key-here"  # Safe - won't trigger scanners
+   SECRET_TOKEN = "example-hardcoded-value"  # Safe - clearly a placeholder
+   ```
+
+**Key Takeaways:**
+- **For documentation/tutorials:** Use `gitleaks:allow` to keep realistic examples
+- **For actual code:** Never use `gitleaks:allow` - fix the real security issue
+- **Why it matters:** Realistic examples help developers recognize actual vulnerabilities
+- **Document your choice:** Always add a comment explaining why you're allowing it
 
 ## Further Reading
 
