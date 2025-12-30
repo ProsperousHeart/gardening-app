@@ -40,18 +40,21 @@ req-{subsystem}-{component}.md
 ```
 
 **Examples:**
+
 - `req-general-user-plant-database.md`
 - `req-general-user-weather.md`
 - `req-community-member-announcements.md`
 - `req-admin-account-management.md`
 
 **Why this format:**
+
 - ✅ Clear subsystem identification (general-user, community-member, admin)
 - ✅ Component name describes functionality
 - ✅ **No priority in filename** - priority is tracked in YAML front matter (see below)
 - ✅ Allows priorities to change without renaming files
 
 **Old naming patterns** (deprecated):
+
 - ~~`user-authentication.md`~~ ❌ Use `req-general-user-authentication.md` ✅
 - ~~`req-01-plant-database.md`~~ ❌ Priority should not be in filename
 
@@ -75,12 +78,14 @@ maps_to_req000: "[REQ-000b section reference]"
 ```
 
 **This metadata enables:**
+
 - 🎨 **Priority badges** on the documentation site (color-coded by priority)
 - 📊 **Automatic sorting** and filtering of requirements
 - 📈 **Progress tracking** by phase and status
 - 🔍 **Quick searches** by priority, phase, or status
 
 **See:**
+
 - [Requirement Metadata Management Guide](../rules/requirement-metadata-guide.md) - Complete guide
 - [Priority Badges Visual Demo](../tutorials/mkdocs/priority-badges-visual-demo.md) - See how badges look
 - [Priority Badges Setup](../tutorials/mkdocs/priority-badges-setup.md) - Technical details
