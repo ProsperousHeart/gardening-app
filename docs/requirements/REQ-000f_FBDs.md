@@ -1,7 +1,7 @@
 ---
 # Requirement Metadata
 title: Functional Flow Block Diagrams (REQ-000f)
-description: ?
+description: "?"
 req_id: REQ-000f
 priority: CRITICAL
 phase: 0
@@ -16,17 +16,15 @@ maps_to_req000: Foundation document - FFBDs (work in progress)
 <!-- --8<-- "snippets/common/requirement-badges.md" -->
 
 <!-- This has to be here instead of the snippet since they run before plugins (macros) -->
-{% if page.meta.priority and page.meta.get('show_badges', true) != false %}
+{% if page.meta.get('priority') and page.meta.get('show_badges', true) != false %}
 <div class="requirement-badges">
-<span class="priority-badge priority-{{ page.meta.priority | lower }}">{{ page.meta.priority }}</span>
-{% if page.meta.phase %}<span class="phase-badge">Phase {{ page.meta.phase }}</span>{% endif %}
-{% if page.meta.status %}<span class="status-badge status-{{ page.meta.status | replace(' ', '-') | lower }}">{{ page.meta.status | replace('-', ' ') | title }}</span>{% endif %}
+<span class="priority-badge priority-{{ page.meta.get('priority') | lower }}">{{ page.meta.get('priority') }}</span>
+{% if page.meta.get('phase') is not none %}<span class="phase-badge">Phase {{ page.meta.get('phase') }}</span>{% endif %}
+{% if page.meta.get('status') %}<span class="status-badge status-{{ page.meta.get('status') | replace(' ', '-') | lower }}">{{ page.meta.get('status') | replace('-', ' ') | title }}</span>{% endif %}
 </div>
 
 ---
 {% endif %}
-
----
 
 # Functional Flow Block Diagrams
 
