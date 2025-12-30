@@ -1,3 +1,7 @@
+---
+title: Requirements Index Example
+description: Example of how the priority badges coud be used throughout the site.
+---
 # Requirements Index
 
 This page demonstrates how priority badges appear in the MkDocs site.
