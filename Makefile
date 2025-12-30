@@ -1,7 +1,7 @@
 # Makefile for Gardening App
 # Uses uv for dependency and environment management
 
-.PHONY: help lint format format-check test test-coverage clean install
+.PHONY: help lint format format-check test test-coverage clean install security bandit
 
 help:
 	@echo "Available commands:"
@@ -11,6 +11,8 @@ help:
 	@echo "  make format-check   - Check code formatting without modifying"
 	@echo "  make test           - Run pytest tests"
 	@echo "  make test-coverage  - Run tests with coverage report"
+	@echo "  make security       - Run bandit security checks"
+	@echo "  make bandit         - Run bandit security checks (alias for security)"
 	@echo "  make clean          - Remove cache and temporary files"
 
 install:
@@ -43,3 +45,8 @@ clean:
 	find . -type f -name "*.pyc" -delete 2>/dev/null || true
 	rm -rf htmlcov/ .coverage 2>/dev/null || true
 	@echo "Cleaned up cache and temporary files"
+
+security: bandit
+
+bandit:
+	uv run bandit -r src/ -c pyproject.toml --severity-level medium

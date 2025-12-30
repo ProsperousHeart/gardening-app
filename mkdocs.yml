@@ -59,6 +59,7 @@ nav:
       - Pre-Push Checklist: checklists/pre-push-checklist.md
       - Security Checklist: checklists/security-checklist.md
     - General:
+      - Bandit Security Guide: tutorials/general/bandit-security-guide.md
       - Dependency Management: tutorials/general/dependency-management.md
       - Django DB Seeding Guide: tutorials/general/database-seeding-guide.md
       - Django Secrets Management: tutorials/general/django-secrets-management.md
