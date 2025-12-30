@@ -1,6 +1,5 @@
 # Navigation Status Indicators in Material for MkDocs
 
-**Last Updated:** 2025-12-30
 **Material for MkDocs Version:** 9.2.0+
 
 ## Overview
@@ -69,11 +68,13 @@ If you want custom icons instead of the default indicator, define them in `docs/
 ```
 
 **Why mask-image?**
+
 - Allows icons to inherit theme colors automatically
 - Works with dark mode without extra configuration
 - SVG data URIs eliminate need for separate image files
 
 **Where to get SVG icons:**
+
 - [Octicons](https://primer.style/foundations/icons) (GitHub's icon set)
 - [Material Design Icons](https://fonts.google.com/icons)
 - [FontAwesome](https://fontawesome.com/icons)
@@ -183,18 +184,92 @@ To add custom icons, you need SVG code converted to a data URI. Here's how:
 
 ### Complete Example
 
-See `docs/stylesheets/extra.css` (lines 131-171) for the complete implementation used in this project.
+See the `:root` selector in `docs/stylesheets/extra.css` for the complete implementation used in this project.
+
+## Changing Icons (Easy Method)
+
+Icons are defined as **CSS custom properties** in the `:root` selector. To change an icon:
+
+1. **Open `docs/stylesheets/extra.css`**
+2. **Find the `:root` section** at the top
+3. **Update ONLY the custom property** you want to change:
+
+   ```css
+   :root {
+       /* Just update THIS line */
+       --md-status--approved: url('data:image/svg+xml;charset=utf-8,<svg>...NEW_SVG_PATH...</svg>');
+   }
+   ```
+
+**Available custom properties:**
+
+- `--md-status--draft` - Draft status (navigation)
+- `--md-status--in-review` - In Review status (navigation)
+- `--md-status--approved` - Approved status (navigation)
+- `--md-status--implemented` - Implemented status (navigation)
+
+**Rollback to original icons:**
+
+Each custom property has commented-out alternatives:
+
+```css
+:root {
+    /* Current icon */
+    --md-status--draft: url('...');
+    /* Original: Pencil icon (Octicons pencil-24) */
+    /* --md-status--draft: url('...'); */
+}
+```
+
+To revert: uncomment the original, comment out the current.
+
+**Why this is better:**
+
+- ✅ Change once, apply twice (both `mask-image` and `-webkit-mask-image`)
+- ✅ All icons in one place (`:root` selector)
+- ✅ Easy rollback with commented-out originals
+- ✅ Consistent with page badge icons in `priority-badges.css` (see [Priority Badges Setup](priority-badges-setup.md))
+
+!!! info "Technical Note: Multiple `:root` Selectors"
+
+    **Q: Does having `:root` in both `extra.css` AND `priority-badges.css` cause conflicts?**
+
+    **A: No!** Both `:root` selectors are perfectly safe because:
+
+    1. **`:root` selectors merge** - Multiple `:root` blocks across CSS files all apply to the same element (`<html>`), and their properties combine
+    2. **Custom property names are unique** - No overlap:
+       - `extra.css` uses: `--md-status--*` (for navigation icons)
+       - `priority-badges.css` uses: `--status-icon--*` (for page badge icons)
+    3. **Each component uses its own properties** - Navigation and page badges reference different custom properties
+
+    Think of it like this:
+
+    ```css
+    /* These two :root blocks... */
+    :root { --md-status--draft: url(...); }      /* in extra.css */
+    :root { --status-icon--draft: url(...); }    /* in priority-badges.css */
+
+    /* ...effectively become: */
+    :root {
+        --md-status--draft: url(...);      /* navigation */
+        --status-icon--draft: url(...);    /* page badges */
+    }
+    ```
+
+    All properties coexist peacefully! 🎯
 
 ## Custom Styling
 
-This project uses **custom Octicon icons** defined in `docs/stylesheets/extra.css`.
+This project uses **custom Octicon icons** defined in the `:root` selector of `docs/stylesheets/extra.css`.
 
 **Default behavior (no custom CSS):**
+
 - Material for MkDocs shows a generic "i" icon
 - Tooltips work correctly
 - Basic theme-consistent styling
 
 **With custom icons (this project):**
+
 - Octicon SVG icons (pencil, eye, check-circle, rocket)
 - Icons inherit theme colors via `mask-image`
 - Automatic dark mode support
@@ -213,6 +288,7 @@ This project uses **custom Octicon icons** defined in `docs/stylesheets/extra.cs
 **Solutions:**
 
 **Option 1: Accept the default** - The "i" icon is Material's default and works fine
+
 - ✅ Tooltips work correctly
 - ✅ Theme-consistent
 - ✅ No additional CSS needed
@@ -262,6 +338,7 @@ Icons must be configured in CSS, not in `mkdocs.yml`!
 **Cause:** Usually caching issues or Material for MkDocs version mismatch.
 
 **Solution:**
+
 1. Clear browser cache and rebuild: `mkdocs build --clean`
 2. Verify same Material for MkDocs version locally and in deployment
 3. Check that emoji extension is configured in `mkdocs.yml`
@@ -271,6 +348,7 @@ Icons must be configured in CSS, not in `mkdocs.yml`!
 **Problem:** No status indicator in navigation even with `status:` in front matter.
 
 **Checklist:**
+
 - ✅ Material for MkDocs version 9.2.0 or higher
 - ✅ `extra.status` configured in `mkdocs.yml`
 - ✅ Page has `status: <value>` in YAML front matter
@@ -341,27 +419,30 @@ HIGH  Phase 1  Approved
 ## Best Practices
 
 1. **Use descriptive tooltip text** - Help users understand what each status means
-   ```yaml
-   approved: Approved - Ready for implementation  # Good
-   approved: Approved                             # Less helpful
-   ```
+
+    ```yaml
+    approved: Approved - Ready for implementation  # Good
+    approved: Approved                             # Less helpful
+    ```
 
 2. **Keep status values lowercase** - Matches Material for MkDocs conventions
-   ```yaml
-   status: approved    # Good
-   status: Approved    # Works but inconsistent
-   ```
+
+    ```yaml
+    status: approved    # Good
+    status: Approved    # Works but inconsistent
+    ```
 
 3. **Align with your workflow** - Define statuses that match your development process
-   ```yaml
-   extra:
-     status:
-       draft: Initial draft
-       review: Under review
-       approved: Approved
-       implemented: Implemented
-       archived: Archived
-   ```
+
+    ```yaml
+    extra:
+      status:
+        draft: Initial draft
+        review: Under review
+        approved: Approved
+        implemented: Implemented
+        archived: Archived
+    ```
 
 4. **Document your status workflow** - Create a guide explaining when to use each status
 

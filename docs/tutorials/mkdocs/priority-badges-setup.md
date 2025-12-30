@@ -380,6 +380,207 @@ Then use in YAML:
 status: "on-hold"
 ```
 
+### Add Icons to Status Badges
+
+By default, status badges show text only (e.g., "Draft", "Approved"). You can add icons to make them more visual.
+
+**What you get:**
+
+- 🎨 **Draft** - Paintbrush icon
+- 👥 **In Review** - People icon
+- ✅ **Approved** - Verified (checkmark with badge) icon
+- 🚀 **Implemented** - Rocket icon
+
+**How it works:**
+
+Icons are defined in `docs/stylesheets/priority-badges.css` using SVG data URIs with CSS `mask-image`. This approach:
+
+- ✅ Icons inherit the badge's text color automatically
+- ✅ Works in both light and dark mode
+- ✅ No external image files needed
+- ✅ Matches navigation status indicators (same icons in both places)
+
+**Example badge with icon:**
+
+```html
+<!-- Before: Text only -->
+<span class="status-badge status-approved">Approved</span>
+
+<!-- After: Icon + text -->
+<span class="status-badge status-approved">✓ Approved</span>
+```
+
+**Current implementation (lines 67-140 in priority-badges.css):**
+
+```css
+/* Status badges with icons */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;  /* Space between icon and text */
+  /* ... */
+}
+
+.status-badge::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-color: currentColor;  /* Inherits badge text color */
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+}
+
+/* Draft - Paintbrush icon (Octicons paintbrush-16) */
+.status-draft::before {
+  mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.134 1.535..."/></svg>');
+  -webkit-mask-image: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M11.134 1.535..."/></svg>');
+}
+
+/* Similar for other statuses (in-review, approved, implemented) */
+```
+
+**To change icons (EASY - just update ONE line!):**
+
+Icons are defined as **CSS custom properties** in the `:root` selector at the top of `priority-badges.css`. To change an icon:
+
+1. **Find your new icon:** Visit [Octicons](https://primer.style/foundations/icons), [Material Icons](https://fonts.google.com/icons), or [FontAwesome](https://fontawesome.com/icons)
+
+2. **Copy SVG code:** Click "Copy SVG" for your chosen icon
+
+3. **Replace ONLY the custom property** in the `:root` section of `priority-badges.css`:
+
+   ```css
+   /* In docs/stylesheets/priority-badges.css */
+   /* Find the :root section and update the custom property */
+
+   :root {
+       /* Just update THIS line - that's it! */
+       --status-icon--approved: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="YOUR_NEW_SVG_PATH"/></svg>');
+   }
+   ```
+
+   **Available custom properties:**
+   - `--status-icon--draft` - Draft status icon
+   - `--status-icon--in-review` - In Review status icon
+   - `--status-icon--approved` - Approved status icon
+   - `--status-icon--implemented` - Implemented status icon
+
+4. **Rollback to original icons (optional):**
+
+   Each custom property has commented-out alternatives showing the original icons:
+   ```css
+   :root {
+       /* Current icon */
+       --status-icon--draft: url('...');
+       /* Original: Pencil icon (Octicons pencil-24) */
+       /* --status-icon--draft: url('...'); */
+   }
+   ```
+
+   To revert: uncomment the original, comment out the current.
+
+5. **Save and rebuild:**
+
+   ```bash
+   mkdocs build --clean
+   mkdocs serve
+   ```
+
+**Why this is better:**
+
+- ✅ **Change once, apply twice** - Custom property is used for both `mask-image` and `-webkit-mask-image`
+- ✅ **All icons in one place** - Easy to see and manage in the `:root` selector
+- ✅ **Consistent with navigation icons** - Same pattern used in `extra.css` for navigation status indicators (see [Navigation Status Indicators Tutorial](navigation-status-indicators.md))
+- ✅ **Easy rollback** - Commented-out original icons for reference
+
+!!! info "Technical Note: Multiple `:root` Selectors"
+    **Q: Does having `:root` in both `extra.css` AND `priority-badges.css` cause conflicts?**
+
+    **A: No!** Both `:root` selectors are perfectly safe because:
+
+    1. **`:root` selectors merge** - Multiple `:root` blocks across CSS files all apply to the same element (`<html>`), and their properties combine
+    2. **Custom property names are unique** - No overlap:
+       - `extra.css` uses: `--md-status--*` (for navigation icons)
+       - `priority-badges.css` uses: `--status-icon--*` (for page badge icons)
+    3. **Each component uses its own properties** - Navigation and page badges reference different custom properties
+
+    Think of it like this:
+    ```css
+    /* These two :root blocks... */
+    :root { --md-status--draft: url(...); }      /* in extra.css */
+    :root { --status-icon--draft: url(...); }    /* in priority-badges.css */
+
+    /* ...effectively become: */
+    :root {
+        --md-status--draft: url(...);      /* navigation */
+        --status-icon--draft: url(...);    /* page badges */
+    }
+    ```
+
+    All properties coexist peacefully! 🎯
+
+**Why mask-image instead of background-image?**
+
+- `background-image`: Icon would be a fixed color (doesn't respect theme)
+- `mask-image`: Icon acts as a "stencil" and inherits the badge's text color automatically
+
+**Consistency with navigation:**
+
+The same icons are used in both places:
+- **Navigation status indicators** (`docs/stylesheets/extra.css` lines 131-171)
+- **Page status badges** (`docs/stylesheets/priority-badges.css` lines 67-140)
+
+See also: [Navigation Status Indicators Tutorial](navigation-status-indicators.md) for the navigation implementation.
+
+**Badge alignment and interactions:**
+
+All badges use consistent CSS properties for proper alignment and hover effects:
+
+```css
+/* Common properties for all badge types */
+.priority-badge,
+.phase-badge,
+.status-badge {
+    display: inline-flex;      /* Flexbox for better alignment control */
+    align-items: center;       /* Vertically center content */
+    flex-shrink: 0;            /* Prevent badge from shrinking */
+    vertical-align: middle;    /* Align with surrounding text baseline */
+}
+
+/* Hover effects (all badges) */
+.priority-badge:hover,
+.phase-badge:hover,
+.status-badge:hover {
+    transform: translateY(-1px);      /* Subtle lift on hover */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease-in-out;  /* Smooth animation */
+}
+```
+
+**What each property does:**
+
+| Property | Purpose | Why It Matters |
+|----------|---------|----------------|
+| `display: inline-flex` | Use flexbox layout | Better control over icon + text alignment |
+| `align-items: center` | Vertical centering | Ensures icon and text align on same baseline |
+| `gap: 0.375rem` | Space between icon/text | Consistent spacing (status badges only) |
+| `flex-shrink: 0` | Prevent badge shrinking | Badges stay same size when container shrinks |
+| `vertical-align: middle` | Align with text | Badges align with surrounding paragraph text |
+| `transform: translateY(-1px)` | Lift badge on hover | Visual feedback when hovering |
+| `box-shadow` | Add depth on hover | Makes badge appear "raised" |
+| `transition` | Smooth animation | Hover effect animates smoothly (200ms) |
+
+**Why `inline-flex` instead of `inline-block`?**
+
+- `inline-block`: Icon and text can misalign, especially with different font sizes
+- `inline-flex`: Perfect alignment between icon and text, automatically centers content
+
 ### Disable Badges for Specific Pages
 
 **Step 1: Add to YAML front matter** (same for both approaches):
