@@ -1,6 +1,6 @@
 """MkDocs hook to auto-generate requirements index before build."""
 
-import subprocess
+import subprocess  # nosec B404 - subprocess used safely with hardcoded, controlled inputs only
 import sys
 from pathlib import Path
 
@@ -21,7 +21,8 @@ def on_pre_build(config):
     if script_path.exists():
         safe_print("🔄 Generating requirements index...")
         try:
-            subprocess.run([sys.executable, str(script_path)], check=True)
+            # Safe: script_path is hardcoded, sys.executable is controlled, no user input
+            subprocess.run([sys.executable, str(script_path)], check=True)  # nosec B603
             safe_print("✅ Requirements index generated successfully")
         except subprocess.CalledProcessError as e:
             safe_print(f"❌ Failed to generate requirements index: {e}")

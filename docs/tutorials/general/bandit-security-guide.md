@@ -297,6 +297,170 @@ Add to `exclude_dirs` in `pyproject.toml`:
 exclude_dirs = ["2024-Django-Attempt", ".venv", "tests", "your_dir_here"]
 ```
 
+## Lessons Learned from This Project
+
+This section documents real security findings from running Bandit on this project and how we resolved them.
+
+### Case Study: False Positives in MkDocs Hooks
+
+**Date:** 2025-12-29
+**File:** `docs/hooks/generate_req_index.py`
+**Issues Found:** B404, B603
+
+#### The Findings
+
+When running Bandit on documentation hooks:
+```bash
+uv run bandit -r docs/hooks
+```
+
+Bandit flagged two issues:
+
+1. **B404** (line 3): Import of subprocess module
+   - **Severity:** LOW
+   - **Confidence:** HIGH
+   - **Message:** "Consider possible security implications associated with the subprocess module."
+
+2. **B603** (line 24): subprocess call without shell=True
+   - **Severity:** LOW
+   - **Confidence:** HIGH
+   - **Message:** "subprocess call - check for execution of untrusted input."
+
+#### The Code
+
+```python
+import subprocess  # Line 3 - B404 flagged
+import sys
+from pathlib import Path
+
+def on_pre_build(config):
+    script_path = Path("scripts/generate-req-index.py")
+
+    if script_path.exists():
+        try:
+            # Line 24 - B603 flagged
+            subprocess.run([sys.executable, str(script_path)], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Failed: {e}")
+```
+
+#### Why These Are False Positives
+
+These warnings are **false positives** because the code is actually secure:
+
+1. **No user input:** Both `sys.executable` (Python interpreter path) and `script_path` (hardcoded file path) are controlled values
+2. **List format used:** Using list format `[sys.executable, str(script_path)]` instead of shell string prevents shell injection
+3. **No shell=True:** Not using `shell=True` prevents command injection vulnerabilities
+4. **Hardcoded path:** `script_path = Path("scripts/generate-req-index.py")` is a literal string, not user-provided input
+5. **Controlled execution:** The script only runs during MkDocs build process on trusted local files
+
+#### The Resolution
+
+We suppressed these warnings using `# nosec` with detailed explanations:
+
+```python
+import subprocess  # nosec B404 - subprocess used safely with hardcoded, controlled inputs only
+import sys
+from pathlib import Path
+
+def on_pre_build(config):
+    script_path = Path("scripts/generate-req-index.py")
+
+    if script_path.exists():
+        try:
+            # nosec B603 - script_path is hardcoded, sys.executable is controlled, no user input
+            subprocess.run([sys.executable, str(script_path)], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Failed: {e}")
+```
+
+#### Key Takeaways
+
+1. **Not all Bandit warnings are real vulnerabilities** - LOW severity warnings often require context
+2. **Always investigate before suppressing** - Understand WHY Bandit flagged something
+3. **Document your reasoning** - Use descriptive `# nosec` comments explaining why it's safe
+4. **Consider the context:**
+   - Is the input controlled or user-provided?
+   - Is the code path accessible to attackers?
+   - Are there safer alternatives?
+
+#### When to Suppress vs. Fix
+
+**Suppress with `# nosec` when:**
+- ✅ You've verified there's no actual security risk
+- ✅ The input is hardcoded or from trusted sources
+- ✅ The code is not accessible to untrusted users
+- ✅ You document WHY it's safe
+
+**Fix the code when:**
+- ❌ User input is involved
+- ❌ External/untrusted data is processed
+- ❌ The code runs with elevated privileges
+- ❌ The vulnerability is MEDIUM or HIGH severity
+
+#### Alternative Approaches Considered
+
+We could have also:
+
+1. **Excluded the directory** in `pyproject.toml`:
+   ```toml
+   [tool.bandit]
+   exclude_dirs = ["docs/hooks"]  # Skip entire directory
+   ```
+   ❌ **Rejected:** Too broad - we want security checks on hooks
+
+2. **Skipped the test globally** in `pyproject.toml`:
+   ```toml
+   [tool.bandit]
+   skips = ["B404", "B603"]  # Skip subprocess warnings everywhere
+   ```
+   ❌ **Rejected:** Would miss real subprocess vulnerabilities in other files
+
+3. **Used inline suppression** (chosen approach):
+   ```python
+   # nosec B603 - Explanation here
+   ```
+   ✅ **Selected:** Surgical approach, documents reasoning, maintains security checks elsewhere
+
+#### Testing the Fix
+
+After adding `# nosec` comments, verify Bandit no longer reports these issues:
+
+```bash
+uv run bandit -r docs/hooks -f json -o bandit-docs-report.json
+```
+
+**Result:** No issues reported for these lines, Bandit still scans the rest of the code.
+
+### Handling Windows Unicode Encoding Issues
+
+When running Bandit on Windows, you may encounter:
+
+```
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2705'
+```
+
+**Problem:** Windows console (cmd.exe) uses cp1252 encoding which doesn't support emoji/Unicode characters that Bandit tries to output.
+
+**Solutions:**
+
+1. **Use JSON output:**
+   ```bash
+   uv run bandit -r src/ -f json -o bandit-report.json
+   ```
+
+2. **Use PowerShell** (better Unicode support):
+   ```powershell
+   $env:PYTHONIOENCODING="utf-8"
+   uv run bandit -r src/
+   ```
+
+3. **Set environment variable** in cmd.exe:
+   ```cmd
+   set PYTHONIOENCODING=utf-8
+   uv run bandit -r src/
+   ```
+
 ## Further Reading
 
 - [Official Bandit Documentation](https://bandit.readthedocs.io/)
