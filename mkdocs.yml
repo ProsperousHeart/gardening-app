@@ -77,6 +77,7 @@ nav:
       - Installation: tutorials/mkdocs/mkdocs-installation.md
       - Image Processing: tutorials/mkdocs/image-processing-setup.md
       - Extensions Guide: tutorials/mkdocs/mkdocs-extensions-guide.md
+      - Navigation Status Indicators: tutorials/mkdocs/navigation-status-indicators.md
     - Lessons Learned:
       - Creating Priority Badges:
         - "Demo: Badge Visual": tutorials/mkdocs/priority-badges-visual-demo.md
@@ -290,6 +291,17 @@ plugins:
 
 # Extra Configuration
 extra:
+  # Page Status Indicators for Navigation
+  # Shows status badges next to page titles in the sidebar navigation
+  # Pages must have 'status: <value>' in their YAML front matter
+  # Icons are defined in docs/stylesheets/extra.css
+  # See: docs/tutorials/mkdocs/navigation-status-indicators.md
+  status:
+    draft: Draft - Work in progress
+    in-review: In Review - Awaiting approval
+    approved: Approved - Ready for implementation
+    implemented: Implemented - Complete
+
   # Social Links (all using ProsperousHeart username)
   social:
     - icon: fontawesome/brands/github
