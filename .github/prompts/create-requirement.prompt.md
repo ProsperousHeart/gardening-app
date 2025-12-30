@@ -1,8 +1,8 @@
 # Prompt: Create Requirement Document
 
 **Purpose**: Create a new requirement document from the project template
-**Input**: Component/feature name (e.g., "user-authentication", "payment-processing")
-**Output**: Requirement document in `docs/requirements/`
+**Input**: Subsystem the requirement falls under, Component/feature name (e.g., "user-authentication", "payment-processing")
+**Output**: Requirement document in `docs/requirements/sub_system/`
 **References**:
 
 - `docs/templates/requirements-template.md`
@@ -11,7 +11,7 @@
 ## Prompt
 
 ```
-Create a new requirement document for: {component_name}
+Create a new requirement document for: {sub-system} {component-name}
 
 Follow these steps carefully:
 
@@ -19,8 +19,8 @@ Follow these steps carefully:
 
 - Verify docs/templates/requirements-template.md exists
   - If the template doesn't exist, inform the user and exit with a helpful error message
-- Verify docs/requirements/ directory exists (create if missing)
-- Check if docs/requirements/req_{component_name}.md already exists
+- Verify docs/requirements/{sub-system} directory exists (create if missing)
+- Check if docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md already exists
   - If it exists, ask the user if they want to overwrite it or create a variant
 
 ### Step 2: Read Template
@@ -59,6 +59,7 @@ Important considerations:
 - Update docs/INDEX.md with link to new requirement under "Requirements" section
 - Ensure proper formatting and markdown syntax throughout
 - Validate all internal links
+- validate if the requirement index files updated appropriately
 
 ### Step 5: Confirm Completion
 
@@ -80,7 +81,7 @@ Execute the create-requirement prompt for user-authentication
 Or using the slash command:
 
 ```
-/create-requirement user-authentication
+/create-requirement user-mgmt user-authentication
 ```
 
 ### With GitHub Copilot
@@ -91,7 +92,7 @@ Or using the slash command:
 
 ## Expected Output
 
-- New file: `docs/requirements/req_{component-name}.md`
+- New file: `docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md`
 - Updated: `docs/SPEC-CROSS-REFERENCE.md`
 - Updated: `docs/INDEX.md`
 
