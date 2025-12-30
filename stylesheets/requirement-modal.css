@@ -1,0 +1,203 @@
+/* ========================================
+   Requirement Modal Styles
+   Modal popup for missing requirement files
+   ======================================== */
+
+/* Modal overlay - full screen background */
+.req-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Modal content container */
+.req-modal-content {
+    background-color: var(--md-default-bg-color, #fff);
+    color: var(--md-default-fg-color, #000);
+    margin: 10% auto;
+    padding: 0;
+    border: 1px solid var(--md-default-fg-color--lightest, #888);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    animation: slideDown 0.3s ease-in-out;
+}
+
+/* Modal header */
+.req-modal-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 24px 24px 16px 24px;
+    border-bottom: 1px solid var(--md-default-fg-color--lightest, #e0e0e0);
+}
+
+.req-modal-icon {
+    width: 48px;
+    height: 48px;
+    color: var(--md-accent-fg-color, #ff9800);
+    flex-shrink: 0;
+}
+
+.req-modal-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--md-default-fg-color, #000);
+}
+
+/* Modal body */
+.req-modal-body {
+    padding: 24px;
+    line-height: 1.6;
+}
+
+.req-modal-body p {
+    margin: 0 0 16px 0;
+}
+
+.req-modal-body p:last-of-type {
+    margin-bottom: 0;
+}
+
+.req-modal-details {
+    font-weight: 500;
+    margin-bottom: 8px !important;
+}
+
+.req-modal-body ul {
+    margin: 0 0 16px 0;
+    padding-left: 24px;
+}
+
+.req-modal-body ul li {
+    margin-bottom: 8px;
+}
+
+.req-modal-footer-text {
+    margin-top: 16px;
+    font-size: 0.9rem;
+    color: var(--md-default-fg-color--light, #666);
+}
+
+/* Modal footer */
+.req-modal-footer {
+    padding: 16px 24px 24px 24px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+/* Close button (X) */
+.req-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    color: var(--md-default-fg-color--light, #aaa);
+    font-size: 32px;
+    font-weight: 300;
+    line-height: 1;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.req-modal-close:hover,
+.req-modal-close:focus {
+    color: var(--md-default-fg-color, #000);
+}
+
+/* Modal buttons */
+.req-modal-button {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-family: inherit;
+}
+
+.req-modal-button-primary {
+    background-color: var(--md-primary-fg-color, #4caf50);
+    color: white;
+}
+
+.req-modal-button-primary:hover {
+    background-color: var(--md-primary-fg-color--dark, #388e3c);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.req-modal-button-primary:active {
+    transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Dark mode support */
+[data-md-color-scheme="slate"] .req-modal-content {
+    background-color: var(--md-default-bg-color);
+    border-color: var(--md-default-fg-color--lightest);
+}
+
+[data-md-color-scheme="slate"] .req-modal-header {
+    border-bottom-color: var(--md-default-fg-color--lightest);
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+    .req-modal-content {
+        width: 95%;
+        margin: 20% auto;
+    }
+
+    .req-modal-header {
+        padding: 20px 20px 12px 20px;
+    }
+
+    .req-modal-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .req-modal-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .req-modal-body {
+        padding: 20px;
+    }
+
+    .req-modal-footer {
+        padding: 12px 20px 20px 20px;
+    }
+}
