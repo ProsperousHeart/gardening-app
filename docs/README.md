@@ -33,10 +33,12 @@ Welcome to the central documentation hub for this project. All requirements, spe
 ### For Adding New Features
 
 **Quick Start**: Use workflow orchestration prompts:
+
 - [Requirements → Specification Workflow](../.github/prompts/workflow-requirements-to-spec.prompt.md) - Generates spec, threat model, architecture diagram with quality review
 - [Specification → Code Workflow](../.github/prompts/workflow-spec-to-code.prompt.md) - TDD implementation with security and quality reviews
 
 **Or step-by-step**:
+
 1. **Requirements**: Create a new requirement in `requirements/` using the [template](templates/requirements-template.md)
 2. **Specifications**: Generate or write a specification in `specifications/` using the [template](templates/spec-template.md)
 3. **Diagrams**: Create architecture diagrams and threat models in `diagrams/`
