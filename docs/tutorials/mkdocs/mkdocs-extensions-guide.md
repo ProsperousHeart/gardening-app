@@ -152,15 +152,15 @@ For some simple cases, triple backticks inside triple backticks work with `pymdo
 ### Decision Guide: Which Method to Use?
 
 ```mermaid
-graph TD
+flowchart TD
     A[What are you documenting?] --> B{Type of syntax?}
-    B -->|Markdown extension<br/>snippets, critic, etc.| C[Use HTML entities<br/>in pre/code blocks]
-    B -->|Jinja2 templates<br/>macros plugin| D[Use raw tags]
-    B -->|Basic markdown<br/>headings, lists| E[Use nested code blocks<br/>with superfences]
+    B -->|"Markdown extension<br>(snippets, critic)"| C["Use HTML entities in pre/code blocks"]
+    B -->|"Jinja2 templates<br>(macros plugin)"| D[Use raw tags]
+    B -->|"Basic markdown<br>(headings, lists)"| E["Use nested code blocks with superfences"]
 
-    C --> F[Example: &#123;--text--&#125;]
-    D --> G[Example: {% raw %}{{ var }}{% endraw %}]
-    E --> H[Example: ````markdown]
+    C --> F["Example:<br>#123;--text--#125;"]
+    D --> G["Example:<br>#123;% raw %#125;<br>#123;#123; var #125;#125;<br>#123;% endraw #125;"]
+    E --> H["Example:<br>````markdown"]
 ```
 
 ### Quick Reference Table
@@ -364,6 +364,49 @@ classDiagram
 - Gantt charts (`gantt`)
 - Pie charts (`pie`)
 - Git graphs (`gitGraph`)
+
+#### Common Mermaid Pitfalls (v11+)
+
+!!! warning "Syntax Errors to Avoid"
+    When using Mermaid v11+, these common issues cause syntax errors:
+
+**1. Self-closing `<br/>` tags don't work**
+
+❌ **WRONG:**
+```mermaid
+graph TD
+    A[Line 1<br/>Line 2]
+```
+
+✅ **CORRECT:**
+```mermaid
+flowchart TD
+    A["Line 1<br>Line 2"]
+```
+
+**Key fixes:**
+- Remove the forward slash: `<br/>` → `<br>`
+- Add quotes around labels with `<br>` tags
+- Use `flowchart` instead of `graph` (recommended for v11+)
+
+**2. Special characters need quotes**
+
+❌ **WRONG:**
+```mermaid
+graph TD
+    A[Use highlight/superfences]
+```
+
+✅ **CORRECT:**
+```mermaid
+flowchart TD
+    A["Use highlight/superfences"]
+```
+
+**Key fixes:**
+- Wrap labels containing `/`, `:`, `()`, or special chars in quotes
+- HTML entities like `&#123;` cause parsing errors - avoid in Mermaid labels
+- Jinja2 syntax `{{ }}` or `{% %}` breaks Mermaid - use plain text descriptions
 
 **Learn More:** [Mermaid Documentation](https://mermaid.js.org/)
 
@@ -1092,15 +1135,15 @@ See more with the [requirements index example](../../requirements/requirements-i
 If you're unsure which extension to use, refer to this decision tree:
 
 ```mermaid
-graph TD
-    A[What do you need?] --> B{Content Type}
-    B -->|Diagram| C[Use Mermaid]
-    B -->|Code| D[Use highlight/superfences]
-    B -->|Important Info| E[Use admonition]
-    B -->|Organize Options| F[Use tabs]
-    B -->|Structured Data| G[Use table]
-    B -->|Definition| H[Use def_list]
-    B -->|Track Changes| I[Use critic]
+flowchart TD
+    A["What do you need?"] --> B{"Content Type"}
+    B -->|"Diagram"| C["Use Mermaid"]
+    B -->|"Code"| D["Use highlight or superfences"]
+    B -->|"Important Info"| E["Use admonition"]
+    B -->|"Organize Options"| F["Use tabs"]
+    B -->|"Structured Data"| G["Use table"]
+    B -->|"Definition"| H["Use def_list"]
+    B -->|"Track Changes"| I["Use critic"]
 ```
 
 ---
