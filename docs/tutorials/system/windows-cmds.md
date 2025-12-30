@@ -172,6 +172,47 @@ This prevents unnecessary file modifications that trigger rebuilds.
 
 ---
 
+## Command 4: Clean MkDocs Build Directory
+
+**Purpose:** Remove the `site/` directory to force a fresh build and clear any cached content.
+
+**Command:**
+
+```cmd
+if exist site rmdir /s /q site
+```
+
+**Breakdown:**
+
+- `if exist site` - Check if the `site` directory exists before trying to delete it
+- `rmdir` - Remove directory command
+- `/s` - Remove all subdirectories and files recursively (like `rm -rf` on Linux)
+- `/q` - Quiet mode - don't prompt for confirmation
+- `site` - The directory name (MkDocs default build output)
+
+**When to use this:**
+
+- ✅ Status indicators not updating after config changes
+- ✅ CSS/JavaScript changes not appearing on deployment
+- ✅ Stale content showing up
+- ✅ Before deploying to ensure clean build
+- ✅ Troubleshooting rendering issues
+
+**Best practice:**
+
+```cmd
+REM Clean build directory, then rebuild
+if exist site rmdir /s /q site && mkdocs build
+
+REM But really it's the same as:
+mkdocs build --clean
+
+REM You should not do this because you cannot serve without site:
+if exist site rmdir /s /q site && mkdocs serve
+```
+
+---
+
 ## Quick Reference
 
 | Task | Command | Use Case |
@@ -180,6 +221,7 @@ This prevents unnecessary file modifications that trigger rebuilds.
 | **Show what's running** | `wmic process where "name='python.exe'" get CommandLine,ProcessId` | Identify processes |
 | **Find specific program** | `wmic process where "CommandLine like '%mkdocs%'" get CommandLine,ProcessId` | Target search |
 | **Kill by PID** | `taskkill /F /PID 12345` | Stop specific process |
+| **[Clean build](#command-4-clean-mkdocs-build-directory)** | `if exist site rmdir /s /q site` or `mkdocs build --clean` | Remove build cache |
 | **MkDocs no reload** | `mkdocs serve --no-livereload` | Prevent refresh loop |
 | **MkDocs dirty build** | `mkdocs serve --dirty --no-livereload` | Fast development |
 
