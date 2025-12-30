@@ -138,3 +138,5 @@ The current section is to walk you through what I did to build out the repo afte
 
 - took what I learned from a specification driven development workshop (similar to digitized delivery) and created my own base from it
 - got an initial outline for MVP planning with help of AI - still need to complete review & update as needed for appropriate MVP plan
+
+This is still being worked on, but you can see the initial documentation [here](./requirements/README.md).
