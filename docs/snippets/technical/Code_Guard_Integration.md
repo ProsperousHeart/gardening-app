@@ -7,7 +7,7 @@ description: Claude used to generate this for MVP planning. Still needs to be re
 
 **Plugin**: `codeguard-security@project-codeguard`
 
-**Documentation**: https://project-codeguard.org/
+**Documentation**: <a href="https://project-codeguard.org/" rel="noopener noreferrer" target=_blank>https://project-codeguard.org/</a>
 
 **Update command**: `/plugin update codeguard-security@project-codeguard`
 
@@ -16,40 +16,48 @@ description: Claude used to generate this for MVP planning. Still needs to be re
 CodeGuard provides security rules across 8 domains. Each requirement file must include security considerations in the **Security Considerations** section:
 
 1. **Cryptography**
-   - Relevant for: Account Favorites, Community Member authentication
-   - Requirements: Secure password storage (bcrypt/Argon2), HTTPS only, no hardcoded secrets
+
+    - Relevant for: Account Favorites, Community Member authentication
+    - Requirements: Secure password storage (bcrypt/Argon2), HTTPS only, no hardcoded secrets
 
 2. **Input Validation**
-   - Relevant for: ALL requirements (especially user input forms)
-   - Requirements: Server-side validation, SQL injection prevention, XSS prevention, command injection prevention
+
+    - Relevant for: ALL requirements (especially user input forms)
+    - Requirements: Server-side validation, SQL injection prevention, XSS prevention, command injection prevention
 
 3. **Authentication**
-   - Relevant for: Account Favorites, all Community Member requirements, Admin requirements
-   - Requirements: MFA for admin, OAuth/OIDC for user accounts, secure session management, password requirements
+
+    - Relevant for: Account Favorites, all Community Member requirements, Admin requirements
+    - Requirements: MFA for admin, OAuth/OIDC for user accounts, secure session management, password requirements
 
 4. **Authorization**
-   - Relevant for: Community Member requirements, Admin requirements
-   - Requirements: RBAC implementation, principle of least privilege, role inheritance model, permission checks at API and UI layers
+
+    - Relevant for: Community Member requirements, Admin requirements
+    - Requirements: RBAC implementation, principle of least privilege, role inheritance model, permission checks at API and UI layers
 
 5. **Supply Chain Security**
-   - Relevant for: ALL requirements (dependency management)
-   - Requirements: Dependency scanning, SBOM generation, pinned versions
+
+    - Relevant for: ALL requirements (dependency management)
+    - Requirements: Dependency scanning, SBOM generation, pinned versions
 
 6. **Cloud Security**
-   - Relevant for: Weather API, file uploads, cloud storage
-   - Requirements: API key security, rate limiting, secure file storage
+
+    - Relevant for: Weather API, file uploads, cloud storage
+    - Requirements: API key security, rate limiting, secure file storage
 
 7. **Platform Security**
-   - Relevant for: ALL requirements
-   - Requirements: Security headers, CSRF protection, secure cookies, security.txt
+
+    - Relevant for: ALL requirements
+    - Requirements: Security headers, CSRF protection, secure cookies, security.txt
 
 8. **Data Protection**
-   - Relevant for: ALL requirements (especially PII)
-   - Requirements: Data minimization, encryption at rest/transit, GDPR compliance, privacy controls
 
-### CodeGuard in Requirements Template
+    - Relevant for: ALL requirements (especially PII)
+    - Requirements: Data minimization, encryption at rest/transit, GDPR compliance, privacy controls
 
-The template section **Security Considerations** (lines 380-395) includes:
+### CodeGuard in [Requirements Template](../../templates/requirements-template.md)
+
+The template section **Security Considerations** (lines ~380-395) includes:
 
 ```markdown
 ### Security Considerations
