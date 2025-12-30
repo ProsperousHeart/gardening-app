@@ -31,7 +31,7 @@ nav:
     #   # - Non-Functional Requirements: requirements/non-functional-requirements.md
     #   # - User Stories: requirements/user-stories.md
     #   # - requirements/README.md
-    - requirements/req-index.md
+    - Requirements Index: requirements/req-index.md
     - Design Planning:
       - General: requirements/REQ-000a_General.md
       - Scope: requirements/REQ-000b_Scope.md
