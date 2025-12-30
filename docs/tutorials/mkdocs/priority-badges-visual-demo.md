@@ -259,31 +259,35 @@ Badges automatically adapt to dark mode:
 
 If you can't render the HTML above, here's what the badges look like in plain text:
 
+
+<div class="ascii-art">
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ Plant Database                                                  │
-│ [  CRITICAL  ] [ Phase 1 ] [ Approved ]                        │
+│ [  CRITICAL  ] [ Phase 1 ] [ Approved ]                         │
 │                                                                 │
-│ Purpose: Plant data model, storage, and basic display          │
-│ Context: Foundation for entire system                          │
+│ Purpose: Plant data model, storage, and basic display           │
+│ Context: Foundation for entire system                           │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
 │ Weather Integration                                             │
-│ [  MEDIUM  ] [ Phase 3 ] [ In Review ]                         │
+│ [  MEDIUM  ] [ Phase 3 ] [ In Review ]                          │
 │                                                                 │
 │ Purpose: Weather data integration and alerts                    │
-│ Context: Protects user plants from weather damage              │
+│ Context: Protects user plants from weather damage               │
 └─────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────┐
 │ Admin Account Management                                        │
-│ [   LOW   ] [ Phase 7 ] [ Draft ]                              │
+│ [   LOW   ] [ Phase 7 ] [ Draft ]                               │
 │                                                                 │
-│ Purpose: System admin and community lead management            │
-│ Context: Highest security risk - currently de-prioritized      │
+│ Purpose: System admin and community lead management             │
+│ Context: Highest security risk - currently de-prioritized       │
 └─────────────────────────────────────────────────────────────────┘
 ```
+</div>
 
 ---
 
