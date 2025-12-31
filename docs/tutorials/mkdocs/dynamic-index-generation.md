@@ -473,19 +473,82 @@ Requirements Index Generator
 
 ### Verify Generated Files
 
-**Check file exists:**
+#### Check File Exists
 
-```bash
-ls -la docs/requirements/GenUser/genuser-index.md
-```
+=== "Windows (PowerShell)"
 
-**Check content:**
+    ```powershell
+    # Check if file exists and show details
+    Get-Item docs\requirements\GenUser\genuser-index.md | Format-List
 
-```bash
-head -20 docs/requirements/GenUser/genuser-index.md
-```
+    # Or simple check
+    Test-Path docs\requirements\GenUser\genuser-index.md
+    ```
 
-**Verify navigation:**
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    dir docs\requirements\GenUser\genuser-index.md
+    ```
+
+=== "Linux"
+
+    ```bash
+    ls -la docs/requirements/GenUser/genuser-index.md
+    ```
+
+=== "macOS"
+
+    ```bash
+    ls -la docs/requirements/GenUser/genuser-index.md
+    ```
+
+#### Check Content
+
+=== "Windows (PowerShell)"
+
+    ```powershell
+    # View first 20 lines
+    Get-Content docs\requirements\GenUser\genuser-index.md -Head 20
+
+    # Or use traditional more command
+    Get-Content docs\requirements\GenUser\genuser-index.md | Select-Object -First 20
+    ```
+
+=== "Windows (Command Prompt)"
+
+    ```cmd
+    REM View file content (first screen)
+    more docs\requirements\GenUser\genuser-index.md
+
+    REM Or open in default text editor
+    notepad docs\requirements\GenUser\genuser-index.md
+    ```
+
+=== "Linux"
+
+    ```bash
+    # View first 20 lines
+    head -20 docs/requirements/GenUser/genuser-index.md
+
+    # Or view entire file with paging
+    less docs/requirements/GenUser/genuser-index.md
+    ```
+
+=== "macOS"
+
+    ```bash
+    # View first 20 lines
+    head -20 docs/requirements/GenUser/genuser-index.md
+
+    # Or view entire file with paging
+    less docs/requirements/GenUser/genuser-index.md
+
+    # Or open in default editor
+    open docs/requirements/GenUser/genuser-index.md
+    ```
+
+#### Verify Navigation
 
 - Navigate to "Requirements by Subsystem" in MkDocs site
 - Click on "General User Access"
@@ -515,11 +578,17 @@ def scan_specifications(base_dir: Path, spec_id_filter: Optional[str] = None):
 ## Benefits of This Approach
 
 ✅ **Automatic Updates**: Indexes regenerate on every build
+
 ✅ **No Manual Maintenance**: Add a requirement file, index updates automatically
+
 ✅ **Consistency**: All indexes follow the same format
+
 ✅ **Filtering**: Component-specific views using req_id prefixes
+
 ✅ **Empty State Handling**: Clear messages when no requirements exist
+
 ✅ **Extensible**: Easy to add new components or adapt for specifications
+
 ✅ **Security**: Input validation, path validation, YAML safe loading
 
 ## Best Practices
@@ -595,10 +664,15 @@ if output_path.exists():
 You've learned how to:
 
 ✅ Create MkDocs hooks that run during the build process
+
 ✅ Extract and validate YAML front matter from markdown files
+
 ✅ Generate markdown files from Jinja2 templates
+
 ✅ Create filtered, component-specific indexes
+
 ✅ Handle edge cases (empty states, case preservation, file naming)
+
 ✅ Debug common issues with dynamic index generation
 
 This pattern is highly reusable for any structured documentation that uses YAML front matter!
