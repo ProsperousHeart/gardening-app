@@ -55,7 +55,7 @@ This project uses Microsoft's STRIDE framework to categorize threats:
 
 ```bash
 # Feature-specific threat model (default)
-/create-threat-model docs/specifications/spec_genuser_plant-search.md
+/create-threat-model docs/specifications/spec_GenUser_plant-search.md
 
 # System-wide threat model
 /create-threat-model docs/specifications/spec_sysadmin_user-auth.md high-level-aggregate
@@ -154,7 +154,7 @@ Creates comprehensive threat model document:
 Threat model creation is **automatically included** in the `/make-spec-from-req` workflow:
 
 ```bash
-/make-spec-from-req docs/requirements/genuser/req_genuser_plant-search.md per-requirement
+/make-spec-from-req docs/requirements/GenUser/req_genuser_plant-search.md per-requirement
 ```
 
 This generates:
@@ -167,7 +167,7 @@ This generates:
 You can also create threat models independently:
 
 ```bash
-/create-threat-model docs/specifications/spec_genuser_plant-search.md
+/create-threat-model docs/specifications/spec_GenUser_plant-search.md
 ```
 
 ### CodeGuard Integration

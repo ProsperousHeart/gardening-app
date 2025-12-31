@@ -1,4 +1,4 @@
-## Automated Requirement Creation Workflow
+## About the Automated Requirement Creation Workflow
 
 This section documents the creation and refinement of automation commands for streamlined requirement management.
 
@@ -6,8 +6,8 @@ This section documents the creation and refinement of automation commands for st
 
 To improve the efficiency of creating requirements and specifications, two complementary slash commands were developed:
 
-1. **`/create-requirement`** - Creates a new requirement document from template
-2. **`/make-spec-from-req`** - Generates technical specification from an existing requirement
+1. **`/create-requirement <SubSystem> <component>`** - Creates a new requirement document from template
+2. **`/make-spec-from-req  <req-file>`** - Generates technical specification from an existing requirement
 
 ### Understanding the Difference
 
@@ -20,7 +20,7 @@ These commands serve different purposes in the specification-driven development 
 | **Output** | Empty template with placeholders | Technical spec + architecture + threat model |
 | **Stage** | Step 1: Requirement Creation | Step 2: Specification Generation |
 | **Human Work** | AFTER (fill in requirement details) | BEFORE (requirement must be complete) |
-| **File Created** | `docs/requirements/{subsystem}/req_{subsystem}_{component}.md` | `docs/specifications/spec_{component}.md` |
+| **File Created** | `docs/requirements/{SubSystem}/req_{subsystem}_{component}.md` | `docs/specifications/spec_{SubSystem}_{component}.md` |
 
 ### Complete Workflow Example
 
@@ -28,7 +28,7 @@ Here's how these commands work together:
 
 ```bash
 # STEP 1: Create requirement template
-/create-requirement genuser plant-search
+/create-requirement GenUser plant-search
 
 # Output: Creates docs/requirements/genuser/req_genuser_plant-search.md
 # This is an EMPTY template with placeholders like:
@@ -61,9 +61,9 @@ Here's how these commands work together:
 
 **Examples:**
 
-- `/create-requirement sysadmin user-authentication`
-- `/create-requirement genuser plant-search`
-- `/create-requirement communitylead plot-management`
+- `/create-requirement SysAdmin user-authentication`
+- `/create-requirement GenUser plant-search`
+- `/create-requirement CommunityLead plot-management`
 
 **What It Does:**
 
@@ -93,7 +93,7 @@ Requirements are organized by subsystem for better organization:
 ```
 docs/requirements/
 ├── GenUser/          # General user features (plant search, weather, etc.)
-├── sysadmin/         # System administration features
+├── SysAdmin/         # System administration features
 ├── CommunityLead/    # Community leader features (plot assignment, etc.)
 └── CommunityMember/  # Community member features (chore tracking, etc.)
 ```
@@ -114,7 +114,7 @@ docs/requirements/
 **Examples:**
 
 - `/make-spec-from-req docs/requirements/genuser/req_genuser_plant-search.md`
-- `/make-spec-from-req docs/requirements/sysadmin/req_sysadmin_user-auth.md high-level-aggregate`
+- `/make-spec-from-req docs/requirements/SysAdmin/req_sysadmin_user-auth.md high-level-aggregate`
 
 **What It Does:**
 

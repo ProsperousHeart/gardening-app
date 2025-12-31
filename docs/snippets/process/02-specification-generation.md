@@ -19,8 +19,8 @@ This is a **workflow orchestration command** that executes multiple steps automa
 **Examples:**
 
 ```bash
-/make-spec-from-req docs/requirements/genuser/req_genuser_plant-search.md
-/make-spec-from-req docs/requirements/sysadmin/req_sysadmin_user-auth.md high-level-aggregate
+/make-spec-from-req docs/requirements/GenUser/req_genuser_plant-search.md
+/make-spec-from-req docs/requirements/SysAdmin/req_sysadmin_user-auth.md high-level-aggregate
 ```
 
 ### What This Workflow Does
@@ -99,7 +99,7 @@ The workflow accepts an optional scope parameter to control threat model granula
 **Example with scope:**
 
 ```bash
-/make-spec-from-req docs/requirements/sysadmin/req_sysadmin_user-auth.md high-level-aggregate
+/make-spec-from-req docs/requirements/SysAdmin/req_sysadmin_user-auth.md high-level-aggregate
 ```
 
 ### Historical Context: Creating the Workflow

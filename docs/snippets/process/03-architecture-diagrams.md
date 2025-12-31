@@ -162,7 +162,7 @@ As architecture evolves, version diagrams:
 Architecture diagram creation is **automatically included** in the `/make-spec-from-req` workflow:
 
 ```bash
-/make-spec-from-req docs/requirements/genuser/req_genuser_plant-search.md
+/make-spec-from-req docs/requirements/GenUser/req_genuser_plant-search.md
 ```
 
 This generates:

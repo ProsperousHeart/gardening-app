@@ -51,6 +51,16 @@ nav:
   - Developer Documentation:
     - decisions/planning/README.md
     - Progress: CHANGELOG.md
+    - SDD Process:
+      - Overview: sdd-workflow.md
+      - ENV Setup: workflow/phase0-environment-setup.md
+      - REQ Creation: workflow/phase1-requirements-creation.md
+      - SPEC Creation: workflow/phase2-specification-generation.md
+      - Architecture Diagrams: workflow/phase3-architecture-diagrams.md
+      - Threat Modeling: workflow/phase4-threat-modeling.md
+      - TDD Implementation: workflow/phase5-tdd-implementation.md
+      - Quality Review: workflow/phase6-quality-review.md
+      - Human Approval: workflow/phase7-human-approval.md
     - Requirements:
       - Rules:
         - Markdown Standards: rules/markdown-standards.md
