@@ -16,7 +16,8 @@ def safe_print(message):
 
 def on_pre_build(config):
     """Run before MkDocs build starts."""
-    script_path = Path("scripts/generate-req-index.py")
+    # script_path = Path("scripts/generate-req-index.py")  # Original
+    script_path = Path("scripts/generate-req-index_UPDATE.py")  # TEMP: Testing updated version
 
     if script_path.exists():
         safe_print("🔄 Generating requirements index...")

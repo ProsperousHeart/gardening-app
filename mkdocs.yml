@@ -43,6 +43,11 @@ nav:
       - requirements/req-index.md
       - Cross Reference Guide:  rules/cross-reference-usage-guide.md
       - Req & Spec X-Reference: SPEC-CROSS-REFERENCE.md
+    - Requirements by Subsystem:
+      - requirements/req-by-subsys-idx.md
+      - General User Access: requirements/GenUser/genuser-index.md
+      - User Management: requirements/UserMgmt/usermgmt-index.md
+      - Community Garden Member Access: requirements/CommunityMember/communitymember-index.md
   - Developer Documentation:
     - decisions/planning/README.md
     - Progress: CHANGELOG.md
@@ -78,6 +83,7 @@ nav:
       - Image Processing: tutorials/mkdocs/image-processing-setup.md
       - Extensions Guide: tutorials/mkdocs/mkdocs-extensions-guide.md
       - Navigation Status Indicators: tutorials/mkdocs/navigation-status-indicators.md
+      - Dynamic Index Generation: tutorials/mkdocs/dynamic-index-generation.md
     - Lessons Learned:
       - Creating Priority Badges:
         - "Demo: Badge Visual": tutorials/mkdocs/priority-badges-visual-demo.md
