@@ -92,9 +92,7 @@ nav:
       - Installation: tutorials/mkdocs/mkdocs-installation.md
       - Image Processing: tutorials/mkdocs/image-processing-setup.md
       - Extensions Guide: tutorials/mkdocs/mkdocs-extensions-guide.md
-      - Mermaid Dark Mode Styling: tutorials/mkdocs/mermaid-dark-mode-styling.md
       - Navigation Status Indicators: tutorials/mkdocs/navigation-status-indicators.md
-      - Dynamic Index Generation: tutorials/mkdocs/dynamic-index-generation.md
     - Lessons Learned:
       - Creating Priority Badges:
         - "Demo: Badge Visual": tutorials/mkdocs/priority-badges-visual-demo.md
@@ -103,9 +101,13 @@ nav:
       - Creating Custom Modals:
         - "Demo: Requirements Index": requirements/requirements-index-example.md
         - Modal Setup: tutorials/mkdocs/requirement-modal-setup.md
+      - Dynamic Index Generation: tutorials/mkdocs/dynamic-index-generation.md
       - Finding Processes to End: tutorials/system/windows-cmds.md
       - Using GenAI for Documentation: tutorials/genai-documentation.md
       # - Using GenAI for Code: tutorials/genai-code.md
+      - Mermaid Dark Mode Styling: tutorials/mkdocs/mermaid-dark-mode-styling.md
+      - Page Navigation Styling: tutorials/mkdocs/page-navigation-styling.md
+      - Reducing Horizontal Margins: tutorials/mkdocs/reduce-horizontal-margins.md
 
 # Theme Configuration
 theme:
