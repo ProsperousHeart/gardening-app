@@ -221,19 +221,30 @@ def scan_requirements(
 
         # Calculate relative path for links
         try:
-            # Get relative path from the directory where index will be written
-            if req_id_filter:
-                # Component-specific index (e.g., GenUser/index.md)
-                link_base = base_dir / req_id_filter.split("-")[1].capitalize()
-            else:
-                # Main index (req-index.md)
-                link_base = base_dir
-
-            rel_path = req_file.relative_to(link_base)
+            # Get relative path from the requirements base directory
+            rel_path = req_file.relative_to(base_dir)
             file_path = str(rel_path).replace("\\", "/")
+
+            # Remove .md extension (MkDocs converts file.md to file/)
+            if file_path.endswith(".md"):
+                file_path = file_path[:-3]
+
+            # Add ../ prefix since MkDocs creates subdirectories from .md files
+            # Example: req-index.md becomes /requirements/req-index/
+            # Example: GenUser/genuser-index.md becomes /requirements/GenUser/genuser-index/
+            if req_id_filter:
+                # For component indexes, use just the filename since files are in same directory
+                # From /requirements/GenUser/genuser-index/ to /requirements/GenUser/req-genuser-example/
+                # Link should be: ../req-genuser-example
+                file_path = "../" + Path(file_path).name
+            else:
+                # For main index, use full relative path
+                # From /requirements/req-index/ to /requirements/GenUser/req-genuser-example/
+                # Link should be: ../GenUser/req-genuser-example
+                file_path = "../" + file_path
         except ValueError:
-            # If we can't compute relative path, use filename
-            file_path = req_file.name
+            # If we can't compute relative path, use filename without extension
+            file_path = "../" + req_file.stem
 
         # Clean title (remove doc number in parentheses if present)
         title = metadata.get("title", "")
