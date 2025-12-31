@@ -25,7 +25,9 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
   <div class="req-filters">
     <input type="text" id="req-search" placeholder="Search requirements..." />
     <select id="phase-filter">
-      <option value="">All Phases</option>      <option value="0">Phase 0</option>    </select>
+      <option value="">All Phases</option>
+      <option value="0">Phase 0</option>
+    </select>
     <select id="priority-filter">
       <option value="">All Priorities</option>
       <option value="CRITICAL">Critical</option>
@@ -45,10 +47,12 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
       <th class="sortable" data-sort="title">Title <span class="sort-icon">⇅</span></th>
     </tr>
   </thead>
-  <tbody>    <tr data-phase="0" data-priority="LOW" data-docnum="req-genuser-example" data-title="General User Feature Requirement Creation Example">
+  <tbody>
+    <tr data-phase="0" data-priority="LOW" data-docnum="req-genuser-example" data-title="General User Feature Requirement Creation Example">
       <td style="text-align: center;"><span class="priority-badge priority-low">LOW</span></td>
       <td style="text-align: center;">0</td>
       <td style="text-align: center;">req-genuser-example</td>
       <td><a href="req-genuser-example.md">General User Feature Requirement Creation Example</a></td>
-    </tr>  </tbody>
+    </tr>
+  </tbody>
 </table>

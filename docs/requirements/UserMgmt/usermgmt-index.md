@@ -25,7 +25,8 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
   <div class="req-filters">
     <input type="text" id="req-search" placeholder="Search requirements..." />
     <select id="phase-filter">
-      <option value="">All Phases</option>    </select>
+      <option value="">All Phases</option>
+    </select>
     <select id="priority-filter">
       <option value="">All Priorities</option>
       <option value="CRITICAL">Critical</option>
@@ -45,7 +46,8 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
       <th class="sortable" data-sort="title">Title <span class="sort-icon">⇅</span></th>
     </tr>
   </thead>
-  <tbody>  </tbody>
+  <tbody>
+  </tbody>
 </table>
 
 !!! info "No Requirements Found"

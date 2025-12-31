@@ -46,9 +46,9 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
     <input type="text" id="req-search" placeholder="Search requirements..." />
     <select id="phase-filter">
       <option value="">All Phases</option>
-{%- for phase in phases | sort %}
+{% for phase in phases | sort %}
       <option value="{{ phase }}">Phase {{ phase }}</option>
-{%- endfor %}
+{% endfor %}
     </select>
     <select id="priority-filter">
       <option value="">All Priorities</option>
@@ -70,14 +70,14 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
     </tr>
   </thead>
   <tbody>
-{%- for req in requirements %}
+{% for req in requirements %}
     <tr data-phase="{{ req.phase }}" data-priority="{{ req.priority }}" data-docnum="{{ req.doc_number }}" data-title="{{ req.title_clean }}">
       <td style="text-align: center;"><span class="priority-badge priority-{{ req.priority | lower }}">{{ req.priority }}</span></td>
       <td style="text-align: center;">{{ req.phase }}</td>
       <td style="text-align: center;">{{ req.doc_number }}</td>
       <td><a href="{{ req.file_path }}">{{ req.title_clean }}</a></td>
     </tr>
-{%- endfor %}
+{% endfor %}
   </tbody>
 </table>
 {% if requirements | length == 0 %}

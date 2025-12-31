@@ -1,4 +1,11 @@
+---
+hide:
+  - toc
+---
+
 # Requirements Index
+
+## Requirements Table
 
 <div class="req-index-controls" markdown="1">
   <div class="req-filters">
@@ -68,6 +75,12 @@
       <td style="text-align: center;">0</td>
       <td style="text-align: center;">REQ-000g</td>
       <td><a href="REQ-000g_Decisions.md">Design Decisions & Analysis</a></td>
+    </tr>
+    <tr data-phase="0" data-priority="LOW" data-docnum="req-genuser-example" data-title="General User Feature Requirement Creation Example">
+      <td style="text-align: center;"><span class="priority-badge priority-low">LOW</span></td>
+      <td style="text-align: center;">0</td>
+      <td style="text-align: center;">req-genuser-example</td>
+      <td><a href="GenUser/req-genuser-example.md">General User Feature Requirement Creation Example</a></td>
     </tr>
   </tbody>
 </table>
