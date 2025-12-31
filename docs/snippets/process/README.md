@@ -35,75 +35,88 @@ Files are numbered sequentially to reflect the SDD workflow order:
 
 **Status**: ✅ Complete
 
-## Planned Process Snippets
+### Phase 2: Specification Generation
 
-### Phase 2: Specification Generation (Detailed)
+This phase is a deep dive into specification generation process.
 
 **File**: `02-specification-generation.md`
-**Should Cover**:
 
-- Deep dive into specification generation process
-- Architecture decisions documentation
-- Data flow specifications
+**Covers**:
+
+- `/make-spec-from-req` workflow orchestration
+- Specification generation process
+- Architecture diagram creation (automatic)
+- Threat model generation (automatic and includes data flow specifications)
+- Threat model scopes (per-requirement, high-level-aggregate, grouped-by-feature)
+- Historical context of workflow development
 - Integration requirements
-- CodeGuard security considerations
+- CodeGuard security integration
 
-**Status**: ⏳ Pending
+**Status**: ✅ Complete
 
 ### Phase 3: Architecture Diagram Creation
 
 **File**: `03-architecture-diagrams.md`
-**Should Cover**:
+
+**Covers**:
 
 - `/create-architecture` command
 - Three required formats (Text, ASCII, Mermaid)
-- Component relationship mapping
-- System boundary definition
-- Integration points visualization
+- ASCII box-drawing characters guide
+- Diagram types (System, Component, Sequence, ERD, Deployment) and relationship mapping
+- When diagrams are created (AFTER specifications)
+- Diagram versioning strategies
+- Integration with workflow
 
-**Status**: ⏳ Pending
+**Status**: ✅ Complete
 
 ### Phase 4: Threat Modeling
 
 **File**: `04-threat-modeling.md`
-**Should Cover**:
+
+**Covers**:
 
 - `/create-threat-model` command
-- STRIDE framework application
-- Threat model scopes (per-requirement, high-level-aggregate, grouped-by-feature)
-- Security risk identification
-- Mitigation strategies
-- CodeGuard compliance
+- STRIDE framework (Spoofing, Tampering, Repudiation, Info Disclosure, DoS, Elevation of Privilege)
+- Why threat modeling comes AFTER specifications
+- Threat model scopes explained (per-requirement, high-level-aggregate, grouped-by-feature)
+- security risk identification & mitigation strategies
+- CodeGuard integration and mapping
+- Example threat model output
 
-**Status**: ⏳ Pending
+**Status**: ✅ Complete
 
 ### Phase 5: TDD Implementation
 
 **File**: `05-tdd-implementation.md`
-**Should Cover**:
 
-- `/implement-spec` command
-- RED-GREEN-REFACTOR cycle
-- Test-first development
-- Code generation from specifications
-- Security implementation (CodeGuard rules)
-- Quality validation
+**Covers**:
 
-**Status**: ⏳ Pending
+- `/implement-spec` workflow orchestration
+- RED-GREEN-REFACTOR cycle explained
+- Shift-left security approach with implementation of CodeGuard rules
+- Security test examples
+- Test structure standards (AAA pattern)
+- Quality validation and requirements (≥90% coverage)
+- Approval gate before implementation
+
+**Status**: ✅ Complete
 
 ### Phase 6: Quality Review & Verification
 
 **File**: `06-quality-review.md`
-**Should Cover**:
+
+**Covers**:
 
 - `/quality-review` command
-- `/verify` command
-- `/security-review` command
+- `/verify <module-path>` command
+- `/security-review <module-path>` command
 - Automated checks (pytest, coverage, ruff)
-- Manual review checklists
-- Documentation validation
+- Quality gates
+- Pre-commit hooks (NEVER use --no-verify)
+- Post-test review checklist
 
-**Status**: ⏳ Pending
+**Status**: ✅ Complete
 
 ## Usage in Process.md
 
@@ -121,7 +134,7 @@ When documenting a new SDD phase:
 2. **Document thoroughly**: Include commands, examples, workflow steps, and insights
 3. **Add cross-references**: Link to related documentation (prompts, instructions, templates)
 4. **Update this README**: Add entry under "Current Process Snippets"
-5. **Include in Process.md**: Add `{% include 'process/XX-phase-name.md' %}` at appropriate location
+5. **Include in Process.md**: Add {% raw %}`{% include 'process/XX-phase-name.md' %}`{% endraw %} at appropriate location
 6. **Test rendering**: Run `mkdocs serve` to verify snippet displays correctly
 
 ## Template Structure
