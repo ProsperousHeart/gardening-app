@@ -96,7 +96,3 @@ All workflows must pass before merging to main branch.
 
 - **[Makefile Guide](../tutorials/general/makefile-guide.md)** - Running final checks before commit
 - **[Dependency Management](../tutorials/general/dependency-management.md)** - Managing dependencies with UV
-
-## Status
-
-✅ Documented | 🚦 All approval gates defined
