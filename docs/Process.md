@@ -1,13 +1,15 @@
 ---
 title: Specification Driven Development Process
-description: The process done to complete the set up of SDD (specification driven development) for this solution.
+description: The process and workflow for SDD (specification driven development) in this project.
 ---
-
 # SDD Process
 
-For now, the focus is on using Claude code for generation. Once v1 seems to work, will attempt the same with Copilot version. Merge outputs where it makes sense.
+!!! info
+    Status as of 20251224.
 
-Status as of 20251224.
+This document tracks the development and refinement of the Specification-Driven Development (SDD) workflow used in this project.
+
+**Tool Focus**: Currently optimized for Claude Code. Once v1 workflow is validated, will adapt for GitHub Copilot compatibility.
 
 ---
 
@@ -140,3 +142,75 @@ The current section is to walk you through what I did to build out the repo afte
 - got an initial outline for MVP planning with help of AI - still need to complete review & update as needed for appropriate MVP plan
 
 This is still being worked on, but you can see the initial documentation [here](./requirements/README.md).
+
+After developing the [scope](./requirements/REQ-000b_Scope.md) and others, able to determine that there are 3 main modules or sub-systems as outlined in [here](./requirements/req-by-subsys-idx.md). This is what determines the part after REQ or SPEC in the file name. Then the portion after that is the individual requirement. For example:  `req_genuser_plant-search`
+
+I was then able to use this and the mkdocs metadata to my advantage to automatically generate indexes with interactive tables for showing the files.
+
+As I continued to improve on what I wanted my own dashboard and documentation to look like in preparation for the SDD work, I continued learning several new amazing things. I then would utilize AI recap to create tutorials or lessons learned, often tweaking or correcting the process and my exeperiences.
+
+---
+
+## Historical Context
+
+This section preserves the history of how this SDD workflow was developed and refined.
+
+### Developing Requirements
+
+This section documents the background of requirement development, not the current workflow.
+
+The REQ-000x markdown files were developed with the original project description and stakeholders in mind, based on:
+
+- Specification-driven development workshop learning (similar to digitized delivery)
+- Initial MVP planning with AI assistance
+- Cornell's Systems Design certification program methodology
+
+The current requirement creation workflow is documented in **Phase 1** above.
+
+**Initial documentation**: [requirements/README.md](./requirements/README.md)
+
+### Evolution of Process Documentation
+
+This document has evolved from tracking ad-hoc steps to documenting a comprehensive, repeatable SDD workflow:
+
+**Version 1 (Initial)**: Manual, exploratory approach
+
+- Created templates
+- Manually generated specs
+- Ad-hoc command creation
+
+**Version 2 (Workflow Commands)**: Automation begins
+
+- Created `/make-spec-from-req` command
+- Automated spec generation
+- Manual architecture and threat modeling
+
+**Version 3 (Orchestration)**: Complete automation
+
+- Workflow orchestration prompts
+- Multiple artifacts generated together
+- Approval gates added
+
+**Version 4 (Current)**: Modular process documentation
+
+- Process snippets for each phase
+- Clear workflow order
+- Comprehensive documentation
+
+---
+
+## Related Documentation
+
+See the final optimized workflow via [here](./sdd-workflow.md).
+
+---
+
+## Next Steps
+
+As the project evolves, this document will continue to track:
+
+1. **Workflow Refinements**: Improvements to the SDD process
+2. **Lessons Learned**: What worked, what didn't, and why
+3. **Tool Adaptations**: Updates for GitHub Copilot and other AI assistants
+
+For current workflow usage, always refer to the **Master Workflow** and **Phase-specific documentation** outlined [here](./sdd-workflow.md).
