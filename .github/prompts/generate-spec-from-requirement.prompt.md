@@ -19,7 +19,7 @@ Follow these steps carefully:
 ### Step 1: Validate Prerequisites
 
 - Check if {requirement_path} exists
-  - If the file doesn't exist, inform the user and suggest available requirements files in docs/requirements/ or offer to make an initial requirement.
+  - If the file doesn't exist, inform the user and suggest available requirements files in docs/requirements/{Subsystem}/ folders or offer to make an initial requirement.
   - Exit with a helpful error message
 - Verify docs/templates/spec-template.md exists
 - Verify docs/specifications/ directory exists (create if missing)
@@ -78,13 +78,13 @@ Report to the user:
 ### With Claude Code
 
 ```
-Use the generate-spec-from-requirement prompt for docs/requirements/req-auth.md
+Use the generate-spec-from-requirement prompt for docs/requirements/SysAdmin/req_sysadmin_user-auth.md
 ```
 
 ### With GitHub Copilot
 
 ```
-@workspace Generate a technical specification from @docs/requirements/req-auth.md using the template at @docs/templates/spec-template.md. Reference relevant CodeGuard security files and update the cross-reference table.
+@workspace Generate a technical specification from @docs/requirements/SysAdmin/req_sysadmin_user-auth.md using the template at @docs/templates/spec-template.md. Reference relevant CodeGuard security files and update the cross-reference table.
 ```
 
 ## Expected Output

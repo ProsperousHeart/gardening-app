@@ -52,7 +52,7 @@ Important considerations:
 
 ### Step 4: Save and Update Documentation
 
-- Save the requirement document to docs/requirements/req_{component_name}.md
+- Save the requirement document to docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md
 - Update docs/SPEC-CROSS-REFERENCE.md with new entry:
   - Add row with requirement file path
   - Leave specification, code, and test columns empty (to be filled later)
@@ -64,7 +64,7 @@ Important considerations:
 ### Step 5: Confirm Completion
 
 Report to the user:
-- ✅ Requirement file created successfully at docs/requirements/req_{component-name}.md
+- ✅ Requirement file created successfully at docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md
 - 📋 Brief description of what needs to be filled in
 - 🔗 Links to updated documentation (cross-reference, index)
 - ⏭️ Next step: Fill in the requirement details, then use the specification workflow to generate specs
@@ -81,7 +81,7 @@ Execute the create-requirement prompt for user-authentication
 Or using the slash command:
 
 ```
-/create-requirement user-mgmt user-authentication
+/create-requirement UserMgmt user-authentication
 ```
 
 ### With GitHub Copilot
