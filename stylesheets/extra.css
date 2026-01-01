@@ -221,3 +221,48 @@ pre.ascii-art code {
   line-height: inherit !important;
   letter-spacing: inherit !important;
 }
+
+/* ========================================
+   Phase Navigation
+   ======================================== */
+
+/* Navigation for workflow phase pages - left/right alignment */
+.phase-nav {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+/* ========================================
+   Reduce Horizontal Margins
+   ======================================== */
+
+/* Remove excessive left/right whitespace to maximize content area */
+
+/* Reduce margin on main grid container */
+.md-grid {
+  max-width: 90rem;  /* Increase from default 61rem */
+  margin-left: 0.5rem;  /* Reduce from default 1rem+ */
+  margin-right: 0.5rem;  /* Reduce from default 1rem+ */
+}
+
+/* Reduce padding inside content container */
+.md-content__inner {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Reduce sidebar padding to reclaim space */
+.md-sidebar__scrollwrap {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+/* Fix body font size - ensure proper text readability */
+body {
+  font-size: 1rem !important;  /* Force 16px baseline */
+}
+
+.md-typeset {
+  font-size: 0.8rem;  /* MkDocs Material standard body text size */
+}
