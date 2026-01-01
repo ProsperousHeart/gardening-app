@@ -1,5 +1,6 @@
 ---
 # Requirement Metadata
+exclude: true
 title: General User Feature Requirement Creation Example
 description: "TBD"
 req_id: req-genuser-example
