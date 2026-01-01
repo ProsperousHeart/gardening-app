@@ -34,6 +34,10 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
       <option value="MEDIUM">Medium</option>
       <option value="LOW">Low</option>
     </select>
+    <label class="exclude-filter">
+      <input type="checkbox" id="hide-excluded" checked />
+      Hide Excluded
+    </label>
   </div>
 </div>
 

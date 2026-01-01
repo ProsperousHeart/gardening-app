@@ -35,6 +35,10 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
       <option value="MEDIUM">Medium</option>
       <option value="LOW">Low</option>
     </select>
+    <label class="exclude-filter">
+      <input type="checkbox" id="hide-excluded" checked />
+      Hide Excluded
+    </label>
   </div>
 </div>
 
@@ -48,7 +52,7 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
     </tr>
   </thead>
   <tbody>
-    <tr data-phase="0" data-priority="LOW" data-docnum="req-genuser-example" data-title="General User Feature Requirement Creation Example">
+    <tr data-phase="0" data-priority="LOW" data-docnum="req-genuser-example" data-title="General User Feature Requirement Creation Example" data-exclude="true">
       <td style="text-align: center;"><span class="priority-badge priority-low">LOW</span></td>
       <td style="text-align: center;">0</td>
       <td style="text-align: center;">req-genuser-example</td>

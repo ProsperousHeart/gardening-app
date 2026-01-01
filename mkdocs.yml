@@ -376,6 +376,7 @@ extra_css:
 extra_javascript:
   - javascripts/req-index.js  # Interactive filtering and sorting for requirements index
   - javascripts/requirement-modal.js  # Modal handler for missing requirement files
+  - javascripts/req-filter.js  # Additional filtering for requirements index
 
 # Hooks for custom processing
 hooks:

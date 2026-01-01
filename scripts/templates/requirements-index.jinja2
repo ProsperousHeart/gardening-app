@@ -57,6 +57,10 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
       <option value="MEDIUM">Medium</option>
       <option value="LOW">Low</option>
     </select>
+    <label class="exclude-filter">
+      <input type="checkbox" id="hide-excluded" checked />
+      Hide Excluded
+    </label>
   </div>
 </div>
 
@@ -71,7 +75,7 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
   </thead>
   <tbody>
 {% for req in requirements %}
-    <tr data-phase="{{ req.phase }}" data-priority="{{ req.priority }}" data-docnum="{{ req.doc_number }}" data-title="{{ req.title_clean }}">
+    <tr data-phase="{{ req.phase }}" data-priority="{{ req.priority }}" data-docnum="{{ req.doc_number }}" data-title="{{ req.title_clean }}" data-exclude="{{ req.exclude | default(false) | lower }}">
       <td style="text-align: center;"><span class="priority-badge priority-{{ req.priority | lower }}">{{ req.priority }}</span></td>
       <td style="text-align: center;">{{ req.phase }}</td>
       <td style="text-align: center;">{{ req.doc_number }}</td>

@@ -276,6 +276,7 @@ def scan_requirements(
                 "status": metadata.get("status", ""),
                 "req_id": req_id,
                 "doc_number": doc_number,
+                "exclude": metadata.get("exclude", False),
             }
         )
 
