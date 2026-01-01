@@ -52,7 +52,7 @@ See [Main Requirements Index](../req-index.md) for all project requirements.
       <td style="text-align: center;"><span class="priority-badge priority-low">LOW</span></td>
       <td style="text-align: center;">0</td>
       <td style="text-align: center;">req-genuser-example</td>
-      <td><a href="../req-genuser-example">General User Feature Requirement Creation Example</a></td>
+      <td><a href="../../GenUser/req-genuser-example">General User Feature Requirement Creation Example</a></td>
     </tr>
   </tbody>
 </table>

@@ -179,18 +179,9 @@ def scan_requirements(
         safe_print(f"⚠️  Invalid base directory: {base_dir}")
         return requirements
 
-    # Determine scan directory based on filter
-    if req_id_filter:
-        # For component-specific indexes, scan only the component subdirectory
-        # Extract component name from filter (e.g., "req-genuser" -> "GenUser")
-        component_name = req_id_filter.split("-")[1].capitalize()
-        scan_dir = base_dir / component_name
-        if not scan_dir.exists():
-            safe_print(f"⚠️  Component directory not found: {scan_dir}")
-            return requirements
-    else:
-        # For main index, scan entire requirements directory
-        scan_dir = base_dir
+    # Always scan entire requirements directory
+    # Filtering happens later based on req_id_filter (filename OR folder matching)
+    scan_dir = base_dir
 
     # Find all requirement markdown files
     # Note: Using rglob to support subdirectories, but with path validation
@@ -214,10 +205,35 @@ def scan_requirements(
         if not metadata:
             continue
 
-        # Apply req_id filter if specified
+        # Get req_id for cross-referencing
         req_id = metadata.get("req_id", "")
-        if req_id_filter and not req_id.startswith(req_id_filter):
-            continue
+
+        # Apply component filter if specified (OR logic: filename OR folder)
+        if req_id_filter:
+            # Extract expected subsystem from req_id/filename
+            if req_id and "-" in req_id:
+                filename_subsystem = req_id.split("-")[1].lower()
+            elif "-" in req_file.stem:
+                filename_subsystem = req_file.stem.split("-")[1].lower()
+            else:
+                filename_subsystem = ""
+
+            # Extract actual subsystem from parent folder
+            try:
+                parent_rel = req_file.parent.relative_to(base_dir)
+                folder_subsystem = str(parent_rel).lower() if str(parent_rel) != "." else ""
+            except ValueError:
+                folder_subsystem = ""
+
+            # Expected filter subsystem (e.g., "req-genuser" -> "genuser")
+            filter_subsystem = req_id_filter.split("-")[1].lower() if "-" in req_id_filter else ""
+
+            # Include if subsystem matches filename OR folder (OR logic)
+            matches_filename = filename_subsystem == filter_subsystem
+            matches_folder = folder_subsystem == filter_subsystem
+
+            if not (matches_filename or matches_folder):
+                continue  # Skip if doesn't match either
 
         # Calculate relative path for links
         try:
@@ -229,18 +245,15 @@ def scan_requirements(
             if file_path.endswith(".md"):
                 file_path = file_path[:-3]
 
-            # Add ../ prefix since MkDocs creates subdirectories from .md files
-            # Example: req-index.md becomes /requirements/req-index/
-            # Example: GenUser/genuser-index.md becomes /requirements/GenUser/genuser-index/
+            # Add correct ../ prefix based on index depth
+            # MkDocs creates subdirectories from .md files:
+            #   - Main index at /requirements/req-index/ needs ../ (1 level up)
+            #   - Component index at /requirements/GenUser/genuser-index/ needs ../../ (2 levels up)
             if req_id_filter:
-                # For component indexes, use just the filename since files are in same directory
-                # From /requirements/GenUser/genuser-index/ to /requirements/GenUser/req-genuser-example/
-                # Link should be: ../req-genuser-example
-                file_path = "../" + Path(file_path).name
+                # Component index: need to go up 2 levels
+                file_path = "../../" + file_path
             else:
-                # For main index, use full relative path
-                # From /requirements/req-index/ to /requirements/GenUser/req-genuser-example/
-                # Link should be: ../GenUser/req-genuser-example
+                # Main index: need to go up 1 level
                 file_path = "../" + file_path
         except ValueError:
             # If we can't compute relative path, use filename without extension

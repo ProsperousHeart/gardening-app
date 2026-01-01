@@ -18,6 +18,10 @@ specification: TBD  # Path to spec file (generated via /make-spec-from-req)
 source_files: []  # List of implementation files (e.g., ["src/module.py"])
 test_files: []  # List of test files (e.g., ["tests/test_module.py"])
 diagrams: []  # List of diagram files (e.g., ["diagrams/architecture-feature.md"])
+
+hide:
+# - navigation
+- toc
 ---
 # General User Feature Requirement Creation Example
 
