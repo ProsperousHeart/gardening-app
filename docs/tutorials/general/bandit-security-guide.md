@@ -336,7 +336,8 @@ import sys
 from pathlib import Path
 
 def on_pre_build(config):
-    script_path = Path("scripts/generate-req-index.py")
+   # script_path = Path("scripts/generate-req-index.py")  # Original
+   script_path = Path("scripts/generate-req-index_UPDATE.py")  # TEMP: Testing updated version
 
     if script_path.exists():
         try:
@@ -366,7 +367,8 @@ import sys
 from pathlib import Path
 
 def on_pre_build(config):
-    script_path = Path("scripts/generate-req-index.py")
+    # script_path = Path("scripts/generate-req-index.py")  # Original
+    script_path = Path("scripts/generate-req-index_UPDATE.py")  # TEMP: Testing updated version
 
     if script_path.exists():
         try:
