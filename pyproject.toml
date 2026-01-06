@@ -1,6 +1,6 @@
 [project]
 name = "gardening-app"
-version = "0.1.0"
+version = "0.3.2"
 description = "App for gardeners & community garden members to manage plots, tasks, and events."
 readme = "README.md"
 requires-python = ">=3.12"
