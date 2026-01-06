@@ -1,17 +1,22 @@
 # Prompt: Create Requirement Document
 
-**Purpose**: Create a new requirement document from the project template
+**Purpose**: Create a new requirement document from the project template at `docs/templates/requirements-template.md`, populate it with placeholders and guidance, save it in the appropriate sub-directory under `docs/requirements/`, and update cross-reference and index documentation.
+
 **Input**: Subsystem the requirement falls under, Component/feature name (e.g., "user-authentication", "payment-processing")
-**Output**: Requirement document in `docs/requirements/sub_system/`
+
+**Output**: Requirement document in `docs/requirements/SubSystem/`
+
 **References**:
 
 - `docs/templates/requirements-template.md`
 - `.github/instructions/master-workflow.md`
+- `docs/SPEC-CROSS-REFERENCE.md`
+- `docs/requirements/`
 
 ## Prompt
 
 ```
-Create a new requirement document for: {sub-system} {component-name}
+Create a new requirement document for: {SubSystem} {component-name}
 
 Follow these steps carefully:
 
@@ -19,8 +24,8 @@ Follow these steps carefully:
 
 - Verify docs/templates/requirements-template.md exists
   - If the template doesn't exist, inform the user and exit with a helpful error message
-- Verify docs/requirements/{sub-system} directory exists (create if missing)
-- Check if docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md already exists
+- Verify docs/requirements/{SubSystem} directory exists (create if missing)
+- Check if docs/requirements/{SubSystem}/req_{sub-system}_{component-name}.md already exists
   - If it exists, ask the user if they want to overwrite it or create a variant
 
 ### Step 2: Read Template
@@ -92,7 +97,7 @@ Or using the slash command:
 
 ## Expected Output
 
-- New file: `docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md`
+- New file: `docs/requirements/{SubSystem}/req_{sub-system}_{component-name}.md`
 - Updated: `docs/SPEC-CROSS-REFERENCE.md`
 - Updated: `docs/INDEX.md`
 
