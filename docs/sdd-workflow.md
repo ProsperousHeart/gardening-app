@@ -280,7 +280,7 @@ Final checkpoint before merging or deploying with automated and human review gat
 **Requirements → Specification** (Automated):
 
 ```bash
-/make-spec-from-req docs/requirements/<subsystem>/req_<subsystem>_<component>.md
+/make-spec-from-req docs/requirements/<SubSystem>/req_<subsystem>_<component>.md
 ```
 
 Generates: specification + architecture diagram + threat model + quality review
@@ -288,7 +288,7 @@ Generates: specification + architecture diagram + threat model + quality review
 **Specification → Code** (Automated with approval gate):
 
 ```bash
-/implement-spec docs/specifications/spec_<name>.md
+/implement-spec docs/specifications/spec_<subsystem>_<name>.md
 ```
 
 Generates: TDD implementation + security review + quality validation + documentation updates
