@@ -1,8 +1,11 @@
+---
+title: Pre-Push Checklist
+description: Tutorial on what should be done to have a check before pushing your code to remote branch.
+---
+
 # Pre-Push Checklist: Preparing Code for Repository
 
 This guide walks you through the essential checks to perform before pushing code to the repository. Following this checklist ensures code quality, security, and consistency.
-
-**Last Updated:** 2025-12-15
 
 ---
 

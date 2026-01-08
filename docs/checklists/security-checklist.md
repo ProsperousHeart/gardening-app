@@ -1,3 +1,8 @@
+---
+title: Security Checklist
+description: Tutorial on what should be for security checklist. Uses a snippet so the information is stored elsewhere.
+---
+
 # Security Checklist
 
 This checklist ensures secure-by-default practices are followed throughout development.

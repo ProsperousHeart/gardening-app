@@ -1,4 +1,46 @@
+---
+# Requirement Metadata
+title: Use Case Behavior Diagrams (REQ-000d)
+description: "Use Case Behavior Diagrams (work in progress)"
+req_id: REQ-000d
+priority: CRITICAL
+phase: 0
+status: in-review
+created: 2024-12-01
+updated: 2025-01-27
+author: Kassandra Keeton
+show_badges: true  # set to "false" to disable badges
+maps_to_req: "REQ-000d_UCBDs.md"
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+specification: TBD  # Path to spec file (generated via /make-spec-from-req)
+source_files: []  # N/A - foundational document
+test_files: []  # N/A - foundational document
+diagrams: []
+---
+
+<!-- --8<-- "snippets/common/requirement-badges.md" -->
+
+<!-- This has to be here instead of the snippet since they run before plugins (macros) -->
+{% if page.meta.get('priority') and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.get('priority') | lower }}">{{ page.meta.get('priority') }}</span>
+{% if page.meta.get('phase') is not none %}<span class="phase-badge">Phase {{ page.meta.get('phase') }}</span>{% endif %}
+{% if page.meta.get('status') %}<span class="status-badge status-{{ page.meta.get('status') | replace(' ', '-') | lower }}">{{ page.meta.get('status') | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+
+---
+{% endif %}
+
 # Use Case Behavior Diagrams
+
+<!-- > **Foundation Document** - All requirements derive from this foundational specification. -->
+
+{% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "[REQ-000 Series](req-index.md) - Foundational Document"
+    **DESCRIPTION:** {{ page.meta.get('description') | replace('REQ-000', '[REQ-000](req-index.md)') }}
+{% endif %}
 
 This file is a continuation of the [Use Cases](./REQ-000c_UseCases.md) file. It will provide the behavior diagrams of the different use cases.
 
@@ -146,9 +188,11 @@ As of Nov 29, 2024 – this is not complete only parts were needed at the time o
 
 2. [User Checks Location Settings](#user-checks-location-settings)
 
-3. [Plant Search](#plant-search)
+3. [User Sets Unit System Preference](#user-sets-unit-system-preference)
 
-4. [Plant Search (Filter)](#plant-search-filter)
+4. [Plant Search](#plant-search)
+
+5. [Plant Search (Filter)](#plant-search-filter)
 
 ### Set GPS Permissions
 
@@ -286,6 +330,84 @@ sequenceDiagram
 1. By default, automating USDA zone by GPS location should be turned off.
 
 2. Profile can be accessed from anywhere within the system.
+
+**Identifying Missed Functionality:**
+
+| Additional Grouping of Requirements | Description |
+| ----------------------------------- | ----------- |
+| \* | TBD |
+| \*\* | TBD |
+| \*\*\* | TBD |
+
+Identifying Missed Functionality – the system shall be able to:
+
+- *item 1 of F1
+- **item 1 of F2
+- ***item 1 of F3
+
+**SysML Diagram:**
+
+TBD
+
+**Requirements Table:**
+
+_See the [requirement constants definition table](./REQ-000e_Requirements.md) for more. (Including this section!)_
+
+| Component | Function | Single Unique ID | Unique ID | Requirements | Unique Name |
+| --- | --- | --- | --- | --- | --- |
+| **System.COMPONENT** | FUNCTION | OR.X | ORX.Y | TBD | TBD |
+
+### User Sets Unit System Preference
+
+!!! warning
+    This section was made by AI and has not yet been reviewed by a human as of 20251227. It came about while finalizing the MVP that we would need to allow the user to determine if they were using the imperial or metric system. You can see more in the **FFBD F.2.1.5.3** section.
+
+**Use Case Name:**  User Sets Unit System Preference
+
+**Initial Conditions:**
+
+1. User has access to personal settings
+2. Unit system preference is either not set (defaults to imperial) or needs to be updated
+
+```mermaid
+---
+title: User Sets Unit System Preference
+config:
+    theme: dark
+---
+sequenceDiagram
+    autonumber
+    actor User as Human
+    participant System as "The System"
+    participant Settings
+    User->>+System: User accesses their profile/settings to update unit preferences
+    System->>Settings: Request current unit preference setting
+    Settings-->>System: Return current preference (imperial/metric)
+    System-->>User: Display current unit preference with option to change
+    User->>System: Select preferred unit system (imperial or metric)
+    System->>Settings: Save unit preference
+    Settings-->>System: Confirm preference saved
+    System-->>User: Confirmation displayed.<br>All measurements now display in selected units
+```
+<br>
+
+**Ending Conditions:**
+
+1. User's unit system preference is saved to their profile
+2. All measurements throughout the application display in the selected unit system
+3. Preference persists across sessions
+
+**Notes:**
+
+1. Unit preference applies application-wide to all measurements including:
+   - Plant spacing (min/max)
+   - Plant height (min/max)
+   - Container sizes
+   - Weather-related measurements (temperature, precipitation)
+
+2. No need to track units at individual data item level - conversion happens at display time based on user preference
+
+3. Profile/settings can be accessed from anywhere within the system
 
 **Identifying Missed Functionality:**
 

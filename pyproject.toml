@@ -1,6 +1,6 @@
 [project]
 name = "gardening-app"
-version = "0.1.0"
+version = "0.3.2"
 description = "App for gardeners & community garden members to manage plots, tasks, and events."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -17,8 +17,11 @@ dependencies = [
     "mkdocs-get-deps==0.2.0",
     "mkdocs-git-revision-date-localized-plugin>=1.5.0",
     "mkdocs-glightbox>=0.5.2",
+    "mkdocs-macros-plugin>=1.5.0",
     "mkdocs-material[imaging]>=9.7.0",
     "mkdocs-minify-plugin>=0.8.0",
+    "mkdocs-table-reader-plugin>=3.1.0",
+    "openpyxl>=3.1.5",
     "packaging==24.2",
     "pathspec==0.12.1",
     "platformdirs==4.3.6",
@@ -27,10 +30,12 @@ dependencies = [
     "pyyaml-env-tag==0.1",
     "six==1.17.0",
     "watchdog==6.0.0",
+    "xlrd>=2.0.2",
 ]
 
 [dependency-groups]
 dev = [
+    "bandit>=1.9.2",
     "black==25.1.0",
     "coverage>=7.11.3",
     "flake8==7.2.0",
@@ -46,4 +51,10 @@ dev = [
 ]
 
 [tool.bandit]
-exclude_dirs = ["2024-Django-Attempt", ".venv"]
+exclude_dirs = ["2024-Django-Attempt", ".venv", "tests", "migrations", ".git", "docs"]
+# Skip specific test IDs (B101 = assert_used, common in tests)
+skips = ["B101"]
+# Only report medium and high severity issues
+severity = ["medium", "high"]
+# Only report medium and high confidence issues
+confidence = ["medium", "high"]

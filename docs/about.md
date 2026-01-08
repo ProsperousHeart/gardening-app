@@ -1,3 +1,8 @@
+---
+title: About Gardening App
+description: Snippet to explain this project.
+---
+
 # About
 
 !!! info "Full Version of Requirements Available"

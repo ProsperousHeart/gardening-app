@@ -1,0 +1,91 @@
+{#
+Jinja2 Template for Requirements Index Generation
+This template generates index.md files for requirements directories
+
+Security: All variables are auto-escaped by Jinja2
+Input validation must be performed before template rendering
+
+Template Variables:
+  - title: str - Page title (e.g., "Requirements Index" or "GenUser Requirements")
+  - description: str|None - Optional page description
+  - component_name: str|None - Component name for filtered views (e.g., "genuser")
+  - requirements: list[dict] - List of requirement metadata dicts
+  - phases: list[int] - Unique phases for filter dropdown
+#}
+---
+hide:
+  - toc
+---
+
+# {{ title | trim }}
+{% if description %}
+
+{{ description | trim }}
+{% endif %}
+{% if component_name %}
+
+## About {{ component_name }} Component
+
+This section contains requirements specific to the **{{ component_name }}** subsystem.
+
+**Naming Convention:**
+
+- **File name**: `req-{{ component_name | lower }}-[component-name].md`
+- **req_id**: `req-{{ component_name | lower }}-[component-name]`
+- **Example**: `req-{{ component_name | lower }}-plant-database.md` with `req_id: req-{{ component_name | lower }}-plant-database`
+
+## Related Requirements
+
+See [Main Requirements Index](../req-index.md) for all project requirements.
+{% endif %}
+
+## Requirements Table
+
+<div class="req-index-controls" markdown="1">
+  <div class="req-filters">
+    <input type="text" id="req-search" placeholder="Search requirements..." />
+    <select id="phase-filter">
+      <option value="">All Phases</option>
+{% for phase in phases | sort %}
+      <option value="{{ phase }}">Phase {{ phase }}</option>
+{% endfor %}
+    </select>
+    <select id="priority-filter">
+      <option value="">All Priorities</option>
+      <option value="CRITICAL">Critical</option>
+      <option value="HIGH">High</option>
+      <option value="MEDIUM">Medium</option>
+      <option value="LOW">Low</option>
+    </select>
+    <label class="exclude-filter">
+      <input type="checkbox" id="hide-excluded" checked />
+      Hide Excluded
+    </label>
+  </div>
+</div>
+
+<table id="requirements-table" class="requirements-table">
+  <thead>
+    <tr>
+      <th class="sortable" data-sort="priority">Priority <span class="sort-icon">⇅</span></th>
+      <th class="sortable" data-sort="phase">Phase <span class="sort-icon">⇅</span></th>
+      <th class="sortable" data-sort="docnum">Doc Number <span class="sort-icon">⇅</span></th>
+      <th class="sortable" data-sort="title">Title <span class="sort-icon">⇅</span></th>
+    </tr>
+  </thead>
+  <tbody>
+{% for req in requirements %}
+    <tr data-phase="{{ req.phase }}" data-priority="{{ req.priority }}" data-docnum="{{ req.doc_number }}" data-title="{{ req.title_clean }}" data-exclude="{{ req.exclude | default(false) | lower }}">
+      <td style="text-align: center;"><span class="priority-badge priority-{{ req.priority | lower }}">{{ req.priority }}</span></td>
+      <td style="text-align: center;">{{ req.phase }}</td>
+      <td style="text-align: center;">{{ req.doc_number }}</td>
+      <td><a href="{{ req.file_path }}">{{ req.title_clean }}</a></td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+{% if requirements | length == 0 %}
+
+!!! info "No Requirements Found"
+    No requirements matching the filter criteria were found. Requirements will appear here once they are created.
+{% endif %}

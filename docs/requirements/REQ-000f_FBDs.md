@@ -1,4 +1,46 @@
+---
+# Requirement Metadata
+title: Functional Flow Block Diagrams (REQ-000f)
+description: "Functional Flow Block Diagrams (FFBDs) - WIP"
+req_id: REQ-000f
+priority: CRITICAL
+phase: 0
+status: draft
+created: 2024-12-01
+updated: 2025-01-27
+author: Kassandra Keeton
+show_badges: true  # set to "false" to disable badges
+maps_to_req: "REQ-000f_FBDs.md"
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+specification: TBD  # Path to spec file (generated via /make-spec-from-req)
+source_files: []  # N/A - foundational document
+test_files: []  # N/A - foundational document
+diagrams: []
+---
+
+<!-- --8<-- "snippets/common/requirement-badges.md" -->
+
+<!-- This has to be here instead of the snippet since they run before plugins (macros) -->
+{% if page.meta.get('priority') and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.get('priority') | lower }}">{{ page.meta.get('priority') }}</span>
+{% if page.meta.get('phase') is not none %}<span class="phase-badge">Phase {{ page.meta.get('phase') }}</span>{% endif %}
+{% if page.meta.get('status') %}<span class="status-badge status-{{ page.meta.get('status') | replace(' ', '-') | lower }}">{{ page.meta.get('status') | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+
+---
+{% endif %}
+
 # Functional Flow Block Diagrams
+
+<!-- > **Foundation Document** - FFBDs (work in progress) -->
+
+{% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "[REQ-000 Series](req-index.md) - Foundational Document"
+    **DESCRIPTION:** {{ page.meta.get('description') | replace('REQ-000', '[REQ-000](req-index.md)') }}
+{% endif %}
 
 As of 20251226, I have not yet found a tool to take what I did in Miro and put into machine readable text.
 
@@ -38,6 +80,7 @@ Below is the legend for the FFBDs:
 - [F.2.1.3 – Access General Resources](#f213--access-general-resources)
 - [F.2.1.4 – Feedback A & B](#f214--feedback-a--b)
 - [F.2.1.5.2 – Set USDA Location](#f2152--set-usda-location)
+- [F.2.1.5.3 – Set Unit System Preference](#f2153--set-unit-system-preference)
 - [F.2.1.5.7 – Backup User Data](#f2157--backup-user-data)
 - [F.2.1.5.8 – Restore User Data](#f2158--restore-user-data)
 - [F.2.1.6 – Moon Planning](#f216--moon-planning)
@@ -63,7 +106,7 @@ Below is an informal list of functional block interfaces:
 
 - Same as from [above](#informal-interfaces--uncertainties)
 
-- Settings interface needed for user to update preferences regarding visibility to others, location settings, & notifications
+- Settings interface needed for user to update preferences regarding visibility to others, location settings, unit system (imperial/metric), & notifications
 
 - Administration interface needed for those with elevated permissions
 
@@ -200,6 +243,26 @@ This can be called elsewhere with the following code:
 This has not yet been planned out as of summer 2025.
 
 Thus not linked in ToC either.
+
+##### F.2.1.5.3 – Set Unit System Preference
+
+!!! warning
+    This section was made by AI and has not yet been reviewed by a human as of 20251227. It came about while finalizing the MVP that we would need to allow the user to determine if they were using the imperial or metric system. You can see more in the **UCBD for User Sets Unit System Preference** section.
+
+This setting allows users to choose between imperial (inches, feet, gallons) or metric (centimeters, meters, liters) units for all measurements displayed throughout the application.
+
+**Performance Criteria:**
+
+1. User can select between imperial or metric unit systems
+2. Selection persists across sessions (saved in user profile/settings)
+3. All plant measurements (spacing min/max, height min/max, container size) automatically display in selected units
+4. Weather-related measurements (temperature, precipitation) display in selected units
+5. Unit preference applies application-wide - no need to track units at individual data item level
+
+**Data Needs:**
+
+1. User unit preference (imperial or metric) stored in user settings
+2. Conversion factors for common measurements (inches↔cm, feet↔meters, gallons↔liters)
 
 ##### F.2.1.5.7 – Backup User Data
 

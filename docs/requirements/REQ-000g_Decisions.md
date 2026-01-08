@@ -1,4 +1,44 @@
+---
+# Requirement Metadata
+title: Design Decisions & Analysis (REQ-000g)
+description: "Design Decisions & Analysis - design decisions and trade-off analysis"
+req_id: REQ-000g
+priority: HIGH
+phase: 0
+status: approved
+created: 2024-01-01
+updated: 2025-01-27
+author: Kassandra Keeton
+show_badges: true  # set to "false" to disable badges
+maps_to_req: "REQ-000g_Decisions.md"
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+specification: TBD  # Path to spec file (generated via /make-spec-from-req)
+source_files: []  # N/A - foundational document
+test_files: []  # N/A - foundational document
+diagrams: []
+---
+
+<!-- This has to be here instead of the snippet since they run before plugins (macros) -->
+{% if page.meta.get('priority') and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.get('priority') | lower }}">{{ page.meta.get('priority') }}</span>
+{% if page.meta.get('phase') is not none %}<span class="phase-badge">Phase {{ page.meta.get('phase') }}</span>{% endif %}
+{% if page.meta.get('status') %}<span class="status-badge status-{{ page.meta.get('status') | replace(' ', '-') | lower }}">{{ page.meta.get('status') | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+
+---
+{% endif %}
+
 # Design Decisions and Analysis
+
+<!-- > **Foundation Document** - All requirements derive from this foundational specification. -->
+
+{% if page.meta.get('req_id', '').startswith('REQ-000') and page.meta.get('description') %}
+??? tip "[REQ-000 Series](req-index.md) - Foundational Document"
+    **DESCRIPTION:** {{ page.meta.get('description') | replace('REQ-000', '[REQ-000](req-index.md)') }}
+{% endif %}
 
 This document tracks the formal decision-making processes, trade-off analyses, and system design decisions for the Gardening Application.
 

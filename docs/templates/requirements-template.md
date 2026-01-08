@@ -1,3 +1,39 @@
+---
+# Requirement Metadata
+# This YAML front matter tracks priority and other metadata
+# DO NOT REMOVE THIS SECTION - edit values only
+
+title: [Feature/Module/Component Name]
+description: "TBD"
+req_id: req-[subsystem]-[component]
+priority: CRITICAL | HIGH | MEDIUM | LOW
+phase: 1-7
+status: draft | in-review | approved | implemented
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+author: Kassandra Keeton
+show_badges: true  # set to "false" to disable badges
+maps_to_req: [REQ-000 section reference and any additional REQ-#### links that may be avaialble and related outside of REQ-000]
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+specification: TBD  # Path to spec file (generated via /make-spec-from-req)
+source_files: []  # List of implementation files (e.g., ["src/module.py"])
+test_files: []  # List of test files (e.g., ["tests/test_module.py"])
+diagrams: []  # List of diagram files (e.g., ["diagrams/architecture-feature.md"])
+---
+
+<!-- This has to be here instead of the snippet since they run before plugins (macros) -->
+{% if page.meta.get('priority') and page.meta.get('show_badges', true) != false %}
+<div class="requirement-badges">
+<span class="priority-badge priority-{{ page.meta.get('priority') | lower }}">{{ page.meta.get('priority') }}</span>
+{% if page.meta.get('phase') is not none %}<span class="phase-badge">Phase {{ page.meta.get('phase') }}</span>{% endif %}
+{% if page.meta.get('status') %}<span class="status-badge status-{{ page.meta.get('status') | replace(' ', '-') | lower }}">{{ page.meta.get('status') | replace('-', ' ') | title }}</span>{% endif %}
+</div>
+
+---
+{% endif %}
+
 # Requirements Template for Gardening Application Components
 
 Use this template when creating requirements documents for new features or modules. This structured format ensures all necessary information is captured for generating comprehensive specifications.
@@ -9,6 +45,8 @@ A quick template can be found [here](requirements/requirements-quick-template.md
 ## Feature/Module/Component Name
 
 **[FeatureOrComponentName]** - Use descriptive naming (e.g., snake_case for Python modules and PascalCase for web components, descriptive names for features)
+
+> **Maps to REQ-000b:** [Link to specific section in REQ-000b_Scope.md that defines this component's performance criteria]
 
 ---
 
@@ -357,7 +395,7 @@ class ModelName(Base):
   - Type hints and mypy compliance
 - **Documentation:**
   - Docstring format (Google, NumPy, or reStructuredText)
-  - ABOUTME comments at top of files
+  - module docstring at top of files
   - README and user documentation
 - **Testing:**
   - Test file naming (`test_*.py`)
@@ -461,7 +499,7 @@ Ensure we are also using CodeGuard rules for security best practices! Including 
 - [ ] Code follows project style guidelines (PEP 8, Black, flake8)
 - [ ] Type hints are complete and correct (if using mypy)
 - [ ] Module is in correct location with correct naming
-- [ ] ABOUTME comments present at top of files
+- [ ] Module docstring present at top of files
 - [ ] No linting errors or warnings
 - [ ] Logging implemented correctly
 

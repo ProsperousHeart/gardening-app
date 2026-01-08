@@ -1,3 +1,8 @@
+---
+title: Documentation Master Index
+description: Master index file to bring together all related main folder access.
+---
+
 # Documentation Master Index
 
 This is the central hub for all project documentation. This index is automatically maintained as requirements, specifications, and code evolve.
@@ -164,6 +169,17 @@ Starting point templates for creating new documentation:
 
 - [Requirements Template](templates/requirements-template.md)
 - [Specification Template](templates/spec-template.md)
+
+### Snippets (`snippets/`)
+
+Reusable content blocks for documentation to avoid text duplication:
+
+- **Common snippets** (`snippets/common/`) - Plant data, USDA zones, requirement badges, examples
+- **Technical snippets** (`snippets/technical/`) - Automation patterns, integration guides, error handling
+
+Snippets are included using MkDocs macros: `{% include 'common/plant-attributes.md' %}` or `--8<-- "common/plant-attributes.md"`
+
+See [MkDocs Snippets Documentation](https://facelessuser.github.io/pymdown-extensions/extensions/snippets/) for usage details.
 
 ## Using This Documentation System
 

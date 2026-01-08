@@ -4,9 +4,11 @@ This command creates a requirement document following the project template struc
 
 **Usage:**
 
+The format is `/create-requirement Subsystem component-name
+
 ```
-/create-requirement user-authentication
-/create-requirement payment-processing
+/create-requirement SysAdmin user-authentication
+/create-requirement GenUser plant-search
 ```
 
 **What it does:**
@@ -26,7 +28,7 @@ This command creates a requirement document following the project template struc
 
 **Output:**
 
-- `docs/requirements/req_{{$1}}.md` - New requirement document with template structure
+- `docs/requirements/{{$1}}/req_{{$1}}_{{$2}}.md` - New requirement document with template structure
 - Updated: `docs/SPEC-CROSS-REFERENCE.md`, `docs/INDEX.md`
 
 **Next Steps:**

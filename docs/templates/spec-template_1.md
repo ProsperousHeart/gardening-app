@@ -1,3 +1,27 @@
+---
+# Specification Metadata
+# This YAML front matter tracks spec status and cross-references
+# DO NOT REMOVE THIS SECTION - edit values only
+
+title: [Feature/Module/Component Name] Specification
+description: "TBD"
+spec_id: spec-[subsystem]-[component]
+priority: CRITICAL | HIGH | MEDIUM | LOW
+phase: 1-7
+status: draft | in-review | approved | implemented
+created: YYYY-MM-DD
+updated: YYYY-MM-DD
+author: Kassandra Keeton
+show_badges: true  # set to "false" to disable badges
+maps_to_req: [REQ-000 section reference and any additional REQ-#### links that may be avaialble and related outside of REQ-000, such as "../requirements/req-[subsystem]-[component].md"]
+
+# Cross-Reference Tracking (see SPEC-CROSS-REFERENCE.md)
+cross_ref_table: ../SPEC-CROSS-REFERENCE.md
+source_files: []  # List of implementation files (e.g., ["src/module.py"])
+test_files: []  # List of test files (e.g., ["tests/test_module.py"])
+diagrams: []  # List of diagram files (e.g., ["diagrams/architecture-feature.md"])
+---
+
 # Spec Template
 
 Copy this template for documenting features and components:

@@ -15,9 +15,9 @@ Use threat model scope: {{$2|per-requirement}}
 
 **Usage:**
 
-- /make-spec-from-req docs/requirements/req_auth.md
-- /make-spec-from-req docs/requirements/req_auth.md high-level-aggregate
-- /make-spec-from-req docs/requirements/req_auth.md grouped-by-feature
+- /make-spec-from-req docs/requirements/SysAdmin/req_sysadmin_user-auth.md
+- /make-spec-from-req docs/requirements/SysAdmin/req_sysadmin_user-auth.md high-level-aggregate
+- /make-spec-from-req docs/requirements/GenUser/req_genuser_plant-search.md grouped-by-feature
 
 **Expected Output:**
 

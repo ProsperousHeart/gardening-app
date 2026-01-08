@@ -1,0 +1,143 @@
+/* Requirements Index Interactive Table Styles */
+
+/* Filter controls container */
+.req-index-controls {
+    margin: 2rem 0;
+}
+
+.req-filters {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 1rem;
+    background: var(--md-code-bg-color);
+    border-radius: 0.4rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Search input */
+#req-search {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.2rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font-size: 0.9rem;
+}
+
+#req-search:focus {
+    outline: none;
+    border-color: var(--md-accent-fg-color);
+}
+
+/* Filter dropdowns */
+#phase-filter,
+#priority-filter {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--md-default-fg-color--lightest);
+    border-radius: 0.2rem;
+    background: var(--md-default-bg-color);
+    color: var(--md-default-fg-color);
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+#phase-filter:focus,
+#priority-filter:focus {
+    outline: none;
+    border-color: var(--md-accent-fg-color);
+}
+
+/* Requirements table */
+.requirements-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    background: var(--md-default-bg-color);
+}
+
+.requirements-table thead {
+    background: var(--md-code-bg-color);
+    border-bottom: 2px solid var(--md-default-fg-color--lightest);
+}
+
+.requirements-table th {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    font-weight: 600;
+    color: var(--md-default-fg-color);
+    position: relative;
+    user-select: none;
+}
+
+.requirements-table th.sortable {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.requirements-table th.sortable:hover {
+    background: var(--md-default-fg-color--lightest);
+}
+
+.requirements-table th.sorted {
+    background: var(--md-accent-fg-color--transparent);
+}
+
+.sort-icon {
+    margin-left: 0.5rem;
+    opacity: 0.5;
+    font-size: 0.8em;
+}
+
+.requirements-table th.sorted .sort-icon {
+    opacity: 1;
+}
+
+.requirements-table tbody tr {
+    border-bottom: 1px solid var(--md-default-fg-color--lightest);
+    transition: background-color 0.2s;
+}
+
+.requirements-table tbody tr:hover {
+    background: var(--md-code-bg-color);
+}
+
+.requirements-table td {
+    padding: 0.75rem 1rem;
+    color: var(--md-default-fg-color);
+}
+
+.requirements-table td a {
+    color: var(--md-typeset-a-color);
+    text-decoration: none;
+}
+
+.requirements-table td a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media screen and (max-width: 768px) {
+    .req-filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #req-search,
+    #phase-filter,
+    #priority-filter {
+        width: 100%;
+    }
+
+    .requirements-table {
+        font-size: 0.85rem;
+    }
+
+    .requirements-table th,
+    .requirements-table td {
+        padding: 0.5rem;
+    }
+}

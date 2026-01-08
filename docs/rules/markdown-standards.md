@@ -439,6 +439,56 @@ When you update X, also check Y:
 
 **See** `.github/instructions/architecture-diagrams.instructions.md` for complete examples and guidance.
 
+## HTML in Markdown Security Standards
+
+### HTML Link Security
+
+When using HTML anchor tags (`<a>`) in markdown files, follow these security rules:
+
+**CRITICAL RULES**:
+
+1. **ALWAYS include `rel="noopener noreferrer"`** on ALL `<a href>` tags (internal and external)
+2. **ONLY use `target="_blank"`** for external links (links to different domains)
+3. **Internal links** should NOT use `target="_blank"` (same-site navigation)
+
+**Why this matters**:
+
+- `rel="noopener"` - Prevents the new page from accessing `window.opener` (prevents tabnabbing attacks)
+- `rel="noreferrer"` - Prevents the browser from sending the referrer header
+- Defense-in-depth approach - include on ALL links for consistency and safety
+
+**Examples**:
+
+```html
+<!-- ✅ CORRECT: Internal link (no target, with rel) -->
+<a href="phase1-requirements.md" rel="noopener noreferrer">Next Phase</a>
+
+<!-- ✅ CORRECT: External link (target="_blank" with rel) -->
+<a href="https://example.com" target="_blank" rel="noopener noreferrer">External Resource</a>
+
+<!-- ❌ WRONG: Missing rel attribute -->
+<a href="phase1-requirements.md">Next Phase</a>
+
+<!-- ❌ WRONG: Internal link with target="_blank" -->
+<a href="phase1-requirements.md" target="_blank" rel="noopener noreferrer">Next Phase</a>
+
+<!-- ❌ WRONG: External link without target="_blank" -->
+<a href="https://example.com" rel="noopener noreferrer">External Resource</a>
+```
+
+**When to use HTML links vs Markdown links**:
+
+- **Prefer Markdown syntax** for simple links: `[Link Text](url)`
+- **Use HTML** when you need:
+  - Custom CSS classes (`<a class="button">`)
+  - Links within HTML structures (`<div>`, `<span>`)
+  - External links that need `target="_blank"`
+
+**See also**:
+
+- Phase navigation implementation: `docs/workflow/phase*.md`
+- CSS styling: `docs/stylesheets/extra.css` (`.phase-nav` class)
+
 ## File Organization Best Practices
 
 ### Naming Conventions
@@ -464,11 +514,16 @@ docs/
     └── *.md            # Individual rule documents (like this file)
 ```
 
-### Front Matter (Optional)
+### Front Matter
 
 **What is Front Matter?**
 
 Front matter is metadata placed at the beginning of a markdown file, enclosed in triple dashes (`---`). It provides information about the document to static site generators like Jekyll, Hugo, MkDocs, or Docusaurus.
+
+**REQUIRED Metadata**:
+- **Requirement files** (`docs/requirements/`): MUST include cross-reference tracking fields
+- **Specification files** (`docs/specifications/`): MUST include cross-reference tracking fields
+- See [Requirement Metadata Guide](./requirement-metadata-guide.md) for complete documentation
 
 **Common uses**:
 

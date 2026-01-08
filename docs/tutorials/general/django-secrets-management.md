@@ -1,3 +1,8 @@
+---
+title: Django Secrets Management
+description: Tutorial on managing secrets for Django.
+---
+
 # Django Secrets Management
 
 This tutorial covers how to securely manage Django secrets and configuration using environment variables instead of hardcoding sensitive values.
@@ -115,8 +120,8 @@ This shows what variables are needed without exposing real secrets.
 Modify your `config/settings.py` (or wherever your settings file is):
 
 ```python
-# ABOUTME: Django settings for gardening application
-# ABOUTME: Uses environment variables for configuration
+# Django settings for gardening application
+# Uses environment variables for configuration
 
 import os
 from pathlib import Path
@@ -209,6 +214,7 @@ Django automatically loads values from `.env`.
 
 Example `.github/workflows/ci.yml`:
 
+{% raw %}
 ```yaml
 name: Django CI
 
@@ -244,6 +250,7 @@ jobs:
       - name: Run tests
         run: python manage.py test
 ```
+{% endraw %}
 
 ### Production (Render)
 
@@ -428,11 +435,13 @@ Before deploying:
 ### "Environment variable not found"
 
 **Error:**
+
 ```
 django.core.exceptions.ImproperlyConfigured: Set the SECRET_KEY environment variable
 ```
 
 **Solution:**
+
 1. Ensure `.env` file exists in project root
 2. Verify the variable is defined in `.env`
 3. Check you're running commands from the correct directory
@@ -441,11 +450,13 @@ django.core.exceptions.ImproperlyConfigured: Set the SECRET_KEY environment vari
 ### "SECRET_KEY must not be empty"
 
 **Error:**
+
 ```
 ValueError: SECRET_KEY must not be empty
 ```
 
 **Solution:**
+
 ```python
 # settings.py - Add validation
 SECRET_KEY = env('SECRET_KEY')
@@ -454,6 +465,7 @@ if not SECRET_KEY:
 ```
 
 Then set the variable:
+
 ```bash
 # Generate a new key
 python -c 'from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())'
@@ -465,6 +477,7 @@ SECRET_KEY=generated-key-here
 ### ".env file not being read"
 
 **Solution:**
+
 Verify the path in `settings.py`:
 
 ```python
@@ -485,18 +498,22 @@ if os.path.exists(env_file):
 ### "GitHub Actions tests failing"
 
 **Error:**
+
 ```
 ImproperlyConfigured: Set the SECRET_KEY environment variable
 ```
 
 **Solution:**
+
 Ensure workflow file sets environment variables:
 
+{% raw %}
 ```yaml
 env:
   SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
   DEBUG: False
 ```
+{% endraw %}
 
 Or set defaults in `settings.py` for testing:
 
@@ -513,6 +530,7 @@ SECRET_KEY = env('SECRET_KEY', default='test-key-for-ci-only')
 3. **Force push** (WARNING: coordinate with team first)
 
 **Prevention:**
+
 - Use pre-commit hooks to scan for secrets
 - Enable GitHub secret scanning
 - Use tools like [detect-secrets](https://github.com/Yelp/detect-secrets)

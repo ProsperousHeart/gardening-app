@@ -1,7 +1,5 @@
 # Output Format Specification
 
-**Last Updated**: 2025-11-09
-
 This document defines the standard format for execution logs, reports, and AI-generated output files.
 
 ## 🎯 Purpose

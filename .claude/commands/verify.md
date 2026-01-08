@@ -16,7 +16,7 @@ This command runs comprehensive verification of a Python module implementation.
 3. **Test Structure**: Verifies tests exist, are high quality, and follow AAA pattern
 4. **Test Execution**: Runs pytest and checks coverage (≥ 90%)
 5. **Code Quality**: Runs ruff linting and formatting checks
-6. **Documentation**: Verifies ABOUTME comments, docstrings, and type hints
+6. **Documentation**: Verifies docstrings and type hints
 7. **Security**: Checks for hardcoded secrets, CodeGuard compliance
 8. **Platform Independence**: Verifies path handling and test isolation
 9. **UI/Accessibility**: Checks HTML, CSS, and a11y if UI components exist
@@ -35,7 +35,7 @@ This command runs comprehensive verification of a Python module implementation.
 - ✅ Type Checking (if applicable)
 - ✅ Test Results (with coverage)
 - ✅ Code Quality (ruff)
-- ✅ Documentation (docstrings, ABOUTME)
+- ✅ Documentation (docstrings)
 - ✅ Security (no secrets, CodeGuard)
 - ✅ Platform Independence
 - ✅ UI/CSS/Accessibility (if applicable)

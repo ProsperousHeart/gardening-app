@@ -26,20 +26,52 @@ nav:
     - Resources: resources.md
   - System Requirements:
     - requirements/README.md
+    - Design Planning:
+      - General: requirements/REQ-000a_General.md
+      - Scope: requirements/REQ-000b_Scope.md
+      - Use Cases: requirements/REQ-000c_UseCases.md
+      - UCBDs: requirements/REQ-000d_UCBDs.md
+      - FFBDs: requirements/REQ-000f_FBDs.md
+      - Decisions: requirements/REQ-000g_Decisions.md
+      - Documented Requirements: requirements/REQ-000e_Requirements.md
     # - Claude Suggested Breakdown:
     #   # - Functional Requirements: requirements/functional-requirements.md
     #   # - Non-Functional Requirements: requirements/non-functional-requirements.md
     #   # - User Stories: requirements/user-stories.md
     #   # - requirements/README.md
-    - General: requirements/REQ-000a_General.md
-    - Scope: requirements/REQ-000b_Scope.md
-    - Use Cases: requirements/REQ-000c_UseCases.md
-    - UCBDs: requirements/REQ-000d_UCBDs.md
-    - Requirements: requirements/REQ-000e_Requirements.md
-    - FFBDs: requirements/REQ-000f_FBDs.md
-    - Decisions: requirements/REQ-000g_Decisions.md
+    - Requirements Index:
+      - requirements/req-index.md
+      - Cross Reference Guide:  rules/cross-reference-usage-guide.md
+      - Req & Spec X-Reference: SPEC-CROSS-REFERENCE.md
+    - Requirements by Subsystem:
+      - requirements/req-by-subsys-idx.md
+      - General User Access: requirements/GenUser/genuser-index.md
+      - User Management: requirements/UserMgmt/usermgmt-index.md
+      - Community Garden Member Access: requirements/CommunityMember/communitymember-index.md
   - Developer Documentation:
+    - decisions/planning/README.md
     - Progress: CHANGELOG.md
+    - SDD Process:
+      - Overview: sdd-workflow.md
+      - ENV Setup: workflow/phase0-environment-setup.md
+      - REQ Creation: workflow/phase1-requirements-creation.md
+      - SPEC Creation: workflow/phase2-specification-generation.md
+      - Architecture Diagrams: workflow/phase3-architecture-diagrams.md
+      - Threat Modeling: workflow/phase4-threat-modeling.md
+      - TDD Implementation: workflow/phase5-tdd-implementation.md
+      - Quality Review: workflow/phase6-quality-review.md
+      - Human Approval: workflow/phase7-human-approval.md
+    - Requirements:
+      - Rules:
+        - Markdown Standards: rules/markdown-standards.md
+        - Metadata Reference Guide: rules/metadata-reference.md
+        - Metadata Req Guide: rules/requirement-metadata-guide.md
+      - Data:
+        - data/README.md
+        - Initial Plants: data/initial_plant_view.md
+      - MVP SDD Planning:
+        - decisions/planning/SDD-Planning_MVP.md
+        - Overview: decisions/planning/SDD-Planning_MVP/MVP_overview.md
     - Specifications: specifications/README.md
     - Architecture Diagrams: diagrams/README.md
     - Project Rules: rules/README.md
@@ -49,22 +81,40 @@ nav:
       - Pre-Push Checklist: checklists/pre-push-checklist.md
       - Security Checklist: checklists/security-checklist.md
     - General:
+      - Bandit Security Guide: tutorials/general/bandit-security-guide.md
       - Dependency Management: tutorials/general/dependency-management.md
-      - Makefile Guide: tutorials/general/makefile-guide.md
+      - Django DB Seeding Guide: tutorials/general/database-seeding-guide.md
       - Django Secrets Management: tutorials/general/django-secrets-management.md
+      - Image Styling: tutorials/mkdocs/image-styling-guide.md
+      - Makefile Guide: tutorials/general/makefile-guide.md
     - MkDocs Setup:
       - Overview: tutorials/mkdocs/index.md
       - Installation: tutorials/mkdocs/mkdocs-installation.md
       - Image Processing: tutorials/mkdocs/image-processing-setup.md
       - Extensions Guide: tutorials/mkdocs/mkdocs-extensions-guide.md
-    - GenAI:
+      - Navigation Status Indicators: tutorials/mkdocs/navigation-status-indicators.md
+    - Lessons Learned:
+      - Creating Priority Badges:
+        - "Demo: Badge Visual": tutorials/mkdocs/priority-badges-visual-demo.md
+        - "Demo: Requirements Index": requirements/requirements-index-example.md
+        - Badge Setup: tutorials/mkdocs/priority-badges-setup.md
+      - Creating Custom Modals:
+        - "Demo: Requirements Index": requirements/requirements-index-example.md
+        - Modal Setup: tutorials/mkdocs/requirement-modal-setup.md
+      - Dynamic Index Generation: tutorials/mkdocs/dynamic-index-generation.md
+      - Finding Processes to End: tutorials/system/windows-cmds.md
       - Using GenAI for Documentation: tutorials/genai-documentation.md
       # - Using GenAI for Code: tutorials/genai-code.md
+      - Mermaid Dark Mode Styling: tutorials/mkdocs/mermaid-dark-mode-styling.md
+      - Page Navigation Styling: tutorials/mkdocs/page-navigation-styling.md
+      - Reducing Horizontal Margins: tutorials/mkdocs/reduce-horizontal-margins.md
 
 # Theme Configuration
 theme:
   name: material
   language: en
+
+  custom_dir: overrides
   
   # Color Palette (replaces your previous user_color_mode_toggle)
   # Users can toggle between light and dark mode
@@ -197,10 +247,18 @@ plugins:
       lang: en
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
 
-  # # Table Reader - Import tables from CSV/Excel files
-  # # Allows {{ read_csv('file.csv') }} and {{ read_excel('file.xlsx') }} in markdown
-  # # See tutorials/mkdocs/mkdocs-extensions-guide.md for usage examples
-  # - table-reader
+  # Macros - Enable Jinja2 templating in markdown (access page metadata)
+  # Allows {{ page.meta.priority }} and custom macros in markdown files
+  - macros:
+      modules: []  # Don't auto-load any Python modules
+      include_dir: docs/snippets
+      on_undefined: strict
+      on_error_fail: false
+
+  # Table Reader - Import tables from CSV/Excel files
+  # Allows {{ read_csv('file.csv') }} and {{ read_excel('file.xlsx') }} in markdown
+  # See tutorials/mkdocs/mkdocs-extensions-guide.md for usage examples
+  - table-reader
 
   # Minify HTML/CSS/JS for faster loading
   - minify:
@@ -252,6 +310,17 @@ plugins:
 
 # Extra Configuration
 extra:
+  # Page Status Indicators for Navigation
+  # Shows status badges next to page titles in the sidebar navigation
+  # Pages must have 'status: <value>' in their YAML front matter
+  # Icons are defined in docs/stylesheets/extra.css
+  # See: docs/tutorials/mkdocs/navigation-status-indicators.md
+  status:
+    draft: Draft - Work in progress
+    in-review: In Review - Awaiting approval
+    approved: Approved - Ready for implementation
+    implemented: Implemented - Complete
+
   # Social Links (all using ProsperousHeart username)
   social:
     - icon: fontawesome/brands/github
@@ -300,20 +369,32 @@ extra:
 # Custom CSS and JavaScript
 extra_css:
   - stylesheets/extra.css
+  - stylesheets/priority-badges.css  # Priority badges for requirements
+  - stylesheets/req-index.css        # Interactive requirements index table
+  - stylesheets/requirement-modal.css  # Modal popup for missing requirements
 
-# Uncomment when you need custom JavaScript
-# extra_javascript:
-#   - javascripts/extra.js
+extra_javascript:
+  - javascripts/req-index.js  # Interactive filtering and sorting for requirements index
+  - javascripts/requirement-modal.js  # Modal handler for missing requirement files
+  - javascripts/req-filter.js  # Additional filtering for requirements index
+
+# Hooks for custom processing
+hooks:
+  - docs/hooks/priority_badges.py  # Auto-add priority badges to requirements
+  - docs/hooks/generate_req_index.py  # Auto-generate requirements index before build
 
 # Exclude Documentation Files
 
 exclude_docs: |
   api-config.json    # A file with this name anywhere.
   /requirements.txt  # Top-level "docs/requirements.txt".
-  *.py               # Any file with this extension anywhere (pyrthon files)
+  /hooks/            # Python hooks directory
   index_ORIGINAL.md  # backup of original index file
   *.docx             # word doc files
-  # _templates/        # Template files
+  *-example.md       # Example files (like requirements-index-example.md)
+  _templates/        # Template files
+
+# *.py               # Any file with this extension anywhere (python files)
 
 # ========================================
 # CONFIGURATION NOTES

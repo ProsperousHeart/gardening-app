@@ -82,7 +82,6 @@ ruff format src/ test/
 Verify all documentation is complete and accurate:
 
 **Code Documentation:**
-- [ ] All modules have ABOUTME comments (2 lines at top)
 - [ ] Module-level docstrings present
 - [ ] All public functions have docstrings
 - [ ] All classes have docstrings
@@ -98,7 +97,6 @@ Verify all documentation is complete and accurate:
 - [ ] Execution log created in `docs/output-logs/` or `.github/prompts/output-logs/`
 
 **Common issues to fix:**
-- Missing ABOUTME → Add 2-line description
 - Incomplete docstrings → Add Args, Returns, Raises
 - Outdated cross-reference → Update with new files
 - Missing examples → Add for complex functions
@@ -302,7 +300,7 @@ Any of the following results in FAIL:
 
 ### Issue: Missing Documentation
 **Fix**:
-- Add ABOUTME comments to module files
+- Add module level docstring to module files
 - Add docstrings following Google style
 - Include Args, Returns, Raises sections
 - Add examples for complex functions

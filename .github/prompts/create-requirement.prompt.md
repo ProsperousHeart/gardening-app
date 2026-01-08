@@ -1,17 +1,22 @@
 # Prompt: Create Requirement Document
 
-**Purpose**: Create a new requirement document from the project template
-**Input**: Component/feature name (e.g., "user-authentication", "payment-processing")
-**Output**: Requirement document in `docs/requirements/`
+**Purpose**: Create a new requirement document from the project template at `docs/templates/requirements-template.md`, populate it with placeholders and guidance, save it in the appropriate sub-directory under `docs/requirements/`, and update cross-reference and index documentation.
+
+**Input**: Subsystem the requirement falls under, Component/feature name (e.g., "user-authentication", "payment-processing")
+
+**Output**: Requirement document in `docs/requirements/SubSystem/`
+
 **References**:
 
 - `docs/templates/requirements-template.md`
 - `.github/instructions/master-workflow.md`
+- `docs/SPEC-CROSS-REFERENCE.md`
+- `docs/requirements/`
 
 ## Prompt
 
 ```
-Create a new requirement document for: {component_name}
+Create a new requirement document for: {SubSystem} {component-name}
 
 Follow these steps carefully:
 
@@ -19,8 +24,8 @@ Follow these steps carefully:
 
 - Verify docs/templates/requirements-template.md exists
   - If the template doesn't exist, inform the user and exit with a helpful error message
-- Verify docs/requirements/ directory exists (create if missing)
-- Check if docs/requirements/req_{component_name}.md already exists
+- Verify docs/requirements/{SubSystem} directory exists (create if missing)
+- Check if docs/requirements/{SubSystem}/req_{sub-system}_{component-name}.md already exists
   - If it exists, ask the user if they want to overwrite it or create a variant
 
 ### Step 2: Read Template
@@ -52,18 +57,19 @@ Important considerations:
 
 ### Step 4: Save and Update Documentation
 
-- Save the requirement document to docs/requirements/req_{component_name}.md
+- Save the requirement document to docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md
 - Update docs/SPEC-CROSS-REFERENCE.md with new entry:
   - Add row with requirement file path
   - Leave specification, code, and test columns empty (to be filled later)
 - Update docs/INDEX.md with link to new requirement under "Requirements" section
 - Ensure proper formatting and markdown syntax throughout
 - Validate all internal links
+- validate if the requirement index files updated appropriately
 
 ### Step 5: Confirm Completion
 
 Report to the user:
-- ✅ Requirement file created successfully at docs/requirements/req_{component-name}.md
+- ✅ Requirement file created successfully at docs/requirements/{sub-system}/req_{sub-system}_{component-name}.md
 - 📋 Brief description of what needs to be filled in
 - 🔗 Links to updated documentation (cross-reference, index)
 - ⏭️ Next step: Fill in the requirement details, then use the specification workflow to generate specs
@@ -80,7 +86,7 @@ Execute the create-requirement prompt for user-authentication
 Or using the slash command:
 
 ```
-/create-requirement user-authentication
+/create-requirement UserMgmt user-authentication
 ```
 
 ### With GitHub Copilot
@@ -91,7 +97,7 @@ Or using the slash command:
 
 ## Expected Output
 
-- New file: `docs/requirements/req_{component-name}.md`
+- New file: `docs/requirements/{SubSystem}/req_{sub-system}_{component-name}.md`
 - Updated: `docs/SPEC-CROSS-REFERENCE.md`
 - Updated: `docs/INDEX.md`
 

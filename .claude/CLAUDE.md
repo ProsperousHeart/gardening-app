@@ -19,6 +19,8 @@ make help          # Show all available commands
 - ✅ Use `uv` for dependency management (NEVER `pip`)
 - ✅ Follow TDD workflow: Red → Green → Refactor
 - ✅ Include THREE diagram formats (Text, ASCII, Mermaid)
+- ✅ ALL HTML `<a href>` tags MUST include `rel="noopener noreferrer"`
+- ✅ ONLY use `target="_blank"` for external links (different domains)
 - ❌ NEVER commit with `--no-verify` flag (bypasses pre-commit hooks)
 - ❌ NEVER use `2024-Django-Attempt/` for new development (reference only)
 
@@ -442,6 +444,7 @@ Key principles:
 - **Single Source of Truth** - one canonical location per concept
 - **Link, don't duplicate** - reference canonical documentation
 - **README files are navigation hubs** - they link to detailed docs
+- **HTML link security** - ALL `<a href>` tags must include `rel="noopener noreferrer"`; only use `target="_blank"` for external links
 
 ## Related Documentation
 

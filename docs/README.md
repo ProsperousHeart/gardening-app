@@ -1,3 +1,8 @@
+---
+title: Documentation Hub README
+description: Home page the gardening app documentation goes to.
+---
+
 # Documentation Hub
 
 Welcome to the central documentation hub for this project. All requirements, specifications, diagrams, and related documentation are organized here.
@@ -14,6 +19,7 @@ Welcome to the central documentation hub for this project. All requirements, spe
 - **[Diagrams](diagrams/)** - Visual documentation (architecture, threat models, etc.)
 - **[Rules](rules/)** - Project standards and conventions
 - **[Templates](templates/)** - Starting point for new documentation
+- **[Snippets](snippets/)** - Reusable content blocks (common, technical)
 - **[History](history/)** - Decision logs and important conversations
 
 ## 🚀 Getting Started
@@ -28,10 +34,12 @@ Welcome to the central documentation hub for this project. All requirements, spe
 ### For Adding New Features
 
 **Quick Start**: Use workflow orchestration prompts:
+
 - [Requirements → Specification Workflow](../.github/prompts/workflow-requirements-to-spec.prompt.md) - Generates spec, threat model, architecture diagram with quality review
 - [Specification → Code Workflow](../.github/prompts/workflow-spec-to-code.prompt.md) - TDD implementation with security and quality reviews
 
 **Or step-by-step**:
+
 1. **Requirements**: Create a new requirement in `requirements/` using the [template](templates/requirements-template.md)
 2. **Specifications**: Generate or write a specification in `specifications/` using the [template](templates/spec-template.md)
 3. **Diagrams**: Create architecture diagrams and threat models in `diagrams/`
@@ -60,6 +68,7 @@ docs/
 ├── diagrams/                     # Architecture, threat models, etc.
 ├── rules/                        # Standards and conventions
 ├── templates/                    # Documentation templates
+├── snippets/                     # Reusable content blocks (common, technical)
 ├── history/                      # Decision logs
 └── output-logs/                  # Workflow execution logs
 ```

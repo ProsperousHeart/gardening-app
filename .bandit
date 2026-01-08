@@ -1,0 +1,37 @@
+# Bandit Security Scanner Configuration
+# This is an alternative to [tool.bandit] in pyproject.toml
+# To use this file: bandit -r src/ --configfile .bandit
+
+# Directories and files to exclude from scanning
+exclude_dirs:
+  - '2024-Django-Attempt'
+  - '.venv'
+  - 'tests'
+  - 'migrations'
+  - '.git'
+  - 'docs'
+  - '__pycache__'
+
+# Specific tests to skip
+# B101: assert_used (common in tests, not a security issue in production)
+# B601: paramiko_calls (if you're not using paramiko)
+# B602: subprocess_popen_with_shell_equals_true (can be re-enabled if needed)
+skips:
+  - B101
+
+# Specific tests to run (leave commented to run all tests)
+# Uncomment and customize if you only want specific security checks
+# tests:
+#   - B201  # flask_debug_true
+#   - B501  # request_with_no_cert_validation
+#   - B502  # ssl_with_bad_version
+#   - B503  # ssl_with_bad_defaults
+#   - B504  # ssl_with_no_version
+#   - B505  # weak_cryptographic_key
+#   - B506  # yaml_load
+#   - B507  # ssh_no_host_key_verification
+
+# Exclude specific files by pattern
+# exclude:
+#   - '/test_*.py'
+#   - '*_test.py'

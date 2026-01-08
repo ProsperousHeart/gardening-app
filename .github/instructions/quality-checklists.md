@@ -196,7 +196,6 @@ This document provides Definition of Done (DoD) checklists for each stage of the
 
 ### Documentation
 
-- ✅ Module has ABOUTME comment (2 lines)
 - ✅ Module docstring present
 - ✅ All public functions have docstrings
 - ✅ All classes have docstrings

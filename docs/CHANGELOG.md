@@ -1,3 +1,8 @@
+---
+title: Changelog
+description: Major changes made to repo
+---
+
 # Changelog
 
 All notable changes to this project will be documented in this file.

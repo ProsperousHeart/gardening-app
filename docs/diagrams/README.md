@@ -1,3 +1,8 @@
+---
+title: Diagrams Folder README
+description: Outline expectations of what documentation is found here for diagrams.
+---
+
 # Diagrams
 
 This folder contains visual documentation including architecture diagrams, threat models, sequence diagrams, ERDs, and other technical diagrams.

@@ -249,7 +249,7 @@ Runs comprehensive verification of a Python module implementation.
 3. Test structure and quality (AAA pattern)
 4. Test execution and coverage (≥ 90%)
 5. Code quality (ruff linting and formatting)
-6. Documentation (ABOUTME, docstrings, type hints)
+6. Documentation (docstrings, type hints)
 7. Security (no hardcoded secrets, CodeGuard compliance)
 8. Platform independence (path handling, test isolation)
 9. UI/Accessibility (if UI components exist)
